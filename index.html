@@ -190,7 +190,7 @@
       <p class="desc">Watch your stock portfolio, live prices and price alerts.</p>
       <p class="version">Version 0.4.0 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
     <div class="card" data-repo="ai-cash-portfolio" data-kind="apk">
@@ -199,7 +199,7 @@
       <p class="desc">Your portfolio with an AI helper that explains your stocks in plain words.</p>
       <p class="version">Version 0.4.0 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
     <div class="card" data-repo="player" data-kind="apk">
@@ -208,7 +208,7 @@
       <p class="desc">A music player for your own songs, with star ratings, moods and an AI Music DJ.</p>
       <p class="version">Version 0.3.7 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
     <div class="card" data-repo="ttswidget" data-kind="apk">
@@ -217,7 +217,7 @@
       <p class="desc">Type or paste text and your phone reads it out loud.</p>
       <p class="version">Version 0.2.0 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
     <div class="card" data-repo="say" data-kind="apk">
@@ -226,7 +226,7 @@
       <p class="desc">Learn English with phrase lessons, speaking practice and word cards.</p>
       <p class="version">Version 0.1.0 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
     <div class="card" data-repo="travel-journal" data-kind="apk">
@@ -235,7 +235,7 @@
       <p class="desc">Turn your trip photos into a travel story, with voice notes and a globe.</p>
       <p class="version">Version 0.1.0 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
     <div class="card" data-repo="go" data-kind="apk">
@@ -244,7 +244,7 @@
       <p class="desc">Your travels drawn as a gold trail on a world map.</p>
       <p class="version">Version 0.1.0 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
     <div class="card" data-repo="dear-idea" data-kind="apk">
@@ -253,10 +253,10 @@
       <p class="desc">Save every idea - notes, sketches, photos, voice memos and blueprints - in one place.</p>
       <p class="version">Version 0.1.0 &middot; Android</p>
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
-      <p class="note">Builds land here as they are made.</p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
     </div>
 
-    <div class="card" data-repo="apple2player-mac" data-kind="mac">
+    <div class="card" data-repo="apple2player-mac">
       <img class="icon" src="img/icon-apple2player.png" alt="Apple2Player app icon">
       <h2>Apple2Player</h2>
       <p class="desc">Move your Apple Music playlists and songs from your Mac to your Android phone.</p>
@@ -303,38 +303,48 @@
 <script>
 (function(){
   "use strict";
-  var cards = document.querySelectorAll(".card[data-repo]");
-  cards.forEach(function(card){
-    var repo = card.getAttribute("data-repo");
-    var kind = card.getAttribute("data-kind");
-    var btn = card.querySelector(".dl-btn");
-    var note = card.querySelector(".note");
-    fetch("https://api.github.com/repos/BigOdom1984/" + repo + "/releases/latest", {
-      headers: { "Accept": "application/vnd.github+json" }
-    }).then(function(res){
-      if(!res.ok){ return null; }
-      return res.json();
-    }).then(function(rel){
-      if(!rel || !rel.tag_name){ return; }
-      var url = rel.html_url;
+  var SITE = "BigOdom1984.github.io";
+  var cards = document.querySelectorAll(".card[data-repo][data-kind='apk']");
+  function newestDemo(slug, releases){
+    var prefix = slug + "-demo-v";
+    var best = null;
+    (releases || []).forEach(function(rel){
+      if(!rel || !rel.tag_name || rel.tag_name.indexOf(prefix) !== 0){ return; }
       var assets = rel.assets || [];
-      var pick = null;
-      if(kind === "apk"){
-        pick = assets.filter(function(a){ return /\.apk$/i.test(a.name); })[0] || null;
-      } else {
-        pick = assets.filter(function(a){ return /\.dmg$/i.test(a.name); })[0]
-            || assets.filter(function(a){ return /\.zip$/i.test(a.name); })[0]
-            || null;
+      var apk = null;
+      for(var i = 0; i < assets.length; i++){
+        if(/\.apk$/i.test(assets[i].name)){ apk = assets[i]; break; }
       }
-      if(pick){ url = pick.browser_download_url; }
-      btn.textContent = "Download " + rel.tag_name;
-      btn.setAttribute("href", url);
+      if(!apk){ return; }
+      var when = rel.published_at || rel.created_at || "";
+      if(!best || when > best.when){
+        best = { version: rel.tag_name.slice(prefix.length), url: apk.browser_download_url, when: when };
+      }
+    });
+    return best;
+  }
+  window.__newestDemo = newestDemo;
+  fetch("https://api.github.com/repos/BigOdom1984/" + SITE + "/releases?per_page=100", {
+    headers: { "Accept": "application/vnd.github+json" }
+  }).then(function(res){
+    if(!res.ok){ return null; }
+    return res.json();
+  }).then(function(releases){
+    if(!releases || !releases.length){ return; }
+    cards.forEach(function(card){
+      var slug = card.getAttribute("data-repo");
+      var hit = newestDemo(slug, releases);
+      if(!hit){ return; }
+      var btn = card.querySelector(".dl-btn");
+      var note = card.querySelector(".note");
+      btn.textContent = "Download free demo v" + hit.version;
+      btn.setAttribute("href", hit.url);
       btn.classList.remove("disabled");
       btn.removeAttribute("aria-disabled");
       if(note){ note.style.display = "none"; }
-    }).catch(function(){
-      /* No release found or no connection: the button stays on "Coming soon". */
     });
+  }).catch(function(){
+    /* No demo found or no connection: every button stays on "Coming soon". */
   });
 })();
 </script>

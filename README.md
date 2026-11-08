@@ -5,10 +5,15 @@ icon, a short line about what it does, and a download button. It is the site
 GitHub Pages serves at bigodom1984.github.io.
 
 How the download buttons work: the buttons fill themselves in when the page
-loads. The page asks GitHub for the newest release of each app's own repo. If a
-release is there, the button shows that version and points at the download
-file. If no build has been released yet, the button says "Coming soon". Nobody
-has to edit the page when a new build lands - the button finds it on its own.
+loads. The page asks GitHub for the release list of this site repo itself. A
+demo build made on the Mac with an app's demo build script is published here as
+a release named <app>-demo-v<version>, with the demo file (an .apk) inside. If
+a card finds its app's newest demo release, the button says "Download free
+demo v<version>" and points at the demo file. If no demo has been published
+yet, the button says "Coming soon". Nobody has to edit the page when a new
+demo lands - the button finds it on its own. (The full apps stay in their own
+private repos - only the free demos are public, right here.) Apple2Player has
+no demo build, so its button stays on "Coming soon" for now.
 
 How to update the site: change the files in this repo and push. GitHub Pages
 puts the new files live on its own, usually within a few minutes.
