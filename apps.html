@@ -328,6 +328,42 @@
     font-weight:700;
     letter-spacing:.06em;
   }
+  section.block{margin-top:40px;}
+  section.block:first-child{margin-top:8px;}
+  h2.section-title{
+    color:var(--gold);
+    text-align:center;
+    font-size:1.35rem;
+    margin:0 0 6px;
+  }
+  p.section-sub{
+    color:var(--muted);
+    text-align:center;
+    margin:0 auto 18px;
+    max-width:640px;
+  }
+  .home-text{
+    color:var(--muted);
+    max-width:680px;
+    margin:0 auto 12px;
+    text-align:center;
+    font-size:1rem;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:4px auto 12px;
+    max-width:680px;
+  }
+  .chip{
+    border:1px solid var(--gold);
+    color:var(--gold);
+    border-radius:999px;
+    padding:6px 14px;
+    font-size:.92rem;
+  }
   .app-name{
     background:none;
     border:0;
@@ -1123,6 +1159,53 @@
     <div class="updates-box">
       <p>App updates come from the CashDublo updates shelf - the public <a href="https://github.com/BigOdom1984/cashdublo-updates">cashdublo-updates</a> repo on GitHub.</p>
       <p>Updates travel as small patches, not whole new apps: your app saves your settings, builds the new version on your phone, checks it, and only then installs it. If anything does not check out, the update stops safely and your app stays as it was.</p>
+    </div>
+  </section>
+
+  <section class="block" id="tech">
+    <h2 class="section-title">Tools I Build With</h2>
+    <div class="chips">
+      <span class="chip">React Native</span>
+      <span class="chip">Expo</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">Python</span>
+      <span class="chip">GitHub</span>
+    </div>
+    <p class="home-text">Phone apps in React Native and TypeScript with Expo. Desktop tools in Python. Every line of code kept on GitHub.</p>
+    <p class="home-text">And these are my own build tools - the programs and scripts I made to build the apps with:</p>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h3>GitHub HQ</h3>
+        <p>The home screen for your GitHub repos: every repo with its version, its build scripts and its newest finished build - pull, clone and build from one place.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Build Manager</h3>
+        <p>Builds every CashDublo app from one place: pick an app or build them all, watch the run live, and see what got built - from real build records, never guesses.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Rebuild-All</h3>
+        <p>Keeps every CashDublo repo safe: one small backup file holds the whole set, and the rebuild brings every repo back with only the program and the backup - no GitHub, no sign-in, no internet.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Script-Run</h3>
+        <p>Lists your build scripts in one window, each with a plain line on what it does, and runs the one you pick.</p>
+      </div>
+      <div class="tool-card">
+        <h3>App Translator</h3>
+        <p>Turns the CashDublo apps into other languages - Khmer, Lao and Thai first: one AI translates each line, a second AI checks it by translating it back, and only lines that pass are shipped.</p>
+      </div>
+      <div class="tool-card">
+        <h3>CashDublo Coder</h3>
+        <p>A coding helper that runs on your own computer: ask the AI that lives on your machine, browse your GitHub repos, and jump to the docs and forums that help you build.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Change App Icons</h3>
+        <p>Swap an app's icon on GitHub, with a backup saved first so you can undo it - then it reads the icon back to prove the change took.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Build Scripts</h3>
+        <p>The script family that builds and installs the apps: build one app or every app, send the finished apps to the phone, and keep the scripts themselves up to date from GitHub.</p>
+      </div>
     </div>
   </section>
 
