@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Apps - CashDublo</title>
+<meta name="description" content="Every CashDublo app: what it does, what it can do, and why it is worth having.">
+<style>
+  :root{
+    --gold:#d4af37;
+    --gold-light:#f0d47a;
+    --bg:#0a0a0a;
+    --card:#161616;
+    --card-border:#2b2b2b;
+    --text:#f2ead2;
+    --muted:#b8b09a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+  header{
+    text-align:center;
+    padding:44px 16px 8px;
+  }
+  header img.logo{
+    width:min(420px,82vw);
+    height:auto;
+    display:block;
+    margin:0 auto;
+  }
+  header .tagline{
+    color:var(--gold);
+    font-size:1.25rem;
+    font-weight:600;
+    margin:14px 0 4px;
+    letter-spacing:.04em;
+  }
+  header .sub{
+    color:var(--muted);
+    margin:0 auto;
+    max-width:560px;
+    font-size:1rem;
+  }
+  header nav{margin-top:16px;}
+  header nav a{
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:600;
+    margin:0 10px;
+  }
+  header nav a:hover{text-decoration:underline;}
+  main{
+    max-width:1080px;
+    margin:0 auto;
+    padding:28px 16px 8px;
+  }
+  section.block{margin-top:40px;}
+  section.block:first-child{margin-top:8px;}
+  h2.section-title{
+    color:var(--gold);
+    text-align:center;
+    font-size:1.35rem;
+    margin:0 0 6px;
+  }
+  p.section-sub{
+    color:var(--muted);
+    text-align:center;
+    margin:0 auto 18px;
+    max-width:640px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:18px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:20px 18px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .card img.icon{
+    width:104px;
+    height:104px;
+    border-radius:22px;
+    display:block;
+  }
+  .card .noicon{
+    width:104px;
+    height:104px;
+    border-radius:22px;
+    background:#1e1e1e;
+    border:1px solid var(--card-border);
+    color:var(--gold);
+    font-weight:700;
+    font-size:1.6rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .card h3{
+    margin:14px 0 6px;
+    font-size:1.2rem;
+    color:var(--text);
+  }
+  .card p.desc{
+    margin:0 0 10px;
+    color:var(--muted);
+    font-size:.98rem;
+  }
+  .card ul.caps{
+    margin:0 0 12px;
+    padding:0 0 0 18px;
+    text-align:left;
+    color:var(--text);
+    font-size:.92rem;
+  }
+  .card ul.caps li{margin:0 0 5px;}
+  .card p.why{
+    margin:0 0 12px;
+    color:var(--muted);
+    font-size:.92rem;
+    font-style:italic;
+    flex-grow:1;
+  }
+  .card .version{
+    color:var(--gold);
+    font-size:.9rem;
+    margin:0 0 14px;
+  }
+  .dl-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:#111;
+    font-weight:700;
+    text-decoration:none;
+    padding:11px 22px;
+    border-radius:9px;
+    font-size:1rem;
+    min-width:170px;
+  }
+  .dl-btn:hover{background:var(--gold-light);}
+  .dl-btn.disabled{
+    background:#2e2e2e;
+    color:#8f8a7a;
+    pointer-events:none;
+  }
+  .card .note{
+    color:#7d7867;
+    font-size:.8rem;
+    margin:10px 0 0;
+  }
+  .tool-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:18px;
+  }
+  .tool-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+  }
+  .tool-card h3{
+    margin:0 0 6px;
+    font-size:1.05rem;
+    color:var(--text);
+  }
+  .tool-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:.95rem;
+  }
+  .updates-box{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:22px 20px;
+    text-align:center;
+    max-width:720px;
+    margin:0 auto;
+  }
+  .updates-box p{margin:0 0 10px;color:var(--muted);}
+  .updates-box p:last-child{margin-bottom:0;}
+  .updates-box a{color:var(--gold);text-decoration:none;font-weight:600;}
+  .updates-box a:hover{text-decoration:underline;}
+  footer{
+    text-align:center;
+    padding:40px 16px 34px;
+    color:var(--muted);
+    font-size:.95rem;
+  }
+  footer .thanks{
+    max-width:560px;
+    margin:0 auto 10px;
+  }
+  footer a{
+    color:var(--gold);
+    text-decoration:none;
+  }
+  footer a:hover{text-decoration:underline;}
+  footer .links{
+    margin:6px 0;
+  }
+  footer .links span.sep{margin:0 8px;color:#55503f;}
+  footer .brand{
+    margin-top:18px;
+    color:var(--gold);
+    font-weight:700;
+    letter-spacing:.06em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="img/cashdublo-logo.png" alt="CashDublo">
+  <p class="tagline">The Apps</p>
+  <p class="sub">Every app CashDublo has made - what each one does, what it can do, and why it is worth having on your phone or your computer.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="apps.html">The Apps</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="block">
+    <h2 class="section-title">Apps for your phone</h2>
+    <p class="section-sub">Android apps, made to do one job well and keep your things on your own phone.</p>
+    <div class="grid">
+
+      <div class="card" data-repo="cash-portfolio" data-kind="apk">
+        <img class="icon" src="img/icon-cash-portfolio.png" alt="Cash Portfolio app icon">
+        <h3>Cash Portfolio</h3>
+        <p class="desc">Watch your stock portfolio, live prices and price alerts.</p>
+        <ul class="caps">
+          <li>Live stock prices with your own free Finnhub key, with backup price sources if one is down</li>
+          <li>Price alerts you set yourself, so the app tells you when a stock hits your price</li>
+          <li>Load your own stock list from a CSV file, and save it back out</li>
+          <li>Money Mood: the app colors itself with how your money is doing</li>
+          <li>A built-in help section with answers to common questions</li>
+        </ul>
+        <p class="why">Why have it: your whole portfolio in one calm place, with live prices and your own alerts - and your list stays on your phone.</p>
+        <p class="version">Version 0.4.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="ai-cash-portfolio" data-kind="apk">
+        <img class="icon" src="img/icon-ai-cash-portfolio.png" alt="AI Cash Portfolio app icon">
+        <h3>AI Cash Portfolio</h3>
+        <p class="desc">Your portfolio with an AI helper that explains your stocks in plain words.</p>
+        <ul class="caps">
+          <li>Five tabs: Portfolio, News, Premium News, Store and AI Chat</li>
+          <li>Ask the AI chat about your own stocks, in plain words</li>
+          <li>Stock news in the app, plus a premium news tab</li>
+          <li>Your stock list and settings stay on your phone</li>
+        </ul>
+        <p class="why">Why have it: everything Cash Portfolio does, plus a helper that explains what is going on with your stocks when you ask.</p>
+        <p class="version">Version 0.4.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="player" data-kind="apk">
+        <img class="icon" src="img/icon-player.png" alt="Player app icon">
+        <h3>Player</h3>
+        <p class="desc">A music player for your own songs, with star ratings, moods and an AI Music DJ.</p>
+        <ul class="caps">
+          <li>Plays your own music files, and keeps playing in the background</li>
+          <li>Browse by folders, songs, albums and playlists</li>
+          <li>Star ratings saved right into your MP3 files, so they travel with the song</li>
+          <li>Moods for your songs, and an AI Music DJ that builds a mix from them</li>
+          <li>Fix song tags on the phone, with a backup saved before any change</li>
+          <li>Works hand in hand with Apple2Player to receive your music</li>
+        </ul>
+        <p class="why">Why have it: your music, your ratings, your moods - a player built for a big home library, not for selling you a subscription.</p>
+        <p class="version">Version 0.3.7 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="ttswidget" data-kind="apk">
+        <img class="icon" src="img/icon-ttswidget.png" alt="TTS Widget app icon">
+        <h3>TTS Widget</h3>
+        <p class="desc">Type or paste text and your phone reads it out loud.</p>
+        <ul class="caps">
+          <li>A 1x1 widget for your home screen - one tap and the app opens</li>
+          <li>Paste from the clipboard or type your own text</li>
+          <li>Speak, stop and clear buttons</li>
+          <li>Speed slider (half speed to double speed) and a pitch slider</li>
+          <li>Uses the voice built into your phone - fast, works offline, no key needed</li>
+          <li>Dark theme</li>
+        </ul>
+        <p class="why">Why have it: hear any text read out loud in two taps, with no account and no internet.</p>
+        <p class="version">Version 0.2.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="say" data-kind="apk">
+        <img class="icon" src="img/icon-say.png" alt="SAY app icon">
+        <h3>SAY</h3>
+        <p class="desc">Learn English with phrase lessons, speaking practice and word cards.</p>
+        <ul class="caps">
+          <li>Phrase lessons grouped by real-life situations</li>
+          <li>Listen-and-repeat speaking practice with voice recording</li>
+          <li>Word flashcards and a quiz</li>
+          <li>An AI practice chat with your own key</li>
+          <li>Your progress, streaks and settings are saved on your phone</li>
+        </ul>
+        <p class="why">Why have it: practice real English out loud, a little every day, and watch your streak grow.</p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="travel-journal" data-kind="apk">
+        <img class="icon" src="img/icon-travel-journal.png" alt="Travel Journal app icon">
+        <h3>Travel Journal</h3>
+        <p class="desc">Turn your trip photos into a travel story, with voice notes and a globe.</p>
+        <ul class="caps">
+          <li>Pick the photos and videos from a trip and build them into a story</li>
+          <li>The app suggests the place from where the photos were taken</li>
+          <li>Check each piece with a swipe before it joins the story</li>
+          <li>Tell the story in your own voice with a long press</li>
+          <li>A globe shows your stories around the world</li>
+          <li>Back up and archive your stories, with password locking</li>
+        </ul>
+        <p class="why">Why have it: a trip becomes a story you can keep and share, not a camera roll you never open again.</p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="go" data-kind="apk">
+        <img class="icon" src="img/icon-go.png" alt="GO app icon">
+        <h3>GO</h3>
+        <p class="desc">Your travels drawn as a gold trail on a world map.</p>
+        <ul class="caps">
+          <li>Builds a trail (a snake) of where you have been, from your own real GPS points - never faked, never made up</li>
+          <li>While the app is open it can record your trail and draw it on a world map</li>
+          <li>Other trails draw beside yours (samples today; real friends when accounts open)</li>
+          <li>Shows where trails cross, and where they almost crossed</li>
+        </ul>
+        <p class="why">Why have it: see everywhere you have been as one growing trail across the world.</p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="dear-idea" data-kind="apk">
+        <img class="icon" src="img/icon-dear-idea.png" alt="Dear Idea app icon">
+        <h3>Dear Idea</h3>
+        <p class="desc">Save every idea - notes, sketches, photos, voice memos and blueprints - in one place.</p>
+        <ul class="caps">
+          <li>Bring an idea in by pasting, camera, gallery or files - 3D prints, notes, voice memos, music and video</li>
+          <li>Sketch it, with your pen - hover to preview a line, the pen button opens a quick new idea</li>
+          <li>Turn a sketch into a blueprint</li>
+          <li>Every photo and clip kept in one media library</li>
+          <li>Open any idea and see everything it holds: words, photos, sketch, blueprint and tags</li>
+          <li>Share an idea, and back everything up</li>
+        </ul>
+        <p class="why">Why have it: an idea lands once and stays whole - words, pictures, sketch and sound together, not scattered across five apps.</p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="testra-accuracy" data-kind="apk">
+        <img class="icon" src="img/icon-testra-accuracy.png" alt="Testra Accuracy app icon">
+        <h3>Testra Accuracy</h3>
+        <p class="desc">Pick any topic. The app writes a test on it, you answer, and it grades your accuracy.</p>
+        <ul class="caps">
+          <li>Type any topic you want to be tested on, or pick a ready-made one</li>
+          <li>Two styles: Scholar (hard questions) or Just for Fun (easier ones)</li>
+          <li>Test sizes from 5 questions up to a 500-question Marathon - big tests are written in batches and can be paused and picked up later</li>
+          <li>Four kinds of questions: multiple choice, true or false, short answer and essay</li>
+          <li>Every question is made with its own answer key, so grading never guesses</li>
+          <li>At the end: your accuracy score, a letter grade, and a review of every question</li>
+          <li>History keeps every finished test, so you can watch your accuracy climb</li>
+          <li>Questions are written with your own key, which is kept only on your phone</li>
+        </ul>
+        <p class="why">Why have it: turn anything you are learning into a real test in minutes, and prove to yourself what you actually know.</p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="hit-record" data-kind="apk">
+        <img class="icon" src="img/icon-hit-record.png" alt="Hit Record app icon">
+        <h3>Hit Record</h3>
+        <p class="desc">An AI DJ and recording partner that remembers your whole songwriting process.</p>
+        <ul class="caps">
+          <li>Press record, freestyle a few bars, stop - every take is saved with its time and its sound</li>
+          <li>Come back days later and add more - takes are grouped into sessions, so you see how the song grew</li>
+          <li>Your words are kept exactly as you write them - slang is never corrected or rewritten</li>
+          <li>The app proposes correction or new lines for each take - you confirm with one tap, and old takes are never deleted quietly</li>
+          <li>A built-in starter beat loop plays while you record, so you write over the beat</li>
+          <li>Ask the DJ (rhyme counts, bar counts, repeated lines) - answered from your lyric sheet only, with your own key</li>
+          <li>Share the lyric sheet with one tap</li>
+          <li>Automatic speech-to-text is on the way (TBA)</li>
+        </ul>
+        <p class="why">Why have it: you never lose a bar. Every take, every fix, every session - kept in order until the song is done.</p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="mixology" data-kind="apk">
+        <img class="icon" src="img/icon-mixology.png" alt="Mixology app icon">
+        <h3>Mixology</h3>
+        <p class="desc">Your drink book: your own mixes, an international drink list, and a finder that tells you what you can make with what you have.</p>
+        <ul class="caps">
+          <li>My Mixes: add, edit and delete your own drinks - your words are saved exactly as you type them, never rewritten</li>
+          <li>An international list of classic drinks with their standard recipes and where they come from</li>
+          <li>The Finder: tick what you have on hand and see what you can make right now - plus the drinks you are exactly one ingredient short of, with the missing one named</li>
+          <li>Search across everything, and a favorites switch for your starred drinks</li>
+          <li>Every drink page shows what goes in it, the amounts, the steps and your notes</li>
+          <li>Asks for no permissions at all - a recipe book needs none</li>
+        </ul>
+        <p class="why">Why have it: your own mixes kept word for word, the classics at hand, and an answer to "what can I make tonight?" from what is already on your shelf.</p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">For your computer</h2>
+    <p class="section-sub">The flagship desktop app that feeds your phone.</p>
+    <div class="grid">
+
+      <div class="card">
+        <img class="icon" src="img/icon-apple2player.png" alt="Apple2Player app icon">
+        <h3>Apple2Player</h3>
+        <p class="desc">Move your Apple Music playlists and songs from your Mac to your Android phone.</p>
+        <ul class="caps">
+          <li>Reads your playlists straight from Apple Music and pushes the songs to your phone at full cable speed</li>
+          <li>Your Player app picks the playlists up on its own - no manual import</li>
+          <li>Apple Music star ratings are written into your MP3s as they travel, so Player shows them right away</li>
+          <li>Never sends the same song twice - a song already on the phone is skipped and noted</li>
+          <li>Purge: find double copies on the phone, and clear only the true extras - never the last copy</li>
+          <li>Fix Tags: check the songs in any folder and fix their tags, finding songs by how they sound, by their tags, or by file name</li>
+          <li>Every tag fix is backed up first, checked after writing, and logged - a star rating inside a song is never changed</li>
+          <li>Also runs on Windows</li>
+        </ul>
+        <p class="why">Why have it: your Apple Music library, on your Android phone, with its playlists and star ratings intact - in minutes, not an afternoon of dragging files.</p>
+        <p class="version">Version 0.7.8 &middot; Mac &amp; Windows</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Builds land here as they are made.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">How updates work</h2>
+    <div class="updates-box">
+      <p>App updates come from the CashDublo updates shelf - the public <a href="https://github.com/BigOdom1984/cashdublo-updates">cashdublo-updates</a> repo on GitHub.</p>
+      <p>Updates travel as small patches, not whole new apps: your app saves your settings, builds the new version on your phone, checks it, and only then installs it. If anything does not check out, the update stops safely and your app stays as it was.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">Tools</h2>
+    <p class="section-sub">Small helper programs that run on your own computer.</p>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h3>Change App Icons</h3>
+        <p>Swap an app's icon on GitHub, with a backup saved first so you can undo it. The new picture must be a real PNG or JPEG at the exact same size, and after sending, the program reads the icon back and puts the original back on its own if it does not match.</p>
+      </div>
+      <div class="tool-card">
+        <h3>CashDublo Coder</h3>
+        <p>A coding helper that runs on your own computer: ask the AI (a small model on your own machine, offline after a one-time download), browse your GitHub repos and send a file to it, and jump to the docs and forums that help you build.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Script Installer</h3>
+        <p>Lists your build scripts in one window with a plain line on what each one does, and runs the one you pick - in its own windows, or in the terminal pane inside the app.</p>
+      </div>
+      <div class="tool-card">
+        <h3>GitHub HQ</h3>
+        <p>The home screen for your GitHub repos. It opens on your repos - every one of them, with its version, its build scripts and its newest finished build - and can pull, clone and build them from one place.</p>
+      </div>
+      <div class="tool-card">
+        <h3>App Translator</h3>
+        <p>Turns the CashDublo apps into other languages - Khmer, Lao and Thai first. One AI translates each line and a second AI checks it by translating it back; only lines that pass the check are ever shipped, and the rest are held for review.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Build Manager</h3>
+        <p>Builds every CashDublo app from one place: pick an app or build them all, watch the run live, and see what got built - from real build records, never guesses.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Rebuild-All</h3>
+        <p>Keeps every CashDublo repo safe: one small backup file holds the whole set, and the rebuild brings every repo back with only the program and the backup - no GitHub, no sign-in, no internet.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="thanks">Thanks for downloading my app. If you have any concerns, please contact CashDublo:</p>
+  <p class="links">
+    <a href="mailto:CashDublo@gmail.com">CashDublo@gmail.com</a>
+    <span class="sep">&middot;</span>
+    <a href="https://github.com/BigOdom1984">BigOdom1984 on GitHub</a>
+    <span class="sep">&middot;</span>
+    <a href="https://instagram.com/cashdublo">@cashdublo on Instagram</a>
+  </p>
+  <p class="links"><a href="index.html">Home</a><span class="sep">&middot;</span><a href="privacy.html">Privacy Policy</a></p>
+  <p class="brand">CASHDUBLO</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var SITE = "BigOdom1984.github.io";
+  var cards = document.querySelectorAll(".card[data-repo][data-kind='apk']");
+  function newestDemo(slug, releases){
+    var prefix = slug + "-demo-v";
+    var best = null;
+    (releases || []).forEach(function(rel){
+      if(!rel || !rel.tag_name || rel.tag_name.indexOf(prefix) !== 0){ return; }
+      var assets = rel.assets || [];
+      var apk = null;
+      for(var i = 0; i < assets.length; i++){
+        if(/\.apk$/i.test(assets[i].name)){ apk = assets[i]; break; }
+      }
+      if(!apk){ return; }
+      var when = rel.published_at || rel.created_at || "";
+      if(!best || when > best.when){
+        best = { version: rel.tag_name.slice(prefix.length), url: apk.browser_download_url, when: when };
+      }
+    });
+    return best;
+  }
+  window.__newestDemo = newestDemo;
+  fetch("https://api.github.com/repos/BigOdom1984/" + SITE + "/releases?per_page=100", {
+    headers: { "Accept": "application/vnd.github+json" }
+  }).then(function(res){
+    if(!res.ok){ return null; }
+    return res.json();
+  }).then(function(releases){
+    if(!releases || !releases.length){ return; }
+    cards.forEach(function(card){
+      var slug = card.getAttribute("data-repo");
+      var hit = newestDemo(slug, releases);
+      if(!hit){ return; }
+      var btn = card.querySelector(".dl-btn");
+      var note = card.querySelector(".note");
+      btn.textContent = "Download free demo v" + hit.version;
+      btn.setAttribute("href", hit.url);
+      btn.classList.remove("disabled");
+      btn.removeAttribute("aria-disabled");
+      if(note){ note.style.display = "none"; }
+    });
+  }).catch(function(){
+    /* No demo found or no connection: every button stays on "Coming soon". */
+  });
+})();
+</script>
+
+</body>
+</html>
