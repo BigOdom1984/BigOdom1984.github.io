@@ -604,7 +604,7 @@
     <h2 class="section-title">By the Numbers</h2>
     <div class="stats">
       <div class="stat"><span class="num">43</span><span class="lbl">code repositories on GitHub</span></div>
-      <div class="stat"><span class="num">23</span><span class="lbl">apps on this site</span></div>
+      <div class="stat"><span class="num">24</span><span class="lbl">apps on this site</span></div>
       <div class="stat"><span class="num">5</span><span class="lbl">platforms - Android, Mac, Windows, iPhone on the way, and Linux coming</span></div>
       <div class="stat"><span class="num">1</span><span class="lbl">person designing and building all of it</span></div>
     </div>
@@ -624,6 +624,17 @@
     <h2 class="section-title">Apps for your phone</h2>
     <p class="section-sub">Android apps, made to do one job well and keep your things on your own phone.</p>
     <div class="grid">
+
+    <div class="card" data-repo="voice-model" data-kind="apk">
+      <img class="icon" src="img/icon-voice-model.png" alt="VoiceModel app icon">
+      <h2><button class="app-name" type="button" data-details-open="voice-model" aria-haspopup="dialog">VoiceModel</button></h2>
+      <p class="desc">Build your own voice. Paste a link to a video or sound you own, pick the best parts in the clip editor, and train a voice that can speak new words in your voice.</p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+
+      <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+      <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
+    </div>
 
     <div class="card" data-repo="marvin" data-kind="apk">
       <img class="icon" src="img/icon-marvin.png" alt="Marvin app icon">
@@ -684,7 +695,7 @@
       <img class="icon" src="img/icon-hit-record.png" alt="Hit Record app icon">
       <h2><button class="app-name" type="button" data-details-open="hit-record" aria-haspopup="dialog">Hit Record</button></h2>
       <p class="desc">An AI DJ and recording partner that remembers your whole songwriting process.</p>
-      <p class="version">Version 0.2.0 &middot; Android</p>
+      <p class="version">Version 0.3.0 &middot; Android</p>
       <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Hit Record pictures">
         <div class="car-viewport">
           <div class="car-track">
@@ -787,7 +798,7 @@
       <img class="icon" src="img/icon-go.png" alt="GO app icon">
       <h2><button class="app-name" type="button" data-details-open="go" aria-haspopup="dialog">GO</button></h2>
       <p class="desc">Your travels drawn as a gold trail on a world map.</p>
-      <p class="version">Version 0.1.1 &middot; Android</p>
+      <p class="version">Version 0.2.0 &middot; Android</p>
       <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="GO pictures">
         <div class="car-viewport">
           <div class="car-track">
@@ -1155,7 +1166,7 @@
       <img class="icon" src="img/icon-apple2player.png" alt="Apple2Player app icon">
       <h2><button class="app-name" type="button" data-details-open="apple2player-mac" aria-haspopup="dialog">Apple2Player for Mac</button></h2>
       <p class="desc">Move your Apple Music playlists and songs from your Mac to your Android phone.</p>
-      <p class="version">Version 0.7.8 &middot; Mac</p>
+      <p class="version">Version 0.8.0 &middot; Mac</p>
       <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Apple2Player pictures">
         <div class="car-viewport">
           <div class="car-track">
@@ -1315,6 +1326,19 @@
 })();
 </script>
 
+  <template data-details-for="voice-model">
+    <div class="modal-app">
+      <img class="icon" src="img/icon-voice-model.png" alt="VoiceModel app icon">
+      <h3 class="modal-name" id="modal-app-name">VoiceModel</h3>
+      <p class="desc">Build your own voice. Paste a link to a video or sound you own, pick the best parts in the clip editor, and train a voice that can speak new words in your voice.</p>
+      <ul class="caps">
+
+        </ul>
+      <p class="why"></p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+    </div>
+  </template>
+
   <template data-details-for="marvin">
     <div class="modal-app">
       <img class="icon" src="img/icon-marvin.png" alt="Marvin app icon">
@@ -1378,12 +1402,15 @@
           <li>The app proposes correction or new lines for each take - you confirm with one tap, and old takes are never deleted quietly</li>
           <li>A built-in starter beat loop plays while you record, so you write over the beat</li>
           <li>Ask the DJ (rhyme counts, bar counts, repeated lines) - answered from your lyric sheet only, with your own key</li>
+          <li>Learn the Industry: a teaching library of 56 topics in plain words - royalties, the industry, and copyright fully written (26 lessons), read or listen with no internet</li>
+          <li>Ask the DJ's Lessons mode answers from the written lessons only - it never improvises law, rates, or advice</li>
+          <li>Role Model topics (work ethic, money, contracts, negotiation) wait behind a Settings switch as named TBA lessons until they are written</li>
           <li>Voice synthesis - Ask the DJ can speak in a trained voice (premium feature, TBA)</li>
           <li>Share the lyric sheet with one tap</li>
           <li>Automatic speech-to-text is on the way (TBA)</li>
         </ul>
       <p class="why">Why have it: you never lose a bar. Every take, every fix, every session - kept in order until the song is done.</p>
-      <p class="version">Version 0.2.0 &middot; Android</p>
+      <p class="version">Version 0.3.0 &middot; Android</p>
     </div>
   </template>
 
@@ -1445,9 +1472,15 @@
           <li>While the app is open it can record your trail and draw it on a world map</li>
           <li>Other trails draw beside yours (samples today; real friends when accounts open)</li>
           <li>Shows where trails cross, and where they almost crossed</li>
+          <li>Asks only for your location while the app is in use, and says exactly that on its permissions screen</li>
+          <li>Six color themes to pick in Settings, including Gold Trail - a near-black ground with bright trail gold</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: recording, the map and your crossings keep working, and anything that needs the internet waits honestly</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+          <li>Bring in your saved places from Google Maps files: they draw as markers on the map, and they never count as places you have been</li>
         </ul>
       <p class="why">Why have it: see everywhere you have been as one growing trail across the world.</p>
-      <p class="version">Version 0.1.1 &middot; Android</p>
+      <p class="version">Version 0.2.0 &middot; Android</p>
     </div>
   </template>
 
@@ -1616,6 +1649,12 @@
           <li>While the app is open it can record your trail and draw it on a world map</li>
           <li>Other trails draw beside yours (samples today; real friends when accounts open)</li>
           <li>Shows where trails cross, and where they almost crossed</li>
+          <li>Asks only for your location while the app is in use, and says exactly that on its permissions screen</li>
+          <li>Six color themes to pick in Settings, including Gold Trail - a near-black ground with bright trail gold</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: recording, the map and your crossings keep working, and anything that needs the internet waits honestly</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+          <li>Bring in your saved places from Google Maps files: they draw as markers on the map, and they never count as places you have been</li>
         </ul>
       <p class="why">Why have it: see everywhere you have been as one growing trail across the world.</p>
       <p class="version">iPhone &middot; TBA</p>
@@ -1797,10 +1836,14 @@
           <li>Purge: find double copies on the phone, and clear only the true extras - never the last copy</li>
           <li>Fix Tags: check the songs in any folder and fix their tags, finding songs by how they sound, by their tags, or by file name</li>
           <li>Every tag fix is backed up first, checked after writing, and logged - a star rating inside a song is never changed</li>
+          <li>Song labels: in the background, a few songs a minute, the app works out whether each song is explicit or clean and writes the answer into the moods file Player already receives</li>
+          <li>A song no source can settle is counted as not checked - never as clean - and you can set a song's label by hand</li>
+          <li>Mood ideas: guesses from a song's genre and speed, each with its reason showing, land on a song only when you say yes</li>
+          <li>The WiFi Transfer password is hidden as you type it</li>
           <li>Also runs on Windows</li>
         </ul>
       <p class="why">Why have it: your Apple Music library, on your Android phone, with its playlists and star ratings intact - in minutes, not an afternoon of dragging files.</p>
-      <p class="version">Version 0.7.8 &middot; Mac</p>
+      <p class="version">Version 0.8.0 &middot; Mac</p>
     </div>
   </template>
 
