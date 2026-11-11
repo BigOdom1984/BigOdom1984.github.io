@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Apps - CashDublo</title>
+<meta name="description" content="Every CashDublo app: what it does, what it can do, and why it is worth having.">
+<style>
+  :root{
+    --gold:#d4af37;
+    --gold-light:#f0d47a;
+    --bg:#0a0a0a;
+    --card:#161616;
+    --card-border:#2b2b2b;
+    --text:#f2ead2;
+    --muted:#b8b09a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+  header{
+    text-align:center;
+    padding:44px 16px 8px;
+  }
+  header img.logo{
+    width:min(420px,82vw);
+    height:auto;
+    display:block;
+    margin:0 auto;
+  }
+  header .tagline{
+    color:var(--gold);
+    font-size:1.25rem;
+    font-weight:600;
+    margin:14px 0 4px;
+    letter-spacing:.04em;
+  }
+  header .sub{
+    color:var(--muted);
+    margin:0 auto;
+    max-width:560px;
+    font-size:1rem;
+  }
+  header nav{margin-top:16px;}
+  header nav a{
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:600;
+    margin:0 10px;
+  }
+  header nav a:hover{text-decoration:underline;}
+  main{
+    max-width:1080px;
+    margin:0 auto;
+    padding:28px 16px 8px;
+  }
+  section.block{margin-top:40px;}
+  section.block:first-child{margin-top:8px;}
+  h2.section-title{
+    color:var(--gold);
+    text-align:center;
+    font-size:1.35rem;
+    margin:0 0 6px;
+  }
+  p.section-sub{
+    color:var(--muted);
+    text-align:center;
+    margin:0 auto 18px;
+    max-width:640px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:18px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:20px 18px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .card img.icon{
+    width:104px;
+    height:104px;
+    border-radius:22px;
+    display:block;
+  }
+  .topnav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(10,10,10,.96);
+    border-bottom:1px solid var(--card-border);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:4px 10px;
+    padding:10px 12px;
+  }
+  .topnav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:.98rem;
+    padding:6px 10px;
+    border-radius:8px;
+  }
+  .topnav a:hover{color:var(--gold-light);}
+  .topnav a.current{
+    color:var(--gold);
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+  .carousel{
+    width:100%;
+    max-width:230px;
+    margin:12px auto 4px;
+  }
+  .car-viewport{
+    overflow:hidden;
+    border-radius:10px;
+    border:1px solid var(--card-border);
+  }
+  .car-track{
+    display:flex;
+    transition:transform .35s ease;
+  }
+  .car-slide{
+    flex:0 0 100%;
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .car-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:8px;
+  }
+  .car-btn{
+    background:#2e2e2e;
+    color:var(--gold);
+    border:1px solid var(--card-border);
+    border-radius:8px;
+    font-size:1.25rem;
+    line-height:1;
+    width:40px;
+    height:36px;
+    cursor:pointer;
+    flex:0 0 auto;
+  }
+  .car-btn:hover{background:#3a3a3a;}
+  .car-cap{
+    color:var(--muted);
+    font-size:.88rem;
+    margin:0 8px;
+    text-align:center;
+    flex-grow:1;
+  }
+  .car-dots{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:8px;
+  }
+  .car-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    background:transparent;
+    padding:0;
+    cursor:pointer;
+  }
+  .car-dot.on{background:var(--gold);}
+  p.render-note{
+    color:var(--muted);
+    text-align:center;
+    margin:16px auto 4px;
+    max-width:680px;
+    font-size:.92rem;
+  }
+  p.store-links{
+    color:var(--muted);
+    font-size:.85rem;
+    margin:8px 0 0;
+  }
+  p.store-links a{
+    color:var(--muted);
+    text-decoration:none;
+  }
+  p.store-links a:hover{
+    color:var(--gold);
+    text-decoration:underline;
+  }
+  .card .noicon{
+    width:104px;
+    height:104px;
+    border-radius:22px;
+    background:#1e1e1e;
+    border:1px solid var(--card-border);
+    color:var(--gold);
+    font-weight:700;
+    font-size:1.6rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .card h3{
+    margin:14px 0 6px;
+    font-size:1.2rem;
+    color:var(--text);
+  }
+  .card p.desc{
+    margin:0 0 10px;
+    color:var(--muted);
+    font-size:.98rem;
+  }
+  .card ul.caps{
+    margin:0 0 12px;
+    padding:0 0 0 18px;
+    text-align:left;
+    color:var(--text);
+    font-size:.92rem;
+  }
+  .card ul.caps li{margin:0 0 5px;}
+  .card p.why{
+    margin:0 0 12px;
+    color:var(--muted);
+    font-size:.92rem;
+    font-style:italic;
+    flex-grow:1;
+  }
+  .card .version{
+    color:var(--gold);
+    font-size:.9rem;
+    margin:0 0 14px;
+  }
+  .dl-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:#111;
+    font-weight:700;
+    text-decoration:none;
+    padding:11px 22px;
+    border-radius:9px;
+    font-size:1rem;
+    min-width:170px;
+  }
+  .dl-btn:hover{background:var(--gold-light);}
+  .dl-btn.disabled{
+    background:#2e2e2e;
+    color:#8f8a7a;
+    pointer-events:none;
+  }
+  .card .note{
+    color:#7d7867;
+    font-size:.8rem;
+    margin:10px 0 0;
+  }
+  .tool-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:18px;
+  }
+  .tool-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+  }
+  .tool-card h3{
+    margin:0 0 6px;
+    font-size:1.05rem;
+    color:var(--text);
+  }
+  .tool-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:.95rem;
+  }
+  .updates-box{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:22px 20px;
+    text-align:center;
+    max-width:720px;
+    margin:0 auto;
+  }
+  .updates-box p{margin:0 0 10px;color:var(--muted);}
+  .updates-box p:last-child{margin-bottom:0;}
+  .updates-box a{color:var(--gold);text-decoration:none;font-weight:600;}
+  .updates-box a:hover{text-decoration:underline;}
+  footer{
+    text-align:center;
+    padding:20px 16px 18px;
+    color:var(--muted);
+    font-size:.95rem;
+  }
+  footer .thanks{
+    max-width:560px;
+    margin:0 auto 6px;
+  }
+  footer a{
+    color:var(--gold);
+    text-decoration:none;
+  }
+  footer a:hover{text-decoration:underline;}
+  footer .links{
+    margin:4px 0;
+  }
+  footer .links span.sep{margin:0 8px;color:#55503f;}
+  footer .brand{
+    margin-top:10px;
+    color:var(--gold);
+    font-weight:700;
+    letter-spacing:.06em;
+  }
+  section.block{margin-top:40px;}
+  section.block:first-child{margin-top:8px;}
+  h2.section-title{
+    color:var(--gold);
+    text-align:center;
+    font-size:1.35rem;
+    margin:0 0 6px;
+  }
+  p.section-sub{
+    color:var(--muted);
+    text-align:center;
+    margin:0 auto 18px;
+    max-width:640px;
+  }
+  .home-text{
+    color:var(--muted);
+    max-width:680px;
+    margin:0 auto 12px;
+    text-align:center;
+    font-size:1rem;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:4px auto 12px;
+    max-width:680px;
+  }
+  .chip{
+    border:1px solid var(--gold);
+    color:var(--gold);
+    border-radius:999px;
+    padding:6px 14px;
+    font-size:.92rem;
+  }
+  .app-name{
+    background:none;
+    border:0;
+    padding:0;
+    margin:0;
+    font:inherit;
+    color:var(--gold);
+    cursor:pointer;
+  }
+  .app-name:hover{color:var(--gold-light);text-decoration:underline;}
+  .app-name:focus-visible{
+    color:var(--gold-light);
+    text-decoration:underline;
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+  }
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.74);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:60;
+  }
+  .modal-overlay[hidden]{display:none;}
+  .modal-box{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--gold);
+    border-radius:14px;
+    max-width:560px;
+    width:100%;
+    max-height:86vh;
+    overflow-y:auto;
+    padding:28px 24px 24px;
+    text-align:center;
+  }
+  .modal-close{
+    position:absolute;
+    top:6px;
+    right:10px;
+    background:none;
+    border:0;
+    color:var(--gold);
+    font-size:1.8rem;
+    line-height:1;
+    padding:6px 8px;
+    cursor:pointer;
+  }
+  .modal-close:hover{color:var(--gold-light);}
+  .modal-body img.icon{
+    width:104px;
+    height:104px;
+    border-radius:22px;
+  }
+  .modal-body .modal-name{
+    margin:14px 0 6px;
+    font-size:1.25rem;
+    color:var(--text);
+  }
+  .modal-body p.desc{
+    margin:0 0 10px;
+    color:var(--muted);
+    font-size:.98rem;
+  }
+  .modal-body p.ios-note{
+    margin:0 0 6px;
+    color:var(--muted);
+    font-size:.95rem;
+  }
+  .modal-body ul.caps{
+    margin:0 auto 12px;
+    padding:0 0 0 18px;
+    max-width:440px;
+    text-align:left;
+    color:var(--text);
+    font-size:.92rem;
+  }
+  .modal-body ul.caps li{margin:0 0 5px;}
+  .modal-body p.why{
+    margin:0 0 12px;
+    color:var(--muted);
+    font-size:.92rem;
+    font-style:italic;
+  }
+  .modal-body .version{
+    color:var(--gold);
+    font-size:.9rem;
+    margin:0;
+  }
+  .modal-body p.note{
+    color:#7d7867;
+    font-size:.85rem;
+    margin:10px 0 0;
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Site">
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#featured">Featured Apps</a>
+  <a href="apps.html" class="current" aria-current="page">All the Apps</a>
+  <a href="privacy.html">Privacy</a>
+</nav>
+
+<header>
+  <img class="logo" src="../img/cashdublo-logo.png" alt="CashDublo">
+  <p class="tagline">The Apps</p>
+  <p class="sub">Every app CashDublo has made - what each one does, what it can do, and why it is worth having on your phone or your computer.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="apps.html">The Apps</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="block">
+    <h2 class="section-title">Apps for your phone</h2>
+    <p class="section-sub">Android apps, made to do one job well and keep your things on your own phone.</p>
+    <div class="grid">
+
+      <div class="card" data-repo="voice-model" data-kind="apk">
+        <img class="icon" src="../img/icon-voice-model.png" alt="VoiceModel app icon">
+        <h3><button class="app-name" type="button" data-details-open="voice-model" aria-haspopup="dialog">VoiceModel</button></h3>
+        <p class="desc">Build your own voice. Paste a link to a video or sound you own, pick the best parts in the clip editor, and train a voice that can speak new words in your voice.</p>
+        <ul class="caps">
+
+        </ul>
+        <p class="why"></p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="marvin" data-kind="apk">
+        <img class="icon" src="../img/icon-marvin.png" alt="Marvin app icon">
+        <h3><button class="app-name" type="button" data-details-open="marvin" aria-haspopup="dialog">Marvin</button></h3>
+        <p class="desc">Marvin is a bouncing globe with two eyes, eyelashes, a nose, a mouth,</p>
+        <ul class="caps">
+
+        </ul>
+        <p class="why"></p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="pictureglobe" data-kind="apk">
+        <img class="icon" src="../img/icon-pictureglobe.png" alt="PictureGlobe app icon">
+        <h3><button class="app-name" type="button" data-details-open="pictureglobe" aria-haspopup="dialog">PictureGlobe</button></h3>
+        <p class="desc">PictureGlobe reads your phone gallery (only with your</p>
+        <ul class="caps">
+
+        </ul>
+        <p class="why"></p>
+        <p class="version">Version 0.1.0 &middot; Android</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="mixology" data-kind="apk">
+        <img class="icon" src="../img/icon-mixology.png" alt="Mixology app icon">
+        <h3><button class="app-name" type="button" data-details-open="mixology" aria-haspopup="dialog">Mixology</button></h3>
+        <p class="desc">Your drink book: your own mixes, an international drink list, and a finder that tells you what you can make with what you have.</p>
+        <ul class="caps">
+          <li>My Mixes: add, edit and delete your own drinks - your words are saved exactly as you type them, never rewritten</li>
+          <li>An international list of classic drinks with their standard recipes and where they come from</li>
+          <li>The Finder: tick what you have on hand and see what you can make right now - plus the drinks you are exactly one ingredient short of, with the missing one named</li>
+          <li>Search across everything, and a favorites switch for your starred drinks</li>
+          <li>Every drink page shows what goes in it, the amounts, the steps and your notes</li>
+          <li>Asks for no permissions at all - a recipe book needs none</li>
+          <li>World Drinks: browse by country - 1,140 drinks from 52 countries, and growing</li>
+          <li>Every World Drink with alcohol also carries a virgin version - made by swapping the alcohol out</li>
+          <li>World drink recipes come from Open Drinks and TheCocktailDB, plus a hand-picked national drinks list</li>
+          <li>Six themes in the Theme Manager, including its own Amber Bar</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — the whole drink library lives on your phone, and your changes are saved on this phone and pushed when the internet comes back</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+        </ul>
+        <p class="why">Why have it: your own mixes kept word for word, the classics at hand, and an answer to "what can I make tonight?" from what is already on your shelf.</p>
+        <p class="version">Version 0.2.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Mixology pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/mixology/01-home.png" alt="Mixology - Home — My Mixes screen (render)" data-title="Home — My Mixes">
+              <img class="car-slide" src="../img/photos/mixology/02-international.png" alt="Mixology - International List screen (render)" data-title="International List" loading="lazy">
+              <img class="car-slide" src="../img/photos/mixology/03-finder.png" alt="Mixology - What can I make? screen (render)" data-title="What can I make?" loading="lazy">
+              <img class="car-slide" src="../img/photos/mixology/04-drink.png" alt="Mixology - Drink — Margarita screen (render)" data-title="Drink — Margarita" loading="lazy">
+              <img class="car-slide" src="../img/photos/mixology/05-settings.png" alt="Mixology - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Home — My Mixes</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="hit-record" data-kind="apk">
+        <img class="icon" src="../img/icon-hit-record.png" alt="Hit Record app icon">
+        <h3><button class="app-name" type="button" data-details-open="hit-record" aria-haspopup="dialog">Hit Record</button></h3>
+        <p class="desc">An AI DJ and recording partner that remembers your whole songwriting process.</p>
+        <ul class="caps">
+          <li>Press record, freestyle a few bars, stop - every take is saved with its time and its sound</li>
+          <li>Come back days later and add more - takes are grouped into sessions, so you see how the song grew</li>
+          <li>Your words are kept exactly as you write them - slang is never corrected or rewritten</li>
+          <li>The app proposes correction or new lines for each take - you confirm with one tap, and old takes are never deleted quietly</li>
+          <li>A built-in starter beat loop plays while you record, so you write over the beat</li>
+          <li>Ask the DJ (rhyme counts, bar counts, repeated lines) - answered from your lyric sheet only, with your own key</li>
+          <li>Learn the Industry: a teaching library of 56 topics in plain words - royalties, the industry, and copyright fully written (26 lessons), read or listen with no internet</li>
+          <li>Ask the DJ's Lessons mode answers from the written lessons only - it never improvises law, rates, or advice</li>
+          <li>Role Model topics (work ethic, money, contracts, negotiation) wait behind a Settings switch as named TBA lessons until they are written</li>
+          <li>Voice synthesis - Ask the DJ can speak in a trained voice (premium feature, TBA)</li>
+          <li>Share the lyric sheet with one tap</li>
+          <li>Automatic speech-to-text is on the way (TBA)</li>
+        </ul>
+        <p class="why">Why have it: you never lose a bar. Every take, every fix, every session - kept in order until the song is done.</p>
+        <p class="version">Version 0.3.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Hit Record pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/hit-record/01-songs.png" alt="Hit Record - Your songs screen (render)" data-title="Your songs">
+              <img class="car-slide" src="../img/photos/hit-record/02-song.png" alt="Hit Record - Song — Takes & Lyric sheet screen (render)" data-title="Song — Takes & Lyric sheet" loading="lazy">
+              <img class="car-slide" src="../img/photos/hit-record/03-ask-the-dj.png" alt="Hit Record - Ask the DJ screen (render)" data-title="Ask the DJ" loading="lazy">
+              <img class="car-slide" src="../img/photos/hit-record/04-settings.png" alt="Hit Record - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Your songs</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="testra-accuracy" data-kind="apk">
+        <img class="icon" src="../img/icon-testra-accuracy.png" alt="Testra Accuracy app icon">
+        <h3><button class="app-name" type="button" data-details-open="testra-accuracy" aria-haspopup="dialog">Testra Accuracy</button></h3>
+        <p class="desc">Pick any topic. The app writes a test on it, you answer, and it grades your accuracy.</p>
+        <ul class="caps">
+          <li>Type any topic you want to be tested on, or pick a ready-made one</li>
+          <li>Two styles: Scholar (hard questions) or Just for Fun (easier ones)</li>
+          <li>Test sizes from 5 questions up to a 500-question Marathon - big tests are written in batches and can be paused and picked up later</li>
+          <li>Four kinds of questions: multiple choice, true or false, short answer and essay</li>
+          <li>Every question is made with its own answer key, so grading never guesses</li>
+          <li>At the end: your accuracy score, a letter grade, and a review of every question</li>
+          <li>History keeps every finished test, so you can watch your accuracy climb</li>
+          <li>Questions are written with your own key, which is kept only on your phone</li>
+          <li>Play in the Room - a same-room party game - is planned for a later version (TBA)</li>
+          <li>Six color themes to pick in Settings, including Golden Check - exam-hall dark with the deep gold of the glowing checkmark</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced out loud: a test already written keeps going, and writing and grading wait honestly until the internet is back</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+        </ul>
+        <p class="why">Why have it: turn anything you are learning into a real test in minutes, and prove to yourself what you actually know.</p>
+        <p class="version">Version 0.2.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Testra Accuracy pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/testra-accuracy/01-home.png" alt="Testra Accuracy - Home screen (render)" data-title="Home">
+              <img class="car-slide" src="../img/photos/testra-accuracy/02-setup.png" alt="Testra Accuracy - Set up your test screen (render)" data-title="Set up your test" loading="lazy">
+              <img class="car-slide" src="../img/photos/testra-accuracy/03-test.png" alt="Testra Accuracy - Test screen (render)" data-title="Test" loading="lazy">
+              <img class="car-slide" src="../img/photos/testra-accuracy/04-results.png" alt="Testra Accuracy - Results screen (render)" data-title="Results" loading="lazy">
+              <img class="car-slide" src="../img/photos/testra-accuracy/05-history.png" alt="Testra Accuracy - History screen (render)" data-title="History" loading="lazy">
+              <img class="car-slide" src="../img/photos/testra-accuracy/06-settings.png" alt="Testra Accuracy - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Home</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="dear-idea" data-kind="apk">
+        <img class="icon" src="../img/icon-dear-idea.png" alt="Dear Idea app icon">
+        <h3><button class="app-name" type="button" data-details-open="dear-idea" aria-haspopup="dialog">Dear Idea</button></h3>
+        <p class="desc">Save every idea - notes, sketches, photos, voice memos and blueprints - in one place.</p>
+        <ul class="caps">
+          <li>Bring an idea in by pasting, camera, gallery or files - 3D prints, notes, voice memos, music and video</li>
+          <li>Sketch it, with your pen - hover to preview a line, the pen button opens a quick new idea</li>
+          <li>Turn a sketch into a blueprint</li>
+          <li>Every photo and clip kept in one media library</li>
+          <li>Open any idea and see everything it holds: words, photos, sketch, blueprint and tags</li>
+          <li>Share an idea, and back everything up</li>
+          <li>The AI helper shapes rough words into a title, a plan and steps (bring your own AI key)</li>
+          <li>Six themes to pick from, including Bright Idea - Dear Idea's own</li>
+          <li>Fourteen languages, chosen on the first run and changeable in Settings</li>
+          <li>Works offline: changes save on this phone and sync when the internet comes back</li>
+          <li>Lock it your way: fingerprint, a two-factor code, or an app password</li>
+        </ul>
+        <p class="why">Why have it: an idea lands once and stays whole - words, pictures, sketch and sound together, not scattered across five apps.</p>
+        <p class="version">Version 0.2.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Dear Idea pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/dear-idea/01-ideas.png" alt="Dear Idea - Ideas screen (render)" data-title="Ideas">
+              <img class="car-slide" src="../img/photos/dear-idea/02-new-idea.png" alt="Dear Idea - New Idea screen (render)" data-title="New Idea" loading="lazy">
+              <img class="car-slide" src="../img/photos/dear-idea/03-sketch.png" alt="Dear Idea - Sketch screen (render)" data-title="Sketch" loading="lazy">
+              <img class="car-slide" src="../img/photos/dear-idea/04-media.png" alt="Dear Idea - Media screen (render)" data-title="Media" loading="lazy">
+              <img class="car-slide" src="../img/photos/dear-idea/05-idea.png" alt="Dear Idea - Idea — Blueprint screen (render)" data-title="Idea — Blueprint" loading="lazy">
+              <img class="car-slide" src="../img/photos/dear-idea/06-help.png" alt="Dear Idea - Help screen (render)" data-title="Help" loading="lazy">
+              <img class="car-slide" src="../img/photos/dear-idea/07-settings.png" alt="Dear Idea - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Ideas</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+            <button class="car-dot" type="button" data-car-dot="6" aria-label="Go to picture 7"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="go" data-kind="apk">
+        <img class="icon" src="../img/icon-go.png" alt="GO app icon">
+        <h3><button class="app-name" type="button" data-details-open="go" aria-haspopup="dialog">GO</button></h3>
+        <p class="desc">Your travels drawn as a gold trail on a world map.</p>
+        <ul class="caps">
+          <li>Builds a trail (a snake) of where you have been, from your own real GPS points - never faked, never made up</li>
+          <li>While the app is open it can record your trail and draw it on a world map</li>
+          <li>Other trails draw beside yours (samples today; real friends when accounts open)</li>
+          <li>Shows where trails cross, and where they almost crossed</li>
+          <li>Asks only for your location while the app is in use, and says exactly that on its permissions screen</li>
+          <li>Six color themes to pick in Settings, including Gold Trail - a near-black ground with bright trail gold</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: recording, the map and your crossings keep working, and anything that needs the internet waits honestly</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+          <li>Bring in your saved places from Google Maps files: they draw as markers on the map, and they never count as places you have been</li>
+        </ul>
+        <p class="why">Why have it: see everywhere you have been as one growing trail across the world.</p>
+        <p class="version">Version 0.2.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="GO pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/go/01-map.png" alt="GO - My snake screen (render)" data-title="My snake">
+              <img class="car-slide" src="../img/photos/go/02-settings.png" alt="GO - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">My snake</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="travel-journal" data-kind="apk">
+        <img class="icon" src="../img/icon-travel-journal.png" alt="Travel Journal app icon">
+        <h3><button class="app-name" type="button" data-details-open="travel-journal" aria-haspopup="dialog">Travel Journal</button></h3>
+        <p class="desc">Turn your trip photos into a travel story, with voice notes and a globe.</p>
+        <ul class="caps">
+          <li>Pick the photos and videos from a trip and build them into a story</li>
+          <li>The app suggests the place from where the photos were taken</li>
+          <li>Check each piece with a swipe before it joins the story</li>
+          <li>Tell the story in your own voice with a long press</li>
+          <li>A globe shows your stories around the world</li>
+          <li>Compress photos smaller and lock an archive with a password, if you turn those switches on</li>
+          <li>Six themes in the Theme Manager, including its own Atlas Green</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — a place name that still needs the internet waits, and the story keeps its spot on the map</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+          <li>Bring in your saved places from Google Maps, only if you agree and turn the switch on — the places stay on this phone</li>
+        </ul>
+        <p class="why">Why have it: a trip becomes a story you can keep and share, not a camera roll you never open again.</p>
+        <p class="version">Version 0.3.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Travel Journal pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/travel-journal/01-stories.png" alt="Travel Journal - Stories screen (render)" data-title="Stories">
+              <img class="car-slide" src="../img/photos/travel-journal/02-review.png" alt="Travel Journal - Review screen (render)" data-title="Review" loading="lazy">
+              <img class="car-slide" src="../img/photos/travel-journal/03-globe.png" alt="Travel Journal - Globe screen (render)" data-title="Globe" loading="lazy">
+              <img class="car-slide" src="../img/photos/travel-journal/04-explore.png" alt="Travel Journal - Explore screen (render)" data-title="Explore" loading="lazy">
+              <img class="car-slide" src="../img/photos/travel-journal/05-settings.png" alt="Travel Journal - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Stories</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="say" data-kind="apk">
+        <img class="icon" src="../img/icon-say.png" alt="SAY app icon">
+        <h3><button class="app-name" type="button" data-details-open="say" aria-haspopup="dialog">SAY</button></h3>
+        <p class="desc">Learn English with phrase lessons, speaking practice and word cards.</p>
+        <ul class="caps">
+          <li>Phrase lessons grouped by real-life situations</li>
+          <li>Listen-and-repeat speaking practice with voice recording</li>
+          <li>Word flashcards and a quiz</li>
+          <li>An AI practice chat with your own key</li>
+          <li>Your progress, streaks and settings are saved on your phone</li>
+          <li>Asks only for the microphone, and only for the speaking practice</li>
+          <li>Six color themes to pick in Settings, including Speech Green - a deep green-black ground</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: lessons, word cards and your saved progress keep working, and the AI practice chat waits honestly until the internet is back</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+        </ul>
+        <p class="why">Why have it: practice real English out loud, a little every day, and watch your streak grow.</p>
+        <p class="version">Version 0.2.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="SAY pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/say/01-home.png" alt="SAY - Home screen (render)" data-title="Home">
+              <img class="car-slide" src="../img/photos/say/02-learn.png" alt="SAY - Learn screen (render)" data-title="Learn" loading="lazy">
+              <img class="car-slide" src="../img/photos/say/03-speak.png" alt="SAY - Speak screen (render)" data-title="Speak" loading="lazy">
+              <img class="car-slide" src="../img/photos/say/04-words.png" alt="SAY - Words screen (render)" data-title="Words" loading="lazy">
+              <img class="car-slide" src="../img/photos/say/05-quiz.png" alt="SAY - Quiz screen (render)" data-title="Quiz" loading="lazy">
+              <img class="car-slide" src="../img/photos/say/06-chat.png" alt="SAY - Chat screen (render)" data-title="Chat" loading="lazy">
+              <img class="car-slide" src="../img/photos/say/07-settings.png" alt="SAY - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Home</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+            <button class="car-dot" type="button" data-car-dot="6" aria-label="Go to picture 7"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="ttswidget" data-kind="apk">
+        <img class="icon" src="../img/icon-ttswidget.png" alt="TTS Widget app icon">
+        <h3><button class="app-name" type="button" data-details-open="ttswidget" aria-haspopup="dialog">TTS Widget</button></h3>
+        <p class="desc">Type or paste text and your phone reads it out loud.</p>
+        <ul class="caps">
+          <li>A 1x1 widget for your home screen - one tap and the app opens</li>
+          <li>Paste from the clipboard or type your own text</li>
+          <li>Speak, stop and clear buttons</li>
+          <li>Speed slider (half speed to double speed) and a pitch slider</li>
+          <li>Save texts you use again and again - play them back or load them with a tap</li>
+          <li>If the text language and the speech language differ, the text is translated first, shown to you, then read aloud</li>
+          <li>Uses the voice built into your phone - fast, works offline, no key needed</li>
+          <li>Six themes in the Theme Manager, including its own Broadcast Gold</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — speech and your saved texts keep working; translation waits for the internet and your saved work is not lost</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+        </ul>
+        <p class="why">Why have it: hear any text read out loud in two taps, with no account and no internet.</p>
+        <p class="version">Version 0.3.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="TTS Widget pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/ttswidget/01-home.png" alt="TTS Widget - Home screen (render)" data-title="Home">
+              <img class="car-slide" src="../img/photos/ttswidget/02-settings.png" alt="TTS Widget - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Home</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="player" data-kind="apk">
+        <img class="icon" src="../img/icon-player.png" alt="Player app icon">
+        <h3><button class="app-name" type="button" data-details-open="player" aria-haspopup="dialog">Player</button></h3>
+        <p class="desc">A music player for your own songs, with star ratings, moods, smart playlists and an AI Music DJ.</p>
+        <ul class="caps">
+          <li>Plays your own music files, and keeps playing in the background</li>
+          <li>Browse by folders, songs, albums and playlists</li>
+          <li>Star ratings saved right into your MP3 files, so they travel with the song</li>
+          <li>Moods for your songs, and an AI Music DJ that builds a mix from them</li>
+          <li>Fix song tags on the phone, with a backup saved before any change</li>
+          <li>Six themes in the Theme Manager, including its own Vinyl Gold, plus King and Queen</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Song Theme: the screen dresses itself in the playing song's own colors once the song has played for a moment</li>
+          <li>Smart playlists that build themselves: Most Played, Recently Played and Recently Added, from your own play record</li>
+          <li>Party Mode: pick a mood for the room and it builds the queue - with a Children's mode that holds back marked songs</li>
+          <li>Top 100: your own library ranked by your plays and star ratings, with a boost for songs on the current Apple Music Top 100</li>
+          <li>Works hand in hand with Apple2Player to receive your music - and you dial how long the sharing window stays open, from 1 minute to 12 hours</li>
+          <li>Offline, your library and playback keep working and Apple2Player sync on your own Wi-Fi is never blocked; the chart uses its last saved copy with its date, and tag lookups wait for the internet</li>
+        </ul>
+        <p class="why">Why have it: your music, your ratings, your moods - a player built for a big home library, not for selling you a subscription.</p>
+        <p class="version">Version 0.4.0 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Player pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/player/01-folders.png" alt="Player - Folders screen (render)" data-title="Folders">
+              <img class="car-slide" src="../img/photos/player/02-songs.png" alt="Player - Songs screen (render)" data-title="Songs" loading="lazy">
+              <img class="car-slide" src="../img/photos/player/03-albums.png" alt="Player - Albums screen (render)" data-title="Albums" loading="lazy">
+              <img class="car-slide" src="../img/photos/player/04-player.png" alt="Player - Now Playing screen (render)" data-title="Now Playing" loading="lazy">
+              <img class="car-slide" src="../img/photos/player/05-playlists.png" alt="Player - Playlists screen (render)" data-title="Playlists" loading="lazy">
+              <img class="car-slide" src="../img/photos/player/06-tags.png" alt="Player - Tags screen (render)" data-title="Tags" loading="lazy">
+              <img class="car-slide" src="../img/photos/player/07-sync.png" alt="Player - Sync screen (render)" data-title="Sync" loading="lazy">
+              <img class="car-slide" src="../img/photos/player/08-settings.png" alt="Player - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Folders</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+            <button class="car-dot" type="button" data-car-dot="6" aria-label="Go to picture 7"></button>
+            <button class="car-dot" type="button" data-car-dot="7" aria-label="Go to picture 8"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="ai-cash-portfolio" data-kind="apk">
+        <img class="icon" src="../img/icon-ai-cash-portfolio.png" alt="AI Cash Portfolio app icon">
+        <h3><button class="app-name" type="button" data-details-open="ai-cash-portfolio" aria-haspopup="dialog">AI Cash Portfolio</button></h3>
+        <p class="desc">Your portfolio with an AI helper that explains your stocks in plain words.</p>
+        <ul class="caps">
+          <li>Five tabs: Portfolio, News, Premium News, Store and AI Chat</li>
+          <li>Ask the AI chat about your own stocks, in plain words</li>
+          <li>Six themes in the Theme Manager, including its own Golden Network</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+        </ul>
+        <p class="why">Why have it: everything Cash Portfolio does, plus a helper that explains what is going on with your stocks when you ask.</p>
+        <p class="version">Version 0.4.1 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="AI Cash Portfolio pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/ai-cash-portfolio/01-portfolio.png" alt="AI Cash Portfolio - Portfolio screen (render)" data-title="Portfolio">
+              <img class="car-slide" src="../img/photos/ai-cash-portfolio/02-news.png" alt="AI Cash Portfolio - News screen (render)" data-title="News" loading="lazy">
+              <img class="car-slide" src="../img/photos/ai-cash-portfolio/03-premium-news.png" alt="AI Cash Portfolio - Premium News screen (render)" data-title="Premium News" loading="lazy">
+              <img class="car-slide" src="../img/photos/ai-cash-portfolio/04-store.png" alt="AI Cash Portfolio - Store screen (render)" data-title="Store" loading="lazy">
+              <img class="car-slide" src="../img/photos/ai-cash-portfolio/05-ai-chat.png" alt="AI Cash Portfolio - AI Chat screen (render)" data-title="AI Chat" loading="lazy">
+              <img class="car-slide" src="../img/photos/ai-cash-portfolio/06-settings.png" alt="AI Cash Portfolio - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Portfolio</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+      <div class="card" data-repo="cash-portfolio" data-kind="apk">
+        <img class="icon" src="../img/icon-cash-portfolio.png" alt="Cash Portfolio app icon">
+        <h3><button class="app-name" type="button" data-details-open="cash-portfolio" aria-haspopup="dialog">Cash Portfolio</button></h3>
+        <p class="desc">Watch your stock portfolio, live prices and price alerts.</p>
+        <ul class="caps">
+          <li>Live stock prices with your own free Finnhub key, with backup price sources if one is down</li>
+          <li>Price alerts you set yourself, so the app tells you when a stock hits your price</li>
+          <li>Load your own stock list from a CSV file, and save it back out</li>
+          <li>Money Mood: the app colors itself with how your money is doing</li>
+          <li>Six themes in the Theme Manager, including its own Trading Gold</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Offline, it shows your last real prices with the time they were fetched - a stale price is never shown as live, and the AI chat waits until you are back online</li>
+          <li>A built-in help section with answers to common questions</li>
+        </ul>
+        <p class="why">Why have it: your whole portfolio in one calm place, with live prices and your own alerts - and your list stays on your phone.</p>
+        <p class="version">Version 0.4.1 &middot; Android</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Cash Portfolio pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/cash-portfolio/01-welcome.png" alt="Cash Portfolio - Welcome screen (render)" data-title="Welcome">
+              <img class="car-slide" src="../img/photos/cash-portfolio/02-portfolio.png" alt="Cash Portfolio - Portfolio screen (render)" data-title="Portfolio" loading="lazy">
+              <img class="car-slide" src="../img/photos/cash-portfolio/03-ai-chat.png" alt="Cash Portfolio - AI Chat screen (render)" data-title="AI Chat" loading="lazy">
+              <img class="car-slide" src="../img/photos/cash-portfolio/04-stock-news.png" alt="Cash Portfolio - Stock News screen (render)" data-title="Stock News" loading="lazy">
+              <img class="car-slide" src="../img/photos/cash-portfolio/05-premium.png" alt="Cash Portfolio - Premium Features screen (render)" data-title="Premium Features" loading="lazy">
+              <img class="car-slide" src="../img/photos/cash-portfolio/06-settings.png" alt="Cash Portfolio - Settings screen (render)" data-title="Settings" loading="lazy">
+              <img class="car-slide" src="../img/photos/cash-portfolio/07-settings-market-data.png" alt="Cash Portfolio - Settings — Market Data screen (render)" data-title="Settings — Market Data" loading="lazy">
+              <img class="car-slide" src="../img/photos/cash-portfolio/08-settings-help.png" alt="Cash Portfolio - Settings — Help screen (render)" data-title="Settings — Help" loading="lazy">
+              <img class="car-slide" src="../img/photos/cash-portfolio/09-settings-notifications.png" alt="Cash Portfolio - Settings — Notifications screen (render)" data-title="Settings — Notifications" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Welcome</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+            <button class="car-dot" type="button" data-car-dot="6" aria-label="Go to picture 7"></button>
+            <button class="car-dot" type="button" data-car-dot="7" aria-label="Go to picture 8"></button>
+            <button class="car-dot" type="button" data-car-dot="8" aria-label="Go to picture 9"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">Free demo - try it now. The full app arrives at release.</p>
+      </div>
+
+    </div>
+    <p class="render-note">The pictures on these cards are renders drawn from each app's own design files - its real screens, tabs and words, drawn as pictures. They are not photographs of a phone. Real phone screenshots will replace these renders as they are taken.</p>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">Apps for your iPhone</h2>
+    <p class="section-sub">The iPhone versions of the CashDublo apps. Each one comes after its Android app reaches its finished version - so these are on the way, not out yet.</p>
+    <div class="grid">
+
+      <div class="card">
+        <img class="icon" src="../img/icon-dear-idea.png" alt="Dear Idea app icon">
+        <h3><button class="app-name" type="button" data-details-open="dear-idea-ios" aria-haspopup="dialog">Dear Idea</button></h3>
+        <p class="desc">Save every idea - notes, sketches, photos, voice memos and blueprints - in one place.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+
+      <div class="card">
+        <img class="icon" src="../img/icon-go.png" alt="GO app icon">
+        <h3><button class="app-name" type="button" data-details-open="go-ios" aria-haspopup="dialog">GO</button></h3>
+        <p class="desc">Your travels drawn as a gold trail on a world map.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+
+      <div class="card">
+        <img class="icon" src="../img/icon-travel-journal.png" alt="Travel Journal app icon">
+        <h3><button class="app-name" type="button" data-details-open="travel-journal-ios" aria-haspopup="dialog">Travel Journal</button></h3>
+        <p class="desc">Turn your trip photos into a travel story, with voice notes and a globe.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+
+      <div class="card">
+        <img class="icon" src="../img/icon-say.png" alt="SAY app icon">
+        <h3><button class="app-name" type="button" data-details-open="say-ios" aria-haspopup="dialog">SAY</button></h3>
+        <p class="desc">Learn English with phrase lessons, speaking practice and word cards.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+
+      <div class="card">
+        <img class="icon" src="../img/icon-ttswidget.png" alt="TTS Widget app icon">
+        <h3><button class="app-name" type="button" data-details-open="ttswidget-ios" aria-haspopup="dialog">TTS Widget</button></h3>
+        <p class="desc">Type or paste text and your phone reads it out loud.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+
+      <div class="card">
+        <img class="icon" src="../img/icon-ai-cash-portfolio.png" alt="AI Cash Portfolio app icon">
+        <h3><button class="app-name" type="button" data-details-open="ai-cash-portfolio-ios" aria-haspopup="dialog">AI Cash Portfolio</button></h3>
+        <p class="desc">Your portfolio with an AI helper that explains your stocks in plain words.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+
+      <div class="card">
+        <img class="icon" src="../img/icon-cash-portfolio.png" alt="Cash Portfolio app icon">
+        <h3><button class="app-name" type="button" data-details-open="cash-portfolio-ios" aria-haspopup="dialog">Cash Portfolio</button></h3>
+        <p class="desc">Watch your stock portfolio, live prices and price alerts.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+
+      <div class="card">
+        <img class="icon" src="../img/icon-player.png" alt="Player app icon">
+        <h3><button class="app-name" type="button" data-details-open="player-ios" aria-haspopup="dialog">Player</button></h3>
+        <p class="desc">A music player for your own songs, with star ratings, moods, smart playlists and an AI Music DJ.</p>
+        <p class="version">iPhone &middot; TBA</p>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+        <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">For your computer</h2>
+    <p class="section-sub">The flagship desktop app that feeds your phone.</p>
+    <div class="grid">
+
+      <div class="card" data-repo="apple2player-win">
+        <img class="icon" src="../img/icon-apple2player.png" alt="Apple2Player app icon">
+        <h3><button class="app-name" type="button" data-details-open="apple2player-win" aria-haspopup="dialog">Apple2Player for Windows</button></h3>
+        <p class="desc">Move your Apple Music playlists and songs from your Windows computer to your Android phone.</p>
+        <ul class="caps">
+          <li>Reads your playlists straight from Apple Music and pushes the songs to your phone at full cable speed</li>
+          <li>Your Player app picks the playlists up on its own - no manual import</li>
+          <li>Apple Music star ratings are written into your MP3s as they travel, so Player shows them right away</li>
+          <li>Never sends the same song twice - a song already on the phone is skipped and noted</li>
+          <li>Purge: find double copies on the phone, and clear only the true extras - never the last copy</li>
+          <li>Fix Tags: check the songs in any folder and fix their tags, finding songs by how they sound, by their tags, or by file name</li>
+          <li>Every tag fix is backed up first, checked after writing, and logged - a star rating inside a song is never changed</li>
+          <li>Also runs on Mac</li>
+        </ul>
+        <p class="why">Why have it: your Apple Music library, on your Android phone, with its playlists and star ratings intact - in minutes, not an afternoon of dragging files.</p>
+        <p class="version">Version 0.7.8 &middot; Windows</p>
+        <div class="carousel" data-carousel data-start="3" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Apple2Player pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/apple2player/01-push.png" alt="Apple2Player - Push screen (render)" data-title="Push">
+              <img class="car-slide" src="../img/photos/apple2player/02-phone-folders.png" alt="Apple2Player - Phone Folders screen (render)" data-title="Phone Folders" loading="lazy">
+              <img class="car-slide" src="../img/photos/apple2player/03-moods.png" alt="Apple2Player - Manage Moods screen (render)" data-title="Manage Moods" loading="lazy">
+              <img class="car-slide" src="../img/photos/apple2player/04-fix-tags.png" alt="Apple2Player - Fix Tags screen (render)" data-title="Fix Tags">
+              <img class="car-slide" src="../img/photos/apple2player/05-help.png" alt="Apple2Player - Help screen (render)" data-title="Help" loading="lazy">
+              <img class="car-slide" src="../img/photos/apple2player/06-settings.png" alt="Apple2Player - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Fix Tags</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot on" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Builds land here as they are made.</p>
+      </div>
+
+      <div class="card" data-repo="apple2player-mac">
+        <img class="icon" src="../img/icon-apple2player.png" alt="Apple2Player app icon">
+        <h3><button class="app-name" type="button" data-details-open="apple2player-mac" aria-haspopup="dialog">Apple2Player for Mac</button></h3>
+        <p class="desc">Move your Apple Music playlists and songs from your Mac to your Android phone.</p>
+        <ul class="caps">
+          <li>Reads your playlists straight from Apple Music and pushes the songs to your phone at full cable speed</li>
+          <li>Your Player app picks the playlists up on its own - no manual import</li>
+          <li>Apple Music star ratings are written into your MP3s as they travel, so Player shows them right away</li>
+          <li>Never sends the same song twice - a song already on the phone is skipped and noted</li>
+          <li>Purge: find double copies on the phone, and clear only the true extras - never the last copy</li>
+          <li>Fix Tags: check the songs in any folder and fix their tags, finding songs by how they sound, by their tags, or by file name</li>
+          <li>Every tag fix is backed up first, checked after writing, and logged - a star rating inside a song is never changed</li>
+          <li>Song labels: in the background, a few songs a minute, the app works out whether each song is explicit or clean and writes the answer into the moods file Player already receives</li>
+          <li>A song no source can settle is counted as not checked - never as clean - and you can set a song's label by hand</li>
+          <li>Mood ideas: guesses from a song's genre and speed, each with its reason showing, land on a song only when you say yes</li>
+          <li>The WiFi Transfer password is hidden as you type it</li>
+          <li>Also runs on Windows</li>
+        </ul>
+        <p class="why">Why have it: your Apple Music library, on your Android phone, with its playlists and star ratings intact - in minutes, not an afternoon of dragging files.</p>
+        <p class="version">Version 0.8.0 &middot; Mac</p>
+        <div class="carousel" data-carousel data-start="0" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Apple2Player pictures">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img class="car-slide" src="../img/photos/apple2player/01-push.png" alt="Apple2Player - Push screen (render)" data-title="Push">
+              <img class="car-slide" src="../img/photos/apple2player/02-phone-folders.png" alt="Apple2Player - Phone Folders screen (render)" data-title="Phone Folders" loading="lazy">
+              <img class="car-slide" src="../img/photos/apple2player/03-moods.png" alt="Apple2Player - Manage Moods screen (render)" data-title="Manage Moods" loading="lazy">
+              <img class="car-slide" src="../img/photos/apple2player/04-fix-tags.png" alt="Apple2Player - Fix Tags screen (render)" data-title="Fix Tags" loading="lazy">
+              <img class="car-slide" src="../img/photos/apple2player/05-help.png" alt="Apple2Player - Help screen (render)" data-title="Help" loading="lazy">
+              <img class="car-slide" src="../img/photos/apple2player/06-settings.png" alt="Apple2Player - Settings screen (render)" data-title="Settings" loading="lazy">
+            </div>
+          </div>
+          <div class="car-bar">
+            <button class="car-btn" type="button" data-car-prev aria-label="Previous picture">&#8249;</button>
+            <p class="car-cap">Push</p>
+            <button class="car-btn" type="button" data-car-next aria-label="Next picture">&#8250;</button>
+          </div>
+          <div class="car-dots">
+            <button class="car-dot on" type="button" data-car-dot="0" aria-label="Go to picture 1"></button>
+            <button class="car-dot" type="button" data-car-dot="1" aria-label="Go to picture 2"></button>
+            <button class="car-dot" type="button" data-car-dot="2" aria-label="Go to picture 3"></button>
+            <button class="car-dot" type="button" data-car-dot="3" aria-label="Go to picture 4"></button>
+            <button class="car-dot" type="button" data-car-dot="4" aria-label="Go to picture 5"></button>
+            <button class="car-dot" type="button" data-car-dot="5" aria-label="Go to picture 6"></button>
+          </div>
+        </div>
+        <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+        <p class="note">Builds land here as they are made.</p>
+      </div>
+
+    </div>
+    <p class="render-note">The pictures on these cards are renders drawn from each app's own design files - its real screens, tabs and words, drawn as pictures. They are not photographs of a phone. Real phone screenshots will replace these renders as they are taken.</p>
+  </section>
+
+  <section class="block" id="linux">
+    <h2 class="section-title">For Linux</h2>
+    <p class="section-sub">Linux builds are on the CashDublo list.</p>
+    <p class="home-text">No Linux builds are out yet. The CashDublo apps reach Linux one by one as their builds are made - the first Linux version arrives when its build exists.</p>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">How updates work</h2>
+    <div class="updates-box">
+      <p>App updates come from the CashDublo updates shelf - the public <a href="https://github.com/BigOdom1984/cashdublo-updates">cashdublo-updates</a> repo on GitHub.</p>
+      <p>Updates travel as small patches, not whole new apps: your app saves your settings, builds the new version on your phone, checks it, and only then installs it. If anything does not check out, the update stops safely and your app stays as it was.</p>
+    </div>
+  </section>
+
+  <section class="block" id="tech">
+    <h2 class="section-title">Tools I Build With</h2>
+    <div class="chips">
+      <span class="chip">React Native</span>
+      <span class="chip">Expo</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">Python</span>
+      <span class="chip">GitHub</span>
+    </div>
+    <p class="home-text">Phone apps in React Native and TypeScript with Expo. Desktop tools in Python. Every line of code kept on GitHub.</p>
+    <p class="home-text">And these are my own build tools - the programs and scripts I made to build the apps with:</p>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h3>GitHub HQ</h3>
+        <p>The home screen for your GitHub repos: every repo with its version, its build scripts and its newest finished build - pull, clone and build from one place.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Build Manager</h3>
+        <p>Builds every CashDublo app from one place: pick an app or build them all, watch the run live, and see what got built - from real build records, never guesses.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Rebuild-All</h3>
+        <p>Keeps every CashDublo repo safe: one small backup file holds the whole set, and the rebuild brings every repo back with only the program and the backup - no GitHub, no sign-in, no internet.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Script-Run</h3>
+        <p>Lists your build scripts in one window, each with a plain line on what it does, and runs the one you pick.</p>
+      </div>
+      <div class="tool-card">
+        <h3>App Translator</h3>
+        <p>Turns the CashDublo apps into other languages - Khmer, Lao and Thai first: one AI translates each line, a second AI checks it by translating it back, and only lines that pass are shipped.</p>
+      </div>
+      <div class="tool-card">
+        <h3>CashDublo Coder</h3>
+        <p>A coding helper that runs on your own computer: ask the AI that lives on your machine, browse your GitHub repos, and jump to the docs and forums that help you build.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Change App Icons</h3>
+        <p>Swap an app's icon on GitHub, with a backup saved first so you can undo it - then it reads the icon back to prove the change took.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Build Scripts</h3>
+        <p>The script family that builds and installs the apps: build one app or every app, send the finished apps to the phone, and keep the scripts themselves up to date from GitHub.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">Tools</h2>
+    <p class="section-sub">Small helper programs that run on your own computer.</p>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h3>Change App Icons</h3>
+        <p>Swap an app's icon on GitHub, with a backup saved first so you can undo it. The new picture must be a real PNG or JPEG at the exact same size, and after sending, the program reads the icon back and puts the original back on its own if it does not match.</p>
+      </div>
+      <div class="tool-card">
+        <h3>CashDublo Coder</h3>
+        <p>A coding helper that runs on your own computer: ask the AI (a small model on your own machine, offline after a one-time download), browse your GitHub repos and send a file to it, and jump to the docs and forums that help you build.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Script Installer</h3>
+        <p>Lists your build scripts in one window with a plain line on what each one does, and runs the one you pick - in its own windows, or in the terminal pane inside the app.</p>
+      </div>
+      <div class="tool-card">
+        <h3>GitHub HQ</h3>
+        <p>The home screen for your GitHub repos. It opens on your repos - every one of them, with its version, its build scripts and its newest finished build - and can pull, clone and build them from one place.</p>
+      </div>
+      <div class="tool-card">
+        <h3>App Translator</h3>
+        <p>Turns the CashDublo apps into other languages - Khmer, Lao and Thai first. One AI translates each line and a second AI checks it by translating it back; only lines that pass the check are ever shipped, and the rest are held for review.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Build Manager</h3>
+        <p>Builds every CashDublo app from one place: pick an app or build them all, watch the run live, and see what got built - from real build records, never guesses.</p>
+      </div>
+      <div class="tool-card">
+        <h3>Rebuild-All</h3>
+        <p>Keeps every CashDublo repo safe: one small backup file holds the whole set, and the rebuild brings every repo back with only the program and the backup - no GitHub, no sign-in, no internet.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="thanks">Thanks for downloading my app. If you have any concerns, please contact CashDublo:</p>
+  <p class="links">
+    <a href="mailto:CashDublo@gmail.com">CashDublo@gmail.com</a><br>
+    <a href="https://github.com/BigOdom1984">BigOdom1984 on GitHub</a><br>
+    <a href="https://instagram.com/cashdublo">@cashdublo on Instagram</a>
+  </p>
+  <p class="links"><a href="index.html">Home</a><span class="sep">&middot;</span><a href="privacy.html">Privacy Policy</a></p>
+  <p class="brand">CASHDUBLO</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var SITE = "BigOdom1984.github.io";
+  var cards = document.querySelectorAll(".card[data-repo][data-kind='apk']");
+  function newestDemo(slug, releases){
+    var prefix = slug + "-demo-v";
+    var best = null;
+    (releases || []).forEach(function(rel){
+      if(!rel || !rel.tag_name || rel.tag_name.indexOf(prefix) !== 0){ return; }
+      var assets = rel.assets || [];
+      var apk = null;
+      for(var i = 0; i < assets.length; i++){
+        if(/\.apk$/i.test(assets[i].name)){ apk = assets[i]; break; }
+      }
+      if(!apk){ return; }
+      var when = rel.published_at || rel.created_at || "";
+      if(!best || when > best.when){
+        best = { version: rel.tag_name.slice(prefix.length), url: apk.browser_download_url, when: when };
+      }
+    });
+    return best;
+  }
+  window.__newestDemo = newestDemo;
+  fetch("https://api.github.com/repos/BigOdom1984/" + SITE + "/releases?per_page=100", {
+    headers: { "Accept": "application/vnd.github+json" }
+  }).then(function(res){
+    if(!res.ok){ return null; }
+    return res.json();
+  }).then(function(releases){
+    if(!releases || !releases.length){ return; }
+    cards.forEach(function(card){
+      var slug = card.getAttribute("data-repo");
+      var hit = newestDemo(slug, releases);
+      if(!hit){ return; }
+      var btn = card.querySelector(".dl-btn");
+      var note = card.querySelector(".note");
+      btn.textContent = "Download free demo v" + hit.version;
+      btn.setAttribute("href", hit.url);
+      btn.classList.remove("disabled");
+      btn.removeAttribute("aria-disabled");
+      if(note){ note.style.display = "none"; }
+    });
+  }).catch(function(){
+    /* No demo found or no connection: every button stays on "Coming soon". */
+  });
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+  function setup(root){
+    var track = root.querySelector(".car-track");
+    var slides = root.querySelectorAll(".car-slide");
+    var cap = root.querySelector(".car-cap");
+    var dots = root.querySelectorAll(".car-dot");
+    if(!track || !slides.length){ return; }
+    var start = parseInt(root.getAttribute("data-start") || "0", 10) || 0;
+    var i = Math.min(Math.max(start, 0), slides.length - 1);
+    function show(n){
+      i = ((n % slides.length) + slides.length) % slides.length;
+      track.style.transform = "translateX(" + (-i * 100) + "%)";
+      if(cap){ cap.textContent = slides[i].getAttribute("data-title") || ""; }
+      dots.forEach(function(d, k){ d.classList.toggle("on", k === i); });
+    }
+    var prev = root.querySelector("[data-car-prev]");
+    var next = root.querySelector("[data-car-next]");
+    if(prev){ prev.addEventListener("click", function(){ show(i - 1); }); }
+    if(next){ next.addEventListener("click", function(){ show(i + 1); }); }
+    dots.forEach(function(d, k){ d.addEventListener("click", function(){ show(k); }); });
+    var x0 = null;
+    root.addEventListener("touchstart", function(e){ x0 = e.changedTouches[0].clientX; }, {passive:true});
+    root.addEventListener("touchend", function(e){
+      if(x0 === null){ return; }
+      var dx = e.changedTouches[0].clientX - x0;
+      if(dx <= -40){ show(i + 1); } else if(dx >= 40){ show(i - 1); }
+      x0 = null;
+    }, {passive:true});
+    root.addEventListener("keydown", function(e){
+      if(e.key === "ArrowLeft"){ show(i - 1); }
+      if(e.key === "ArrowRight"){ show(i + 1); }
+    });
+    show(i);
+  }
+  document.querySelectorAll("[data-carousel]").forEach(setup);
+})();
+</script>
+
+  <template data-details-for="voice-model">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-voice-model.png" alt="VoiceModel app icon">
+      <h3 class="modal-name" id="modal-app-name">VoiceModel</h3>
+      <p class="desc">Build your own voice. Paste a link to a video or sound you own, pick the best parts in the clip editor, and train a voice that can speak new words in your voice.</p>
+      <ul class="caps">
+
+        </ul>
+      <p class="why"></p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="marvin">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-marvin.png" alt="Marvin app icon">
+      <h3 class="modal-name" id="modal-app-name">Marvin</h3>
+      <p class="desc">Marvin is a bouncing globe with two eyes, eyelashes, a nose, a mouth,</p>
+      <ul class="caps">
+
+        </ul>
+      <p class="why"></p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="pictureglobe">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-pictureglobe.png" alt="PictureGlobe app icon">
+      <h3 class="modal-name" id="modal-app-name">PictureGlobe</h3>
+      <p class="desc">PictureGlobe reads your phone gallery (only with your</p>
+      <ul class="caps">
+
+        </ul>
+      <p class="why"></p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="mixology">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-mixology.png" alt="Mixology app icon">
+      <h3 class="modal-name" id="modal-app-name">Mixology</h3>
+      <p class="desc">Your drink book: your own mixes, an international drink list, and a finder that tells you what you can make with what you have.</p>
+      <ul class="caps">
+          <li>My Mixes: add, edit and delete your own drinks - your words are saved exactly as you type them, never rewritten</li>
+          <li>An international list of classic drinks with their standard recipes and where they come from</li>
+          <li>The Finder: tick what you have on hand and see what you can make right now - plus the drinks you are exactly one ingredient short of, with the missing one named</li>
+          <li>Search across everything, and a favorites switch for your starred drinks</li>
+          <li>Every drink page shows what goes in it, the amounts, the steps and your notes</li>
+          <li>Asks for no permissions at all - a recipe book needs none</li>
+          <li>World Drinks: browse by country - 1,140 drinks from 52 countries, and growing</li>
+          <li>Every World Drink with alcohol also carries a virgin version - made by swapping the alcohol out</li>
+          <li>World drink recipes come from Open Drinks and TheCocktailDB, plus a hand-picked national drinks list</li>
+          <li>Six themes in the Theme Manager, including its own Amber Bar</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — the whole drink library lives on your phone, and your changes are saved on this phone and pushed when the internet comes back</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+        </ul>
+      <p class="why">Why have it: your own mixes kept word for word, the classics at hand, and an answer to "what can I make tonight?" from what is already on your shelf.</p>
+      <p class="version">Version 0.2.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="hit-record">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-hit-record.png" alt="Hit Record app icon">
+      <h3 class="modal-name" id="modal-app-name">Hit Record</h3>
+      <p class="desc">An AI DJ and recording partner that remembers your whole songwriting process.</p>
+      <ul class="caps">
+          <li>Press record, freestyle a few bars, stop - every take is saved with its time and its sound</li>
+          <li>Come back days later and add more - takes are grouped into sessions, so you see how the song grew</li>
+          <li>Your words are kept exactly as you write them - slang is never corrected or rewritten</li>
+          <li>The app proposes correction or new lines for each take - you confirm with one tap, and old takes are never deleted quietly</li>
+          <li>A built-in starter beat loop plays while you record, so you write over the beat</li>
+          <li>Ask the DJ (rhyme counts, bar counts, repeated lines) - answered from your lyric sheet only, with your own key</li>
+          <li>Learn the Industry: a teaching library of 56 topics in plain words - royalties, the industry, and copyright fully written (26 lessons), read or listen with no internet</li>
+          <li>Ask the DJ's Lessons mode answers from the written lessons only - it never improvises law, rates, or advice</li>
+          <li>Role Model topics (work ethic, money, contracts, negotiation) wait behind a Settings switch as named TBA lessons until they are written</li>
+          <li>Voice synthesis - Ask the DJ can speak in a trained voice (premium feature, TBA)</li>
+          <li>Share the lyric sheet with one tap</li>
+          <li>Automatic speech-to-text is on the way (TBA)</li>
+        </ul>
+      <p class="why">Why have it: you never lose a bar. Every take, every fix, every session - kept in order until the song is done.</p>
+      <p class="version">Version 0.3.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="testra-accuracy">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-testra-accuracy.png" alt="Testra Accuracy app icon">
+      <h3 class="modal-name" id="modal-app-name">Testra Accuracy</h3>
+      <p class="desc">Pick any topic. The app writes a test on it, you answer, and it grades your accuracy.</p>
+      <ul class="caps">
+          <li>Type any topic you want to be tested on, or pick a ready-made one</li>
+          <li>Two styles: Scholar (hard questions) or Just for Fun (easier ones)</li>
+          <li>Test sizes from 5 questions up to a 500-question Marathon - big tests are written in batches and can be paused and picked up later</li>
+          <li>Four kinds of questions: multiple choice, true or false, short answer and essay</li>
+          <li>Every question is made with its own answer key, so grading never guesses</li>
+          <li>At the end: your accuracy score, a letter grade, and a review of every question</li>
+          <li>History keeps every finished test, so you can watch your accuracy climb</li>
+          <li>Questions are written with your own key, which is kept only on your phone</li>
+          <li>Play in the Room - a same-room party game - is planned for a later version (TBA)</li>
+          <li>Six color themes to pick in Settings, including Golden Check - exam-hall dark with the deep gold of the glowing checkmark</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced out loud: a test already written keeps going, and writing and grading wait honestly until the internet is back</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+        </ul>
+      <p class="why">Why have it: turn anything you are learning into a real test in minutes, and prove to yourself what you actually know.</p>
+      <p class="version">Version 0.2.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="dear-idea">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-dear-idea.png" alt="Dear Idea app icon">
+      <h3 class="modal-name" id="modal-app-name">Dear Idea</h3>
+      <p class="desc">Save every idea - notes, sketches, photos, voice memos and blueprints - in one place.</p>
+      <ul class="caps">
+          <li>Bring an idea in by pasting, camera, gallery or files - 3D prints, notes, voice memos, music and video</li>
+          <li>Sketch it, with your pen - hover to preview a line, the pen button opens a quick new idea</li>
+          <li>Turn a sketch into a blueprint</li>
+          <li>Every photo and clip kept in one media library</li>
+          <li>Open any idea and see everything it holds: words, photos, sketch, blueprint and tags</li>
+          <li>Share an idea, and back everything up</li>
+          <li>The AI helper shapes rough words into a title, a plan and steps (bring your own AI key)</li>
+          <li>Six themes to pick from, including Bright Idea - Dear Idea's own</li>
+          <li>Fourteen languages, chosen on the first run and changeable in Settings</li>
+          <li>Works offline: changes save on this phone and sync when the internet comes back</li>
+          <li>Lock it your way: fingerprint, a two-factor code, or an app password</li>
+        </ul>
+      <p class="why">Why have it: an idea lands once and stays whole - words, pictures, sketch and sound together, not scattered across five apps.</p>
+      <p class="version">Version 0.2.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="go">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-go.png" alt="GO app icon">
+      <h3 class="modal-name" id="modal-app-name">GO</h3>
+      <p class="desc">Your travels drawn as a gold trail on a world map.</p>
+      <ul class="caps">
+          <li>Builds a trail (a snake) of where you have been, from your own real GPS points - never faked, never made up</li>
+          <li>While the app is open it can record your trail and draw it on a world map</li>
+          <li>Other trails draw beside yours (samples today; real friends when accounts open)</li>
+          <li>Shows where trails cross, and where they almost crossed</li>
+          <li>Asks only for your location while the app is in use, and says exactly that on its permissions screen</li>
+          <li>Six color themes to pick in Settings, including Gold Trail - a near-black ground with bright trail gold</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: recording, the map and your crossings keep working, and anything that needs the internet waits honestly</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+          <li>Bring in your saved places from Google Maps files: they draw as markers on the map, and they never count as places you have been</li>
+        </ul>
+      <p class="why">Why have it: see everywhere you have been as one growing trail across the world.</p>
+      <p class="version">Version 0.2.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="travel-journal">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-travel-journal.png" alt="Travel Journal app icon">
+      <h3 class="modal-name" id="modal-app-name">Travel Journal</h3>
+      <p class="desc">Turn your trip photos into a travel story, with voice notes and a globe.</p>
+      <ul class="caps">
+          <li>Pick the photos and videos from a trip and build them into a story</li>
+          <li>The app suggests the place from where the photos were taken</li>
+          <li>Check each piece with a swipe before it joins the story</li>
+          <li>Tell the story in your own voice with a long press</li>
+          <li>A globe shows your stories around the world</li>
+          <li>Compress photos smaller and lock an archive with a password, if you turn those switches on</li>
+          <li>Six themes in the Theme Manager, including its own Atlas Green</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — a place name that still needs the internet waits, and the story keeps its spot on the map</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+          <li>Bring in your saved places from Google Maps, only if you agree and turn the switch on — the places stay on this phone</li>
+        </ul>
+      <p class="why">Why have it: a trip becomes a story you can keep and share, not a camera roll you never open again.</p>
+      <p class="version">Version 0.3.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="say">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-say.png" alt="SAY app icon">
+      <h3 class="modal-name" id="modal-app-name">SAY</h3>
+      <p class="desc">Learn English with phrase lessons, speaking practice and word cards.</p>
+      <ul class="caps">
+          <li>Phrase lessons grouped by real-life situations</li>
+          <li>Listen-and-repeat speaking practice with voice recording</li>
+          <li>Word flashcards and a quiz</li>
+          <li>An AI practice chat with your own key</li>
+          <li>Your progress, streaks and settings are saved on your phone</li>
+          <li>Asks only for the microphone, and only for the speaking practice</li>
+          <li>Six color themes to pick in Settings, including Speech Green - a deep green-black ground</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: lessons, word cards and your saved progress keep working, and the AI practice chat waits honestly until the internet is back</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+        </ul>
+      <p class="why">Why have it: practice real English out loud, a little every day, and watch your streak grow.</p>
+      <p class="version">Version 0.2.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="ttswidget">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-ttswidget.png" alt="TTS Widget app icon">
+      <h3 class="modal-name" id="modal-app-name">TTS Widget</h3>
+      <p class="desc">Type or paste text and your phone reads it out loud.</p>
+      <ul class="caps">
+          <li>A 1x1 widget for your home screen - one tap and the app opens</li>
+          <li>Paste from the clipboard or type your own text</li>
+          <li>Speak, stop and clear buttons</li>
+          <li>Speed slider (half speed to double speed) and a pitch slider</li>
+          <li>Save texts you use again and again - play them back or load them with a tap</li>
+          <li>If the text language and the speech language differ, the text is translated first, shown to you, then read aloud</li>
+          <li>Uses the voice built into your phone - fast, works offline, no key needed</li>
+          <li>Six themes in the Theme Manager, including its own Broadcast Gold</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — speech and your saved texts keep working; translation waits for the internet and your saved work is not lost</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+        </ul>
+      <p class="why">Why have it: hear any text read out loud in two taps, with no account and no internet.</p>
+      <p class="version">Version 0.3.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="player">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-player.png" alt="Player app icon">
+      <h3 class="modal-name" id="modal-app-name">Player</h3>
+      <p class="desc">A music player for your own songs, with star ratings, moods, smart playlists and an AI Music DJ.</p>
+      <ul class="caps">
+          <li>Plays your own music files, and keeps playing in the background</li>
+          <li>Browse by folders, songs, albums and playlists</li>
+          <li>Star ratings saved right into your MP3 files, so they travel with the song</li>
+          <li>Moods for your songs, and an AI Music DJ that builds a mix from them</li>
+          <li>Fix song tags on the phone, with a backup saved before any change</li>
+          <li>Six themes in the Theme Manager, including its own Vinyl Gold, plus King and Queen</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Song Theme: the screen dresses itself in the playing song's own colors once the song has played for a moment</li>
+          <li>Smart playlists that build themselves: Most Played, Recently Played and Recently Added, from your own play record</li>
+          <li>Party Mode: pick a mood for the room and it builds the queue - with a Children's mode that holds back marked songs</li>
+          <li>Top 100: your own library ranked by your plays and star ratings, with a boost for songs on the current Apple Music Top 100</li>
+          <li>Works hand in hand with Apple2Player to receive your music - and you dial how long the sharing window stays open, from 1 minute to 12 hours</li>
+          <li>Offline, your library and playback keep working and Apple2Player sync on your own Wi-Fi is never blocked; the chart uses its last saved copy with its date, and tag lookups wait for the internet</li>
+        </ul>
+      <p class="why">Why have it: your music, your ratings, your moods - a player built for a big home library, not for selling you a subscription.</p>
+      <p class="version">Version 0.4.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="ai-cash-portfolio">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-ai-cash-portfolio.png" alt="AI Cash Portfolio app icon">
+      <h3 class="modal-name" id="modal-app-name">AI Cash Portfolio</h3>
+      <p class="desc">Your portfolio with an AI helper that explains your stocks in plain words.</p>
+      <ul class="caps">
+          <li>Five tabs: Portfolio, News, Premium News, Store and AI Chat</li>
+          <li>Ask the AI chat about your own stocks, in plain words</li>
+          <li>Six themes in the Theme Manager, including its own Golden Network</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+        </ul>
+      <p class="why">Why have it: everything Cash Portfolio does, plus a helper that explains what is going on with your stocks when you ask.</p>
+      <p class="version">Version 0.4.1 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="cash-portfolio">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-cash-portfolio.png" alt="Cash Portfolio app icon">
+      <h3 class="modal-name" id="modal-app-name">Cash Portfolio</h3>
+      <p class="desc">Watch your stock portfolio, live prices and price alerts.</p>
+      <ul class="caps">
+          <li>Live stock prices with your own free Finnhub key, with backup price sources if one is down</li>
+          <li>Price alerts you set yourself, so the app tells you when a stock hits your price</li>
+          <li>Load your own stock list from a CSV file, and save it back out</li>
+          <li>Money Mood: the app colors itself with how your money is doing</li>
+          <li>Six themes in the Theme Manager, including its own Trading Gold</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Offline, it shows your last real prices with the time they were fetched - a stale price is never shown as live, and the AI chat waits until you are back online</li>
+          <li>A built-in help section with answers to common questions</li>
+        </ul>
+      <p class="why">Why have it: your whole portfolio in one calm place, with live prices and your own alerts - and your list stays on your phone.</p>
+      <p class="version">Version 0.4.1 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="dear-idea-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-dear-idea.png" alt="Dear Idea app icon">
+      <h3 class="modal-name" id="modal-app-name">Dear Idea</h3>
+      <p class="desc">Save every idea - notes, sketches, photos, voice memos and blueprints - in one place.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>Bring an idea in by pasting, camera, gallery or files - 3D prints, notes, voice memos, music and video</li>
+          <li>Sketch it, with your pen - hover to preview a line, the pen button opens a quick new idea</li>
+          <li>Turn a sketch into a blueprint</li>
+          <li>Every photo and clip kept in one media library</li>
+          <li>Open any idea and see everything it holds: words, photos, sketch, blueprint and tags</li>
+          <li>Share an idea, and back everything up</li>
+          <li>The AI helper shapes rough words into a title, a plan and steps (bring your own AI key)</li>
+          <li>Six themes to pick from, including Bright Idea - Dear Idea's own</li>
+          <li>Fourteen languages, chosen on the first run and changeable in Settings</li>
+          <li>Works offline: changes save on this phone and sync when the internet comes back</li>
+          <li>Lock it your way: fingerprint, a two-factor code, or an app password</li>
+        </ul>
+      <p class="why">Why have it: an idea lands once and stays whole - words, pictures, sketch and sound together, not scattered across five apps.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="go-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-go.png" alt="GO app icon">
+      <h3 class="modal-name" id="modal-app-name">GO</h3>
+      <p class="desc">Your travels drawn as a gold trail on a world map.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>Builds a trail (a snake) of where you have been, from your own real GPS points - never faked, never made up</li>
+          <li>While the app is open it can record your trail and draw it on a world map</li>
+          <li>Other trails draw beside yours (samples today; real friends when accounts open)</li>
+          <li>Shows where trails cross, and where they almost crossed</li>
+          <li>Asks only for your location while the app is in use, and says exactly that on its permissions screen</li>
+          <li>Six color themes to pick in Settings, including Gold Trail - a near-black ground with bright trail gold</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: recording, the map and your crossings keep working, and anything that needs the internet waits honestly</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+          <li>Bring in your saved places from Google Maps files: they draw as markers on the map, and they never count as places you have been</li>
+        </ul>
+      <p class="why">Why have it: see everywhere you have been as one growing trail across the world.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="travel-journal-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-travel-journal.png" alt="Travel Journal app icon">
+      <h3 class="modal-name" id="modal-app-name">Travel Journal</h3>
+      <p class="desc">Turn your trip photos into a travel story, with voice notes and a globe.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>Pick the photos and videos from a trip and build them into a story</li>
+          <li>The app suggests the place from where the photos were taken</li>
+          <li>Check each piece with a swipe before it joins the story</li>
+          <li>Tell the story in your own voice with a long press</li>
+          <li>A globe shows your stories around the world</li>
+          <li>Compress photos smaller and lock an archive with a password, if you turn those switches on</li>
+          <li>Six themes in the Theme Manager, including its own Atlas Green</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — a place name that still needs the internet waits, and the story keeps its spot on the map</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+          <li>Bring in your saved places from Google Maps, only if you agree and turn the switch on — the places stay on this phone</li>
+        </ul>
+      <p class="why">Why have it: a trip becomes a story you can keep and share, not a camera roll you never open again.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="say-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-say.png" alt="SAY app icon">
+      <h3 class="modal-name" id="modal-app-name">SAY</h3>
+      <p class="desc">Learn English with phrase lessons, speaking practice and word cards.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>Phrase lessons grouped by real-life situations</li>
+          <li>Listen-and-repeat speaking practice with voice recording</li>
+          <li>Word flashcards and a quiz</li>
+          <li>An AI practice chat with your own key</li>
+          <li>Your progress, streaks and settings are saved on your phone</li>
+          <li>Asks only for the microphone, and only for the speaking practice</li>
+          <li>Six color themes to pick in Settings, including Speech Green - a deep green-black ground</li>
+          <li>The app's words come in 14 languages, chosen on the first run and changeable in Settings</li>
+          <li>Offline mode is announced on screen: lessons, word cards and your saved progress keep working, and the AI practice chat waits honestly until the internet is back</li>
+          <li>App lock in Settings: fingerprint, two-factor code, or an app password - your choice, any mix</li>
+        </ul>
+      <p class="why">Why have it: practice real English out loud, a little every day, and watch your streak grow.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="ttswidget-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-ttswidget.png" alt="TTS Widget app icon">
+      <h3 class="modal-name" id="modal-app-name">TTS Widget</h3>
+      <p class="desc">Type or paste text and your phone reads it out loud.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>A 1x1 widget for your home screen - one tap and the app opens</li>
+          <li>Paste from the clipboard or type your own text</li>
+          <li>Speak, stop and clear buttons</li>
+          <li>Speed slider (half speed to double speed) and a pitch slider</li>
+          <li>Save texts you use again and again - play them back or load them with a tap</li>
+          <li>If the text language and the speech language differ, the text is translated first, shown to you, then read aloud</li>
+          <li>Uses the voice built into your phone - fast, works offline, no key needed</li>
+          <li>Six themes in the Theme Manager, including its own Broadcast Gold</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Works offline — speech and your saved texts keep working; translation waits for the internet and your saved work is not lost</li>
+          <li>A developer panel in Settings, opened by tapping the install code</li>
+        </ul>
+      <p class="why">Why have it: hear any text read out loud in two taps, with no account and no internet.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="ai-cash-portfolio-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-ai-cash-portfolio.png" alt="AI Cash Portfolio app icon">
+      <h3 class="modal-name" id="modal-app-name">AI Cash Portfolio</h3>
+      <p class="desc">Your portfolio with an AI helper that explains your stocks in plain words.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>Five tabs: Portfolio, News, Premium News, Store and AI Chat</li>
+          <li>Ask the AI chat about your own stocks, in plain words</li>
+          <li>Six themes in the Theme Manager, including its own Golden Network</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+        </ul>
+      <p class="why">Why have it: everything Cash Portfolio does, plus a helper that explains what is going on with your stocks when you ask.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="cash-portfolio-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-cash-portfolio.png" alt="Cash Portfolio app icon">
+      <h3 class="modal-name" id="modal-app-name">Cash Portfolio</h3>
+      <p class="desc">Watch your stock portfolio, live prices and price alerts.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>Live stock prices with your own free Finnhub key, with backup price sources if one is down</li>
+          <li>Price alerts you set yourself, so the app tells you when a stock hits your price</li>
+          <li>Load your own stock list from a CSV file, and save it back out</li>
+          <li>Money Mood: the app colors itself with how your money is doing</li>
+          <li>Six themes in the Theme Manager, including its own Trading Gold</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Offline, it shows your last real prices with the time they were fetched - a stale price is never shown as live, and the AI chat waits until you are back online</li>
+          <li>A built-in help section with answers to common questions</li>
+        </ul>
+      <p class="why">Why have it: your whole portfolio in one calm place, with live prices and your own alerts - and your list stays on your phone.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="player-ios">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-player.png" alt="Player app icon">
+      <h3 class="modal-name" id="modal-app-name">Player</h3>
+      <p class="desc">A music player for your own songs, with star ratings, moods, smart playlists and an AI Music DJ.</p>
+      <p class="ios-note">This is the iPhone version of the same app.</p>
+      <ul class="caps">
+          <li>Plays your own music files, and keeps playing in the background</li>
+          <li>Browse by folders, songs, albums and playlists</li>
+          <li>Star ratings saved right into your MP3 files, so they travel with the song</li>
+          <li>Moods for your songs, and an AI Music DJ that builds a mix from them</li>
+          <li>Fix song tags on the phone, with a backup saved before any change</li>
+          <li>Six themes in the Theme Manager, including its own Vinyl Gold, plus King and Queen</li>
+          <li>Speaks 14 languages, picked in Settings</li>
+          <li>Song Theme: the screen dresses itself in the playing song's own colors once the song has played for a moment</li>
+          <li>Smart playlists that build themselves: Most Played, Recently Played and Recently Added, from your own play record</li>
+          <li>Party Mode: pick a mood for the room and it builds the queue - with a Children's mode that holds back marked songs</li>
+          <li>Top 100: your own library ranked by your plays and star ratings, with a boost for songs on the current Apple Music Top 100</li>
+          <li>Works hand in hand with Apple2Player to receive your music - and you dial how long the sharing window stays open, from 1 minute to 12 hours</li>
+          <li>Offline, your library and playback keep working and Apple2Player sync on your own Wi-Fi is never blocked; the chart uses its last saved copy with its date, and tag lookups wait for the internet</li>
+        </ul>
+      <p class="why">Why have it: your music, your ratings, your moods - a player built for a big home library, not for selling you a subscription.</p>
+      <p class="version">iPhone &middot; TBA</p>
+      <p class="note">The iPhone version comes after the Android app reaches its finished version.</p>
+    </div>
+  </template>
+
+  <template data-details-for="apple2player-win">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-apple2player.png" alt="Apple2Player app icon">
+      <h3 class="modal-name" id="modal-app-name">Apple2Player for Windows</h3>
+      <p class="desc">Move your Apple Music playlists and songs from your Windows computer to your Android phone.</p>
+      <ul class="caps">
+          <li>Reads your playlists straight from Apple Music and pushes the songs to your phone at full cable speed</li>
+          <li>Your Player app picks the playlists up on its own - no manual import</li>
+          <li>Apple Music star ratings are written into your MP3s as they travel, so Player shows them right away</li>
+          <li>Never sends the same song twice - a song already on the phone is skipped and noted</li>
+          <li>Purge: find double copies on the phone, and clear only the true extras - never the last copy</li>
+          <li>Fix Tags: check the songs in any folder and fix their tags, finding songs by how they sound, by their tags, or by file name</li>
+          <li>Every tag fix is backed up first, checked after writing, and logged - a star rating inside a song is never changed</li>
+          <li>Also runs on Mac</li>
+        </ul>
+      <p class="why">Why have it: your Apple Music library, on your Android phone, with its playlists and star ratings intact - in minutes, not an afternoon of dragging files.</p>
+      <p class="version">Version 0.7.8 &middot; Windows</p>
+    </div>
+  </template>
+
+  <template data-details-for="apple2player-mac">
+    <div class="modal-app">
+      <img class="icon" src="../img/icon-apple2player.png" alt="Apple2Player app icon">
+      <h3 class="modal-name" id="modal-app-name">Apple2Player for Mac</h3>
+      <p class="desc">Move your Apple Music playlists and songs from your Mac to your Android phone.</p>
+      <ul class="caps">
+          <li>Reads your playlists straight from Apple Music and pushes the songs to your phone at full cable speed</li>
+          <li>Your Player app picks the playlists up on its own - no manual import</li>
+          <li>Apple Music star ratings are written into your MP3s as they travel, so Player shows them right away</li>
+          <li>Never sends the same song twice - a song already on the phone is skipped and noted</li>
+          <li>Purge: find double copies on the phone, and clear only the true extras - never the last copy</li>
+          <li>Fix Tags: check the songs in any folder and fix their tags, finding songs by how they sound, by their tags, or by file name</li>
+          <li>Every tag fix is backed up first, checked after writing, and logged - a star rating inside a song is never changed</li>
+          <li>Song labels: in the background, a few songs a minute, the app works out whether each song is explicit or clean and writes the answer into the moods file Player already receives</li>
+          <li>A song no source can settle is counted as not checked - never as clean - and you can set a song's label by hand</li>
+          <li>Mood ideas: guesses from a song's genre and speed, each with its reason showing, land on a song only when you say yes</li>
+          <li>The WiFi Transfer password is hidden as you type it</li>
+          <li>Also runs on Windows</li>
+        </ul>
+      <p class="why">Why have it: your Apple Music library, on your Android phone, with its playlists and star ratings intact - in minutes, not an afternoon of dragging files.</p>
+      <p class="version">Version 0.8.0 &middot; Mac</p>
+    </div>
+  </template>
+
+  <div class="modal-overlay" id="app-details-modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-app-name">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close details">&times;</button>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+<script>
+(function(){
+  "use strict";
+  var overlay = document.getElementById("app-details-modal");
+  if(!overlay){ return; }
+  var body = overlay.querySelector(".modal-body");
+  var closeBtn = overlay.querySelector("[data-modal-close]");
+  var lastTrigger = null;
+  function openDetails(key, trigger){
+    var tpl = document.querySelector('template[data-details-for="' + key + '"]');
+    if(!tpl){ return; }
+    body.innerHTML = "";
+    body.appendChild(document.importNode(tpl.content, true));
+    lastTrigger = trigger || null;
+    overlay.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  }
+  function closeDetails(){
+    if(overlay.hidden){ return; }
+    overlay.hidden = true;
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    if(lastTrigger){ lastTrigger.focus(); lastTrigger = null; }
+  }
+  document.addEventListener("click", function(e){
+    var opener = e.target.closest ? e.target.closest("[data-details-open]") : null;
+    if(opener){ openDetails(opener.getAttribute("data-details-open"), opener); return; }
+    if(e.target.closest && e.target.closest("[data-modal-close]")){ closeDetails(); return; }
+    if(e.target === overlay){ closeDetails(); }
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){ closeDetails(); }
+  });
+})();
+</script>
+
+</body>
+</html>
