@@ -603,8 +603,8 @@
   <section class="block" id="stats">
     <h2 class="section-title">By the Numbers</h2>
     <div class="stats">
-      <div class="stat"><span class="num">45</span><span class="lbl">code repositories on GitHub</span></div>
-      <div class="stat"><span class="num">24</span><span class="lbl">apps on this site</span></div>
+      <div class="stat"><span class="num">56</span><span class="lbl">code repositories on GitHub</span></div>
+      <div class="stat"><span class="num">26</span><span class="lbl">apps on this site</span></div>
       <div class="stat"><span class="num">5</span><span class="lbl">platforms - Android, Mac, Windows, iPhone on the way, and Linux coming</span></div>
       <div class="stat"><span class="num">1</span><span class="lbl">person designing and building all of it</span></div>
     </div>
@@ -625,9 +625,31 @@
     <p class="section-sub">Android apps, made to do one job well and keep your things on your own phone.</p>
     <div class="grid">
 
-    <div class="card" data-repo="voice-model" data-kind="apk">
-      <img class="icon" src="img/icon-voice-model.png" alt="VoiceModel app icon">
-      <h2><button class="app-name" type="button" data-details-open="voice-model" aria-haspopup="dialog">VoiceModel</button></h2>
+    <div class="card" data-repo="ig-watch" data-kind="apk">
+      <img class="icon" src="img/icon-ig-watch.png" alt="IG Watch app icon">
+      <h2><button class="app-name" type="button" data-details-open="ig-watch" aria-haspopup="dialog">IG Watch</button></h2>
+      <p class="desc">See who does not follow you back on Instagram, and who stopped following you — using your own Instagram data export. Everything stays on your phone.</p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+
+      <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+      <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
+    </div>
+
+    <div class="card" data-repo="galaxy-repeat" data-kind="apk">
+      <img class="icon" src="img/icon-galaxy-repeat.png" alt="Galaxy Repeat app icon">
+      <h2><button class="app-name" type="button" data-details-open="galaxy-repeat" aria-haspopup="dialog">Galaxy Repeat</button></h2>
+      <p class="desc">Samsung-first Android video playback and looping utility by CashDublo.</p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+
+      <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
+      <p class="store-links"><a href="https://play.google.com/store/search?q=CashDublo&amp;c=apps" target="_blank" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/search?term=CashDublo" target="_blank" rel="noopener">Apple Store</a></p>
+      <p class="note">Free demo - try it now. The full app arrives at release.</p>
+    </div>
+
+    <div class="card" data-repo="your-voice-model" data-kind="apk">
+      <img class="icon" src="img/icon-your-voice-model.png" alt="VoiceModel app icon">
+      <h2><button class="app-name" type="button" data-details-open="your-voice-model" aria-haspopup="dialog">VoiceModel</button></h2>
       <p class="desc">Build your own voice. Paste a link to a video or sound you own, pick the best parts in the clip editor, and train a voice that can speak new words in your voice.</p>
       <p class="version">Version 0.1.0 &middot; Android</p>
 
@@ -650,7 +672,7 @@
     <div class="card" data-repo="pictureglobe" data-kind="apk">
       <img class="icon" src="img/icon-pictureglobe.png" alt="PictureGlobe app icon">
       <h2><button class="app-name" type="button" data-details-open="pictureglobe" aria-haspopup="dialog">PictureGlobe</button></h2>
-      <p class="desc">PictureGlobe reads your phone gallery (only with your</p>
+      <p class="desc">PictureGlobe reads your phone gallery (only with your permission) and puts every photo that carries a place onto a spinning globe as a pin.</p>
       <p class="version">Version 0.1.0 &middot; Android</p>
 
       <a class="dl-btn disabled" href="#" aria-disabled="true">Coming soon</a>
@@ -1326,9 +1348,35 @@
 })();
 </script>
 
-  <template data-details-for="voice-model">
+  <template data-details-for="ig-watch">
     <div class="modal-app">
-      <img class="icon" src="img/icon-voice-model.png" alt="VoiceModel app icon">
+      <img class="icon" src="img/icon-ig-watch.png" alt="IG Watch app icon">
+      <h3 class="modal-name" id="modal-app-name">IG Watch</h3>
+      <p class="desc">See who does not follow you back on Instagram, and who stopped following you — using your own Instagram data export. Everything stays on your phone.</p>
+      <ul class="caps">
+
+        </ul>
+      <p class="why"></p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="galaxy-repeat">
+    <div class="modal-app">
+      <img class="icon" src="img/icon-galaxy-repeat.png" alt="Galaxy Repeat app icon">
+      <h3 class="modal-name" id="modal-app-name">Galaxy Repeat</h3>
+      <p class="desc">Samsung-first Android video playback and looping utility by CashDublo.</p>
+      <ul class="caps">
+
+        </ul>
+      <p class="why"></p>
+      <p class="version">Version 0.1.0 &middot; Android</p>
+    </div>
+  </template>
+
+  <template data-details-for="your-voice-model">
+    <div class="modal-app">
+      <img class="icon" src="img/icon-your-voice-model.png" alt="VoiceModel app icon">
       <h3 class="modal-name" id="modal-app-name">VoiceModel</h3>
       <p class="desc">Build your own voice. Paste a link to a video or sound you own, pick the best parts in the clip editor, and train a voice that can speak new words in your voice.</p>
       <ul class="caps">
@@ -1356,7 +1404,7 @@
     <div class="modal-app">
       <img class="icon" src="img/icon-pictureglobe.png" alt="PictureGlobe app icon">
       <h3 class="modal-name" id="modal-app-name">PictureGlobe</h3>
-      <p class="desc">PictureGlobe reads your phone gallery (only with your</p>
+      <p class="desc">PictureGlobe reads your phone gallery (only with your permission) and puts every photo that carries a place onto a spinning globe as a pin.</p>
       <ul class="caps">
 
         </ul>
