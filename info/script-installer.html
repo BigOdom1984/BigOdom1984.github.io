@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Script-Run — Full information — CashDublo</title>
+<style>
+:root{--ink:#172d2b;--muted:#596d68;--paper:#f5f0e6;--white:#fffdf8;--lime:#c9ed72;--line:#d8d4c9;--deep:#193d39}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+.wrap{max-width:760px;margin:auto;padding:48px 24px 64px}
+.back{font-weight:850;text-decoration:none;color:#bd5946}
+.head{display:flex;gap:20px;align-items:center;margin:26px 0 8px;flex-wrap:wrap}
+.head img{width:96px;height:96px;border-radius:22px;object-fit:cover}
+h1{font-size:2rem;margin:0;letter-spacing:-.03em}
+.status{font-size:.68rem;font-weight:900;letter-spacing:.1em;border:1px solid var(--line);border-radius:99px;padding:5px 9px;color:#7c5d36;display:inline-block;margin-top:8px}
+.lede{font-size:1.08rem}
+h2{font-size:1.05rem;text-transform:uppercase;letter-spacing:.12em;color:#7c5d36;margin:30px 0 8px}
+ul{margin:0;padding-left:20px}li{margin:5px 0}
+.why{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.ver{color:var(--muted)}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.links a{font-weight:850;text-decoration:none;color:#bd5946}
+.repo{background:var(--deep);color:#fff !important;padding:11px 18px;border-radius:999px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../apps.html#script-installer">&larr; All apps</a>
+<div class="head"><img src="../img/icon-script-run.png" alt="Script-Run icon"><div><h1>Script-Run</h1><span class="status">SOURCE: MAC 0.2.0</span></div></div>
+<p class="lede">A small Mac app that lists every build script in its folder, each with a plain line on what it does. You pick one, and the app runs it and shows the run in its own terminal pane.</p>
+<h2>What it does</h2>
+<ul><li>Each script listed once: a script and its GUI twin are one line in the list, marked GUI — and the frozen backup copy gets its own line, marked FROZEN, shown so it is accounted for and never run</li><li>The full "what it does" line for the script you pick is shown under the list, read from the comment at the top of the script file itself — a script with no line of its own shows its file name instead; nothing is made up</li><li>Run with the button, a double-click, or Enter; when a script asks a question mid-run, type the answer in the row under the pane</li><li>If the script has a GUI version, the app asks first: its own windows, or the plain script in the pane inside the app</li><li>The Terminal guide button explains, in plain words, how running a script inside the app works</li><li>Update scripts pulls the scripts folder fresh from GitHub inside the app — your changed files are saved into an old-saves folder first, so nothing is lost — and stale GUI apps are built fresh after</li><li>Build GUI apps makes the folder's little window apps and keeps a copy in your Applications folder</li></ul>
+<h2>Why have it</h2>
+<p class="why">no more hunting through the scripts folder in Finder — every script, what it does, and its run, all in one window.</p>
+<p class="ver">Version 0.2.0 &middot; Mac</p>
+<div class="links"><a class="repo" href="https://github.com/BigOdom1984/script-installer">Project repository &#8599;</a></div>
+</div>
+</body>
+</html>
