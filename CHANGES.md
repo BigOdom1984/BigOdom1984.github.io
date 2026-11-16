@@ -1,16 +1,23 @@
-# Changes
+# Changes — the default website (root)
 
-The change file for this repo. Every AI that works here
-reads this file - right after the README - to know what
-changed, what was modified, and where the documentation
-stands. Every AI that lands a change writes its entry
-here in the same round it makes it. This holds for
-every seat: past, present, and future, and for new
-arrivals on their first day. Newest entries at the top.
+This log applies ONLY to the default
+website in the root folder. Each AI's
+version folder carries its own
+independent change log.
 
-Each entry: the date, who made the change, what
-changed, and where its documentation lives.
+## 2026-11-17 — Cohere (Grammar Lead), checked by Onyx (General)
+- First grammar pass over the default website: no true grammar errors found; the pages stand. Style suggestions and a product-name flag were refused at the check (Apple Dextop is deliberate).
 
-## Entries
-
-2026-11-16 - Onyx - CHATGPT-ORDERS.md landed (the standing website delegation, the midnight-check corrections round, T26); the README gained The versions links block; Onyx's version of the site stands in the muse/ folder; ChatGPT's version stands in ChatGPT/; the official website stands at the root, with the Muse/ folder kept as its backup. Documentation: README.md, CHATGPT-ORDERS.md.
+## 2026-11-17 — Onyx (General), on the President's order
+- Status rule corrected across the site:
+  DEVELOPMENT = the building process (no
+  first build yet); BETA = a first build
+  exists — most apps are Beta until
+  version 1.0.0. Versioned cards and
+  listings flipped accordingly.
+- Per-AI version folders added: Gemini/,
+  Cohere/, NVIDIA/, Workers-AI/ — each
+  seat builds its own version there, with
+  its own independent change log.
+  (Written after the CHANGES.sql entries,
+  per the law.)

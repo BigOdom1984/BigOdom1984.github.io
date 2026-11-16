@@ -133,23 +133,23 @@ WEBFACE = {
 # versions and stages are from their own records of 2026-11-15.
 EXTRA_APPS = [
  dict(slug="galaxy-repeat", name="Galaxy Repeat",
-      version="0.3.0", chip="DEVELOPMENT", chipclass="st-yellow",
+      version="0.3.0", chip="BETA", chipclass="st-yellow",
       plats="IOS \u00b7 ANDROID",
       repo="https://github.com/BigOdom1984/galaxy-repeat"),
  dict(slug="best-mac-file-manager", name="Best Mac File Manager",
-      version="0.1.1", chip="DEVELOPMENT", chipclass="st-yellow",
+      version="0.1.1", chip="BETA", chipclass="st-yellow",
       plats="MAC",
       repo="https://github.com/BigOdom1984/best-mac-file-manager"),
  dict(slug="patent-it", name="Patent It!",
-      version="0.1.0", chip="DEVELOPMENT", chipclass="st-yellow",
+      version="0.1.0", chip="BETA", chipclass="st-yellow",
       plats="IOS \u00b7 ANDROID",
       repo="https://github.com/BigOdom1984/patent-it"),
  dict(slug="crash-catcher", name="Crash Catcher",
-      version="0.1.0", chip="DEVELOPMENT", chipclass="st-yellow",
+      version="0.1.0", chip="BETA", chipclass="st-yellow",
       plats="ANDROID",
       repo="https://github.com/BigOdom1984/crash-catcher"),
  dict(slug="podedpro", name="PodEdPro",
-      version="0.1.0", chip="DEVELOPMENT", chipclass="st-yellow",
+      version="0.1.0", chip="BETA", chipclass="st-yellow",
       plats="WIN \u00b7 ANDROID",
       repo="https://github.com/BigOdom1984/podedpro"),
 ]
@@ -569,7 +569,7 @@ FRONT_ENDS = [
       repos=[("Project repository",
               "https://github.com/BigOdom1984/BigOdom1984.github.io")]),
  dict(slug="online-course", name="CashDublo Online Course",
-      chip="DEVELOPMENT", chipclass="st-yellow",
+      chip="BETA", chipclass="st-yellow",
       statusline="Not live yet",
       blurb="The course's website: a student opens it, signs in, "
             "and works through the CashDublo course — the web face "
@@ -619,7 +619,7 @@ FRONT_ENDS = [
       repos=[("Project repository",
               "https://github.com/BigOdom1984/cashdublo-server")]),
  dict(slug="travel-journal-web", name="Travel Journal Web",
-      chip="DEVELOPMENT", chipclass="st-yellow",
+      chip="BETA", chipclass="st-yellow",
       statusline="Built — dormant",
       blurb="Travel Journal's web face — the phone app's "
             "features in a browser, with your own account: build "
@@ -643,7 +643,7 @@ FRONT_ENDS = [
       repos=[("Project repository",
               "https://github.com/BigOdom1984/travel-journal-web")]),
  dict(slug="marvin-web", name="Marvin's Website",
-      chip="DEVELOPMENT", chipclass="st-yellow",
+      chip="BETA", chipclass="st-yellow",
       statusline="Built",
       blurb="Marvin's front door on the web: meet the bouncing "
             "globe, see all 40 of his expressions, read how he "
