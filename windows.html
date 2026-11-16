@@ -37,4 +37,31 @@ var sent=byId("cd-sent");if(sent){sent.hidden=false;}
 });}
 })();
 </script>
+
+<div class="cd-overlay" id="cd-age" hidden><div class="cd-card" role="dialog" aria-modal="true" aria-label="Age check"><h2>One quick check.</h2><p>Some CashDublo apps and games are made for adults, and some are made for kids. To show you the right shelf, are you 18 or older?</p><label style="font-weight:400"><input type="checkbox" id="cd-age-remember" checked> Remember my answer for 7 days</label><div class="cd-row"><button class="cd-btn" type="button" id="cd-age-yes">Yes, I am 18 or older</button><button class="cd-btn alt" type="button" id="cd-age-no">Not yet</button></div><p class="cd-note" style="margin-top:12px"><a href="#" id="cd-age-skip">Skip for now</a> — skipping shows the family-safe shelf and asks again next visit.</p><p class="cd-note" id="cd-age-note" hidden></p></div></div>
+<script>
+(function(){
+"use strict";
+var KEY="cdAgeGate", WEEK=7*24*60*60*1000, saved=null;
+try{ saved=JSON.parse(localStorage.getItem(KEY)||"null"); }catch(e){}
+var fresh = saved && (Date.now()-saved.ts) < WEEK;
+if(fresh){ return; }
+var ov=document.getElementById("cd-age"); if(!ov){ return; }
+ov.hidden=false;
+function close(){ ov.hidden=true; }
+function save(answer){
+  var rem=document.getElementById("cd-age-remember").checked;
+  if(rem){ try{ localStorage.setItem(KEY, JSON.stringify({answer:answer, ts:Date.now()})); }catch(e){} }
+  close();
+}
+document.getElementById("cd-age-yes").addEventListener("click", function(){ save("adult"); });
+document.getElementById("cd-age-no").addEventListener("click", function(){
+  var n=document.getElementById("cd-age-note");
+  n.hidden=false;
+  n.textContent="All good — this site and the store will show you the family-safe shelf: the apps and games made for everyone. Come back any time.";
+  save("minor");
+});
+document.getElementById("cd-age-skip").addEventListener("click", function(ev){ ev.preventDefault(); close(); });
+})();
+</script>
 </body></html>

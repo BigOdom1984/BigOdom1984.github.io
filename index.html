@@ -13,7 +13,7 @@
 <main>
 <section class="hero"><div class="eyebrow">Independent by design · Built to move</div><h1>Make useful things.<br>Stay free to live.</h1><p>I'm Greg Odom. I build apps for music, money, travel, learning and ideas — and the tools, games and desktop software around them — independently, thoughtfully, and with curiosity about what comes next.</p><div class="hero-actions"><a class="btn" href="apps.html">Explore every app ↗</a><a class="btn alt" href="#about">Meet the founder</a><a class="btn alt" href="front-ends.html">Front Ends hub</a></div><p style="position:relative;z-index:1;margin-top:28px;font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9fc4ae">Music &amp; Audio · Finance · Travel · Education · Productivity · Tools · Photo &amp; Video · Food &amp; Drink · Games · Personalization · Developer Tools</p></section>
 <div class="ticker">ONE BUILDER · MANY IDEAS · NO SINGLE WAY TO LIVE</div>
-<section class="wrap"><div class="section-kicker">One main door</div><h2>Every front end, from here.</h2><p class="intro">This root is the main CashDublo website — the hub. Every app's front end is indexed on the Front Ends page, and as each front end comes to stand on the CashDublo.com production server, its link there flips to its live address on the server. Until then, each link points at the front end's current home, so the hub never promises a door that is not built.</p><p style="margin-top:24px"><a class="btn" style="background:var(--deep);color:#f9f6ed" href="front-ends.html">Open the Front Ends hub ↗</a></p></section>
+<section class="wrap"><div class="section-kicker">One main door</div><h2>Every front end, from here.</h2><p class="intro">This root is the main CashDublo website — the hub. Every app's front end is indexed on the Front Ends page, and as each front end comes to stand on the CashDublo.com production server, its link there flips to its live address on the server. Until then, each link points at the front end's current home, so the hub never promises a door that is not built.</p><p style="margin-top:24px"><a class="btn" style="background:var(--deep);color:#f9f6ed" href="front-ends.html">Open the Front Ends hub ↗</a></p></p><p class="intro" style="margin-top:28px">Building a customer base, one reader at a time: join the CashDublo list for new apps, new games, and the store's opening day.</p><form id="cd-list" style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"><input type="email" id="cd-list-email" required placeholder="Your email" style="padding:12px 14px;border:1px solid var(--line);border-radius:999px;font:inherit;min-width:260px;background:#ffffff;color:var(--ink)"><button class="btn" type="submit" style="background:var(--deep);color:#f9f6ed;border:none;cursor:pointer">Join the list</button></form><p class="cd-note" id="cd-list-note" hidden style="margin-top:10px">Your email app should be opening now — press send there and you are on the list. Nothing is collected on this page itself.</p></section>
 <section class="wrap founder" id="about"><div class="portrait"><img class="founder-gif" src="img/founder-rotate.gif" alt="Greg Odom, rotating through three portraits: at the control panel, dancing, and with the green portal"><small>Greg Odom · Big Odom</small></div><div><div class="section-kicker">The person behind the pixels</div><h2>Built from wherever life takes me.</h2><p class="intro">I'm Greg Odom — independent app developer, founder of CashDublo, and the one pair of hands behind every app on this site. I take an idea from a sketch to an app people can hold: design, code, testing, release, and everything after.</p><p class="intro">My degree is in Interdisciplinary Studies — business and communications — from UNLV, and it shows in how I work: start with the person, then the problem. My computer science came the other way: self-taught, learned by building. Today I write the apps, the desktop programs, and the server behind them myself, for Android, Mac, and Windows, with iPhone and Linux on the way.</p><p class="intro">Before all this, I served in the United States Air Force. These days home base is Cambodia, and I build while traveling Southeast Asia. The places and languages here aren't decoration — they're the reason my apps speak fourteen languages and keep working when the internet doesn't.</p><p class="intro">I also make music and record as Big Odom. Code and songs are the same habit for me: make something honest, finish it, and put it in people's hands.</p></div></section>
 <section class="wrap featured" id="featured"><div class="section-kicker">A few places to start</div><h2>Featured apps</h2><p class="intro">Four starting points from the wider collection. Store download totals are not available in the website data, so these are editorial selections, not a verified popularity ranking.</p><div class="cards">
 <article class="card"><a class="icon-link" href="https://github.com/BigOdom1984/marvin"><img src="../img/icon-marvin.png" alt="Marvin app icon"></a><span class="status">DEVELOPMENT</span><h3><a href="https://github.com/BigOdom1984/marvin">Marvin</a></h3><p>An app in the CashDublo collection. Visit the full catalogue for its current description and availability.</p><a href="apps.html#marvin">Explore Marvin ↗</a><div class="plats">ANDROID</div></article>
@@ -54,6 +54,45 @@ var body="Name: "+(name||"(not given)")+"\nPage: "+location.pathname+"\n\n"+text
 window.location.href="mailto:CashDublo@gmail.com?subject="+encodeURIComponent("Website comment")+"&body="+encodeURIComponent(body);
 var sent=byId("cd-sent");if(sent){sent.hidden=false;}
 });}
+})();
+</script>
+
+<div class="cd-overlay" id="cd-age" hidden><div class="cd-card" role="dialog" aria-modal="true" aria-label="Age check"><h2>One quick check.</h2><p>Some CashDublo apps and games are made for adults, and some are made for kids. To show you the right shelf, are you 18 or older?</p><label style="font-weight:400"><input type="checkbox" id="cd-age-remember" checked> Remember my answer for 7 days</label><div class="cd-row"><button class="cd-btn" type="button" id="cd-age-yes">Yes, I am 18 or older</button><button class="cd-btn alt" type="button" id="cd-age-no">Not yet</button></div><p class="cd-note" style="margin-top:12px"><a href="#" id="cd-age-skip">Skip for now</a> — skipping shows the family-safe shelf and asks again next visit.</p><p class="cd-note" id="cd-age-note" hidden></p></div></div>
+<script>
+(function(){
+"use strict";
+var KEY="cdAgeGate", WEEK=7*24*60*60*1000, saved=null;
+try{ saved=JSON.parse(localStorage.getItem(KEY)||"null"); }catch(e){}
+var fresh = saved && (Date.now()-saved.ts) < WEEK;
+if(fresh){ return; }
+var ov=document.getElementById("cd-age"); if(!ov){ return; }
+ov.hidden=false;
+function close(){ ov.hidden=true; }
+function save(answer){
+  var rem=document.getElementById("cd-age-remember").checked;
+  if(rem){ try{ localStorage.setItem(KEY, JSON.stringify({answer:answer, ts:Date.now()})); }catch(e){} }
+  close();
+}
+document.getElementById("cd-age-yes").addEventListener("click", function(){ save("adult"); });
+document.getElementById("cd-age-no").addEventListener("click", function(){
+  var n=document.getElementById("cd-age-note");
+  n.hidden=false;
+  n.textContent="All good — this site and the store will show you the family-safe shelf: the apps and games made for everyone. Come back any time.";
+  save("minor");
+});
+document.getElementById("cd-age-skip").addEventListener("click", function(ev){ ev.preventDefault(); close(); });
+})();
+</script>
+<script>
+(function(){
+var form=document.getElementById("cd-list"); if(!form){ return; }
+form.addEventListener("submit", function(ev){
+  ev.preventDefault();
+  var email=(document.getElementById("cd-list-email").value||"").trim();
+  if(!email){ return; }
+  var note=document.getElementById("cd-list-note"); if(note){ note.hidden=false; }
+  window.location.href="mailto:CashDublo@gmail.com?subject="+encodeURIComponent("Join the CashDublo list")+"&body="+encodeURIComponent("Please add me to the CashDublo list: "+email);
+});
 })();
 </script>
 </body></html>
