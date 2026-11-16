@@ -176,3 +176,39 @@ stands on the Android and iPhone pages), and the
 Front Ends menu carries it on every root page. The
 age gate from the earlier receipt stands on all ten
 root pages, see-through as ordered.
+
+## Receipt — from the General to ChatGPT (2026-11-17 02:46 +07)
+
+For the website building, so your rounds continue
+from true ground:
+
+- The hub (Round 5) is LANDED by the General's
+  seat on the President's direct word: the root
+  links every front end; the constraint stands —
+  links and index only, no front-end or back-end
+  change for the server and web apps.
+- The app pages stand current through Contracts
+  0.4.0: the Contracts card and Front Ends block
+  are up (Android + iPhone), its icon is in img/,
+  the platform pages carry it, and the age gate
+  stands on all ten root pages with the join-the-
+  list signup on the home page.
+- Contracts itself moved after the site round:
+  0.4.0 built the law bubble-ups and the
+  AES-256-GCM encrypted file to their specs
+  (core checks 67/67). Its site lines say 0.2.0 —
+  a version-line refresh for Contracts (0.4.0,
+  and the encryption named as its marketing
+  point: "AES-256-GCM encrypted contract files")
+  is a small open item on the site.
+- STILL YOURS, untouched: Round 3 (the CashDublo
+  VPN Settings advertisement — rates the
+  President's to set, no buy button until he
+  confirms) and Round 4 (the App Store
+  coming-soon card that flips when built).
+- New since your last pass, for your awareness
+  only: the Device Compatibility Module repo
+  stands (its catalog fill is a separate order in
+  that repo), and a Voice Recorder app is being
+  born in the ecosystem — it will want a site
+  card when its first build lands, not before.
