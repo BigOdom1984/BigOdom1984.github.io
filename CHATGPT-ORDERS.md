@@ -74,6 +74,17 @@ VPN server that accompanies most of our apps:
   service and its rates stand ready; until then the ad
   points to the plans and the positioning only.
 
+## Round 4 - advertise the marketplace (the President's order, 2026-11-16)
+
+Advertise **the CashDublo App Store - coming soon**:
+the marketplace app for this platform. Give it **a
+card of its own in a set place** on the site, standing
+as the coming-soon announcement now. When the
+application is built, that same card flips to
+announcing that the app is available - a marketplace
+specifically for this platform, in that specific
+location, so people learn where it lives.
+
 ## How the work goes
 
 - Plain, easy words everywhere; no AI-tool references
