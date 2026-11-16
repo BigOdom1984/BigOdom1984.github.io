@@ -129,3 +129,40 @@ hub is a doorway, not a rewiring:
 - If a hub change would require touching a front end
   or a back end to work, that change is not part of
   this round — it stops and is reported.
+
+## Receipts — the hub + the app update + the age gate (2026-11-17, the General's seat)
+
+On the President's direct word in his own window
+("Do it", then "update the apps first"), the General
+landed these himself:
+
+- **The hub stands**: the root index carries the
+  "Every front end, from here" section and a Front
+  Ends hub button; front-ends.html carries the hub
+  statement. Links only — no front end or back end
+  was touched, per the Round 5 constraint.
+- **The apps are updated**: PodEdPro now reads
+  Version 0.4.0, ANDROID · IOS · WINDOWS and Galaxy
+  Repeat Version 0.4.0, ANDROID (the two stale lines
+  the midnight checks kept flagging). Six new
+  front-end entries stand (Wi-Fi Tether, AI Teacher,
+  Apple Dextop, CashDublo App Store, HACKED!,
+  Storyline Studio); eight catalogue cards were added
+  to apps.html (those six minus the store and the two
+  in-production pieces, plus PodEdPro, Galaxy Repeat,
+  Best Mac File Manager, Patent It!, Crash Catcher —
+  the five that had no cards); the platform pages
+  were regenerated from the catalogue; the nav on
+  every page carries the six new names. The eight new
+  catalogue icons ride the web upload route.
+- **The age gate stands** (the President's design,
+  2026-11-17): a see-through overlay on every root
+  page asking whether the person on the computer is
+  18 or older — easily skippable, a remember checkbox
+  that holds the answer for seven days and then asks
+  again, "Not yet" and skipping land on the
+  family-safe shelf. The home page carries the
+  join-the-list signup (first version: through the
+  visitor's own email app; the server-side list door
+  is the eventual scheme, designed in the App Store
+  spec).
