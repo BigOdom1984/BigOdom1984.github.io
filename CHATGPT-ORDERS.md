@@ -52,6 +52,28 @@ prefers-reduced-motion); fixture proof in a scratch
 copy required before delivery; pages with no celebrated
 app regenerate byte-identical.
 
+## Round 3 - advertise the VPN (the President's order, 2026-11-16)
+
+In Settings, or the fitting place on each surface you
+build, advertise **the CashDublo back-end VPN** - the
+VPN server that accompanies most of our apps:
+
+- **Plans: daily, weekly, monthly, and yearly use**,
+  at very competitive rates - probably cheaper than
+  any other VPN. The exact rates are the President's
+  to set; until he sets them, the ad carries the plans
+  and the positioning, never an invented price.
+- **The positioning, in his words' shape: we are not
+  trying to be the fastest - we are trying to be the
+  most secure.** Security is the headline; speed is
+  never the claim.
+- The ad lives in Settings (or the surface's fitting
+  place), plainly an ad for our own service, labeled
+  as ours - house ads under the Ads Module's law.
+- No buy button until the President confirms the
+  service and its rates stand ready; until then the ad
+  points to the plans and the positioning only.
+
 ## How the work goes
 
 - Plain, easy words everywhere; no AI-tool references
