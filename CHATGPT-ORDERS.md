@@ -104,3 +104,28 @@ claim against the repo before landing.
 ## RECEIPTS
 
 (none yet)
+
+## Round 5 — the root as the hub, with the President's constraint (2026-11-17)
+
+The President's design: the root of this site is the
+main website — the hub that links to all his other
+front ends, including the front ends that will stand
+on the CashDublo.com production server.
+
+**His constraint, standing over this round and every
+hub change after it: do not mess up the front end or
+the back end for the server and the web apps.** The
+hub is a doorway, not a rewiring:
+
+- The hub round changes links and index pages on the
+  root site ONLY. It does not alter any front end's
+  own pages, code, or behavior, and it touches
+  nothing on the production server or in any web
+  app's back end.
+- A front end's entry points at its current home
+  until that front end actually stands on the
+  production server; only then does its link flip to
+  its CashDublo.com address.
+- If a hub change would require touching a front end
+  or a back end to work, that change is not part of
+  this round — it stops and is reported.
