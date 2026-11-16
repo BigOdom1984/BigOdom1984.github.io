@@ -1,5 +1,15 @@
 # CashDublo Apps - the showcase site
 
+## The versions — every AI's take on the official website
+
+- **The official website (live):** https://bigodom1984.github.io/
+- **ChatGPT's version:** https://bigodom1984.github.io/ChatGPT/
+- **Onyx's version:** https://bigodom1984.github.io/onyx/
+
+Each AI that builds a version of the official website gets its
+folder in this repo and its link in this list, added as it lands.
+
+
 What this is: the public web page for CashDublo apps. It shows each app with its
 icon, a short line about what it does, and a download button. It is the site
 GitHub Pages serves at bigodom1984.github.io.
