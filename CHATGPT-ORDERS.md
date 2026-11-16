@@ -166,3 +166,13 @@ landed these himself:
   visitor's own email app; the server-side list door
   is the eventual scheme, designed in the App Store
   spec).
+
+## Receipt — 2026-11-17 (the General's seat, on the President's direct word)
+
+Contracts joined the site: a block on front-ends.html
+(0.2.0, ANDROID · IOS), a card on apps.html with its
+icon, the platform pages regenerated (Contracts
+stands on the Android and iPhone pages), and the
+Front Ends menu carries it on every root page. The
+age gate from the earlier receipt stands on all ten
+root pages, see-through as ordered.

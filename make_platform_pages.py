@@ -34,13 +34,13 @@ footer = re.search(r"<footer>.*?</footer>", apps, re.S).group(0)
 cards = {}
 for m in re.finditer(r'<article class="card" id="([^"]+)">.*?</article>', apps, re.S):
     cards[m.group(1)] = m.group(0)
-assert len(cards) == 32, len(cards)
+assert len(cards) == 33, len(cards)
 
 ANDROID = ["ai2aisync", "voice-model", "marvin", "pictureglobe", "mixology",
            "hit-record", "testra-accuracy", "dear-idea", "go", "travel-journal",
            "say", "tts-widget", "player", "ai-cash-portfolio", "cash-portfolio",
            "podedpro", "galaxy-repeat", "patent-it", "crash-catcher",
-           "wifi-tether", "ai-teacher"]
+           "wifi-tether", "ai-teacher", "contracts"]
 MAC = ["apple2player", "dear-idea-desktop", "github-hq", "script-installer",
        "change-app-icons", "cashdublo-coder", "app-translator",
        "build-manager", "rebuild-all", "best-mac-file-manager",
@@ -51,7 +51,7 @@ LINUX = ["dear-idea-desktop", "github-hq", "script-installer",
          "change-app-icons", "cashdublo-coder", "app-translator",
          "build-manager", "rebuild-all"]
 IPHONE = ["dear-idea", "go", "travel-journal", "say", "tts-widget",
-          "ai-cash-portfolio", "cash-portfolio", "player", "patent-it", "podedpro"]
+          "ai-cash-portfolio", "cash-portfolio", "player", "patent-it", "podedpro", "contracts"]
 
 # The front ends, in the order the Front Ends drop-down lists
 # them (the President's order, 2026-11-15). The full record for
@@ -347,6 +347,7 @@ REPO = {
  "crash-catcher": "https://github.com/BigOdom1984/crash-catcher",
  "wifi-tether": "https://github.com/BigOdom1984/wifi-tether-app",
  "ai-teacher": "https://github.com/BigOdom1984/ai-teacher",
+ "contracts": "https://github.com/BigOdom1984/contracts",
  "best-mac-file-manager": "https://github.com/BigOdom1984/best-mac-file-manager",
  "apple-dextop": "https://github.com/BigOdom1984/apple-dextop",
 }
@@ -392,6 +393,7 @@ PLATS = {
  "crash-catcher": "ANDROID",
  "wifi-tether": "ANDROID",
  "ai-teacher": "ANDROID",
+ "contracts": "ANDROID · IOS",
  "best-mac-file-manager": "MAC",
  "apple-dextop": "MAC"
 }
