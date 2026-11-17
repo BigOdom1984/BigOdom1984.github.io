@@ -21,3 +21,13 @@
 .cd-game-meta span{display:inline-flex;align-items:center;border:1px solid var(--cd-line);border-radius:999px;padding:4px 9px;font-size:.75rem;font-weight:850;color:var(--cd-ink);background:#f4f0e5}
 @media(max-width:700px){.cd-site-header{gap:10px;padding:8px 10px}.cd-site-brand{font-size:1.05rem}.cd-nav-trigger{padding:8px 9px;font-size:.84rem}.cd-nav-menu{position:fixed;top:62px;left:10px;right:10px;max-width:none;max-height:70vh}.cd-app-rail>.card{flex-basis:min(290px,82vw)}}
 @media(prefers-reduced-motion:reduce){.cd-nav-menu{scroll-behavior:auto}}
+
+.cd-card-meta{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0 12px}
+.cd-card-category,.cd-card-platforms{display:inline-flex;align-items:center;border:1px solid var(--cd-line);border-radius:999px;padding:4px 8px;background:#f2efe4;color:#42544d;font-size:.69rem;font-weight:800;line-height:1.35}
+.cd-platform-grid{display:block!important}
+.cd-app-rail{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:4px 2px 14px;margin:0 0 18px;scrollbar-width:thin}
+.cd-app-rail>.card{flex:0 0 min(330px,84vw);scroll-snap-align:start;min-width:0}
+.cd-app-rail>.card .links{margin-top:auto}
+.cd-app-rail>.card img{max-width:76px}
+.cd-app-rail>.card:focus-within{outline:2px solid var(--cd-coral);outline-offset:2px}
+@media(max-width:700px){.cd-app-rail>.card{flex-basis:min(290px,82vw)}.cd-card-meta{align-items:flex-start}}
