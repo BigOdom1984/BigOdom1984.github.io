@@ -400,3 +400,16 @@ Before broad website or API changes:
 - Keep a site inventory and a change log that identifies files, commit IDs, tests, and remaining risks.
 - Maintain a separate off-repository backup for production data and secrets; Git history is not a backup for secrets or private user data.
 - Never commit API keys, signing keys, credentials, private user data, or live training corpora into public repositories.
+
+
+## 24. Central API integration
+The central API is owned by the existing `BigOdom1984/cashdublo-server` service. The API is the shared delivery layer for approved website configuration, catalogue records, pricing records, module manifests, and authorized training-data manifests.
+- The current documented API host is `https://cashdublo.vercel.app`; custom domain routing is pending confirmation of the exact domain and ownership.
+- The draft contract and security rules live in `cashdublo-server/docs/CASH-TO-FLOW-CENTRAL-API.md` and `cashdublo-server/openapi/cashdublo-api-v1.yaml`.
+- Use public, read-only API routes for public navigation, app catalogue and public pricing. These responses contain no private data and may be cached.
+- Use authenticated, per-app and per-model identities for protected modules and training material. Apply least-privilege scopes and short-lived tokens.
+- Never put permanent API secrets in website JavaScript, public HTML, APKs or desktop app bundles.
+- Do not make first paint depend on a remote API. Publish a verified static snapshot with the site and refresh it in the background. Keep the last good snapshot available when the API is offline.
+- Every module intended for API delivery must have a machine-readable manifest, versioned input/output schema, compatibility declaration, permission list and distribution classification.
+- A module that runs locally should remain locally installable; only capabilities that need shared data or remote computation should require a network call.
+- API status must be truthful: draft, implemented, tested, deployed, and verified are separate states.
