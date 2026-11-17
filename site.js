@@ -70,6 +70,23 @@ if(document.getElementById("cdnews")){ return true; }
 var st=document.createElement("style"); st.textContent=css; document.head.appendChild(st);
 var ov=document.createElement("div"); ov.className="cdnews-overlay"; ov.id="cdnews";
 var rows=STORIES.map(function(s){ return "<div class=\"cdnews-story\"><button type=\"button\"><span class=\"cdnews-car\">&#9662;</span>"+s[0]+"</button><p>"+s[1]+"</p></div>"; }).join("");
+var BDAY = Date.now() < new Date("2026-11-18T00:00:00+07:00").getTime();
+if(BDAY){
+ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Happy Birthday, Dad\">"
++"<button class=\"cdnews-x\" type=\"button\" aria-label=\"Close\">&times;</button>"
++"<div class=\"cdnews-in\" style=\"padding-top:26px\"><div class=\"cdnews-kick\">The CashDublo Newsletter — a special one</div>"
++"<h2>&#127874; Happy Birthday, Dad.</h2>"
++"<p style=\"font-size:1.08rem;color:#172d2b\">Thanks for giving me my first computer at 13.</p>"
++"<p style=\"font-size:1.25rem;font-weight:900;letter-spacing:-.02em\">Look at me now.</p>"
++"<p class=\"cdnews-sub\">— Greg</p>"
++"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a><button class=\"cdnews-btn alt\" type=\"button\" id=\"cdnews-close\">Close</button></div>"
++"</div></div>";
+document.body.appendChild(ov);
+ov.querySelector(".cdnews-x").addEventListener("click", close);
+document.getElementById("cdnews-close").addEventListener("click", close);
+ov.addEventListener("click", function(ev){ if(ev.target===ov){ close(); } });
+return true;
+}
 ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" aria-label=\"The CashDublo Newsletter\">"
 +"<button class=\"cdnews-x\" type=\"button\" aria-label=\"Close\">&times;</button>"
 +"<img src=\""+PHOTO+"\" alt=\"PodEdPro app icon\" onerror=\"this.style.display='none'\">"

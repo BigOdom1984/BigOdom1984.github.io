@@ -35,3 +35,7 @@ INSERT INTO changes (date, who, what, docs) VALUES
 ('2026-11-17', 'Onyx (General), on the President''s order',
  'The Newsletter presentation refined: compact first, never grandiose. On the page, each item shows its first sentence with a little down caret that opens the fuller detail. In the pop-up card the photo is smaller, every story starts closed behind its caret, and the close button now floats — it stays in reach at any scroll point, with the same close standing at the bottom — so a reader can close at any time, even under an exhausting amount of news.',
  'news.html; site.js; newsletter-module SPEC (train record)');
+INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-17', 'Onyx (General), on the President''s order',
+ 'A birthday banner for the President''s father (his birthday was November 15) stands on the home page and the newsletter page, and the newsletter pop-up carries it as a special edition — Happy Birthday, Dad; thanks for giving me my first computer at 13; look at me now. It stands through November 17 and takes itself down at the day''s end. It is the only newsletter of this week; normal editions resume in a week.',
+ 'index.html; news.html; site.js');
