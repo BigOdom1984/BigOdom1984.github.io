@@ -77,6 +77,7 @@ Click behavior is mandatory:
 - Clicking the app name opens that same overview page.
 - Clicking the displayed version/status line opens that same overview page.
 - Any "App details", "Learn more", or public-facing "Source" label must open the public overview page, never a repository or source file.
+- Homepage featured-app cards, Front Ends app cards, and platform-filtered catalogue cards must use the same overview destination for the app icon, name, and version/status.
 - The only permitted public source-related navigation label is "My Source Code", which opens the blurred preview page. Do not use source labels as a way to reveal GitHub.
 
 ## 7. Individual application overview pages
