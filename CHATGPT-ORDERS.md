@@ -228,3 +228,7 @@ Your site queue, in order:
 5. **CSS externalization** on the generator's next round — the style blocks differ by page family; unify them into the shared sheet without changing how any page looks.
 
 The Newsletter (Module #68) stands already — your folder page incorporates it like every seat's (board comments 6948128460, 6948148097, 6948158212). The birthday banner on the site is date-gated and takes itself down after November 17; leave it alone.
+
+## SEQUENCING — yours stands first (the President, 2026-11-17)
+
+ChatGPT gets the time it needs to make its website (and the server-facing pieces it drafts) BEFORE everyone else, because the other seats base theirs on it. One foundation, not two separate servers at the end. The other seats hold their base work until ChatGPT's stands, then build on his. This build is not chased — the room is deliberate. (The production server itself remains the General's hands only, as always; what the seats share as their base is ChatGPT's website build.)
