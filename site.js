@@ -64,7 +64,7 @@ var STORIES=[
 ["A tiny tool for moving files by cable","On the drawing board: plug a phone into a Mac, see its files, drag and drop. Small, simple, honest about what it moved."],
 ["Behind the scenes: the back end and the server","Work continues on the CashDublo server and the back end the apps will run on — the part nobody sees that makes everything else possible."]
 ];
-var css=".cdnews-overlay{position:fixed;inset:0;z-index:130;background:rgba(23,45,43,.45);display:flex;align-items:center;justify-content:center;padding:16px}.cdnews-card{background:#fffdf8;color:#172d2b;border:1px solid #d8d4c9;border-radius:22px;max-width:440px;width:100%;max-height:calc(100vh - 32px);overflow:auto;padding:0 0 20px;position:relative;box-shadow:0 24px 60px rgba(20,20,20,.35)}.cdnews-card img{width:100%;height:120px;object-fit:cover;object-position:top;display:block;border-radius:22px 22px 0 0}.cdnews-in{padding:18px 22px 0}.cdnews-kick{color:#c65f4a;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:900}.cdnews-card h2{margin:6px 0 4px;font-size:1.5rem;letter-spacing:-.03em;line-height:1.15}.cdnews-sub{color:#596d68;margin:0 0 12px;font-size:.95rem}.cdnews-x{position:sticky;top:10px;float:right;margin:10px 10px -46px 0;z-index:3;width:36px;height:36px;border-radius:50%;border:1px solid #d8d4c9;background:#fffdf8;color:#172d2b;font-size:1.3rem;line-height:1;cursor:pointer;z-index:2}.cdnews-story{border-top:1px solid #e3ded2;padding:10px 0}.cdnews-story button{all:unset;display:block;width:100%;cursor:pointer;font-weight:850;font-size:1rem;color:#172d2b}.cdnews-car{display:inline-block;margin-right:8px;color:#c65f4a;transition:transform .2s}.cdnews-story.open .cdnews-car{transform:rotate(180deg)}.cdnews-story p{display:none;color:#596d68;margin:6px 0 2px;font-size:.95rem}.cdnews-story.open p{display:block}.cdnews-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.cdnews-btn{display:inline-block;background:#c9ed72;color:#172d2b;border:1px solid #172d2b;border-radius:999px;padding:11px 18px;font-weight:850;cursor:pointer;text-decoration:none}.cdnews-btn.alt{background:transparent}";
+var css=".cdnews-overlay{position:fixed;inset:0;z-index:130;background:rgba(23,45,43,.72);display:flex;align-items:stretch;justify-content:stretch;padding:0;width:100vw;height:100vh;height:100dvh;overflow:hidden}.cdnews-card{background:#fffdf8;color:#172d2b;border:0;border-radius:0;width:100%;max-width:none;height:100%;max-height:none;overflow:auto;overscroll-behavior:contain;padding:0 0 max(24px,env(safe-area-inset-bottom));position:relative;box-shadow:none}.cdnews-card img{height:clamp(120px,22vh,260px)}.cdnews-in{width:100%;max-width:1180px;margin:0 auto;padding:clamp(18px,4vw,44px)}.cdnews-card h2{font-size:clamp(1.6rem,4vw,3rem)}.cdnews-x{position:fixed;top:max(12px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));margin:0;float:none;z-index:5;box-shadow:0 3px 14px #0002}.cdnews-story{padding:clamp(12px,1.6vw,20px) 0}.cdnews-row{padding-bottom:12px}@media(min-width:900px){.cdnews-in{padding-top:clamp(28px,5vh,60px)}}@media(max-width:600px){.cdnews-card img{height:clamp(100px,17vh,160px)}.cdnews-in{padding:18px 16px 28px}.cdnews-row>*{flex:1 1 100%;text-align:center}}";
 // Sound for the newsletter area (the President, 2026-11-17): any sound placed
 // in this area is built through this one door, so it starts on its own every
 // time a browser allows sound — immediately where permitted, and on the
@@ -90,9 +90,11 @@ function cdAutoSound(holderId, trackId){
   };
   var api=document.createElement("script"); api.src="https://open.spotify.com/embed/iframe-api/v1"; api.async=true; api.onerror=plainPlayer; document.head.appendChild(api);
   setTimeout(function(){ if(!ctrl&&!started){ plainPlayer(); } },3000);
-  document.addEventListener("pointerdown",tryPlay);
-  document.addEventListener("keydown",tryPlay);
-  document.addEventListener("touchstart",tryPlay);
+  // Attempt autoplay immediately; browser policy may require the first visitor gesture.
+  tryPlay();
+  document.addEventListener("pointerdown",tryPlay,{once:true});
+  document.addEventListener("keydown",tryPlay,{once:true});
+  document.addEventListener("touchstart",tryPlay,{once:true});
 }
 // Which view is visiting (the President, 2026-11-17): mobile, tablet, or
 // desktop — stamped on the page so every part of the site, the banner
@@ -141,8 +143,7 @@ ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" ari
 document.body.appendChild(ov);
 function close(){ ov.remove(); try{ sessionStorage.setItem(KEY,"1"); }catch(e){} }
 ov.querySelector(".cdnews-x").addEventListener("click", close);
-document.getElementById("cdnews-close").addEventListener("click", close);
-ov.addEventListener("click", function(ev){ if(ev.target===ov){ close(); } });
+// The newsletter remains open until the explicit X is clicked.
 ov.querySelectorAll(".cdnews-story button").forEach(function(b){ b.addEventListener("click", function(){ b.parentElement.classList.toggle("open"); }); });
 return true;
 }
