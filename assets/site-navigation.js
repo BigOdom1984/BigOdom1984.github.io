@@ -3,7 +3,7 @@ const path=location.pathname.toLowerCase();
 const root='/';
 const A=(label,href,extra='')=>'<a href="'+href+'">'+label+(extra?'<span class="cd-nav-type">'+extra+'</span>':'')+'</a>';
 const menu=(label,items)=>'<div class="cd-nav-item" aria-expanded="false"><button class="cd-nav-trigger" type="button" aria-haspopup="true">'+label+' ▾</button><div class="cd-nav-menu">'+items.join('')+'</div></div>';
-const platformLinks=[['Android','/android.html'],['iPhone / iOS','/iphone.html'],['Mac','/mac.html'],['Windows','/windows.html'],['Linux','/linux.html'],['Command Prompt / Terminal','/code.html'],['Web Apps','/front-ends.html']];
+const platformLinks=[['Android','/android.html'],['iPhone / iOS','/iphone.html'],['Mac','/mac.html'],['Windows','/windows.html'],['Linux','/linux.html'],['Command Prompt / Terminal','/terminal.html'],['Web Apps','/front-ends.html']];
 const games=[
 ['Story','/games.html#story'],
 ['Engine','/games.html#storyline-engine'],
