@@ -5,6 +5,7 @@ Every game card must show three pieces of release metadata visibly:
 - **Version** — the current version/tag for the game build. If no version is tagged or verifiable, show `Not tagged / verify`; never invent a semantic version.
 - **Status** — the current evidenced lifecycle state (for example, in development, beta, released, paused, archived). If not verified, say `Release status unverified`.
 - **Type** — the gameplay category. Use the category already recorded in the game's own specification or approved project taxonomy. If none exists, use `Not classified` and request classification; do not guess.
+- **Platforms** — every operating system/browser target the actual game build supports. Record all verified targets in `data-platforms` (for example, `ANDROID,IOS,WEB`). Never infer support from the engine, language, or another app in the same repo. Use `Not verified` until a build or compatibility test confirms it.
 
 ## Required markup
 
@@ -15,13 +16,14 @@ Add each game to `games.html` as an article with the `.game-card` class, a stabl
   id="unique-game-id"
   data-version="0.1.0"
   data-status="In development"
-  data-game-type="Puzzle">
+  data-game-type="Puzzle"
+  data-platforms="ANDROID,IOS">
   <h3>Game title</h3>
   <p>Short description.</p>
 </article>
 ```
 
-Use `data-version="Not tagged / verify"`, `data-status="Release status unverified"`, or `data-game-type="Not classified"` when the relevant value is not evidenced. The dropdown displays the game title and type. Add new game cards when the game is approved for public catalog listing; the dropdown refreshes from the catalog at page load.
+Use `data-version="Not tagged / verify"`, `data-status="Release status unverified"`, or `data-game-type="Not classified"`, or `data-platforms="Not verified"` when the relevant value is not evidenced. Platform filters may include a game only when every listed target is supported by the actual game build, not merely its engine. The dropdown displays the game title and type. Add new game cards when the game is approved for public catalog listing; the dropdown refreshes from the catalog at page load.
 
 ## Current examples
 
