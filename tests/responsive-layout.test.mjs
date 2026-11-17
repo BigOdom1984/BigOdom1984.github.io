@@ -13,6 +13,12 @@ for (const page of ["index.html", "apps.html", "front-ends.html", "cashdublo-app
   assert.match(html, /viewport-fit=cover/, page + " must use the mobile viewport");
 }
 
+for (const page of ["apps.html", "front-ends.html"]) {
+  const html = readFileSync(page, "utf8");
+  assert.match(html, /grid-template-columns:minmax\\(0,99px\\) minmax\\(0,1fr\\)/, page + " cards must place icon left and content right");
+  assert.match(html, /width:99px;height:99px/, page + " icons must be enlarged by about 30 percent");
+  assert.match(html, /grid-column:2/, page + " app name/status must sit in the right column");
+}
 assert.equal(JSON.parse(readFileSync("vercel.json", "utf8")).trailingSlash, false);
 assert.match(readFileSync("netlify.toml", "utf8"), /publish = "\."/);
 assert.match(readFileSync("wrangler.toml", "utf8"), /pages_build_output_dir = "\."/);
