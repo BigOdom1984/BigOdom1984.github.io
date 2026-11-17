@@ -3,7 +3,7 @@ const path=location.pathname.toLowerCase();
 const root='/';
 const A=(label,href,extra='')=>'<a href="'+href+'">'+label+(extra?'<span class="cd-nav-type">'+extra+'</span>':'')+'</a>';
 const menu=(label,items)=>'<div class="cd-nav-item" aria-expanded="false"><button class="cd-nav-trigger" type="button" aria-haspopup="true">'+label+' ▾</button><div class="cd-nav-menu">'+items.join('')+'</div></div>';
-const platformLinks=[['Android','/android.html'],['iPhone / iOS','/iphone.html'],['Mac','/mac.html'],['Windows','/windows.html'],['Linux','/linux.html'],['Command Prompt / Terminal','/code.html#terminal-programs'],['Web Apps','/front-ends.html']];
+const platformLinks=[['Android','/android.html'],['iPhone / iOS','/iphone.html'],['Mac','/mac.html'],['Windows','/windows.html'],['Linux','/linux.html'],['Command Prompt / Terminal','/code.html'],['Web Apps','/front-ends.html']];
 const games=[
 ['Story','/games.html#storyline-studios'],
 ['Engine','/games.html#storyline-engine'],
@@ -13,7 +13,8 @@ const games=[
 ];
 const gameLinks=games.map(x=>A(x[0],x[1])).concat(['<div class="cd-nav-sep">Other games · add as released</div>',A('Name That Flag','/games.html#name-that-flag','Trivia / Geography')]);
 const front=[['CashDublo Showcase','showcase'],['CashDublo Online Course','online-course'],['CashDublo Server','server'],['Travel Journal Web','travel-journal-web'],["Marvin's Website",'marvin-web']];
-const frontLinks=[A('All front ends — full catalog','/front-ends.html'),'<div class="cd-nav-sep">Web front ends</div>',...front.map(x=>A(x[0],'/front-ends/'+x[1]+'.html')),'<div class="cd-nav-sep">App front ends</div>',A('All app front ends and back ends','/front-ends.html#app-ai2aisync')];
+const appFronts=[['AI2AISync','ai2aisync'],['VoiceModel','voice-model'],['Marvin','marvin'],['PictureGlobe','pictureglobe'],['Mixology','mixology'],['Hit Record','hit-record'],['Testra Accuracy','testra-accuracy'],['Dear Idea','dear-idea'],['GO','go'],['Travel Journal','travel-journal'],['SAY','say'],['TTS Widget','tts-widget'],['Player','player'],['AI Cash Portfolio','ai-cash-portfolio'],['Cash Portfolio','cash-portfolio'],['Apple2Player','apple2player'],['Dear Idea Desktop','dear-idea-desktop'],['GitHub HQ','github-hq'],['Script-Run','script-installer'],['Change App Icons','change-app-icons'],['CashDublo Coder','cashdublo-coder'],['App Translator','app-translator'],['Build Manager','build-manager'],['Rebuild-All','rebuild-all'],['PodEdPro','podedpro'],['Galaxy Repeat','galaxy-repeat'],['Best Mac File Manager','best-mac-file-manager'],['Patent It!','patent-it'],['Crash Catcher','crash-catcher'],['Wi-Fi Tether','wifi-tether'],['AI Teacher','ai-teacher'],['Apple Dextop','apple-dextop'],['Contracts','contracts']];
+const frontLinks=[A('All front ends — full catalog','/front-ends.html'),'<div class="cd-nav-sep">Web front ends</div>',...front.map(x=>A(x[0],'/front-ends/'+x[1]+'.html')),'<div class="cd-nav-sep">App front ends</div>',...appFronts.map(x=>A(x[0],'/front-ends.html#app-'+x[1]))];
 const appsMenu=platformLinks.map(x=>A(x[0],x[1]));
 const nav='<header class="cd-site-header"><a class="cd-site-brand" href="/index.html">CASH<span>DUBLO</span></a><nav class="cd-site-nav" aria-label="Main navigation">'+
 '<a class="cd-nav-trigger" href="/index.html">Home</a>'+
