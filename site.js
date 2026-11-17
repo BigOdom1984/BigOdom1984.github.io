@@ -121,12 +121,11 @@ ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" ari
 +"<p style=\"margin:14px 0 6px;font-weight:800\">&#127925; Just the Two of Us — the original, for you, Dad.</p>"
 +"<div id=\"bday-song\" style=\"border-radius:12px;overflow:hidden;min-height:80px\"></div>"
 +"<p class=\"cdnews-sub\" style=\"margin-top:8px\">It starts on its own — and closing this card stops the song.</p>"
-+"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a><button class=\"cdnews-btn alt\" type=\"button\" id=\"cdnews-close\">Close</button></div>"
++"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a></div>"
 +"</div></div>";
 document.body.appendChild(ov);
 ov.querySelector(".cdnews-x").addEventListener("click", close);
-document.getElementById("cdnews-close").addEventListener("click", close);
-ov.addEventListener("click", function(ev){ if(ev.target===ov){ close(); } });
+// The newsletter stays visible until the explicit X is clicked.
 cdAutoSound("bday-song","1ko2lVN0vKGUl9zrU0qSlT");
 return true;
 }
@@ -137,7 +136,7 @@ ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" ari
 +"<h2>What's going on, in plain words.</h2>"
 +"<p class=\"cdnews-sub\">November 17, 2026 — the short version, for everybody. Tap a story to open it.</p>"
 +rows
-+"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a><button class=\"cdnews-btn alt\" type=\"button\" id=\"cdnews-close\">Not now</button></div>"
++"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a></div>"
 +"</div></div>";
 document.body.appendChild(ov);
 function close(){ ov.remove(); try{ sessionStorage.setItem(KEY,"1"); }catch(e){} }
