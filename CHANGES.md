@@ -7,6 +7,10 @@ independent change log.
 
 ## 2026-11-17 — Onyx (General), on the President's order
 
+The song joins the birthday banner. The newsletter pop-up's birthday card now carries "Just the Two of Us" — the original Grover Washington Jr. recording with Bill Withers — through Spotify's own player, for a week (through November 24). Closing the card stops the song. The recording plays through Spotify's player because it is not a recording the President owns the rights to host; his own rights-owned songs are what the production websites will host directly.
+
+## 2026-11-17 — Onyx (General), on the President's order
+
 A birthday banner for the President's father stands on the home page and the newsletter page, and the newsletter pop-up carries it as a special edition: Happy Birthday, Dad — thanks for giving me my first computer at 13. Look at me now. It stands through November 17 and takes itself down at the day's end. It is the only newsletter of this week; normal editions resume in a week.
 
 ## 2026-11-17 — Onyx (General), on the President's order

@@ -70,7 +70,7 @@ if(document.getElementById("cdnews")){ return true; }
 var st=document.createElement("style"); st.textContent=css; document.head.appendChild(st);
 var ov=document.createElement("div"); ov.className="cdnews-overlay"; ov.id="cdnews";
 var rows=STORIES.map(function(s){ return "<div class=\"cdnews-story\"><button type=\"button\"><span class=\"cdnews-car\">&#9662;</span>"+s[0]+"</button><p>"+s[1]+"</p></div>"; }).join("");
-var BDAY = Date.now() < new Date("2026-11-18T00:00:00+07:00").getTime();
+var BDAY = Date.now() < new Date("2026-11-25T00:00:00+07:00").getTime();
 if(BDAY){
 ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Happy Birthday, Dad\">"
 +"<button class=\"cdnews-x\" type=\"button\" aria-label=\"Close\">&times;</button>"
@@ -79,6 +79,9 @@ ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" ari
 +"<p style=\"font-size:1.08rem;color:#172d2b\">Thanks for giving me my first computer at 13.</p>"
 +"<p style=\"font-size:1.25rem;font-weight:900;letter-spacing:-.02em\">Look at me now.</p>"
 +"<p class=\"cdnews-sub\">— Greg</p>"
++"<p style=\"margin:14px 0 6px;font-weight:800\">&#127925; Just the Two of Us — the original, for you, Dad.</p>"
++"<iframe src=\"https://open.spotify.com/embed/track/1ko2lVN0vKGUl9zrU0qSlT?utm_source=generator\" width=\"100%\" height=\"80\" frameborder=\"0\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\" style=\"border-radius:12px\"></iframe>"
++"<p class=\"cdnews-sub\" style=\"margin-top:8px\">Press play — and closing this card stops the song.</p>"
 +"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a><button class=\"cdnews-btn alt\" type=\"button\" id=\"cdnews-close\">Close</button></div>"
 +"</div></div>";
 document.body.appendChild(ov);

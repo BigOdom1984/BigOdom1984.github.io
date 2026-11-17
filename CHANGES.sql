@@ -39,3 +39,7 @@ INSERT INTO changes (date, who, what, docs) VALUES
 ('2026-11-17', 'Onyx (General), on the President''s order',
  'A birthday banner for the President''s father (his birthday was November 15) stands on the home page and the newsletter page, and the newsletter pop-up carries it as a special edition — Happy Birthday, Dad; thanks for giving me my first computer at 13; look at me now. It stands through November 17 and takes itself down at the day''s end. It is the only newsletter of this week; normal editions resume in a week.',
  'index.html; news.html; site.js');
+INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-17', 'Onyx (General), on the President''s order',
+ 'The song joins the birthday banner: the newsletter pop-up''s birthday card now carries Just the Two of Us — the original Grover Washington Jr. recording with Bill Withers, through Spotify''s own player — for a week (through November 24). It is the first thing the card offers on a visit; closing the card stops the song. The recording is played through Spotify''s player because it is not a recording the President owns the rights to host — his own rights-owned songs are what the production websites will host directly.',
+ 'site.js');
