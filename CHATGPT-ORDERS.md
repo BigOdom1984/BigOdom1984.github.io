@@ -236,3 +236,7 @@ ChatGPT gets the time it needs to make its website (and the server-facing pieces
 ## Item 6 — the All Websites page (the President, 2026-11-17)
 
 Build the root **All Websites** page to the Website Module spec (~/workspace/website-module/SPEC.md, "The All Websites page" section): a root page under owner-only permissions that views every seat's website version, lets the President switch the view to any version's HTML, and carries the **Save Website** action — on save, the current live site is backed up whole into `old-website/` (appended entry named with the replaced AI + the date and time, and one appended line in `old-website/REPLACED.md`) and the chosen version replaces it at the root. **The link pattern never changes**: same page names, same addresses — old links serve the new site on the fly. The save door itself is a back-end round; until it stands, build the page and the archive convention, and do not show a save button that does not work.
+
+## Item 7 — themed backgrounds in the President's settings (2026-11-17)
+
+Per the Website Module spec ("Themed backgrounds" section): the President's user settings on the website carry a background switcher — the family themes from the theme module as the choices — that changes the production site's background on the fly. Only the background changes: icons, pricing, listings, and text stay exactly the same. The setting persists on the production side (back-end door); until that door stands, build the layer separation (background as its own layer) and do not show a switcher that does not persist.
