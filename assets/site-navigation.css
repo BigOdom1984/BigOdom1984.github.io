@@ -1,0 +1,23 @@
+/* CashDublo shared navigation and platform browsing */
+:root{--cd-ink:#172d2b;--cd-muted:#596d68;--cd-paper:#f5f0e6;--cd-white:#fffdf8;--cd-lime:#c9ed72;--cd-coral:#f0785e;--cd-line:#d8d4c9;--cd-deep:#193d39}
+.cd-site-header{position:relative;z-index:200;width:100%;padding:10px clamp(12px,3vw,42px);background:var(--cd-deep);color:#fffdf8;border-bottom:2px solid var(--cd-lime);display:flex;align-items:center;gap:clamp(12px,2vw,28px);min-height:64px;flex-wrap:nowrap}
+.cd-site-brand{flex:0 0 auto;color:#fffdf8!important;text-decoration:none!important;font-size:1.25rem;font-weight:950;letter-spacing:-.055em;white-space:nowrap}
+.cd-site-brand span{color:var(--cd-lime)}
+.cd-site-nav{display:flex;align-items:center;gap:4px;flex:1 1 auto;min-width:0;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;overflow-y:visible;scrollbar-width:thin;scrollbar-color:#78958a transparent;padding:4px 0}
+.cd-nav-item{position:relative;display:block;flex:0 0 auto}
+.cd-nav-trigger{display:inline-flex;align-items:center;min-height:40px;padding:8px 11px;border:1px solid transparent;border-radius:9px;background:transparent;color:#fffdf8!important;text-decoration:none!important;font:inherit;font-size:.9rem;font-weight:800;white-space:nowrap;cursor:pointer}
+.cd-nav-trigger:hover,.cd-nav-trigger:focus-visible,.cd-nav-item[aria-expanded=true]>.cd-nav-trigger{background:#28534d;border-color:#78958a;outline:none}
+.cd-nav-menu{display:none;position:absolute;top:calc(100% + 5px);left:0;min-width:230px;max-width:min(90vw,360px);max-height:min(72vh,620px);overflow:auto;padding:8px;background:var(--cd-white);color:var(--cd-ink);border:1px solid var(--cd-line);border-radius:12px;box-shadow:0 16px 38px #0004;z-index:999}
+.cd-nav-item[aria-expanded=true]>.cd-nav-menu,.cd-nav-item:focus-within>.cd-nav-menu{display:block}
+.cd-nav-menu a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 11px;border-radius:8px;color:var(--cd-ink)!important;text-decoration:none!important;font-size:.92rem;font-weight:750;white-space:normal}
+.cd-nav-menu a:hover,.cd-nav-menu a:focus-visible{background:#f0eddf;outline:2px solid var(--cd-coral);outline-offset:-2px}
+.cd-nav-sep{margin:7px 5px 4px;padding:8px 7px 2px;border-top:1px solid var(--cd-line);font-size:.68rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase;color:#857b68}
+.cd-nav-type{font-size:.72rem;font-weight:800;color:#746b5b;white-space:nowrap}
+.cd-platform-grid{display:flex!important;flex-direction:column;gap:16px!important}
+.cd-app-rail{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:4px 2px 14px;scrollbar-width:thin}
+.cd-app-rail>.card{flex:0 0 min(330px,84vw);scroll-snap-align:start;min-width:0}
+.cd-app-rail>.card:focus-within{outline:2px solid var(--cd-coral);outline-offset:2px}
+.cd-game-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.cd-game-meta span{display:inline-flex;align-items:center;border:1px solid var(--cd-line);border-radius:999px;padding:4px 9px;font-size:.75rem;font-weight:850;color:var(--cd-ink);background:#f4f0e5}
+@media(max-width:700px){.cd-site-header{gap:10px;padding:8px 10px}.cd-site-brand{font-size:1.05rem}.cd-nav-trigger{padding:8px 9px;font-size:.84rem}.cd-nav-menu{position:fixed;top:62px;left:10px;right:10px;max-width:none;max-height:70vh}.cd-app-rail>.card{flex-basis:min(290px,82vw)}}
+@media(prefers-reduced-motion:reduce){.cd-nav-menu{scroll-behavior:auto}}
