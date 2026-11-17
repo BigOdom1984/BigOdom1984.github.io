@@ -47,3 +47,10 @@ Website-only change history and multi-AI contribution rules live in [`changes/`]
 ## Products catalogue
 - Public Products page: https://bigodom1984.github.io/products.html
 - The page lists only approved catalogue entries and distinguishes planned/research status from products actually available to buy. No purchase links or active checkout are claimed.
+
+
+## Responsive layout and hosting
+
+The shared `assets/site-navigation.css` now carries the site-wide mobile layout guard: viewport overflow control, responsive navigation, full-bleed section backgrounds, and safer sizing for cards, tables, media, and forms. It is shared by the website pages that load the common navigation.
+
+The static website is configured for four hosting targets: GitHub Pages, Cloudflare Pages, Vercel, and Netlify. See [HOSTING.md](HOSTING.md) for the exact build/output settings and the important distinction between static-site hosting and the separate production API runtime.
