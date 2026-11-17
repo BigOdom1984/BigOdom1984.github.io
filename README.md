@@ -42,3 +42,8 @@ it makes is the one to GitHub for the release list.
 ## Change control and AI accountability
 
 Website-only change history and multi-AI contribution rules live in [`changes/`](changes/README.md). This public website repository maintains its own scoped change log; the cross-repository master change log, task assignments, approvals, and verification records remain in [AI2AISync](https://github.com/BigOdom1984/ai2aisync). Private proposed patches and confidential evidence do not belong in this public repository.
+
+
+## Products catalogue
+- Public Products page: https://bigodom1984.github.io/products.html
+- The page lists only approved catalogue entries and distinguishes planned/research status from products actually available to buy. No purchase links or active checkout are claimed.
