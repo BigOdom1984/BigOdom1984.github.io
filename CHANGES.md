@@ -27,3 +27,6 @@ independent change log.
 
 ## 2026-11-17 — Onyx (General)
 - New sub page: course.html — the Module Course (all 60 modules as course units for the teaching app) and the games created for the HACKED! console. Linked from Home and All Apps as "The Course & Games." (Written after the CHANGES.sql entry — the last step, per the law.)
+
+## 2026-11-17 — Onyx (General)
+- New sub page: code.html — The Code. Visitors see that code exists for the apps (plain file listings, text only); nothing opens a file and nothing can be modified past that screen. Linked from Home and All Apps. (Written after the CHANGES.sql entry — the last step, per the law.)
