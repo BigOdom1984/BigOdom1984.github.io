@@ -341,3 +341,62 @@ A rebuild is not complete until all of the following are true:
 - The owner has reviewed all content requiring approval.
 
 End of module.
+
+
+## 19. Persistent global navigation and page continuity
+The global navigation is one shared system across the entire CashDublo website. It must remain in the same location, order, dimensions, behavior, and visual hierarchy when a visitor moves between any pages or application overviews.
+- Keep the shared header at the top of the viewport while scrolling (sticky positioning); it must not jump, disappear, or be rebuilt into a different layout between routes.
+- Keep the brand mark on the left and the navigation controls in the same order.
+- Menu order: Home; All Apps; Memberships; Front Ends; Games; Courses; My Source Code; Newsletter; Privacy; About.
+- Memberships must appear immediately after All Apps.
+- Dropdown menus must open consistently, remain within the viewport, and work by touch, keyboard, and pointer.
+- Use the same shared navigation stylesheet and script on all pages in the website family, including every app overview and every platform page.
+- A page may have unique content below the header, but it must not create a competing second navigation bar or shift the shared header to a different location.
+- When a page is served from a nested path, shared asset URLs and links must resolve correctly from that path.
+
+## 20. Website performance requirements
+Apply performance work to every CashDublo website, including GitHub Pages and static sites hosted by other providers. Audit each independent site/repository; do not assume one change optimizes every website.
+- Set explicit image width and height to prevent layout shifts; use modern compressed formats where supported and preserve readable image quality.
+- Lazy-load below-the-fold images; do not lazy-load the main above-the-fold logo/hero image if that delays first paint.
+- Defer non-critical JavaScript and load only the scripts needed on the current page.
+- Avoid repeated network fetches for data already in the page or a shared cache.
+- Minify or consolidate duplicate CSS and JavaScript where safe; avoid loading a full application bundle for a simple content page.
+- Use system fonts or locally hosted fonts where possible; do not block rendering on third-party font services.
+- Set correct cache headers where the host supports them; use content-hashed asset names for long-lived caching and revalidation for HTML/data.
+- Compress text and image assets; use Brotli/Gzip at the host/CDN when available.
+- Prefer build-time/static generation for public catalogue content. A page must remain useful if an optional API is offline.
+- Use CDN-backed static assets where appropriate, but do not make the site depend on a remote image host that is less reliable than its own host.
+- Avoid heavy animation, unnecessary libraries, excessive DOM mutation, and unnecessary polling.
+- Measure before and after with Lighthouse or PageSpeed Insights and record mobile/desktop LCP, INP, CLS, TTFB, total page weight, request count, and largest assets.
+- Do not claim a site is optimized until it has been measured on the deployed site. Record baseline, changes, and post-change measurements for every site.
+
+## 21. Editorial and language quality
+All public website wording must be clear, natural, concise, and grammatically correct.
+- Correct spelling, punctuation, grammar, capitalization, and awkward sentence structure.
+- Rewrite generic or repetitive AI-generated wording into direct, specific, human-readable language.
+- Explain technical terms in plain language when the visitor needs them.
+- Use consistent app names, product labels, status terms, tier names, date formats, and price wording across the site.
+- Preserve the owner's intent and factual meaning. Do not invent features, benefits, release claims, support guarantees, legal promises, security assurances, or performance numbers.
+- Separate confirmed facts, proposals, estimates, and future plans.
+- Keep product descriptions customer-focused: what the app does, who it helps, and what the user can expect.
+- Maintain a spelling/style glossary and an editorial review log so the same terms are corrected consistently across all pages.
+
+## 22. Production-stage catalogue inclusion rule
+Include every app that has a generated app icon and evidence that development has reached at least a production-stage artifact, even if its version is `0.0.0`.
+- A generated icon alone is not proof of a working app.
+- A repository alone is not proof of production readiness.
+- Acceptable production-stage evidence must be recorded (for example: an app build, runnable application entry point, tested web front end, or verified implementation milestone).
+- Show the exact version supplied by the source record, including `0.0.0`; do not hide it or replace it with "not tagged".
+- If the app has a generated icon but no verified build or runnable artifact, list it in a clearly separated "In development" area rather than presenting it as released.
+- If a production-stage app has no generated icon, it still belongs in the catalogue, but show a consistent neutral placeholder and flag the missing icon for completion.
+- Maintain the evidence reference and last-verified date for each inclusion decision.
+- The catalogue is the canonical list. The navigation dropdown, pricing page, platform pages, and app detail pages must derive from it or be audited against it.
+
+## 23. Backup and recovery
+Before broad website or API changes:
+- Create a dated Git backup branch from the current default-branch commit.
+- Make incremental commits with clear messages.
+- Preserve the prior state; do not overwrite or delete content without a recoverable commit.
+- Keep a site inventory and a change log that identifies files, commit IDs, tests, and remaining risks.
+- Maintain a separate off-repository backup for production data and secrets; Git history is not a backup for secrets or private user data.
+- Never commit API keys, signing keys, credentials, private user data, or live training corpora into public repositories.
