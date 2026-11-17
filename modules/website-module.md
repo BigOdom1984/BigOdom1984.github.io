@@ -1,4 +1,6 @@
 # CashDublo Website Module
+
+**Canonical reusable module:** `BigOdom1984/my-modules/modules/website-module/README.md` with machine-readable `manifest.json`. This copy is retained in the website repository for site maintainers; update both through the module's version/change-control process.
 Version: 1.0
 Document type: Platform-independent website reconstruction specification
 Owner: CashDublo / Cash Flow Enterprise LLC
