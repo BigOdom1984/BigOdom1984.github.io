@@ -133,7 +133,7 @@ WEBFACE = {
 # versions and stages are from their own records of 2026-11-15.
 EXTRA_APPS = [
  dict(slug="galaxy-repeat", name="Galaxy Repeat",
-      version="0.3.0", chip="BETA", chipclass="st-yellow",
+      version="0.4.0", chip="BETA", chipclass="st-yellow",
       plats="IOS \u00b7 ANDROID",
       repo="https://github.com/BigOdom1984/galaxy-repeat"),
  dict(slug="best-mac-file-manager", name="Best Mac File Manager",
@@ -149,7 +149,7 @@ EXTRA_APPS = [
       plats="ANDROID",
       repo="https://github.com/BigOdom1984/crash-catcher"),
  dict(slug="podedpro", name="PodEdPro",
-      version="0.1.0", chip="BETA", chipclass="st-yellow",
+      version="0.4.0", chip="BETA", chipclass="st-yellow",
       plats="WIN \u00b7 ANDROID",
       repo="https://github.com/BigOdom1984/podedpro"),
 ]

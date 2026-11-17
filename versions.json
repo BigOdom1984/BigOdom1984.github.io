@@ -1,0 +1,13 @@
+{
+  "_about": "Collected app versions — the website's single source, written from the Version Register (train-ai-models-data/VERSION-REGISTER.md). Audits collect versions from each app's own files; this file is refreshed from the register, and sync_versions.py applies it to the site during every website change. Only collected versions stand here — a slug with no entry keeps the site's stated version until its audit collects the real one.",
+  "podedpro": "0.4.0",
+  "contracts": "0.4.0",
+  "ai-teacher": "0.1.0",
+  "indy-travel": "0.1.0",
+  "wifi-tether-app": "0.3.0",
+  "cashdublo-app-store": "0.1.0",
+  "galaxy-repeat": "0.4.0",
+  "connection-fixer": "0.1.0",
+  "gallery-auto-sorter": "0.1.0",
+  "production-emulator": "0.3.0"
+}

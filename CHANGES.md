@@ -21,3 +21,6 @@ independent change log.
   its own independent change log.
   (Written after the CHANGES.sql entries,
   per the law.)
+
+## 2026-11-17 — Onyx (General)
+- Accurate app versions, collected and automatic: versions.json (from the Version Register) + sync_versions.py now drive every version the site shows, applied during every website change. First corrections: Contracts card 0.4.0; PodEdPro and Galaxy Repeat front-ends entries 0.4.0. (Written after the CHANGES.sql entry — the last step, per the law.)
