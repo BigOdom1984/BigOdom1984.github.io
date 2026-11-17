@@ -246,3 +246,16 @@ Per the Website Module spec ("Themed backgrounds" section): the President's user
 Per the Website Module spec ("Views" section): the website knows whether the visitor is on mobile, tablet, or desktop and feeds the correct view — the view stamped from the device, every part of the site answering to it, banners aligned with the selected view (desktop: aligned to the page column; tablet/mobile: fitted to the screen). The root's first form stands in site.js (the view stamp) and the birthday banner's per-view alignment; carry the same system through the whole website build, and on the production side feed the correct server face per view.
 
 9. **The ribbon-cutting ceremony** (the President, 2026-11-17; Website Module spec): when a banner is displayed, his avatar walks out waving like a ribbon-cutting — a ribbon runs screen-wide across the banner, he walks to the middle and cuts its bottom, and a few seconds after the cut the ribbon disappears. Once per visit, never blocking the banner's words, reduced-motion respected.
+
+## Item 10 — placeholders on the live site for the new service lines (the President, 2026-11-17)
+
+On the live website (the root site), place **placeholders** for everything the President has just stood up — reserved, honestly labeled **in construction**, not full builds:
+
+- **Websites and Dedicated Hosting** — the service card with its pitch ("Your name. Your website. Built like the big brands."), the three monthly tiers (Simple $299 + $49/mo · Business $499 + $99/mo · Flagship $999 + $199/mo, proposed), the customer app ("your app, your controls" — prices, hours, specials, menus), dedicated hosting on a separate customer server, and the see-it-live demo. Examples and templates marked as coming.
+- **The business model** — a line in the company material that the company's business model stands in its own repository for partners, counsel, and financing.
+
+Placeholders carry the grammar pass before the President sees them, like all website work, and they advertise nothing that stands in a legal gray area — this service is clean.
+
+## Item 11 — staging on your own website version (the President, 2026-11-17)
+
+On **your own website version** (your seat's build), go further than placeholders: **start staging** the real sections for the things now in construction — the Websites and Dedicated Hosting service pages, the customer-app story, the tiers, and the demo — so that when the President promotes your version, the live site inherits working sections, not sketches. Staging follows the same laws: the luxury standard (newest JavaScript, one-on-one polish), the grammar pass, and honest labels for anything not yet live.
