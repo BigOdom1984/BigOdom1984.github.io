@@ -221,88 +221,15 @@ def fe_css(h):
 # the same pattern as the Front Ends app CSS above. Colors are
 # written out, not var(), so the block looks the same on the
 # privacy page, whose own palette differs.
-CD_CSS = ("/*CDWIDGET*/"
-          ".cd-overlay{position:fixed;inset:0;z-index:120;"
-          "background:rgba(23,45,43,.55);display:flex;"
-          "align-items:center;justify-content:center;padding:16px}"
-          ".cd-overlay[hidden]{display:none}"
-          ".cd-card{background:#fffdf8;color:#172d2b;"
-          "border:1px solid #d8d4c9;border-radius:22px;"
-          "max-width:430px;width:100%;max-height:calc(100vh - 32px);"
-          "overflow:auto;padding:26px;position:relative;"
-          "box-shadow:0 24px 60px rgba(20,20,20,.35)}"
-          ".cd-card h2{margin:0 40px 10px 0;font-size:1.45rem;"
-          "letter-spacing:-.03em;line-height:1.15}"
-          ".cd-card p{color:#596d68;margin:0 0 14px}"
-          ".cd-x{position:absolute;top:12px;right:12px;width:36px;"
-          "height:36px;border-radius:50%;border:1px solid #d8d4c9;"
-          "background:#fffdf8;color:#172d2b;font-size:1.3rem;"
-          "line-height:1;cursor:pointer}"
-          ".cd-x:hover{background:#f3efe2}"
-          ".cd-btn{display:inline-block;background:#c9ed72;"
-          "color:#172d2b;border:1px solid #172d2b;border-radius:999px;"
-          "padding:11px 20px;font:inherit;font-weight:850;cursor:pointer}"
-          ".cd-btn.alt{background:transparent}"
-          ".cd-row{display:flex;gap:10px;flex-wrap:wrap}"
-          ".cd-card label{display:block;font-weight:800;margin:0 0 12px}"
-          ".cd-card input[type=text],.cd-card textarea{display:block;"
-          "width:100%;margin-top:6px;padding:11px 12px;"
-          "border:1px solid #d8d4c9;border-radius:12px;font:inherit;"
-          "font-weight:400;background:#ffffff;color:#172d2b;"
-          "box-sizing:border-box}"
-          ".cd-note{font-size:.9rem}"
-          ".cd-fab{position:fixed;right:16px;"
-          "bottom:calc(16px + env(safe-area-inset-bottom));z-index:90;"
-          "display:inline-flex;align-items:center;gap:8px;"
-          "background:#193d39;color:#f5f0e6;border:1px solid #c9ed72;"
-          "border-radius:999px;padding:11px 16px;font:inherit;"
-          "font-weight:850;font-size:.95rem;cursor:pointer;"
-          "box-shadow:0 12px 28px rgba(20,20,20,.3)}"
-          ".cd-fab svg{width:18px;height:18px;flex:none}"
-          ".cd-fab:hover{background:#172d2b}"
-          "@media(max-width:550px){.cd-fab{right:12px;"
-          "bottom:calc(12px + env(safe-area-inset-bottom));"
-          "padding:10px 13px;font-size:.9rem}"
-          ".cd-card{padding:22px 18px}}")
-
 def cd_css(h):
-    if "/*CDWIDGET*/" not in h:
-        h = h.replace("</style>", CD_CSS + "</style>", 1)
+    """Shared widget styling is served from the cacheable site stylesheet."""
     return h
 
 CD_BLOCK = """
 <div class="cd-overlay" id="cd-welcome" hidden><div class="cd-card" role="dialog" aria-modal="true" aria-label="Welcome"><button class="cd-x" type="button" data-cd-close="cd-welcome" aria-label="Close">&times;</button><h2>Welcome.</h2><p>Thank you for visiting your friend's store, and he appreciates your time to browse it \u2014 your time that you're using to browse his catalog.</p><p>Feel free to leave a comment while you're here \u2014 it goes straight to Greg.</p><div class="cd-row"><button class="cd-btn" type="button" data-cd-close="cd-welcome">Browse the catalog</button><button class="cd-btn alt" type="button" data-cd-open>Leave a comment</button></div></div></div>
 <button class="cd-fab" id="cd-fab" type="button" data-cd-open aria-label="Leave a comment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z" fill="none" stroke="#c9ed72" stroke-width="2" stroke-linejoin="round"/></svg><span>Comment</span></button>
 <div class="cd-overlay" id="comments" hidden><div class="cd-card" role="dialog" aria-modal="true" aria-label="Leave a comment"><button class="cd-x" type="button" data-cd-close="comments" aria-label="Close">&times;</button><h2>Leave a comment.</h2><p>Comments go straight to Greg's inbox. Write yours here, and your own email app will open with it addressed to him, ready for you to send.</p><form id="cd-form"><label>Your name<input type="text" id="cd-name" autocomplete="name" placeholder="Your name"></label><label>Your comment<textarea id="cd-comment" rows="5" required placeholder="Say it here"></textarea></label><button class="cd-btn" type="submit">Send it to Greg</button><p class="cd-note" id="cd-sent" hidden>Your email app should be opening now \u2014 press send there and it reaches Greg. Nothing is posted on this page.</p></form></div></div>
-<script>
-(function(){
-"use strict";
-function byId(i){return document.getElementById(i);}
-var welcome=byId("cd-welcome"),panel=byId("comments");
-function show(e){if(e){e.hidden=false;}}
-function hide(e){if(e){e.hidden=true;}}
-function openPanel(){hide(welcome);show(panel);var t=byId("cd-comment");if(t){t.focus();}}
-var openers=document.querySelectorAll("[data-cd-open]"),i;
-for(i=0;i<openers.length;i++){openers[i].addEventListener("click",function(ev){ev.preventDefault();openPanel();});}
-var closers=document.querySelectorAll("[data-cd-close]");
-for(i=0;i<closers.length;i++){closers[i].addEventListener("click",function(){hide(byId(this.getAttribute("data-cd-close")));});}
-[welcome,panel].forEach(function(ov){if(ov){ov.addEventListener("click",function(ev){if(ev.target===ov){hide(ov);}});}});
-document.addEventListener("keydown",function(ev){if(ev.key==="Escape"){hide(welcome);hide(panel);}});
-var seen=false;
-try{seen=!!localStorage.getItem("cdWelcomeSeen");}catch(e){}
-if(!seen){show(welcome);try{localStorage.setItem("cdWelcomeSeen","1");}catch(e){}}
-var form=byId("cd-form");
-if(form){form.addEventListener("submit",function(ev){
-ev.preventDefault();
-var name=(byId("cd-name").value||"").trim();
-var text=(byId("cd-comment").value||"").trim();
-if(!text){return;}
-var body="Name: "+(name||"(not given)")+"\\nPage: "+location.pathname+"\\n\\n"+text;
-window.location.href="mailto:CashDublo@gmail.com?subject="+encodeURIComponent("Website comment")+"&body="+encodeURIComponent(body);
-var sent=byId("cd-sent");if(sent){sent.hidden=false;}
-});}
-})();
-</script>
+<script src="assets/js/site-shared.js" defer></script>
 """
 
 def cd_add(html_text):
@@ -748,6 +675,7 @@ def fe_page(fe):
         h = h.replace("</style>", PMENU_CSS + "</style>")
     h = fe_css(h)
     h = cd_css(h)
+    h = h.replace('href="assets/css/site-shared.css"', 'href="../assets/css/site-shared.css"')
     if fe["live"]:
         links = "".join(f'<a href="{u}">{label} ↗</a>'
                         for label, u in fe["live"])
@@ -768,7 +696,7 @@ def fe_page(fe):
             + paras + live_html
             + f'<div class="links">{repos}</div>'
             + '<div class="links"><a href="../front-ends.html">← All front ends</a></div>'
-            + footer_note + "</main>" + footer_up + CD_BLOCK + "</body></html>")
+            + footer_note + "</main>" + footer_up + CD_BLOCK.replace('assets/js/site-shared.js', '../assets/js/site-shared.js') + "</body></html>")
     out = h + "<body>" + body
     os.makedirs(os.path.join(HERE, "front-ends"), exist_ok=True)
     open(os.path.join(HERE, "front-ends", fe["slug"] + ".html"), "w").write(out)
