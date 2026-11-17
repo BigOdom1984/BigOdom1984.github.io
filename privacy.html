@@ -50,15 +50,15 @@ header{padding:22px 5vw;display:flex;justify-content:space-between;gap:20px;flex
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="dated">For all CashDublo apps. Last updated: November 2026.</p>
+  <p class="dated">For the local-first apps described below. Last updated: November 18, 2026.</p>
 
-  <p>This page explains, in plain words, what happens with your information when you use a CashDublo app. The short version: the things you make in the apps stay yours, on your device. The apps also send the small check-ins explained below.</p>
+  <p>This notice describes the local-first CashDublo apps listed below and the update-check-in system they use. Some separate web services may require accounts, cloud storage or other data processing. Those services need their own app-specific privacy details before release.</p>
 
   <h2>The things you make stay on your device</h2>
-  <p>The apps keep the things you make on your phone or your computer. Your stock lists and settings in Cash Portfolio and AI Cash Portfolio, your songs, star ratings and moods in Player, your saved texts in TTS Widget, your lessons and progress in SAY, your stories and photos in Travel Journal, your trails in GO, and your notes, sketches and files in Dear Idea all live on the device where you made them.</p>
+  <p>In the local-first apps covered by this notice, your content is stored on the device where you create it. Examples include portfolio lists and settings in Cash Portfolio and AI Cash Portfolio; songs, ratings and moods in Player; saved text in TTS Widget; lesson progress in SAY; travel stories in Travel Journal; routes in GO; and notes, sketches and files in Dear Idea. Check an app's own information before assuming that a web-connected feature follows the same storage rules.</p>
 
-  <h2>No CashDublo accounts</h2>
-  <p>CashDublo does not run accounts for these apps. There is no sign-up.</p>
+  <h2>Accounts and sign-in</h2>
+  <p>The local-first apps described here do not require a CashDublo account for their core on-device features. Separate web services may offer account-based features; their sign-in and data practices must be explained in their own privacy notices.</p>
 
   <h2>Update check-ins and the update log</h2>
   <p>When a CashDublo app checks for updates, it sends a small check-in to the CashDublo update log: the name of the app, the version of the app, and a random ID number the app made up the first time it was opened. The Player app also sends the list of folders it provides.</p>
@@ -77,10 +77,10 @@ header{padding:22px 5vw;display:flex;justify-content:space-between;gap:20px;flex
 
   <p>If you turn off "Update from GitHub" in an app's settings, that app stops checking in, and its usage and battery totals stop with the check-ins. Its error reports stop too, because they travel with the check-ins.</p>
 
-  <p>No names, email addresses, or personal information are ever sent. The log is kept in a public folder on GitHub (user-logging-data, in the cashdublo-updates repo), where anyone can read it.</p>
+  <p>The update log is designed not to collect your name, email address or the content you create. It can contain app and version details, an installation identifier, device model information, usage totals and error details. This is device and usage information, even when it does not identify you by name. The log is stored in a public GitHub repository folder, so its contents can be read by anyone. Do not assume that a public log is private.</p>
 
   <h2>Nothing is sold</h2>
-  <p>Your information is not sold, rented, or shared with advertisers. The apps carry no ads and no trackers.</p>
+  <p>CashDublo does not sell your personal information. Some free-tier pricing proposals may include clearly labeled advertising, but a proposal is not proof that ads are currently active. Before advertising is enabled in an app, its privacy notice must identify the ad provider and explain what information is shared. Private financial records, legal documents, personal notes, voice recordings and other private content must not be used for ad targeting.</p>
 
   <h2>Keys you provide yourself</h2>
   <p>Some features let you type in your own key for an outside service - for example a Finnhub key for live stock prices, or an Anthropic key for AI help. When you use one of those features, the app talks straight from your device to that service using your key, under that service's own privacy policy. Your key is stored only on your device. It is never sent to CashDublo.</p>
@@ -100,7 +100,7 @@ header{padding:22px 5vw;display:flex;justify-content:space-between;gap:20px;flex
 </footer>
 
 
-<div class="cd-overlay" id="cd-welcome" hidden><div class="cd-card" role="dialog" aria-modal="true" aria-label="Welcome"><button class="cd-x" type="button" data-cd-close="cd-welcome" aria-label="Close">&times;</button><h2>Welcome.</h2><p>Thank you for visiting your friend's store, and he appreciates your time to browse it — your time that you're using to browse his catalog.</p><p>Feel free to leave a comment while you're here — it goes straight to Greg.</p><div class="cd-row"><button class="cd-btn" type="button" data-cd-close="cd-welcome">Browse the catalog</button><button class="cd-btn alt" type="button" data-cd-open>Leave a comment</button></div></div></div>
+<div class="cd-overlay" id="cd-welcome" hidden><div class="cd-card" role="dialog" aria-modal="true" aria-label="Welcome"><button class="cd-x" type="button" data-cd-close="cd-welcome" aria-label="Close">&times;</button><h2>Welcome.</h2><p>Thanks for visiting CashDublo and taking a look through the app collection.</p><p>Feel free to leave a comment while you're here — it goes straight to Greg.</p><div class="cd-row"><button class="cd-btn" type="button" data-cd-close="cd-welcome">Browse the catalog</button><button class="cd-btn alt" type="button" data-cd-open>Leave a comment</button></div></div></div>
 <button class="cd-fab" id="cd-fab" type="button" data-cd-open aria-label="Leave a comment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z" fill="none" stroke="#c9ed72" stroke-width="2" stroke-linejoin="round"/></svg><span>Comment</span></button>
 <div class="cd-overlay" id="comments" hidden><div class="cd-card" role="dialog" aria-modal="true" aria-label="Leave a comment"><button class="cd-x" type="button" data-cd-close="comments" aria-label="Close">&times;</button><h2>Leave a comment.</h2><p>Comments go straight to Greg's inbox. Write yours here, and your own email app will open with it addressed to him, ready for you to send.</p><form id="cd-form"><label>Your name<input type="text" id="cd-name" autocomplete="name" placeholder="Your name"></label><label>Your comment<textarea id="cd-comment" rows="5" required placeholder="Say it here"></textarea></label><button class="cd-btn" type="submit">Send it to Greg</button><p class="cd-note" id="cd-sent" hidden>Your email app should be opening now — press send there and it reaches Greg. Nothing is posted on this page.</p></form></div></div>
 <script src="site.js"></script>
