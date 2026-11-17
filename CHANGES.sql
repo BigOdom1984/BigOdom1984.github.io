@@ -43,3 +43,8 @@ INSERT INTO changes (date, who, what, docs) VALUES
 ('2026-11-17', 'Onyx (General), on the President''s order',
  'The song joins the birthday banner: the newsletter pop-up''s birthday card now carries Just the Two of Us — the original Grover Washington Jr. recording with Bill Withers, through Spotify''s own player — for a week (through November 24). It is the first thing the card offers on a visit; closing the card stops the song. The recording is played through Spotify''s player because it is not a recording the President owns the rights to host — his own rights-owned songs are what the production websites will host directly.',
  'site.js');
+
+INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-17', 'Onyx (General), on the President''s order',
+ 'The birthday card''s song now starts on its own: the Spotify player for Just the Two of Us is set to autoplay when the card opens, and where a browser still holds sound until the visitor first touches the page, that first touch anywhere starts it. Closing the card still stops the song. The birthday banner itself is dressed for the day: balloons rise off the banner, and a present hops with excitement at the end of the banner line, clear of the words.',
+ 'site.js, index.html, news.html');
