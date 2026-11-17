@@ -1,45 +1,69 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Code — CashDublo</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Source Code — CashDublo</title>
+<meta name="description" content="A private glimpse into the work behind CashDublo.">
 <style>
 :root{--ink:#172d2b;--muted:#596d68;--paper:#f5f0e6;--white:#fffdf8;--lime:#c9ed72;--line:#d8d4c9;--deep:#193d39}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 header{padding:22px 5vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.brand{font-weight:950;text-decoration:none;font-size:1.4rem;letter-spacing:-.06em;color:var(--ink)}.brand span{color:#d35f48}
-nav{display:flex;gap:20px}nav a{font-weight:800;text-decoration:none;color:var(--ink)}
-.hero{padding:70px 7vw;background:var(--deep);color:#fff}.hero small{color:var(--lime);letter-spacing:.15em;text-transform:uppercase;font-weight:900}
-.hero h1{font-size:clamp(2.6rem,7vw,5rem);letter-spacing:-.07em;line-height:.95;margin:14px 0}.hero p{max-width:700px;color:#d5e2d9}
+.brand{font-weight:950;text-decoration:none;font-size:1.4rem;letter-spacing:-.06em;color:var(--ink)}
+.brand span{color:#d35f48}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{font-weight:800;text-decoration:none;color:var(--ink)}
+.hero{padding:70px 7vw;background:var(--deep);color:#fff}
+.hero small{color:var(--lime);letter-spacing:.15em;text-transform:uppercase;font-weight:900}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);letter-spacing:-.07em;line-height:.95;margin:14px 0}
+.hero p{max-width:700px;color:#d5e2d9}
 .wrap{max-width:1200px;margin:auto;padding:55px 24px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px}
-.card h2{font-size:1.2rem;margin:12px 0 8px}
-.status{font-size:.62rem;font-weight:900;letter-spacing:.08em;border:1px solid var(--line);border-radius:99px;padding:5px 9px;color:#7c5d36}
-ul.files{list-style:none;margin:10px 0;padding:12px;background:#172d2b;color:#c9ed72;border-radius:12px;font-family:ui-monospace,Menlo,monospace;font-size:.82rem;line-height:1.75}
-p.more{color:var(--muted);font-size:.92rem;margin:8px 0 0}
-footer{text-align:center;padding:35px;background:var(--deep);color:#d5e2d9}footer a{color:var(--lime)}
-</style><link rel="stylesheet" href="/assets/site-navigation.css"></head><body>
-<header><a class="brand" href="index.html">CASH<span>DUBLO</span></a>
-<nav><a href="index.html">Home</a><a href="apps.html">All apps</a><a href="course.html">The Course &amp; Games</a><a href="news.html">Newsletter</a><a href="privacy.html">Privacy</a></nav></header>
-<section class="hero"><small>Open to see — closed to enter</small>
-<h1>The code is real.</h1>
-<p>Every app here is real software, written and kept in its own repository. This screen lets you see that the code exists — the shape of each app, its files, its parts. And this screen is as far as visitors go: nothing here opens a file, nothing here can be changed. The code itself is the builder's workshop, and the workshop is not open.</p></section>
-<main class="wrap"><section class="command-tools" id="command-tools"><div class="card"><span class="status">Command Tools · inventory pending</span><h2>Command Tools</h2><p>CMD / CLI programs, scripts and terminal utilities belong in this category. Secure Mac Remote Terminal is the first confirmed entry. The wider cross-repository inventory is still pending, so ordinary desktop apps will not be mislabelled as command-line tools. Confirmed tools will be added with supported operating systems, version and current status.</p><div class="links"><a href="terminal.html">Browse Command Tools ↗</a><a href="https://github.com/BigOdom1984/secure-terminal">Secure Terminal source ↗</a><a href="https://github.com/BigOdom1984/ai2aisync/blob/main/suggestions/SUG-20261117-001-unified-cacheable-cli-suite.md">Full command-line inventory proposal ↗</a><a href="https://github.com/BigOdom1984">BigOdom1984 repositories ↗</a></div></div></section><div class="grid">
-<article class="card"><span class="status">Code — view only</span><h2>PodEdPro</h2><ul class="files"><li>AUDIT-2026-11-17.md</li><li>BUILD.md</li><li>README.md</li><li>SPEC.md</li><li>STORAGE.md</li><li>THIRD-PARTY-LICENSES.md</li><li>app</li><li>build.gradle.kts</li><li>checks</li><li>core-tests</li><li>how-it-was-made</li><li>research</li><li>settings.gradle.kts</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Contracts</h2><ul class="files"><li>CHANGES.md</li><li>CHANGES.sql</li><li>CHATGPT-ORDERS.md</li><li>ENCRYPTION.md</li><li>FORMAT.md</li><li>LAW-BUBBLES.md</li><li>LEGAL-INVESTIGATION.md</li><li>README.md</li><li>SOURCES.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li><li>app</li><li>build.gradle.kts</li><li>core-tests</li><li>settings.gradle.kts</li><li>test-vectors.md</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Contracts (iOS)</h2><ul class="files"><li>App</li><li>CHANGES.md</li><li>Checks</li><li>README.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li><li>Sources</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>AI Teacher</h2><ul class="files"><li>CHANGES.md</li><li>CHANGES.sql</li><li>README.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li><li>app</li><li>build.gradle.kts</li><li>core-tests</li><li>settings.gradle.kts</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Indy Travel</h2><ul class="files"><li>APIS.md</li><li>CHANGES.md</li><li>CHANGES.sql</li><li>COMMENTS.md</li><li>DEALS.md</li><li>README.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li><li>app</li><li>build.gradle.kts</li><li>core-tests</li><li>settings.gradle.kts</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>CashDublo App Store</h2><ul class="files"><li>BUILD-REPORT.md</li><li>CHANGES.md</li><li>CHANGES.sql</li><li>README.md</li><li>SPEC.md</li><li>app</li><li>core-tests</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Wi-Fi Tether</h2><ul class="files"><li>BUILD-REPORT.md</li><li>BUILD.md</li><li>README.md</li><li>SPEC.md</li><li>app</li><li>build.gradle.kts</li><li>core-tests</li><li>settings.gradle.kts</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Storyline Engine</h2><ul class="files"><li>CHANGES.md</li><li>CHANGES.sql</li><li>COMMENTS.md</li><li>README.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Storyline Studio</h2><ul class="files"><li>CHANGES.md</li><li>CHANGES.sql</li><li>CHATGPT-ORDERS.md</li><li>README.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Storyline Player</h2><ul class="files"><li>CHANGES.md</li><li>CHANGES.sql</li><li>COMMENTS.md</li><li>README.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card game-card" id="hacked-source" data-version="Not tagged" data-status="In development" data-game-type="Interactive story / adventure" data-platforms="Not verified"><span class="status">Code — view only</span><h2>HACKED!</h2><ul class="files"><li>CHANGES.md</li><li>CHANGES.sql</li><li>CHATGPT-ORDERS.md</li><li>SPEC.md</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card game-card" id="name-that-flag-source" data-version="Not tagged" data-status="Release status unverified" data-game-type="Trivia / geography" data-platforms="Not verified"><span class="status">Code — view only</span><h2>Name That Flag</h2><ul class="files"><li>PARTY-STAKE-SPEC.md</li><li>README.md</li><li>SPEC.md</li><li>STORAGE.md</li><li>how-it-was-made</li><li>package.json</li><li>src</li><li>tests</li><li>tsconfig.json</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
-<article class="card"><span class="status">Code — view only</span><h2>Apple Dextop</h2><ul class="files"><li>App</li><li>CHANGES.md</li><li>README.md</li><li>SPEC.md</li><li>SUGGESTIONS.md</li><li>Sources</li><li>checks</li></ul><p class="more">The code is real, and it lives in the app's own repository. This listing is as far as visitors go.</p></article>
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;min-height:260px;overflow:hidden;display:flex;flex-direction:column;gap:18px}
+.ghost-pill,.ghost-title,.ghost-list,.ghost-copy{filter:blur(5px);opacity:.30;pointer-events:none}
+.ghost-pill{height:13px;width:88px;border-radius:99px;background:#8d9d91}
+.ghost-title{height:22px;width:58%;border-radius:7px;background:#667c70}
+.ghost-list{background:#172d2b;border-radius:12px;padding:16px;display:grid;gap:12px;flex:1}
+.ghost-list i,.ghost-copy i{display:block;height:7px;border-radius:99px;background:#c9ed72}
+.ghost-list i:nth-child(2n){width:74%}.ghost-list i:nth-child(3n){width:88%}
+.ghost-copy{display:grid;gap:9px}
+.ghost-copy i{background:#9aa99f;width:95%}.ghost-copy i:last-child{width:62%}
+footer{text-align:center;padding:35px;background:var(--deep);color:#d5e2d9}
+footer a{color:var(--lime)}
+@media(max-width:600px){header{flex-direction:column}nav{gap:14px}.wrap{padding:42px 18px}}
+</style>
+<link rel="stylesheet" href="/assets/site-navigation.css">
+</head>
+<body>
+<header>
+<a class="brand" href="index.html">CASH<span>DUBLO</span></a>
+<nav><a href="index.html">Home</a><a href="apps.html">All apps</a><a href="course.html">The Course &amp; Games</a><a href="news.html">Newsletter</a><a href="privacy.html">Privacy</a></nav>
+</header>
+<section class="hero">
+<small>Behind the work</small>
+<h1>My Source Code.</h1>
+<p>A quiet glimpse behind the work. The details stay private; the ideas and finished products are what matter here.</p>
+</section>
+<main class="wrap">
+<div class="grid">
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
+<article class="card" aria-label="Private source listing"><div class="ghost-pill"></div><div class="ghost-title"></div><div class="ghost-list"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ghost-copy"><i></i><i></i></div></article>
 </div>
-<p class="more" style="margin-top:26px">More apps join this screen as their code listings are collected in their audits. What you see is a listing — names and shape only. There is nothing behind it to click.</p>
 </main>
 <footer>CashDublo — built by Cash. <a href="apps.html">Every app</a> · <a href="index.html">Home</a></footer>
-<script src="/assets/site-navigation.js" defer></script></body></html>
+<script src="/assets/site-navigation.js" defer></script>
+</body>
+</html>
