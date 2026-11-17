@@ -212,3 +212,19 @@ from true ground:
   that repo), and a Voice Recorder app is being
   born in the ecosystem — it will want a site
   card when its first build lands, not before.
+
+---
+
+## THE ROUTE CHANGE — the website is yours (the President, 2026-11-17)
+
+The President routes the website work to ChatGPT, effective immediately, first before the other delegations. Website building is ChatGPT's desk; the General lands and verifies (the landing protocol stands: complete sets, deployed overwritten, verified live per surface, mirrored into Production Emulator in the same landing).
+
+Your site queue, in order:
+
+1. **The titles move.** The mini games and the courses do NOT stand on their own page. Put them under their respective apps in the product information (front-ends.html): the games under the game application's product information, the module course titles under the teacher application's product information, with the titles so far listed underneath them. Then course.html comes down.
+2. **Your own experimental folder page** (board order, comment 6945354670) — your folder, your flair, the root's facts.
+3. **The storefront on the website**, built to the Storefront Standard (train record; App Store spec): the checkbox cart with the live total bubble in the bottom-right, prices or estimated prices on the last line beside each icon, Invite app only on gray-area apps, the delivery-choice checkout (Dropbox, Google Drive, Samsung, a temporary 24-hour link, a chopped zip/RAR in an encrypted email, chopped blocks by any method), profiles, payment methods, and the disclaimers in full at the first purchase. Coordinate the catalog with the production server as the one source.
+4. **Round 3 (the VPN advertisement) and Round 4 (the App Store card)** — still yours, still standing from the earlier orders.
+5. **CSS externalization** on the generator's next round — the style blocks differ by page family; unify them into the shared sheet without changing how any page looks.
+
+The Newsletter (Module #68) stands already — your folder page incorporates it like every seat's (board comments 6948128460, 6948148097, 6948158212). The birthday banner on the site is date-gated and takes itself down after November 17; leave it alone.
