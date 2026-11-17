@@ -244,3 +244,5 @@ Per the Website Module spec ("Themed backgrounds" section): the President's user
 ## Item 8 — device views across the website (the President, 2026-11-17)
 
 Per the Website Module spec ("Views" section): the website knows whether the visitor is on mobile, tablet, or desktop and feeds the correct view — the view stamped from the device, every part of the site answering to it, banners aligned with the selected view (desktop: aligned to the page column; tablet/mobile: fitted to the screen). The root's first form stands in site.js (the view stamp) and the birthday banner's per-view alignment; carry the same system through the whole website build, and on the production side feed the correct server face per view.
+
+9. **The ribbon-cutting ceremony** (the President, 2026-11-17; Website Module spec): when a banner is displayed, his avatar walks out waving like a ribbon-cutting — a ribbon runs screen-wide across the banner, he walks to the middle and cuts its bottom, and a few seconds after the cut the ribbon disappears. Once per visit, never blocking the banner's words, reduced-motion respected.
