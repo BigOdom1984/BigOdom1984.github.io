@@ -18,8 +18,8 @@ function loadPlatformCatalog(){const token=tokenByPath[path];if(!token)return;co
 function addGameMetadata(){document.querySelectorAll('.game-card').forEach(card=>{if(card.querySelector('.cd-game-meta'))return;const meta=document.createElement('div');meta.className='cd-game-meta';[['Version: ',card.dataset.version||'Not tagged'],['Status: ',card.dataset.status||'Unverified'],['Type: ',card.dataset.gameType||'Not classified'],['Platforms: ',card.dataset.platforms||'Not verified']].forEach(([label,value])=>{const s=document.createElement('span');s.textContent=label+value;meta.append(s);});const h=card.querySelector('h3,h2');if(h)h.insertAdjacentElement('afterend',meta);});}
 
 function ensureFooterLinks(){
- const footer=document.querySelector('footer');
- if(!footer)return;
+ let footer=document.querySelector('footer');
+ if(!footer){footer=document.createElement('footer');footer.className='cd-site-footer';document.body.append(footer);}
  let group=footer.querySelector('.cd-footer-legal');
  if(!group){group=document.createElement('div');group.className='cd-footer-legal';footer.append(group);}
  if(!group.querySelector('a[href="/privacy.html"]')){const privacy=document.createElement('a');privacy.href='/privacy.html';privacy.textContent='Privacy Policy';group.append(privacy);}
