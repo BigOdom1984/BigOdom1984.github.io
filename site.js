@@ -49,3 +49,50 @@ document.getElementById("cd-age-no").addEventListener("click", function(){
 });
 document.getElementById("cd-age-skip").addEventListener("click", function(ev){ ev.preventDefault(); close(); });
 })();
+
+/*CDNEWS*/
+(function(){
+"use strict";
+if(/news\.html$/.test(location.pathname)){ return; }
+var KEY="cdNewsSeenVisit";
+try{ if(sessionStorage.getItem(KEY)){ return; } }catch(e){}
+var PHOTO="/img/icon-podedpro.png";
+var STORIES=[
+["Every app is getting a plain-words manual","The first two are done: Contracts and Wi-Fi Tether now have manuals anyone can read, no tech talk. The rest of the apps are in line."],
+["Contracts became a paper vault too","Besides signing, the Contracts app now keeps your important papers: photograph them, seal them, and find them again fast."],
+["Indy Travel learned to watch hotel prices","Tell it the hotel and the price you want. It stays quiet unless the price moves — then it speaks up."],
+["A tiny tool for moving files by cable","On the drawing board: plug a phone into a Mac, see its files, drag and drop. Small, simple, honest about what it moved."],
+["Behind the scenes: the back end and the server","Work continues on the CashDublo server and the back end the apps will run on — the part nobody sees that makes everything else possible."]
+];
+var css=".cdnews-overlay{position:fixed;inset:0;z-index:130;background:rgba(23,45,43,.45);display:flex;align-items:center;justify-content:center;padding:16px}.cdnews-card{background:#fffdf8;color:#172d2b;border:1px solid #d8d4c9;border-radius:22px;max-width:440px;width:100%;max-height:calc(100vh - 32px);overflow:auto;padding:0 0 20px;position:relative;box-shadow:0 24px 60px rgba(20,20,20,.35)}.cdnews-card img{width:100%;height:190px;object-fit:cover;object-position:top;display:block;border-radius:22px 22px 0 0}.cdnews-in{padding:18px 22px 0}.cdnews-kick{color:#c65f4a;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:900}.cdnews-card h2{margin:6px 0 4px;font-size:1.5rem;letter-spacing:-.03em;line-height:1.15}.cdnews-sub{color:#596d68;margin:0 0 12px;font-size:.95rem}.cdnews-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:1px solid #d8d4c9;background:#fffdf8;color:#172d2b;font-size:1.3rem;line-height:1;cursor:pointer;z-index:2}.cdnews-story{border-top:1px solid #e3ded2;padding:10px 0}.cdnews-story button{all:unset;display:block;width:100%;cursor:pointer;font-weight:850;font-size:1rem;color:#172d2b}.cdnews-story p{display:none;color:#596d68;margin:6px 0 2px;font-size:.95rem}.cdnews-story.open p{display:block}.cdnews-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.cdnews-btn{display:inline-block;background:#c9ed72;color:#172d2b;border:1px solid #172d2b;border-radius:999px;padding:11px 18px;font-weight:850;cursor:pointer;text-decoration:none}.cdnews-btn.alt{background:transparent}";
+function build(){
+if(document.getElementById("cdnews")){ return true; }
+var st=document.createElement("style"); st.textContent=css; document.head.appendChild(st);
+var ov=document.createElement("div"); ov.className="cdnews-overlay"; ov.id="cdnews";
+var rows=STORIES.map(function(s,i){ return "<div class=\"cdnews-story"+(i===0?" open":"")+"\"><button type=\"button\">"+s[0]+"</button><p>"+s[1]+"</p></div>"; }).join("");
+ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" aria-label=\"The CashDublo Newsletter\">"
++"<button class=\"cdnews-x\" type=\"button\" aria-label=\"Close\">&times;</button>"
++"<img src=\""+PHOTO+"\" alt=\"PodEdPro app icon\" onerror=\"this.style.display='none'\">"
++"<div class=\"cdnews-in\"><div class=\"cdnews-kick\">The CashDublo Newsletter</div>"
++"<h2>What's going on, in plain words.</h2>"
++"<p class=\"cdnews-sub\">November 17, 2026 — the short version, for everybody. Tap a story to open it.</p>"
++rows
++"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a><button class=\"cdnews-btn alt\" type=\"button\" id=\"cdnews-close\">Not now</button></div>"
++"</div></div>";
+document.body.appendChild(ov);
+function close(){ ov.remove(); try{ sessionStorage.setItem(KEY,"1"); }catch(e){} }
+ov.querySelector(".cdnews-x").addEventListener("click", close);
+document.getElementById("cdnews-close").addEventListener("click", close);
+ov.addEventListener("click", function(ev){ if(ev.target===ov){ close(); } });
+ov.querySelectorAll(".cdnews-story button").forEach(function(b){ b.addEventListener("click", function(){ b.parentElement.classList.toggle("open"); }); });
+return true;
+}
+var tries=0;
+var timer=setInterval(function(){
+tries++;
+var age=document.getElementById("cd-age");
+var welcome=document.getElementById("cd-welcome");
+var busy=(age && !age.hidden) || (welcome && !welcome.hidden);
+if(!busy || tries>25){ clearInterval(timer); build(); }
+},800);
+})();
