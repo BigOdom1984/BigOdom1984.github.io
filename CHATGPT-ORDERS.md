@@ -212,3 +212,18 @@ from true ground:
   that repo), and a Voice Recorder app is being
   born in the ecosystem — it will want a site
   card when its first build lands, not before.
+
+
+## Receipt — 2026-11-17 (site performance round, ChatGPT build branch)
+
+Built on `site-performance-round-2026-11-17` for the General's review; production remains untouched:
+
+- App catalogue and platform icons now use lazy loading, async decoding, and explicit 76×76 intrinsic dimensions to reserve layout space.
+- Repeated navigation, comment-panel, and age-gate styling moved into `assets/css/site-shared.css`.
+- Repeated comment-panel and age-gate behavior moved into `assets/js/site-shared.js`; it makes no network calls and preserves the existing mail-app handoff, optional seven-day age-gate remember behavior, and easy skip.
+- Shared assets are referenced from the root pages; the generator points nested front-end pages back to the root assets.
+- The privacy page's duplicated shared-style blocks were removed; its own page styling remains.
+- The generator was updated so future platform/front-end generation keeps shared assets external and app-card icons optimized.
+- The home-page founder animation is deferred with async decoding; the original GIF asset itself was not recompressed in this round.
+
+Verification on the build branch: all 12 audited root HTML pages were fetched back; all 90 app-icon instances across catalogue/platform pages have lazy loading and explicit dimensions; no repeated inline comment or age-gate scripts remain; the privacy page now has one page-specific style block. The homepage's independent email-list script remains inline by design. No deployment, production-server change, merge, or release was performed.
