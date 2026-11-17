@@ -31,3 +31,7 @@
 .cd-app-rail>.card img{max-width:76px}
 .cd-app-rail>.card:focus-within{outline:2px solid var(--cd-coral);outline-offset:2px}
 @media(max-width:700px){.cd-app-rail>.card{flex-basis:min(290px,82vw)}.cd-card-meta{align-items:flex-start}}
+
+/* Global footer links: keep privacy and contact details at the bottom of every page. */
+.cd-footer-legal{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin:16px auto 0;padding-top:12px;border-top:1px solid currentColor;max-width:1100px;font-size:.9rem}
+.cd-footer-legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
