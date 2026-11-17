@@ -1,6 +1,6 @@
 /* CashDublo shared navigation and platform browsing */
 :root{--cd-ink:#172d2b;--cd-muted:#596d68;--cd-paper:#f5f0e6;--cd-white:#fffdf8;--cd-lime:#c9ed72;--cd-coral:#f0785e;--cd-line:#d8d4c9;--cd-deep:#193d39}
-.cd-site-header{position:relative;z-index:200;width:100%;padding:10px clamp(12px,3vw,42px);background:var(--cd-deep);color:#fffdf8;border-bottom:2px solid var(--cd-lime);display:flex;align-items:center;gap:clamp(12px,2vw,28px);min-height:64px;flex-wrap:nowrap}
+.cd-site-header{position:sticky;top:0;z-index:1000;width:100%;padding:10px clamp(12px,3vw,42px);background:var(--cd-deep);color:#fffdf8;border-bottom:2px solid var(--cd-lime);display:flex;align-items:center;gap:clamp(12px,2vw,28px);min-height:64px;flex-wrap:nowrap}
 .cd-site-brand{flex:0 0 auto;color:#fffdf8!important;text-decoration:none!important;font-size:1.25rem;font-weight:950;letter-spacing:-.055em;white-space:nowrap}
 .cd-site-brand span{color:var(--cd-lime)}
 .cd-site-nav{display:flex;align-items:center;gap:4px;flex:1 1 auto;min-width:0;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;overflow-y:visible;scrollbar-width:thin;scrollbar-color:#78958a transparent;padding:4px 0}
