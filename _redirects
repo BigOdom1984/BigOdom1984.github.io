@@ -1,0 +1,2 @@
+# Static multi-page site: preserve the requested .html paths.
+# No SPA catch-all rewrite; missing pages should return the real 404.html.
