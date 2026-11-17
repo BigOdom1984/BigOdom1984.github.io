@@ -1,0 +1,6 @@
+[build]
+  command = "echo 'CashDublo static site: no build step required.'"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "20"
