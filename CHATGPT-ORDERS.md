@@ -240,3 +240,7 @@ Build the root **All Websites** page to the Website Module spec (~/workspace/web
 ## Item 7 — themed backgrounds in the President's settings (2026-11-17)
 
 Per the Website Module spec ("Themed backgrounds" section): the President's user settings on the website carry a background switcher — the family themes from the theme module as the choices — that changes the production site's background on the fly. Only the background changes: icons, pricing, listings, and text stay exactly the same. The setting persists on the production side (back-end door); until that door stands, build the layer separation (background as its own layer) and do not show a switcher that does not persist.
+
+## Item 8 — device views across the website (the President, 2026-11-17)
+
+Per the Website Module spec ("Views" section): the website knows whether the visitor is on mobile, tablet, or desktop and feeds the correct view — the view stamped from the device, every part of the site answering to it, banners aligned with the selected view (desktop: aligned to the page column; tablet/mobile: fitted to the screen). The root's first form stands in site.js (the view stamp) and the birthday banner's per-view alignment; carry the same system through the whole website build, and on the production side feed the correct server face per view.

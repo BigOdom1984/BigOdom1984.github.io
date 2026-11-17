@@ -65,6 +65,45 @@ var STORIES=[
 ["Behind the scenes: the back end and the server","Work continues on the CashDublo server and the back end the apps will run on — the part nobody sees that makes everything else possible."]
 ];
 var css=".cdnews-overlay{position:fixed;inset:0;z-index:130;background:rgba(23,45,43,.45);display:flex;align-items:center;justify-content:center;padding:16px}.cdnews-card{background:#fffdf8;color:#172d2b;border:1px solid #d8d4c9;border-radius:22px;max-width:440px;width:100%;max-height:calc(100vh - 32px);overflow:auto;padding:0 0 20px;position:relative;box-shadow:0 24px 60px rgba(20,20,20,.35)}.cdnews-card img{width:100%;height:120px;object-fit:cover;object-position:top;display:block;border-radius:22px 22px 0 0}.cdnews-in{padding:18px 22px 0}.cdnews-kick{color:#c65f4a;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:900}.cdnews-card h2{margin:6px 0 4px;font-size:1.5rem;letter-spacing:-.03em;line-height:1.15}.cdnews-sub{color:#596d68;margin:0 0 12px;font-size:.95rem}.cdnews-x{position:sticky;top:10px;float:right;margin:10px 10px -46px 0;z-index:3;width:36px;height:36px;border-radius:50%;border:1px solid #d8d4c9;background:#fffdf8;color:#172d2b;font-size:1.3rem;line-height:1;cursor:pointer;z-index:2}.cdnews-story{border-top:1px solid #e3ded2;padding:10px 0}.cdnews-story button{all:unset;display:block;width:100%;cursor:pointer;font-weight:850;font-size:1rem;color:#172d2b}.cdnews-car{display:inline-block;margin-right:8px;color:#c65f4a;transition:transform .2s}.cdnews-story.open .cdnews-car{transform:rotate(180deg)}.cdnews-story p{display:none;color:#596d68;margin:6px 0 2px;font-size:.95rem}.cdnews-story.open p{display:block}.cdnews-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.cdnews-btn{display:inline-block;background:#c9ed72;color:#172d2b;border:1px solid #172d2b;border-radius:999px;padding:11px 18px;font-weight:850;cursor:pointer;text-decoration:none}.cdnews-btn.alt{background:transparent}";
+// Sound for the newsletter area (the President, 2026-11-17): any sound placed
+// in this area is built through this one door, so it starts on its own every
+// time a browser allows sound — immediately where permitted, and on the
+// visitor's first touch anywhere where the browser holds sound until a touch.
+function cdAutoSound(holderId, trackId){
+  var holder=document.getElementById(holderId); if(!holder){ return; }
+  var started=false, ctrl=null;
+  function cleanup(){ document.removeEventListener("pointerdown",tryPlay); document.removeEventListener("keydown",tryPlay); document.removeEventListener("touchstart",tryPlay); }
+  function markStarted(){ if(started){ return; } started=true; cleanup(); }
+  function tryPlay(){ if(ctrl){ try{ ctrl.play(); }catch(e){} } }
+  function plainPlayer(){
+    if(started || ctrl){ return; }
+    holder.innerHTML="<iframe src=\"https://open.spotify.com/embed/track/"+trackId+"?utm_source=generator&autoplay=1\" width=\"100%\" height=\"80\" frameborder=\"0\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" style=\"border-radius:12px\"></iframe>";
+    cleanup();
+    document.addEventListener("pointerdown",function h(){ var f=holder.querySelector("iframe"); if(f){ f.src="https://open.spotify.com/embed/track/"+trackId+"?utm_source=generator&autoplay=1"; } document.removeEventListener("pointerdown",h); });
+  }
+  window.onSpotifyIframeApiReady=function(IFrameAPI){
+    IFrameAPI.createController(holder,{uri:"spotify:track:"+trackId,width:"100%",height:80},function(c){
+      ctrl=c;
+      c.addListener("playback_update",function(e){ if(e&&e.data&&!e.data.isPaused){ markStarted(); } });
+      tryPlay();
+    });
+  };
+  var api=document.createElement("script"); api.src="https://open.spotify.com/embed/iframe-api/v1"; api.async=true; api.onerror=plainPlayer; document.head.appendChild(api);
+  setTimeout(function(){ if(!ctrl&&!started){ plainPlayer(); } },3000);
+  document.addEventListener("pointerdown",tryPlay);
+  document.addEventListener("keydown",tryPlay);
+  document.addEventListener("touchstart",tryPlay);
+}
+// Which view is visiting (the President, 2026-11-17): mobile, tablet, or
+// desktop — stamped on the page so every part of the site, the banner
+// first, aligns with the selected web view.
+function cdView(){
+  var w=window.innerWidth||document.documentElement.clientWidth||1200; var ua=navigator.userAgent||"";
+  if(w<640||/Mobi|Android.*Mobile|iPhone|iPod/i.test(ua)){ return "mobile"; }
+  if(w<=1100||/iPad|Tablet|PlayBook|Silk/i.test(ua)){ return "tablet"; }
+  return "desktop";
+}
+try{ document.documentElement.setAttribute("data-view",cdView()); }catch(e){}
 function build(){
 if(document.getElementById("cdnews")){ return true; }
 var st=document.createElement("style"); st.textContent=css; document.head.appendChild(st);
@@ -80,7 +119,7 @@ ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" ari
 +"<p style=\"font-size:1.25rem;font-weight:900;letter-spacing:-.02em\">Look at me now.</p>"
 +"<p class=\"cdnews-sub\">— Greg</p>"
 +"<p style=\"margin:14px 0 6px;font-weight:800\">&#127925; Just the Two of Us — the original, for you, Dad.</p>"
-+"<iframe id=\"bday-song\" src=\"https://open.spotify.com/embed/track/1ko2lVN0vKGUl9zrU0qSlT?utm_source=generator&autoplay=1\" width=\"100%\" height=\"80\" frameborder=\"0\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" style=\"border-radius:12px\"></iframe>"
++"<div id=\"bday-song\" style=\"border-radius:12px;overflow:hidden;min-height:80px\"></div>"
 +"<p class=\"cdnews-sub\" style=\"margin-top:8px\">It starts on its own — and closing this card stops the song.</p>"
 +"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a><button class=\"cdnews-btn alt\" type=\"button\" id=\"cdnews-close\">Close</button></div>"
 +"</div></div>";
@@ -88,10 +127,7 @@ document.body.appendChild(ov);
 ov.querySelector(".cdnews-x").addEventListener("click", close);
 document.getElementById("cdnews-close").addEventListener("click", close);
 ov.addEventListener("click", function(ev){ if(ev.target===ov){ close(); } });
-var songFired=false;
-function fireSong(){ if(songFired){ return; } songFired=true; var f=document.getElementById("bday-song"); if(f){ f.src="https://open.spotify.com/embed/track/1ko2lVN0vKGUl9zrU0qSlT?utm_source=generator&autoplay=1"; } document.removeEventListener("pointerdown",fireSong); document.removeEventListener("keydown",fireSong); }
-document.addEventListener("pointerdown",fireSong);
-document.addEventListener("keydown",fireSong);
+cdAutoSound("bday-song","1ko2lVN0vKGUl9zrU0qSlT");
 return true;
 }
 ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" aria-label=\"The CashDublo Newsletter\">"

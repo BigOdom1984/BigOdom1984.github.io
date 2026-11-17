@@ -7,6 +7,10 @@ independent change log.
 
 ## 2026-11-17 — Onyx (General), on the President's order
 
+Autoplay, built properly, and the banner fits its view. The birthday song now runs through a single sound engine for the newsletter area — Spotify's player API, told to play the moment it loads, retried on the visitor's first touch anywhere for browsers that hold sound until a touch — so it starts on its own every time a browser allows sound, and any sound added to this area later uses the same door. The site also stamps its visitor's view (mobile, tablet, or desktop), and the birthday banner aligns with it: desktop lines up with the page's column; tablet and mobile fit their screens.
+
+## 2026-11-17 — Onyx (General), on the President's order
+
 The birthday song starts on its own, and the banner is dressed. The pop-up birthday card's player for "Just the Two of Us" now autoplays when the card opens; where a browser holds sound until the visitor first touches the page, that first touch anywhere starts it — closing the card still stops the song. On the banner strip (home and newsletter pages): balloons rise off the banner, and a present hops with excitement at the end of the line, clear of the words.
 
 ## 2026-11-17 — Onyx (General), on the President's order

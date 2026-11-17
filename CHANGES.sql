@@ -48,3 +48,8 @@ INSERT INTO changes (date, who, what, docs) VALUES
 ('2026-11-17', 'Onyx (General), on the President''s order',
  'The birthday card''s song now starts on its own: the Spotify player for Just the Two of Us is set to autoplay when the card opens, and where a browser still holds sound until the visitor first touches the page, that first touch anywhere starts it. Closing the card still stops the song. The birthday banner itself is dressed for the day: balloons rise off the banner, and a present hops with excitement at the end of the banner line, clear of the words.',
  'site.js, index.html, news.html');
+
+INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-17', 'Onyx (General), on the President''s order',
+ 'Sound in the newsletter area now runs through one autoplay engine: the birthday song is built on Spotify''s player API, told to play the moment it loads, and retried on the visitor''s first touch anywhere for browsers that hold sound until a touch — so it starts on its own every time a browser allows sound, and any future sound added to the newsletter area uses the same door. The site also knows its visitor''s view now — mobile, tablet, or desktop — and the birthday banner aligns with the selected view: on desktop its words line up with the page''s own column, on tablet and mobile it fits the screen it is on.',
+ 'site.js, index.html, news.html');
