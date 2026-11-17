@@ -10,3 +10,5 @@ INSERT INTO changes (date, who, what, docs) VALUES
 ('2026-11-17', 'Onyx (General)',
  'Folder created in the site hierarchy for Workers-AI''s own version of the website, with its own independent change log (this file). The default website in the root is untouched by this folder''s log.',
  'The President''s order, 2026-11-17; train-ai-models-data session log');
+INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-17', 'Workers-AI', 'My own version of the website front page, made on the President''s order (2026-11-17): a complete self-contained page in my folder, carrying the site''s content and real links in my own design.', 'index.html in this folder');
