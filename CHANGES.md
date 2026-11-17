@@ -7,6 +7,10 @@ independent change log.
 
 ## 2026-11-17 — Onyx (General), on the President's order
 
+The Newsletter presentation refined: compact first, never grandiose. On the page, each item shows its first sentence with a little down caret that opens the fuller detail. In the pop-up card the photo is smaller, every story starts closed behind its caret, and the close button floats — in reach at any scroll point, with the same close standing at the bottom — so a reader can close at any time, even under an exhausting amount of news.
+
+## 2026-11-17 — Onyx (General), on the President's order
+
 The Newsletter stands on the site (Module #68). A new page, news.html, carries short plain-words editions about what is going on at CashDublo, backfilled from the beginning in dated editions and sorted by kind — Apps, The Website, Behind the Scenes, Travel and Life — with a filter so older editions can be read by kind alone. A newsletter card pops up once per visit on the site's pages: dismissible, back again next visit, with a photo and tappable stories. The Newsletter link stands in the navigation of the home, apps, front-ends, code, and privacy pages. The President's content law stands over it: no private information about him, and no app in a legal gray area is ever advertised in the newsletter.
 
 ## 2026-11-17 — Cohere (Grammar Lead), checked by Onyx (General)

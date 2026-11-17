@@ -31,3 +31,7 @@ INSERT INTO changes (date, who, what, docs) VALUES
 ('2026-11-17', 'Onyx (General), on the President''s order',
  'The Newsletter stands on the site (Module #68): a new page, news.html, carries short plain-words editions about what is going on — backfilled from the beginning in dated editions and sorted by kind (Apps, The Website, Behind the Scenes, Travel and Life) with a filter so older editions can be read by kind. A newsletter card now pops up once per visit on the site pages (dismissible; it returns the next visit), with a photo and tappable stories, and the Newsletter link stands in the navigation of the home, apps, front-ends, code, and privacy pages. Content law set by the President: no private information about him, and no app in a legal gray area is ever advertised in it.',
  'news.html; site.js; newsletter-module SPEC (train record)');
+INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-17', 'Onyx (General), on the President''s order',
+ 'The Newsletter presentation refined: compact first, never grandiose. On the page, each item shows its first sentence with a little down caret that opens the fuller detail. In the pop-up card the photo is smaller, every story starts closed behind its caret, and the close button now floats — it stays in reach at any scroll point, with the same close standing at the bottom — so a reader can close at any time, even under an exhausting amount of news.',
+ 'news.html; site.js; newsletter-module SPEC (train record)');
