@@ -5,7 +5,7 @@ const A=(label,href,extra='')=>'<a href="'+href+'">'+label+(extra?'<span class="
 const menu=(label,items)=>'<div class="cd-nav-item" aria-expanded="false"><button class="cd-nav-trigger" type="button" aria-haspopup="true">'+label+' ▾</button><div class="cd-nav-menu">'+items.join('')+'</div></div>';
 const platformLinks=[['Android','/android.html'],['iPhone / iOS','/iphone.html'],['Mac','/mac.html'],['Windows','/windows.html'],['Linux','/linux.html'],['Command Prompt / Terminal','/code.html'],['Web Apps','/front-ends.html']];
 const games=[
-['Story','/games.html#storyline-studios'],
+['Story','/games.html#story'],
 ['Engine','/games.html#storyline-engine'],
 ['Storyline Studio','/games.html#storyline-studios'],
 ['Storyline Console','/games.html#storyline-console'],
@@ -21,7 +21,7 @@ const nav='<header class="cd-site-header"><a class="cd-site-brand" href="/index.
 menu('All Apps',appsMenu)+menu('Front Ends',frontLinks)+menu('Games',gameLinks)+
 '<a class="cd-nav-trigger" href="/course.html">Courses</a><a class="cd-nav-trigger" href="/code.html">Code</a><a class="cd-nav-trigger" href="/news.html">Newsletter</a><a class="cd-nav-trigger" href="/privacy.html">Privacy</a><a class="cd-nav-trigger" href="/index.html#about">About</a></nav></header>';
 function install(){const old=document.querySelector('body>header');if(old)old.outerHTML=nav;else document.body.insertAdjacentHTML('afterbegin',nav);
-document.querySelectorAll('.cd-nav-item>.cd-nav-trigger').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();const item=btn.parentElement;const open=item.getAttribute('aria-expanded')==='true';document.querySelectorAll('.cd-nav-item').forEach(x=>x.setAttribute('aria-expanded','false'));item.setAttribute('aria-expanded',String(!open));});});
+document.querySelectorAll('.cd-nav-item>.cd-nav-trigger').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();const item=btn.parentElement;const open=item.getAttribute('aria-expanded')==='true';document.querySelectorAll('.cd-nav-item').forEach(x=>x.setAttribute('aria-expanded','false'));item.setAttribute('aria-expanded',String(!open));if(!open){const r=btn.getBoundingClientRect();const m=item.querySelector('.cd-nav-menu');m.style.top=Math.min(74,Math.max(62,r.bottom+4))+'px';m.style.left=Math.max(10,Math.min(window.innerWidth-370,r.left))+'px';}});});
 document.addEventListener('click',e=>{if(!e.target.closest('.cd-nav-item'))document.querySelectorAll('.cd-nav-item').forEach(x=>x.setAttribute('aria-expanded','false'));});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.cd-nav-item').forEach(x=>x.setAttribute('aria-expanded','false'));});
 if(/^\/(android|iphone|mac|windows|linux)\.html$/.test(path)){const grid=document.querySelector('.grid');if(grid){grid.classList.add('cd-platform-grid');const cards=[...grid.children].filter(x=>x.matches('.card,article'));const fragment=document.createDocumentFragment();for(let i=0;i<cards.length;i+=6){const rail=document.createElement('div');rail.className='cd-app-rail';cards.slice(i,i+6).forEach(card=>rail.appendChild(card));fragment.appendChild(rail);}grid.replaceChildren(fragment);}}
