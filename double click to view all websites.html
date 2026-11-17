@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f0e6">
+<title>CashDublo — Website Versions</title>
+<style>
+:root{--ink:#172d2b;--muted:#596d68;--paper:#f5f0e6;--white:#fffdf8;--lime:#c9ed72;--coral:#f0785e;--line:#d8d4c9;--deep:#193d39}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--paper);color:var(--ink);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.shell{height:100%;display:flex;flex-direction:column;padding:14px;gap:10px}
+.top{background:var(--deep);color:#f9f6ed;border-radius:18px;padding:14px 18px 12px;box-shadow:0 8px 24px #193d3920}
+.brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-weight:950;letter-spacing:-.055em;font-size:1.2rem}.brand span{color:var(--lime)}
+.hint{color:#d5e2d9;font-size:.8rem}
+.tabs{display:flex;gap:7px;overflow-x:auto;padding:12px 0 1px;scrollbar-width:thin}
+.tab{appearance:none;border:1px solid #78958a;background:transparent;color:#f9f6ed;border-radius:999px;padding:9px 15px;font:inherit;font-weight:800;white-space:nowrap;cursor:pointer;transition:.16s}
+.tab:hover{border-color:var(--lime);color:var(--lime)}
+.tab[aria-selected="true"]{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.framewrap{flex:1;min-height:0;border:2px solid var(--deep);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:0 10px 30px #193d391c}
+iframe{display:block;width:100%;height:100%;border:0;background:var(--paper)}
+.foot{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:0 5px;color:var(--muted);font-size:.75rem}
+.foot a{color:var(--deep);font-weight:800}
+@media(max-width:600px){.shell{padding:7px;gap:7px}.top{padding:12px;border-radius:13px}.framewrap{border-radius:13px}.tab{padding:8px 12px;font-size:.86rem}.hint{width:100%}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="brandrow">
+      <div class="brand">Cash<span>Dublo</span> · Website Versions</div>
+      <div class="hint">Choose an AI tab to view its saved website. Original pages remain unchanged.</div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="AI website versions">
+      <button class="tab" role="tab" aria-selected="true" data-src="index.html">Original</button>
+      <button class="tab" role="tab" aria-selected="false" data-src="ChatGPT/index.html">ChatGPT</button>
+      <button class="tab" role="tab" aria-selected="false" data-src="Muse/index.html">Muse</button>
+      <button class="tab" role="tab" aria-selected="false" data-src="Gemini/index.html">Gemini</button>
+      <button class="tab" role="tab" aria-selected="false" data-src="Cohere/index.html">Cohere</button>
+      <button class="tab" role="tab" aria-selected="false" data-src="NVIDIA/index.html">NVIDIA</button>
+      <button class="tab" role="tab" aria-selected="false" data-src="Workers-AI/index.html">Workers AI</button>
+    </nav>
+  </header>
+  <main class="framewrap">
+    <iframe id="site" title="Selected CashDublo website version" src="index.html"></iframe>
+  </main>
+  <footer class="foot">
+    <span id="current">Viewing: Original</span>
+    <a href="https://github.com/BigOdom1984/BigOdom1984.github.io" target="_blank" rel="noopener">Open source repository</a>
+  </footer>
+</div>
+<script>
+(() => {
+  const frame = document.getElementById('site');
+  const label = document.getElementById('current');
+  const tabs = [...document.querySelectorAll('.tab')];
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(item => item.setAttribute('aria-selected', String(item === tab)));
+    frame.src = tab.dataset.src;
+    label.textContent = 'Viewing: ' + tab.textContent.trim();
+  }));
+  frame.addEventListener('error', () => { label.textContent += ' · Page could not be loaded'; });
+})();
+</script>
+</body>
+</html>
