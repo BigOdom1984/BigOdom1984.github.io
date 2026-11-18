@@ -1,0 +1,56 @@
+[
+  {
+    "id": "cashdublo-newsletter-launch-2026-11-17",
+    "title": "The CashDublo Newsletter begins",
+    "description": "Short, plain-language news from the CashDublo workshop: new apps, new features and what's being built behind the scenes.",
+    "url": "https://bigodom1984.github.io/news.html",
+    "published": "2026-11-17T09:00:00+07:00",
+    "category": "news",
+    "author": "Greg Odom"
+  },
+  {
+    "id": "cashdublo-manuals-2026-11-17",
+    "title": "Every app is getting a plain-words manual",
+    "description": "Contracts and Wi-Fi Tether have customer-facing manuals. The same clear, self-service help standard is being extended across the app collection.",
+    "url": "https://bigodom1984.github.io/news.html",
+    "published": "2026-11-17T09:05:00+07:00",
+    "category": "apps",
+    "author": "Greg Odom"
+  },
+  {
+    "id": "cashdublo-contracts-paper-vault-2026-11-17",
+    "title": "Contracts adds a paper-vault workflow",
+    "description": "Contracts is expanding beyond signing to help users keep important documents organized and easy to retrieve.",
+    "url": "https://bigodom1984.github.io/news.html",
+    "published": "2026-11-17T09:10:00+07:00",
+    "category": "apps",
+    "author": "Greg Odom"
+  },
+  {
+    "id": "cashdublo-indy-travel-hotel-watch-2026-11-17",
+    "title": "Indy Travel adds hotel-price watching",
+    "description": "A planned hotel-price monitoring feature lets users track a chosen property and receive an alert when its price changes.",
+    "url": "https://bigodom1984.github.io/news.html",
+    "published": "2026-11-17T09:15:00+07:00",
+    "category": "apps",
+    "author": "Greg Odom"
+  },
+  {
+    "id": "cashdublo-store-engine-2026-11-16",
+    "title": "The CashDublo App Store gets its download engine",
+    "description": "The store's download engine is designed to resume interrupted downloads instead of starting over.",
+    "url": "https://bigodom1984.github.io/news.html",
+    "published": "2026-11-16T09:00:00+07:00",
+    "category": "apps",
+    "author": "Greg Odom"
+  },
+  {
+    "id": "cashdublo-website-main-home-2026-11-16",
+    "title": "The CashDublo website becomes the main home",
+    "description": "The website is the front door for the app collection, front ends and newsletter.",
+    "url": "https://bigodom1984.github.io/",
+    "published": "2026-11-16T09:00:00+07:00",
+    "category": "website",
+    "author": "Greg Odom"
+  }
+]
