@@ -76,3 +76,10 @@ input,select,textarea,button{max-width:100%;font:inherit}
   html{scroll-behavior:auto}
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Explicit red build-state overlay: visual badge only; never edits the source app icon. */
+.cd-app-icon-frame{position:relative;display:inline-flex;align-self:flex-start;max-width:100%;overflow:visible}
+.cd-app-icon-frame>img{display:block;max-width:100%;height:auto}
+.cd-app-icon-frame[data-build-status="red"]::after{content:"UNDER CONSTRUCTION";position:absolute;left:-5%;right:-5%;bottom:8%;z-index:2;padding:5px 3px;background:#f2c94c;color:#172d2b;border:1px solid #172d2b;border-radius:4px;text-align:center;font-size:clamp(7px,1.1vw,10px);line-height:1.15;font-weight:950;letter-spacing:.035em;white-space:normal;box-shadow:0 1px 4px #0005;pointer-events:none}
+.cd-app-icon-frame[data-build-status="green"]::after,.cd-app-icon-frame[data-build-status="yellow"]::after{content:none}
