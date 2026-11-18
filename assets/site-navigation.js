@@ -29,3 +29,23 @@ function ensureFooterLinks(){
 function install(){const old=document.querySelector('body>header');if(old)old.outerHTML=nav;else document.body.insertAdjacentHTML('afterbegin',nav);document.querySelectorAll('.cd-nav-item>.cd-nav-trigger').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();const item=btn.parentElement,open=item.getAttribute('aria-expanded')==='true';document.querySelectorAll('.cd-nav-item').forEach(x=>x.setAttribute('aria-expanded','false'));item.setAttribute('aria-expanded',String(!open));if(!open){const r=btn.getBoundingClientRect(),m=item.querySelector('.cd-nav-menu');m.style.top=Math.min(74,Math.max(62,r.bottom+4))+'px';m.style.left=Math.max(10,Math.min(window.innerWidth-370,r.left))+'px';}}));document.addEventListener('click',e=>{if(!e.target.closest('.cd-nav-item'))document.querySelectorAll('.cd-nav-item').forEach(x=>x.setAttribute('aria-expanded','false'));});document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.cd-nav-item').forEach(x=>x.setAttribute('aria-expanded','false'));});document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{install();});else{install();}
 })();
+
+/* App icon status overlay. Only an explicit red status gets the banner; unknown is neutral. */
+(function(){
+  function applyBuildStatusOverlays(){
+    document.querySelectorAll('[data-build-status]').forEach(function(card){
+      var status=(card.getAttribute('data-build-status')||'').toLowerCase();
+      var img=card.querySelector('img');
+      if(!img || !['red','yellow','green'].includes(status)) return;
+      var parent=img.parentElement;
+      if(parent && parent.classList.contains('cd-app-icon-frame')){parent.dataset.buildStatus=status;return;}
+      var frame=document.createElement('span');
+      frame.className='cd-app-icon-frame';
+      frame.dataset.buildStatus=status;
+      img.parentNode.insertBefore(frame,img);
+      frame.appendChild(img);
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',applyBuildStatusOverlays);
+  else applyBuildStatusOverlays();
+})();
