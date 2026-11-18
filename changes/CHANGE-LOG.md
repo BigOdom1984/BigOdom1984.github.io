@@ -2,7 +2,7 @@
 
 **Repository:** `BigOdom1984/BigOdom1984.github.io`
 **Scope:** This website only.
-**System-wide master record:** [AI2AISync Master Change Log](https://github.com/BigOdom1984/ai2aisync/blob/main/docs/MASTER-CHANGE-LOG.md)
+**System-wide master record:** [AI2AISync Master Change Log](https://github.com/BigOdom1984/ai2ai_sync/blob/main/docs/MASTER-CHANGE-LOG.md)
 **Policy:** Append entries; do not erase or silently rewrite historical records.
 
 ## Status vocabulary

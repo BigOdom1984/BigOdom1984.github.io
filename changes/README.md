@@ -2,7 +2,7 @@
 
 This folder is the website repository's dedicated change-management section. It records changes to this website only: HTML, CSS, JavaScript, assets, copy, navigation, accessibility, SEO, and GitHub Pages configuration.
 
-It is independent of the CashDublo-wide change store. The canonical cross-repository master change log, AI assignments, approvals, and governance live in **[AI2AISync](https://github.com/BigOdom1984/ai2aisync)**. Temporary proposed files and patches for cross-repository work belong in the private **`BigOdom1984/changes`** repository when that repository is created.
+It is independent of the CashDublo-wide change store. The canonical cross-repository master change log, AI assignments, approvals, and governance live in **[AI2AISync](https://github.com/BigOdom1984/ai2ai_sync)**. Temporary proposed files and patches for cross-repository work belong in the private **`BigOdom1984/changes`** repository when that repository is created.
 
 ## Files in this section
 

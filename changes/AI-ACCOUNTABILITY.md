@@ -2,7 +2,7 @@
 
 **Applies to:** Every AI, human contributor, automation, and agent modifying this repository.
 **Repository:** `BigOdom1984/BigOdom1984.github.io`
-**Central governance:** [AI2AISync](https://github.com/BigOdom1984/ai2aisync)
+**Central governance:** [AI2AISync](https://github.com/BigOdom1984/ai2ai_sync)
 
 ## 1. Identity and ownership
 
