@@ -1,0 +1,41 @@
+name: Build CashDublo RSS feeds
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "feeds/items.json"
+      - "scripts/build-rss.mjs"
+      - ".github/workflows/build-rss.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cashdublo-rss-publisher
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Generate RSS 2.0 feeds
+        run: node scripts/build-rss.mjs
+      - name: Commit generated feeds when changed
+        run: |
+          if [[ -n "$(git status --porcelain feeds/*.xml)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add feeds/*.xml
+            git commit -m "chore: regenerate published RSS feeds"
+            git push
+          else
+            echo "RSS feeds are already up to date."
+          fi
