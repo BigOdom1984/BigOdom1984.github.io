@@ -10,6 +10,9 @@ CREATE TABLE IF NOT EXISTS changes (
   docs TEXT
 );
 INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-19', 'ChatGPT / AI-02', 'Recorded a non-approved suggestion after comparing the front-end catalogue and shared navigation with the current web-app inventory: six browser-based product interfaces are not yet listed. No website code or navigation was changed.', 'SUGGESTIONS.md; front-ends.html; assets/site-navigation.js; modules/website-module/README.md v1.1.0; suggestion commit 609fe0b4b1dbdfed8d7cc6e17f5f8fb51a33ca48');
+
+INSERT INTO changes (date, who, what, docs) VALUES
 ('2026-11-17', 'Cohere (Grammar Lead), checked by Onyx (General)', 'First grammar pass over the default website (index and apps pages): no true grammar errors found — the pages stand as written. The pass flagged style preferences and one product name (Apple Dextop is the app''s deliberate name and is never corrected); those were refused at the General''s check, and the grammar desk''s bar was tightened: true errors only, names always stand.', 'train-ai-models-data session log'),
 ('2026-11-17', 'Onyx (General), on the President''s order',
  'Status rule corrected across the site: DEVELOPMENT means the building process (no first build yet); BETA means a first build exists — most apps are Beta until version 1.0.0. Versioned cards and listings flipped from DEVELOPMENT to BETA in apps.html, the platform pages, the front-ends, and the homepage strip; the generator data carries the corrected chips.',
