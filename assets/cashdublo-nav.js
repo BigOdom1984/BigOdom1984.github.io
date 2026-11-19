@@ -3,6 +3,32 @@
  function init(root=document){
   const header=root.querySelector("[data-cd-header]"),toggle=header&&header.querySelector("[data-cd-toggle]"),drawerId=toggle?.getAttribute("aria-controls")||"cd-site-drawer",drawer=root.getElementById?root.getElementById(drawerId):document.getElementById(drawerId);
   if(!header||!toggle||!drawer||toggle.dataset.cdBound==="1")return;
+  // Compact five-destination site bar; the Menu control remains in the header.
+  if(!document.querySelector("[data-cd-quick-nav]")){
+   const quick=document.createElement("nav");
+   quick.className="cd-quick-nav";quick.dataset.cdQuickNav="1";
+   quick.setAttribute("aria-label","Quick navigation");
+   const links=[
+    ["Home","./index.html"],
+    ["All Apps","./apps.html"],
+    ["Featured","./index.html#featured"],
+    ["App Store","./cashdublo-app-store.html"],
+    ["Products","./products.html"]
+   ];
+   links.forEach(([label,href])=>{const a=document.createElement("a");a.textContent=label;a.href=href;quick.append(a);});
+   header.insertAdjacentElement("afterend",quick);
+  }
+  // RSS is available as a page if needed, but is intentionally omitted from the main menu.
+  drawer.querySelectorAll('a[href="./rss.html"],a[href="rss.html"]').forEach(a=>a.remove());
+  // Keep the main menu's key destinations in a predictable order.
+  const menuInner=drawer.querySelector(".cd-drawer-inner");
+  if(menuInner){
+   const home=menuInner.querySelector(':scope > a[href="./index.html"]');
+   const allApps=menuInner.querySelector(':scope > a[href="./apps.html"]');
+   const featured=menuInner.querySelector(':scope > a[data-cd-featured-link]');
+   if(home)menuInner.prepend(home);
+   if(!featured){const a=document.createElement("a");a.href="./index.html#featured";a.textContent="Featured Apps";a.dataset.cdFeaturedLink="1";if(allApps)allApps.insertAdjacentElement("afterend",a);else if(home)home.insertAdjacentElement("afterend",a);}
+  }
   toggle.dataset.cdBound="1";
   let closeTimer=0;
   const focusables=()=>[...drawer.querySelectorAll('a[href],summary,button:not(:disabled),[tabindex]:not([tabindex="-1"])')].filter(x=>!x.hasAttribute("disabled")&&x.getClientRects().length>0);
