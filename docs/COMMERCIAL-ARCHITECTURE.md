@@ -42,8 +42,19 @@ Keep every charge attached to the product or entitlement the customer actually r
 - **Active:** checkout and entitlement enforcement are implemented and tested.
 - **Not set:** no price has been invented or implied. Do not collect payment.
 
-## Current platform pricing decisions
-As of this update, Storyline Engine, Storyline Studio, Storyline Console, Web Engine, Web Studio, Storyline — HACKED, Name That Flag and CashDublo Online Course have no approved price. They are explicitly marked **Not set** on the pricing guide and relevant product pages.
+## Current platform pricing estimates
+The following four product estimates are now mirrored on `/memberships.html` and the relevant Storyline cards on `/games.html`. All amounts are USD planning estimates only; they are not approved checkout prices, active subscriptions or permission to collect payment.
+
+| Product | Suggested free access | Suggested paid price |
+|---|---|---|
+| Storyline Engine | Free runtime for players | Developer licence: $4.99/month or $49.99/year |
+| Storyline Studio | Limited free projects | Creator: $9.99/month or $99.99/year |
+| Storyline Console | Free player/library access | No player subscription proposed; individual paid games remain separate |
+| Web Engine | Free development/testing | Starter: $9.99/month or $99.99/year, with disclosed usage caps |
+
+**Optional Storyline Creator Bundle:** $12.99/month for Storyline Engine developer access plus Storyline Studio Creator. It excludes paid games, Web Engine, hosting and uncapped usage. The bundle is also an estimate only.
+
+Web Studio, Storyline — HACKED, Name That Flag and CashDublo Online Course remain **Not set**. Hosting, bandwidth, storage, deployment, support, payment fees, taxes, refunds and regional pricing must be costed and defined before any price becomes approved or active.
 
 ## Change procedure
 1. Update the canonical pricing record on `memberships.html`.
@@ -53,7 +64,7 @@ As of this update, Storyline Engine, Storyline Studio, Storyline Console, Web En
 5. Do not enable checkout until payment processing, receipts, taxes, refund rules, privacy terms and entitlement enforcement are implemented and tested.
 
 ## Important status
-All current dollar amounts in the app pricing guide are **proposed estimates**, not confirmed store prices or active charges. Platform and title prices marked **Not set** are intentionally left blank pending product scope and cost review.
+All current dollar amounts in the app pricing guide and the four platform estimates above are **proposed estimates**, not confirmed store prices or active charges. Products still marked **Not set** have no price estimate published pending scope and cost review.
 
 
 ## Platform inventory
