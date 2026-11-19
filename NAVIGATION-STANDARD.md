@@ -48,3 +48,13 @@ Each site provides its own brand home link and its own menu links, while reusing
 - Pointer: full bar toggles, brand link navigates, outside click closes, drawer link navigates.
 - Reduced motion: no slide transition.
 - Preserve each app's fonts, colors outside the green header, existing routes, controls and content.
+
+## Primary site navigation
+Every public website page that loads `/assets/site-navigation.js` also displays the same persistent primary links directly below the shared header, in this exact order:
+1. About — `/index.html#about`
+2. Featured apps — `/index.html#featured`
+3. All apps — `/apps.html`
+4. RSS Receiver — `/ChatGPT/rss-receiver.html`
+5. Privacy — `/privacy.html`
+
+The primary row remains horizontally scrollable on narrow screens, uses the shared site palette, and marks the current destination where applicable. Keep this row consistent across pages; page-specific links belong in the expanded secondary menu, not ahead of these five destinations.
