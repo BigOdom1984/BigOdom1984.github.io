@@ -88,3 +88,8 @@ Extended the same card order to the four app cards on the homepage. Their existi
 ## 2026-11-19 — ChatGPT / AI-02
 
 Checked the platform rows against the app repositories' READMEs and corrected the mismatches: PictureGlobe, Mixology, Hit Record, Testra Accuracy, TTS Widget and Contracts are Android-only; Cash Portfolio also declares a web target; Dear Idea Desktop, Change App Icons and CashDublo Coder are Mac/Windows; GitHub HQ, Script-Run, App Translator, Build Manager and Rebuild-All are Mac-only; Wi-Fi Tether lists Android, Windows, Mac and Linux. The same descriptions and platform rows were carried into all 34 app cards on Front Ends, and the homepage cards now match the catalogue. Versions, statuses and store destinations were left unchanged. SQL was updated first: CHANGES.sql.
+
+
+## 2026-11-20 — ChatGPT / AI-02
+
+Aligned the shared app-card content to the icon’s left edge. The icon, app name, version/status, category, description, and Google/Apple store links now start from the same left position. Existing card dimensions, typography, content order, and bottom platform row remain unchanged. SQL change record was written first: CHANGES.sql.
