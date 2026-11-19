@@ -25,7 +25,7 @@
   let closeTimer=0;
   const focusables=()=>[...drawer.querySelectorAll('a[href],summary,button:not(:disabled),[tabindex]:not([tabindex="-1"])')].filter(x=>!x.hasAttribute("disabled"));
   function open(){clearTimeout(closeTimer);drawer.hidden=false;drawer.inert=false;drawer.setAttribute("aria-hidden","false");toggle.setAttribute("aria-expanded","true");toggle.setAttribute("aria-label","Close navigation menu");requestAnimationFrame(()=>{drawer.dataset.open="true";const first=focusables()[0];if(first)first.focus();});}
-  function close(returnFocus=false){drawer.dataset.open="false";drawer.setAttribute("aria-hidden","true");drawer.inert=true;toggle.setAttribute("aria-expanded","false");toggle.setAttribute("aria-label","Open navigation. Tap anywhere on the green header to open or close the menu.");clearTimeout(closeTimer);closeTimer=setTimeout(()=>{drawer.hidden=true;if(returnFocus)toggle.focus();},220);}
+  function close(returnFocus=false){drawer.dataset.open="false";drawer.setAttribute("aria-hidden","true");drawer.inert=true;toggle.setAttribute("aria-expanded","false");toggle.setAttribute("aria-label","Open navigation menu");clearTimeout(closeTimer);closeTimer=setTimeout(()=>{drawer.hidden=true;if(returnFocus)toggle.focus();},220);}
   toggle.addEventListener("click",()=>toggle.getAttribute("aria-expanded")==="true"?close():open());
   drawer.addEventListener("click",e=>{if(e.target.closest('a[href],[data-cd-close]'))close(false);});
   document.addEventListener("pointerdown",e=>{if(toggle.getAttribute("aria-expanded")==="true"&&!header.contains(e.target)&&!drawer.contains(e.target))close(false);});
