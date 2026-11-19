@@ -79,8 +79,12 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 
 ## 2026-11-19 — ChatGPT / AI-02
 
-Standardized the All Apps cards and the app cards reused on platform pages. The order is now icon, one-line app name, abbreviated one-line version/status, category, description, store links, and platforms at the bottom. The middle contains only the category; the duplicate platform metadata pill is gone. Google Play search and Apple search labels are shortened to Google and Apple and stay side by side. Existing app descriptions, version/status values, store URLs, and platform records were preserved. SQL record was written first, as required: CHANGES.sql.
+Standardized the All Apps cards and the app cards reused on platform pages. The order is now icon, one-line app name, abbreviated one-line version/status, category, description, store links, and platforms at the bottom. The middle contains only the category; the duplicate platform metadata pill is gone. Google Play search and Apple search labels are shortened to Google and Apple and stay side by side. Existing app descriptions, version/status values, and store URLs were preserved; platform labels were checked against source READMEs and corrected where they disagreed. SQL record was written first, as required: CHANGES.sql.
 
 ## 2026-11-19 — ChatGPT / AI-02
 
 Extended the same card order to the four app cards on the homepage. Their existing app-detail links now sit in the card link row, and their categories are taken from the shared app category map. Their descriptions and platform labels remain unchanged. SQL record was written first, as required: CHANGES.sql.
+
+## 2026-11-19 — ChatGPT / AI-02
+
+Checked the platform rows against the app repositories' READMEs and corrected the mismatches: PictureGlobe, Mixology, Hit Record, Testra Accuracy, TTS Widget and Contracts are Android-only; Cash Portfolio also declares a web target; Dear Idea Desktop, Change App Icons and CashDublo Coder are Mac/Windows; GitHub HQ, Script-Run, App Translator, Build Manager and Rebuild-All are Mac-only; Wi-Fi Tether lists Android, Windows, Mac and Linux. The same descriptions and platform rows were carried into all 34 app cards on Front Ends, and the homepage cards now match the catalogue. Versions, statuses and store destinations were left unchanged. SQL was updated first: CHANGES.sql.
