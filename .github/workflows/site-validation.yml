@@ -2,7 +2,7 @@ name: CashDublo website validation
 
 on:
   push:
-    branches: [main]
+    branches: [main, chatgpt/desktop-catalog-responsive-20261119]
   pull_request:
     branches: [main]
 
