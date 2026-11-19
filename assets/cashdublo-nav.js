@@ -54,7 +54,61 @@
     if(e.key==="ArrowUp")item.parentElement.insertBefore(item,sibling);else item.parentElement.insertBefore(sibling,item);
     handle.focus();
    });
-   arrange.addEventListener("click",()=>setArrange(!arranging));setArrange(false);
+
+   const cardSelector="article.card, article.game-card, .command-tool-card";
+   let cardsArranging=false,activeCard=null,activePointer=null;
+   function cardItems(){return [...document.querySelectorAll(cardSelector)].filter(card=>card.isConnected);}
+   function cardHandle(card){
+    let h=card.querySelector(":scope > .cd-card-drag-handle");
+    if(!h){h=document.createElement("button");h.type="button";h.className="cd-card-drag-handle";h.textContent="⠿";h.setAttribute("aria-label","Drag to rearrange this card");h.title="Drag to rearrange";card.prepend(h);}
+    h.hidden=!cardsArranging;return h;
+   }
+   function setCardsArrange(value){
+    cardsArranging=value;
+    cardItems().forEach(card=>{card.classList.toggle("cd-card-arranging",value);cardHandle(card);});
+   }
+   function cardAtPoint(x,y){
+    const el=document.elementFromPoint(x,y);return el?.closest(cardSelector)||null;
+   }
+   function moveCard(target,x,y){
+    if(!activeCard||!target||target===activeCard||target.parentElement!==activeCard.parentElement)return;
+    const rect=target.getBoundingClientRect();
+    const horizontal=target.parentElement.classList.contains("cd-app-rail")||getComputedStyle(target.parentElement).display==="flex";
+    const after=horizontal?(x-rect.left)>rect.width/2:(y-rect.top)>rect.height/2;
+    target.parentElement.insertBefore(activeCard,after?target.nextSibling:target);
+   }
+   document.addEventListener("pointerdown",e=>{
+    if(!cardsArranging||!e.target.closest(".cd-card-drag-handle"))return;
+    const card=e.target.closest(cardSelector);if(!card)return;
+    e.preventDefault();activeCard=card;activePointer=e.pointerId;
+    card.classList.add("cd-card-dragging");
+    try{e.target.setPointerCapture(e.pointerId);}catch(_){}
+   },{passive:false});
+   document.addEventListener("pointermove",e=>{
+    if(!activeCard||e.pointerId!==activePointer)return;
+    const target=cardAtPoint(e.clientX,e.clientY);moveCard(target,e.clientX,e.clientY);
+   });
+   function finishCardDrag(e){
+    if(!activeCard||e.pointerId!==activePointer)return;
+    activeCard.classList.remove("cd-card-dragging");activeCard=null;activePointer=null;
+   }
+   document.addEventListener("pointerup",finishCardDrag);
+   document.addEventListener("pointercancel",finishCardDrag);
+   document.addEventListener("keydown",e=>{
+    if(!cardsArranging||!e.altKey||!["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key))return;
+    const handle=e.target.closest(".cd-card-drag-handle"),card=handle?.closest(cardSelector);if(!card)return;
+    const previous=["ArrowUp","ArrowLeft"].includes(e.key),sibling=previous?card.previousElementSibling:card.nextElementSibling;
+    if(!sibling||!sibling.matches(cardSelector))return;e.preventDefault();
+    if(previous)card.parentElement.insertBefore(card,sibling);else card.parentElement.insertBefore(sibling,card);
+    handle.focus();
+   });
+   const cardObserver=new MutationObserver(()=>{if(cardsArranging)cardItems().forEach(card=>{card.classList.add("cd-card-arranging");cardHandle(card);});});
+   cardObserver.observe(document.body,{childList:true,subtree:true});
+   arrange.addEventListener("click",()=>{
+    const next=!arranging;setArrange(next);setCardsArrange(next);
+    if(next)close(false);
+   });
+   setArrange(false);setCardsArrange(false);
   }
 
   toggle.addEventListener("click",()=>toggle.getAttribute("aria-expanded")==="true"?close():open());
