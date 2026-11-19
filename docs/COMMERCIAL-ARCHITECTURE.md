@@ -54,3 +54,8 @@ As of this update, Storyline Engine, Storyline Studio, Storyline Console, Web En
 
 ## Important status
 All current dollar amounts in the app pricing guide are **proposed estimates**, not confirmed store prices or active charges. Platform and title prices marked **Not set** are intentionally left blank pending product scope and cost review.
+
+
+## Platform inventory
+
+The application-by-application platform matrix, including split repositories and planned/unverified targets, is maintained in [docs/PLATFORM-MATRIX.md](PLATFORM-MATRIX.md). The matrix is an evidence-based target inventory, not a promise of successful builds or store availability.
