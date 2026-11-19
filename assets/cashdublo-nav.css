@@ -57,3 +57,12 @@
 .cd-arranging>.cd-drawer-group>summary .cd-drag-handle{margin-left:auto;margin-right:0}
 .cd-arranging .cd-dragging{opacity:.45;outline:2px dashed var(--cd-lime);outline-offset:2px}
 @media(max-width:700px){.cd-drawer-tools{justify-content:stretch}.cd-arrange-toggle{width:100%;min-height:46px}}
+
+
+/* Website-wide temporary layout editor: menu entries and home-screen-style cards. */
+.cd-card-arranging{position:relative!important;outline:1px dashed #78958a;outline-offset:2px}
+.cd-card-drag-handle{position:absolute;top:8px;right:8px;z-index:30;width:42px;height:42px;display:none;align-items:center;justify-content:center;border:1px solid var(--cd-lime);border-radius:12px;background:var(--cd-deep);color:#fffdf8;font-size:1.55rem;font-weight:950;line-height:1;box-shadow:0 3px 10px #0003;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.cd-card-arranging>.cd-card-drag-handle{display:inline-flex!important}
+.cd-card-drag-handle:focus-visible{outline:3px solid var(--cd-coral);outline-offset:2px}
+.cd-card-dragging{opacity:.62;outline:3px dashed var(--cd-coral)!important;z-index:20}
+.cd-arranging .cd-drag-handle{touch-action:none}
