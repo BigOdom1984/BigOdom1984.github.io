@@ -3,6 +3,19 @@
 Last updated: 2026-11-20
 
 ## Purpose
+## Enterprise classification
+
+CashDublo has three top-level enterprise categories. These describe the role of a component in the ecosystem, not its pricing model or the technology used to build it.
+
+1. **Applications** — the actual software products and experiences. This includes cross-platform applications, games and game players, development tools, studios, and standalone software. The Applications menu is a drop-down with an **All Apps** destination and relevant game/tool destinations.
+2. **Front Ends** — user-facing access interfaces, grouped by where they run:
+   - **Web Front Ends:** browser-based websites, portals, dashboards, and storefronts.
+   - **Desktop Front Ends:** installed Windows, macOS, and Linux interfaces.
+   - **Mobile Front Ends:** installed Android and iOS interfaces.
+3. **Back Ends** — servers, APIs, databases, identity/security, payments/licensing, storage/synchronization, AI services, deployment, and monitoring that support the products and interfaces.
+
+**Classification rule:** the application is the product; a front end is an interface used to access or operate a product; a back end provides supporting services. One application may have web, desktop, and mobile front ends and may use one or more back-end services. Platform compatibility does not create a separate product or category. Do not count an app's own native interface as a separate application.
+
 Keep every charge attached to the product or entitlement the customer actually receives. The App Store is the distribution and commerce layer; it is not a compulsory membership.
 
 ## Product ownership
