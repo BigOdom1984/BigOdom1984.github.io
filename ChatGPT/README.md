@@ -6,7 +6,7 @@ This folder contains ChatGPT's independent candidate design for the CashDublo pu
 
 The website release version is tracked in [version.json](version.json). It is separate from the ChatGPT agent's own release version, the provider's model identifier/version, and the official CashDublo root website's version or release state.
 
-- **Website version:** 0.1.3
+- **Website version:** 0.1.4
 - **Release state:** CANDIDATE
 - **Last updated:** 2026-11-20
 
@@ -28,4 +28,4 @@ The website release version is tracked in [version.json](version.json). It is se
 
 ## Verification baseline
 
-Source review only was performed for version 0.1.3; app catalogue versions were read from each corresponding repository package.json where available. Browser runtime testing and visual checks at mobile, tablet, and desktop widths remain **NOT RUN**.
+Source review only was performed for version 0.1.4; app catalogue versions were read from each corresponding repository package.json where available. Browser runtime testing and visual checks at mobile, tablet, and desktop widths remain **NOT RUN**.
