@@ -14,21 +14,71 @@
 <link rel="stylesheet" href="/assets/site-navigation.css">
 <style>
 :root{--ink:#172d2b;--muted:#596d68;--paper:#f5f0e6;--white:#fffdf8;--lime:#c9ed72;--line:#d8d4c9;--deep:#193d39}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}header{padding:22px 5vw;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}header a{font-weight:800;text-decoration:none}.brand{font-size:1.35rem;letter-spacing:-.05em}.brand span{color:#d35f48}nav{display:flex;gap:18px;flex-wrap:wrap}.hero{background:var(--deep);color:#f9f6ed;padding:64px max(22px,calc((100vw - 960px)/2))}.hero p{max-width:680px;color:#d5e2d9}h1{font-size:clamp(2.7rem,7vw,5rem);line-height:.98;letter-spacing:-.07em;margin:12px 0 18px}.wrap{max-width:960px;margin:auto;padding:52px 22px}.feed{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0}.feed h2{margin:0 0 8px}.feed p{color:var(--muted)}code{overflow-wrap:anywhere;background:#eee9dc;padding:3px 6px;border-radius:5px}.feed a{font-weight:800;color:#a84e3d}.note{color:var(--muted);font-size:.92rem}.footer{background:var(--deep);color:#d5e2d9;text-align:center;padding:30px}.footer a{color:var(--lime)}@media(max-width:560px){header{flex-direction:column}.wrap{padding:40px 18px}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}header{padding:22px 5vw;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}header a{font-weight:800;text-decoration:none}.brand{font-size:1.35rem;letter-spacing:-.05em}.brand span{color:#d35f48}nav{display:flex;gap:18px;flex-wrap:wrap}.hero{background:var(--deep);color:#f9f6ed;padding:64px max(22px,calc((100vw - 960px)/2))}.hero p{max-width:680px;color:#d5e2d9}h1{font-size:clamp(2.7rem,7vw,5rem);line-height:.98;letter-spacing:-.07em;margin:12px 0 18px}.wrap{max-width:960px;margin:auto;padding:52px 22px}.feed{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0}.feed h2{margin:0 0 8px}.feed p{color:var(--muted)}.feed-url-row{display:flex;align-items:stretch;gap:12px;margin:16px 0;min-width:0}.feed-url{display:block;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;overflow-wrap:normal;background:#eee9dc;padding:14px 16px;border-radius:12px;font:600 .98rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;scrollbar-width:thin}.copy-feed{flex:0 0 auto;min-width:142px;min-height:54px;padding:12px 20px;border:0;border-radius:12px;background:var(--lime);color:var(--ink);font:850 1rem/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 3px 0 #9dbd4f;transition:transform .12s ease,background .12s ease}.copy-feed:hover{background:#bce45a}.copy-feed:active{transform:translateY(2px);box-shadow:0 1px 0 #9dbd4f}.copy-feed:focus-visible{outline:3px solid #a84e3d;outline-offset:3px}.copy-status{min-height:1.5em;margin:0 0 8px;color:var(--muted);font-size:.9rem;font-weight:700}.feed a{font-weight:800;color:#a84e3d}.note{color:var(--muted);font-size:.92rem}.footer{background:var(--deep);color:#d5e2d9;text-align:center;padding:30px}.footer a{color:var(--lime)}@media(max-width:560px){header{flex-direction:column}.wrap{padding:40px 18px}.feed{padding:18px}.feed-url-row{flex-direction:column;gap:10px}.feed-url{width:100%;font-size:.9rem;padding:13px 12px}.copy-feed{width:100%;min-height:58px;font-size:1.05rem}}
 </style>
 </head>
 <body>
-
 <main>
 <section class="hero"><p>OFFICIAL PUBLISHER FEEDS</p><h1>CashDublo, in your RSS reader.</h1><p>Subscribe with Cash the Flow RSS or any compatible RSS reader. This website publishes updates; it does not receive or read your subscriptions.</p></section>
 <section class="wrap">
-<div class="feed"><h2>All CashDublo updates</h2><p>Every public company, website and app announcement in one feed.</p><p><code>https://bigodom1984.github.io/feeds/cashdublo.xml</code></p><a href="/feeds/cashdublo.xml">Open RSS 2.0 feed ↗</a></div>
-<div class="feed"><h2>Company news</h2><p>Newsletter editions, website news and behind-the-scenes announcements.</p><p><code>https://bigodom1984.github.io/feeds/news.xml</code></p><a href="/feeds/news.xml">Open RSS 2.0 feed ↗</a></div>
-<div class="feed"><h2>App updates</h2><p>App releases, feature announcements and product notices.</p><p><code>https://bigodom1984.github.io/feeds/apps.xml</code></p><a href="/feeds/apps.xml">Open RSS 2.0 feed ↗</a></div>
+<div class="feed">
+<h2>All CashDublo updates</h2>
+<p>Every public company, website and app announcement in one feed.</p>
+<div class="feed-url-row"><code class="feed-url" id="feed-all">https://bigodom1984.github.io/feeds/cashdublo.xml</code><button class="copy-feed" type="button" data-copy-target="feed-all">Copy feed URL</button></div>
+<p class="copy-status" aria-live="polite" aria-atomic="true"></p>
+<a href="/feeds/cashdublo.xml">Open RSS 2.0 feed ↗</a>
+</div>
+<div class="feed">
+<h2>Company news</h2>
+<p>Newsletter editions, website news and behind-the-scenes announcements.</p>
+<div class="feed-url-row"><code class="feed-url" id="feed-news">https://bigodom1984.github.io/feeds/news.xml</code><button class="copy-feed" type="button" data-copy-target="feed-news">Copy news URL</button></div>
+<p class="copy-status" aria-live="polite" aria-atomic="true"></p>
+<a href="/feeds/news.xml">Open RSS 2.0 feed ↗</a>
+</div>
+<div class="feed">
+<h2>App updates</h2>
+<p>App releases, feature announcements and product notices.</p>
+<div class="feed-url-row"><code class="feed-url" id="feed-apps">https://bigodom1984.github.io/feeds/apps.xml</code><button class="copy-feed" type="button" data-copy-target="feed-apps">Copy app updates URL</button></div>
+<p class="copy-status" aria-live="polite" aria-atomic="true"></p>
+<a href="/feeds/apps.xml">Open RSS 2.0 feed ↗</a>
+</div>
 <p class="note">Feeds are public and do not require an account. Add the feed URL to your reader. Feed entries contain CashDublo-authored summaries and links to the full website story.</p>
 </section>
 </main>
 <footer class="footer">CashDublo · <a href="/">Home</a> · <a href="/news.html">Newsletter</a></footer>
+<script>
+document.querySelectorAll(".copy-feed").forEach(button => {
+  button.addEventListener("click", async () => {
+    const target = document.getElementById(button.dataset.copyTarget);
+    const status = button.closest(".feed").querySelector(".copy-status");
+    const value = target.textContent.trim();
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(value);
+      } else {
+        const helper = document.createElement("textarea");
+        helper.value = value;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        const copied = document.execCommand("copy");
+        helper.remove();
+        if (!copied) throw new Error("Clipboard copy was not available");
+      }
+      button.textContent = "Copied!";
+      status.textContent = "Feed URL copied to your clipboard.";
+      window.setTimeout(() => { button.textContent = button.dataset.copyLabel; }, 1800);
+    } catch (error) {
+      status.textContent = "Copy was blocked by your browser. Press and hold the URL above to copy it.";
+    }
+  });
+});
+document.querySelectorAll(".copy-feed").forEach(button => {
+  button.dataset.copyLabel = button.textContent;
+});
+</script>
 <script src="/assets/site-navigation.js" defer></script>
 </body>
 </html>
