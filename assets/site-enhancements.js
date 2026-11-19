@@ -30,13 +30,13 @@ function decorateCard(card){
  }
  const status=card.querySelector('.status');
  if(status){
-  status.textContent=(status.textContent||'').replace(/^Version:\\s*/i,'v');
+  status.textContent=(status.textContent||'').replace(/^Version:\s*/i,'v');
   status.setAttribute('aria-label',(status.textContent||'').trim());
  }
  card.querySelectorAll('.links a').forEach(link=>{
   const label=(link.textContent||'').trim();
-  if(/^Google Play search\\s*↗?$/i.test(label))link.textContent='Google ↗';
-  else if(/^Apple search\\s*↗?$/i.test(label))link.textContent='Apple ↗';
+  if(/^Google Play search\s*↗?$/i.test(label))link.textContent='Google ↗';
+  else if(/^Apple search\s*↗?$/i.test(label))link.textContent='Apple ↗';
  });
 }
 function buildRails(grid,cards){grid.replaceChildren();for(let i=0;i<cards.length;i+=6){const rail=document.createElement('div');rail.className='cd-app-rail';cards.slice(i,i+6).forEach(card=>rail.append(card));grid.append(rail);}if(!cards.length){const p=document.createElement('p');p.className='note';p.textContent='No applications are currently tagged for this platform. Platform support is listed only when confirmed in the catalogue.';grid.append(p);}}
