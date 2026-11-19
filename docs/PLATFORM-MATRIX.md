@@ -8,7 +8,7 @@ This matrix records the platform targets shown on the All Apps cards and the evi
 
 | Application | Platforms shown | Repository evidence / qualification |
 |---|---|---|
-| AI2AISync | macOS · Android · iOS (planned) | `ai2ai_sync`: describes macOS desktop and Android mobile; iOS is explicitly a planned target. |
+| AI2AISync | Android · iOS · macOS (planned) | `ai2ai_sync/apps/mobile/README.md` identifies the mobile foundation as Android and iOS (development; not release-ready). The separate macOS desktop application is planned. |
 | VoiceModel | iOS · Android | `your_voice_model`: README says iOS and Android; desktop link workflow is not counted as a separate desktop app. |
 | Marvin | iOS · Android | `marvin`: README says iOS and Android. `marvin_web` is a separate web face and explicitly is not the app running in a browser. |
 | PictureGlobe | Android | `pictureglobe`: Android-first; iPhone version follows Android 1.0.0. |
