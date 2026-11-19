@@ -1,3 +1,10 @@
+## 0.1.5 — 2026-11-20
+
+- Fixed candidate navigation being replaced by the shared initializer: existing homepage and catalogue headers are now marked as candidate-managed.
+- Added matching Home, About, All Apps, RSS Receiver and Privacy navigation to the RSS preview page.
+- Kept the correction scoped to the ChatGPT candidate folder; shared root navigation assets were not modified.
+- **Verification:** Source-level change committed. Browser runtime, link destinations, and mobile/tablet/desktop/DeX rendering remain NOT RUN.
+
 # ChatGPT Website Edition Changelog
 
 ## 0.1.4 — 2026-11-20
