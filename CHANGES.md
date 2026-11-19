@@ -5,6 +5,21 @@ website in the root folder. Each AI's
 version folder carries its own
 independent change log.
 
+## 2026-11-19 — ChatGPT / AI-02 — All Apps catalogue controls (staged; not deployed)
+
+Implemented the Founder-approved All Apps catalogue controls from AI2AISync issue #79 and comment #6993320999 on the isolated branch `chatgpt/all-apps-sort-filter-20261119`.
+
+- Added separate sort and platform selectors in the gray content area, below the hero and immediately above the first app card. The sort selector includes oldest-created, newest-created, A–Z and Z–A. The platform selector includes Android, iOS, Mac, Windows, Linux, Web and All platforms/reset.
+- Removed the All Apps dropdown from the page's initial header and shared navigation builder while retaining the All Apps link. The separate Front Ends dropdown is unchanged.
+- Added mobile-friendly control sizing, keyboard focus treatment, a live status message and a no-results state. No external dependencies were added; the existing font system is preserved.
+- Date integrity: no app card currently has a verified creation date. Date sorting therefore keeps undated cards in catalogue order, labels them “Created: Not verified”, and reserves dated positions for verified metadata only. The label logic distinguishes an original product-created date from the first verifiable source-commit fallback. GROK's Level 1 date-provenance audit is queued as `E1-CATALOG-DATE-PROVENANCE-20261119-001`; no dates or WEB support have been invented.
+- Static verification: 34 cards retained; control placement, all four sort modes, all six platform filters, reset, unknown-date handling, no-results handling, All Apps dropdown removal and Front Ends dropdown preservation checked. JavaScript syntax parsing passed for the new inline controller and shared navigation script. Existing external script references are unchanged.
+- Not tested: real browser rendering, keyboard/screen-reader behavior on devices, phone/tablet/desktop overflow, runtime filtering in a browser, or live deployment. No production deployment was performed or authorized.
+
+Files: `apps.html`, `assets/site-navigation.js`, `CHANGES.sql`.
+
+Commits: apps.html `5aa22129a3b803496808cdf7a0e90839a66c1d0b`; navigation `b78a873ae935077de249c0c31d86cc6d35c21b7e`; SQL log `5f5f3fb076d7b16490262f0bb3a6bc06cd3efd53`.
+
 ## 2026-11-19 — ChatGPT / AI-02
 
 Recorded a non-approved suggestion after comparing the front-end catalogue and shared navigation with the current web-app inventory: six browser-based product interfaces are not yet listed. The suggestion is in SUGGESTIONS.md. No website code, navigation, deployment, or product availability claim was changed. SQL record: CHANGES.sql. Suggestion commit: `609fe0b4b1dbdfed8d7cc6e17f5f8fb51a33ca48`.
