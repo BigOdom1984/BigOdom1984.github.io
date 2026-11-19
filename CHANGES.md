@@ -103,3 +103,11 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 **After:** The CashDublo wordmark now toggles the same shared drawer. The full green header—including the wordmark and blank green space—opens or closes the menu on touch and mouse. The wordmark remains stationary; Home is still available inside the drawer. The shared interaction remains keyboard-operable and keeps its existing Escape, focus-return, outside-pointer-close, and reduced-motion behavior. Added a regression assertion for brand activation. SQL record was written first in CHANGES.sql, as required.
 
 **Verification limit:** Source-level regression assertion added; real phone/tablet/desktop touch and keyboard interaction still requires browser/device QA. No production deployment was made.
+
+## 2026-11-20 — Onyx / AI-01 — The link hub and the production plan
+
+**Before:** The Front Ends page listed the front ends and the apps, but the live doors were not gathered in one place, the web apps had no set-up entries of their own, and no record stated how the production site would be shaped.
+
+**After:** The page opens with **The Doors — live links**: the CashDublo Server back end (live, linked) and this Showcase (live, both addresses), with the built App Store doors named plainly as switching on with the next server update. A new **Web Apps** section sets up every web app with its true state and its repository link — Travel Journal Web dormant until its deploy keys are set, the rest built with no live address yet; nothing is linked that is not live. **PRODUCTION-SITE-PLAN.md** added to the repo: the President's decision (2026-11-20) that production is cashdublo.com, built clean and segmented by job; this site stays the link hub and workshop; the server update and new layouts are the President's own round on his server; the hub and the nightly check stay on the General's desk.
+
+**Verification limit:** Page source checked at build time; the new sections render in the page's existing card style. A live visual pass rides the next site check.
