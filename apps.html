@@ -164,7 +164,7 @@
       const value=card.getAttribute('data-created');
       const source=card.getAttribute('data-created-source')||'first verifiable source commit';
       if(!label){label=document.createElement('div');label.className='catalog-created-meta';const p=card.querySelector('.plats');(p||card).insertAdjacentElement('afterend',label);}
-      label.textContent=created(card)===null?'Created: Not verified':'First source commit: '+value;
+      label.textContent=created(card)===null?'Created: Not verified':(source==='product-created-date'?'Created: ':'First source commit: ')+value;
       label.title=created(card)===null?'No verified creation-date source is recorded for this app.':source;
     };
     const apply=()=>{
