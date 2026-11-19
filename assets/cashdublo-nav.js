@@ -39,6 +39,45 @@
     });
     return [...found.values()];
    }
+   // Full-menu links stay untouched; quick-bar slots are independently configurable.
+   function addQuickControls(){
+    if(quickNav.querySelector("[data-cd-quick-manage]"))return;
+    const manage=document.createElement("button");
+    manage.type="button";manage.className="cd-quick-manage";manage.dataset.cdQuickManage="1";
+    manage.textContent="＋ Customize shortcuts";
+    manage.setAttribute("aria-expanded","false");
+    const panel=document.createElement("div");panel.className="cd-quick-manage-panel";panel.hidden=true;
+    panel.innerHTML='<div class="cd-quick-manage-head"><strong>Quick bar shortcuts</strong><span>Choose which links appear above. The full menu stays unchanged.</span></div><div class="cd-quick-manage-options" data-cd-quick-options></div>';
+    quickNav.insertAdjacentElement("afterend",manage);manage.insertAdjacentElement("afterend",panel);
+    const options=panel.querySelector("[data-cd-quick-options]");
+    function renderOptions(){
+     options.replaceChildren();
+     const selected=new Set([...quickNav.querySelectorAll("a")].map(a=>a.dataset.cdHref).filter(Boolean));
+     menuChoices().forEach(choice=>{
+      const label=document.createElement("label");label.className="cd-quick-option";
+      const input=document.createElement("input");input.type="checkbox";input.checked=selected.has(choice.href);
+      input.addEventListener("change",()=>{
+       if(input.checked){
+        const empty=quickNav.querySelector("a.cd-quick-empty");
+        if(empty)setSlot(empty,choice.label,choice.href);
+        else if(quickNav.querySelectorAll("a").length<8){const slot=document.createElement("a");quickNav.append(slot);setSlot(slot,choice.label,choice.href);slot.draggable=true;}
+        else{input.checked=false;return;}
+       }else{
+        const slot=[...quickNav.querySelectorAll("a")].find(a=>a.dataset.cdHref===choice.href);
+        if(slot)setSlot(slot,"＋ Add",null);
+       }
+       renderOptions();
+      });
+      const name=document.createElement("span");name.textContent=choice.label;label.append(input,name);options.append(label);
+     });
+    }
+    manage.addEventListener("click",()=>{
+     const opening=panel.hidden;panel.hidden=!opening;manage.setAttribute("aria-expanded",String(opening));
+     manage.textContent=opening?"Done customizing":"＋ Customize shortcuts";
+     if(opening)renderOptions();
+    });
+   }
+   addQuickControls();
    function openPicker(slot){
     targetSlot=slot;pickerList.replaceChildren();
     const choices=menuChoices();
