@@ -73,6 +73,7 @@ function cdAutoSound(holderId, trackId){
   var holder=document.getElementById(holderId); if(!holder){ return; }
   var started=false, ctrl=null;
   function cleanup(){ document.removeEventListener("pointerdown",tryPlay); document.removeEventListener("keydown",tryPlay); document.removeEventListener("touchstart",tryPlay); }
+  window.cdNewsStopSound=function(){ cleanup(); if(ctrl){ try{ctrl.pause();}catch(e){} } holder.innerHTML=""; };
   function markStarted(){ if(started){ return; } started=true; cleanup(); }
   function tryPlay(){ if(ctrl){ try{ ctrl.play(); }catch(e){} } }
   function plainPlayer(){
@@ -111,6 +112,25 @@ if(document.getElementById("cdnews")){ return true; }
 var st=document.createElement("style"); st.textContent=css; document.head.appendChild(st);
 var ov=document.createElement("div"); ov.className="cdnews-overlay"; ov.id="cdnews";
 var rows=STORIES.map(function(s){ return "<div class=\"cdnews-story\"><button type=\"button\"><span class=\"cdnews-car\">&#9662;</span>"+s[0]+"</button><p>"+s[1]+"</p></div>"; }).join("");
+var previousFocus=document.activeElement;
+function close(){
+  try{ if(typeof window.cdNewsStopSound==="function"){ window.cdNewsStopSound(); } }catch(e){}
+  ov.remove();
+  try{ sessionStorage.setItem(KEY,"1"); }catch(e){}
+  if(previousFocus&&typeof previousFocus.focus==="function"){ try{previousFocus.focus();}catch(e){} }
+}
+function bindModalControls(){
+  var closeButton=ov.querySelector(".cdnews-x");
+  if(closeButton){ closeButton.addEventListener("click",close); closeButton.focus(); }
+  ov.addEventListener("keydown",function(ev){
+    if(ev.key!=="Tab")return;
+    var focusable=[...ov.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(function(el){return !el.hidden&&el.getAttribute("aria-hidden")!=="true";});
+    if(!focusable.length)return;
+    var first=focusable[0],last=focusable[focusable.length-1];
+    if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus();}
+    else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus();}
+  });
+}
 var BDAY = Date.now() < new Date("2026-11-25T00:00:00+07:00").getTime();
 if(BDAY){
 ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Happy Birthday, Dad\">"
@@ -126,7 +146,7 @@ ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" ari
 +"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a></div>"
 +"</div></div>";
 document.body.appendChild(ov);
-ov.querySelector(".cdnews-x").addEventListener("click", close);
+bindModalControls();
 // The newsletter stays visible until the explicit X is clicked.
 cdAutoSound("bday-song","1ko2lVN0vKGUl9zrU0qSlT");
 return true;
@@ -141,8 +161,7 @@ ov.innerHTML="<div class=\"cdnews-card\" role=\"dialog\" aria-modal=\"true\" ari
 +"<div class=\"cdnews-row\"><a class=\"cdnews-btn\" href=\"news.html\">Read the newsletter</a></div>"
 +"</div></div>";
 document.body.appendChild(ov);
-function close(){ ov.remove(); try{ sessionStorage.setItem(KEY,"1"); }catch(e){} }
-ov.querySelector(".cdnews-x").addEventListener("click", close);
+bindModalControls();
 // The newsletter remains open until the explicit X is clicked.
 ov.querySelectorAll(".cdnews-story button").forEach(function(b){ b.addEventListener("click", function(){ b.parentElement.classList.toggle("open"); }); });
 return true;
