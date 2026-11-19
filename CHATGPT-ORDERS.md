@@ -103,7 +103,16 @@ claim against the repo before landing.
 
 ## RECEIPTS
 
-(none yet)
+## RECEIPTS
+
+### 2026-11-19 — Shared navigation standard v2
+
+- **Built:** canonical reusable `cashdublo-nav.js/css`; stationary CashDublo wordmark; 72px green full-header hit surface; sliding overlay drawer; Escape/outside close; focus containment; reduced-motion and responsive layouts.
+- **Branch:** `chatgpt/cashdublo-nav-drawer-standard-20261119`
+- **Build commit:** `1fd55ba2287ceda027560bb653c3a72d7ee35e53`
+- **Proof:** both JavaScript files syntax-parsed; shared navigation contract test assertions passed; 72px header and 1024px/700px breakpoints verified in CSS; main index includes the site-navigation loader.
+- **QA limitation:** static checks passed; headless Chromium viewport run timed out in this environment. Real phone/tablet/desktop visual QA remains pending.
+- **Not done:** integrations into every separate app website, production deployment, server changes or live-site replacement.
 
 ## Round 5 — the root as the hub, with the President's constraint (2026-11-17)
 
@@ -259,3 +268,7 @@ Placeholders carry the grammar pass before the President sees them, like all web
 ## Item 11 — staging on your own website version (the President, 2026-11-17)
 
 On **your own website version** (your seat's build), go further than placeholders: **start staging** the real sections for the things now in construction — the Websites and Dedicated Hosting service pages, the customer-app story, the tiers, and the demo — so that when the President promotes your version, the live site inherits working sections, not sketches. Staging follows the same laws: the luxury standard (newest JavaScript, one-on-one polish), the grammar pass, and honest labels for anything not yet live.
+
+## Build acknowledgement — 2026-11-19
+
+Updating the existing shared CashDublo site-navigation component rather than introducing a second navigation system. Estimate: one build round for the stationary CashDublo wordmark, full green header hit surface, accessible sliding drawer, keyboard/outside/Escape behavior, reduced-motion handling, 72px header target, and desktop/tablet/phone layout checks. No production deployment.

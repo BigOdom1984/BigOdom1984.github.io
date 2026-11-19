@@ -83,3 +83,4 @@ input,select,textarea,button{max-width:100%;font:inherit}
 .cd-app-icon-frame>img{display:block;max-width:100%;height:auto}
 .cd-app-icon-frame[data-build-status="red"]::after{content:"UNDER CONSTRUCTION";position:absolute;left:-5%;right:-5%;bottom:8%;z-index:2;padding:5px 3px;background:#f2c94c;color:#172d2b;border:1px solid #172d2b;border-radius:4px;text-align:center;font-size:clamp(7px,1.1vw,10px);line-height:1.15;font-weight:950;letter-spacing:.035em;white-space:normal;box-shadow:0 1px 4px #0005;pointer-events:none}
 .cd-app-icon-frame[data-build-status="green"]::after,.cd-app-icon-frame[data-build-status="yellow"]::after{content:none}
+
