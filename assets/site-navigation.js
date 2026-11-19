@@ -100,3 +100,40 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',applyBuildStatusOverlays);
   else applyBuildStatusOverlays();
 })();
+
+/* Default Marvin-inspired featured-app card layout for every app card across the site. */
+(function(){
+  if(document.getElementById('cd-featured-app-card-style')) return;
+  var style=document.createElement('style');
+  style.id='cd-featured-app-card-style';
+  style.textContent=`
+    .card.featured-app-card{display:flex;flex-direction:column;gap:14px;min-height:300px}
+    .card.featured-app-card .featured-app-heading{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center;gap:16px;min-height:112px}
+    .card.featured-app-card .featured-app-labels{grid-column:2;grid-row:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-width:0}
+    .card.featured-app-card .featured-app-labels .status{margin:0;align-self:center;font-size:.72rem;padding:6px 10px;white-space:normal}
+    .card.featured-app-card .featured-app-labels h2,.card.featured-app-card .featured-app-labels h3{margin:0;text-align:center;line-height:1.08;font-size:clamp(1.35rem,2.5vw,1.8rem);overflow-wrap:anywhere}
+    .card.featured-app-card .icon-link{grid-column:1;grid-row:1;justify-self:start;align-self:center;line-height:0;margin:0}
+    .card.featured-app-card .icon-link img,.card.featured-app-card .app-icon-placeholder{width:104px;height:104px;max-width:100%;border-radius:23px;object-fit:cover}
+    .card.featured-app-card>p{margin:0;flex:1 0 auto;font-size:1rem;line-height:1.55}
+    .card.featured-app-card>.links{margin-top:auto;padding-top:8px}
+    .card.featured-app-card>.plats{margin-top:auto;padding-top:8px;font-size:.78rem;font-weight:800;letter-spacing:.07em;line-height:1.5;white-space:normal}
+    @media(max-width:560px){.card.featured-app-card .featured-app-heading{grid-template-columns:104px minmax(0,1fr);min-height:104px;gap:12px}.card.featured-app-card .icon-link img,.card.featured-app-card .app-icon-placeholder{width:98px;height:98px}.card.featured-app-card .featured-app-labels h2,.card.featured-app-card .featured-app-labels h3{font-size:1.35rem}}
+  `;
+  document.head.appendChild(style);
+  function apply(){
+    document.querySelectorAll('article.card').forEach(function(card){
+      if(card.classList.contains('featured-app-card')) return;
+      var icon=card.querySelector(':scope > .icon-link');
+      var status=card.querySelector(':scope > .status');
+      var heading=card.querySelector(':scope > h2,:scope > h3');
+      if(!icon||!status||!heading) return;
+      card.classList.add('featured-app-card');
+      var head=document.createElement('div');head.className='featured-app-heading';
+      var labels=document.createElement('div');labels.className='featured-app-labels';
+      labels.append(status,heading);head.append(labels,icon);card.insertBefore(head,card.firstChild);
+      var links=card.querySelector(':scope > .links');
+      if(links){var first=links.querySelector('a');if(first){var title=heading.textContent.trim();first.textContent='Explore '+title+' ↗';first.classList.add('featured-app-explore');}}
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
+})();
