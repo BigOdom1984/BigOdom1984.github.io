@@ -17,5 +17,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Validate responsive layout and hosting configuration
-        run: node tests/responsive-layout.test.mjs
+      - name: Validate navigation, responsive layout and hosting configuration
+        run: |
+          node --check assets/cashdublo-nav.js
+          node tests/navigation-contract.test.cjs
+          node tests/responsive-layout.test.mjs
