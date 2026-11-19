@@ -24,6 +24,10 @@ for (const page of ["apps.html", "front-ends.html"]) {
   assert.ok(html.includes("width:99px;height:99px"), page + " icons must be enlarged by about 30 percent");
   assert.ok(html.includes("grid-column:2"), page + " app name/status must sit in the right column");
 }
+const frontEndsHtml = readFileSync("front-ends.html", "utf8");
+const legacyNav = frontEndsHtml.match(/<nav[^>]*>[\\s\\S]*?<\\/nav>/i)?.[0] || "";
+const navHrefs = [...legacyNav.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
+assert.equal(new Set(navHrefs).size, navHrefs.length, "Front Ends fallback navigation must not contain duplicate links");
 assert.equal(JSON.parse(readFileSync("vercel.json", "utf8")).trailingSlash, false);
 assert.ok(readFileSync("netlify.toml", "utf8").includes('publish = "."'));
 assert.ok(readFileSync("wrangler.toml", "utf8").includes('pages_build_output_dir = "."'));
