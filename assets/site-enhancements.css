@@ -172,3 +172,14 @@ input,select,textarea,button{max-width:100%;font:inherit}
 @media(prefers-reduced-motion:reduce){
   .cd-app-card{scroll-behavior:auto}
 }
+
+
+/* 2026-11-20: align app-card content to the icon's left edge. */
+.cd-app-card{align-items:stretch!important;text-align:left!important}
+.cd-app-card>a.icon-link,.cd-app-card>.cd-app-icon-frame{align-self:flex-start!important}
+.cd-app-card>h2,.cd-app-card>h3{align-self:stretch!important;text-align:left!important}
+.cd-app-card>.status{align-self:flex-start!important;text-align:left!important}
+.cd-app-card>.cd-card-meta{justify-content:flex-start!important}
+.cd-app-card .cd-card-category{text-align:left!important}
+.cd-app-card>.description,.cd-app-card>p{text-align:left!important}
+.cd-app-card>.links{justify-content:flex-start!important}
