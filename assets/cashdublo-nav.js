@@ -161,6 +161,25 @@
    arrange.dataset.cdArrangeToggle="1";arrange.textContent="⚙ Settings · Arrange menu";
    arrange.setAttribute("aria-pressed","false");toolsBar.append(arrange);inner.prepend(toolsBar);
    let arranging=false,dragged=null;
+   function moveByArrow(item,direction){
+    const sibling=direction==="up"?item.previousElementSibling:item.nextElementSibling;
+    if(!sibling)return;
+    if(direction==="up")item.parentElement.insertBefore(item,sibling);
+    else item.parentElement.insertBefore(sibling,item);
+   }
+   function addArrowControls(item){
+    const host=item.matches(".cd-drawer-group")?item.querySelector(":scope > summary"):item;
+    if(!host)return;
+    let controls=host.querySelector(":scope > .cd-order-controls");
+    if(!controls){controls=document.createElement("span");controls.className="cd-order-controls";
+     [["up","↑","Move up"],["down","↓","Move down"]].forEach(([dir,glyph,label])=>{
+      const b=document.createElement("button");b.type="button";b.className="cd-order-arrow";b.dataset.direction=dir;b.textContent=glyph;b.setAttribute("aria-label",label);
+      b.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();moveByArrow(item,dir);});
+      controls.append(b);
+     });host.append(controls);
+    }
+    controls.hidden=!arranging;
+   }
    function setArrange(value){
     arranging=value;arrange.setAttribute("aria-pressed",String(value));
     arrange.textContent=value?"✓ Done arranging":"⚙ Settings · Arrange menu";
@@ -168,11 +187,7 @@
     const primary=document.querySelector("[data-cd-primary-nav]");
     primary?.classList.toggle("cd-arranging",value);
     const menuItems=[...inner.querySelectorAll(".cd-drawer-inner > a,.cd-drawer-inner > .cd-drawer-group,.cd-drawer-links > a"),...(primary?[...primary.querySelectorAll(":scope > a")]:[])];
-    menuItems.forEach(item=>{
-     let handle=item.querySelector(":scope > .cd-drag-handle,summary > .cd-drag-handle");
-     if(!handle){handle=document.createElement("span");handle.className="cd-drag-handle";handle.textContent="⠿";handle.setAttribute("aria-hidden","true");if(item.matches("a"))item.prepend(handle);else item.querySelector(":scope > summary")?.append(handle);}
-     handle.hidden=!value;handle.draggable=false;
-    });
+    menuItems.forEach(addArrowControls);
    }
    function wire(container,selector){
     container.addEventListener("dragstart",e=>{
@@ -229,9 +244,15 @@
    let cardsArranging=false,activeCard=null,activePointer=null;
    function cardItems(){return [...document.querySelectorAll(cardSelector)].filter(card=>card.isConnected);}
    function cardHandle(card){
-    let h=card.querySelector(":scope > .cd-card-drag-handle");
-    if(!h){h=document.createElement("button");h.type="button";h.className="cd-card-drag-handle";h.textContent="⠿";h.setAttribute("aria-label","Drag to rearrange this card");h.title="Drag to rearrange";card.prepend(h);}
-    h.hidden=!cardsArranging;return h;
+    let controls=card.querySelector(":scope > .cd-card-order-controls");
+    if(!controls){controls=document.createElement("div");controls.className="cd-card-order-controls";
+     [["up","↑","Move card up"],["down","↓","Move card down"]].forEach(([dir,glyph,label])=>{
+      const b=document.createElement("button");b.type="button";b.className="cd-order-arrow";b.dataset.direction=dir;b.textContent=glyph;b.setAttribute("aria-label",label);
+      b.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();moveByArrow(card,dir);});
+      controls.append(b);
+     });card.prepend(controls);
+    }
+    controls.hidden=!cardsArranging;return controls;
    }
    function setCardsArrange(value){
     cardsArranging=value;
