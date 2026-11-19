@@ -42,10 +42,10 @@ The canonical source file lives in the private CashDublo server repository at `d
 
 Manifest and build-target configuration take priority over README claims. A repository's existence does not prove that an app builds or has been published. Planned targets remain planned. A companion website is not counted as a browser app unless the product itself runs in the browser. Separate product repositories are joined only when they are clearly implementations of the same product.
 
-The current 34-application inventory is a baseline. The analyzer can inspect supplied repository evidence, but automated GitHub crawling, scheduled rescans, and automatic menu/catalogue writes are not enabled. Those need a trusted GitHub worker, review workflow, and configured server key.
+The current 34-application inventory is a baseline. The protected analyzer can now scan up to 10 supplied BigOdom1984 repositories directly through the GitHub API when CROSS_PLATFORM_ANALYSIS_KEY and CROSS_PLATFORM_GITHUB_TOKEN are configured. It inspects each default-branch tree, README, package/app manifests, and platform-specific project paths, including separate repositories for one product. The scanner returns a proposal only; it never commits catalogue or navigation changes automatically.
 
 ## Sign-in entry
 
 The public site now includes a persistent Log in entry at the left side of the top header. It opens `/login.html` with Google, Apple, GitHub, Microsoft, and email/password options. The page uses the public Supabase Auth client configuration from `GET https://cashdublo.vercel.app/api/auth-config`.
 
-Sign-in is dormant until the server has `SUPABASE_URL` and `SUPABASE_ANON_KEY`, and each social provider is enabled in Supabase Auth with the correct OAuth credentials and redirect URLs. The Supabase anon key is public by design; never expose a service-role key. Customer sign-in is separate from owner dashboard access and app API authentication.
+Sign-in is dormant until the server has `SUPABASE_URL` and `SUPABASE_ANON_KEY`, and each social provider is enabled in Supabase Auth with the correct OAuth credentials and redirect URLs. The Supabase anon key is public by design; never expose a service-role key. Enable Row Level Security on every table containing customer data and write policies before storing customer records. Customer sign-in is separate from owner dashboard access and app API authentication.
