@@ -20,5 +20,8 @@ jobs:
       - name: Validate navigation, responsive layout and hosting configuration
         run: |
           node --check assets/cashdublo-nav.js
+          node --check assets/site-navigation.js
+          node --check site.js
           node tests/navigation-contract.test.cjs
           node tests/responsive-layout.test.mjs
+          node tests/root-site-upgrade.test.mjs
