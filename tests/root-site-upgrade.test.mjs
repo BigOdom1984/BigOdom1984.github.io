@@ -19,6 +19,7 @@ for (const [path, html] of [["index.html", home], ["news.html", news], ["apps.ht
 }
 
 // Newsletter: full-screen, explicit-X-only dismissal, with honest autoplay fallback.
+assert.ok(home.includes('aria-label="Email address"') && news.includes('aria-label="Email address"'), "newsletter email fields must have accessible names");
 assert.ok(newsletter.includes("height:100dvh"), "newsletter overlay must fill dynamic viewport height");
 assert.ok(newsletter.includes('aria-label=\\"Close\\"'), "newsletter must expose a labelled close control");
 assert.ok(newsletter.includes("function bindModalControls") && newsletter.includes('closeButton.addEventListener("click",close)'), "newsletter close control must work");
