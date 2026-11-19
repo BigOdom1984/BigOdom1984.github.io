@@ -28,7 +28,7 @@
     menuItems.forEach(item=>{
      let handle=item.querySelector(":scope > .cd-drag-handle,summary > .cd-drag-handle");
      if(!handle){handle=document.createElement("span");handle.className="cd-drag-handle";handle.textContent="⠿";handle.setAttribute("aria-hidden","true");if(item.matches("a"))item.prepend(handle);else item.querySelector(":scope > summary")?.append(handle);}
-     handle.hidden=!value;handle.draggable=value;
+     handle.hidden=!value;handle.draggable=false;
     });
    }
    function wire(container,selector){
@@ -131,6 +131,8 @@
    });
    const cardObserver=new MutationObserver(()=>{if(cardsArranging)cardItems().forEach(card=>{card.classList.add("cd-card-arranging");cardHandle(card);});});
    cardObserver.observe(document.body,{childList:true,subtree:true});
+   inner.addEventListener("click",e=>{if(e.target.closest(".cd-drag-handle")){e.preventDefault();e.stopPropagation();}});
+   document.querySelector("[data-cd-primary-nav]")?.addEventListener("click",e=>{if(e.target.closest(".cd-drag-handle")){e.preventDefault();e.stopPropagation();}});
    arrange.addEventListener("click",()=>{
     const next=!arranging;setArrange(next);setCardsArrange(next);
     if(next)close(false);
