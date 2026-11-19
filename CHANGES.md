@@ -1,5 +1,16 @@
 # Changes — the default website (root)
 
+## 2026-11-19 — ChatGPT / AI-02 — Navigation standard v2 repair
+
+**Before:** The home page had a separate inline header with hover-only dropdowns and no shared drawer. The other listed root pages loaded legacy navigation assets, and the Front Ends menu repeated Galaxy Repeat, Best Mac File Manager, Patent It!, Crash Catcher, and PodEdPro.
+
+**After:** The home, All Apps, Courses, Source Code, Newsletter, Front Ends, Android, iPhone, Mac, Windows, Linux, and Command Tools pages now use the canonical assets/cashdublo-nav.css and assets/cashdublo-nav.js from NAVIGATION-STANDARD.md v2.0: a stationary green 72px header and slide-down drawer. Existing page content and routes outside the header were left in place. The shared drawer preserves the site's navigation destinations and lists each destination once. The shared site enhancer now leaves standard header markup intact instead of replacing it.
+
+Keyboard opening moves focus into the drawer; Tab and Shift+Tab cycle through visible drawer controls; Escape closes and returns focus to the toggle; outside pointer interaction closes the drawer; and reduced-motion preference removes the slide and close delay. Responsive CSS retains four columns on desktop (1280px+), two on tablet (768–1024px), and one on phone (360–430px), with a bounded, scrollable drawer.
+
+Regression tests and CI now check canonical integration across all 12 pages, unique drawer destinations, the responsive breakpoints, keyboard/pointer behavior hooks, reduced motion, and the existing hosting configuration. **Browser-based visual testing at the requested viewport sizes and screen-reader testing have not yet been performed.** SQL record was written first in CHANGES.sql, as required.
+
+
 This log applies ONLY to the default
 website in the root folder. Each AI's
 version folder carries its own
