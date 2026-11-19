@@ -46,6 +46,6 @@ The current 34-application inventory is a baseline. The protected analyzer can n
 
 ## Sign-in entry
 
-The public site now includes a persistent Log in entry at the left side of the top header. It opens `/login.html` with Google, Apple, GitHub, Microsoft, and email/password options. The page uses the public Supabase Auth client configuration from `GET https://cashdublo.vercel.app/api/auth-config`.
+The public site now includes a persistent Log in entry at the left side of the top header. It opens `/login.html` with Google, Apple, GitHub, Microsoft, and email/password options. The page uses the public Supabase Auth client configuration from `GET https://cashdublo.vercel.app/api/auth-config`. In Supabase Auth URL Configuration, set the Site URL to `https://bigodom1984.github.io` and allow `https://bigodom1984.github.io/login.html` as a redirect URL. Enable Google, Apple, GitHub, and Azure (Microsoft) in Supabase and configure each provider's OAuth client credentials; provider callback URLs are shown by Supabase.
 
 Sign-in is dormant until the server has `SUPABASE_URL` and `SUPABASE_ANON_KEY`, and each social provider is enabled in Supabase Auth with the correct OAuth credentials and redirect URLs. The Supabase anon key is public by design; never expose a service-role key. Enable Row Level Security on every table containing customer data and write policies before storing customer records. Customer sign-in is separate from owner dashboard access and app API authentication.
