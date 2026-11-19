@@ -21,7 +21,7 @@ for (const [path, html] of [["index.html", home], ["news.html", news], ["apps.ht
 // Newsletter: full-screen, explicit-X-only dismissal, with honest autoplay fallback.
 assert.ok(newsletter.includes("height:100dvh"), "newsletter overlay must fill dynamic viewport height");
 assert.ok(newsletter.includes('aria-label=\\"Close\\"'), "newsletter must expose a labelled close control");
-assert.ok(newsletter.includes('ov.querySelector(".cdnews-x").addEventListener("click", close)'), "newsletter close control must work");
+assert.ok(newsletter.includes("function bindModalControls") && newsletter.includes('closeButton.addEventListener("click",close)'), "newsletter close control must work");
 assert.ok(!newsletter.includes('ov.addEventListener("click"'), "outside click must not dismiss newsletter");
 assert.ok(!newsletter.includes('id=\\\"cdnews-close\\\"'), "secondary dismiss control must not return");
 assert.ok(newsletter.includes("cdAutoSound") && newsletter.includes('addEventListener("pointerdown",tryPlay'), "audio must retry after an allowed user gesture");
