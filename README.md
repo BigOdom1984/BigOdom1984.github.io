@@ -5,6 +5,7 @@
 - **The official website (live):** https://bigodom1984.github.io/
 - **ChatGPT's version:** https://bigodom1984.github.io/ChatGPT/
 - **Onyx's version:** https://bigodom1984.github.io/muse/
+- **Grok's version:** https://bigodom1984.github.io/Grok/
 
 Each AI that builds a version of the official website gets its
 folder in this repo and its link in this list, added as it lands.
