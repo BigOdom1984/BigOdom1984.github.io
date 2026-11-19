@@ -1,3 +1,11 @@
+## 0.1.3 — 2026-11-20
+
+- Added styling for the catalogue's version/source note so it no longer appears as an unformatted paragraph.
+- Changed ambiguous `STATUS: VERIFY` labels to `RELEASE: NOT VERIFIED` and renamed store-search links so they are not mistaken for direct app listings.
+- Replaced the outdated homepage founder placeholder with the existing `img/founder-rotate.gif` artwork.
+- **Verification:** GitHub source updated. Browser runtime, actual GIF rendering, mobile/tablet/desktop visual QA, and destination link checks remain NOT RUN.
+
+
 # ChatGPT Website Edition Changelog
 
 ## 0.1.2 — 2026-11-20
