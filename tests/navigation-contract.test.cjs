@@ -10,4 +10,6 @@ for(const token of ["data-cd-header","data-cd-toggle",'aria-controls="cd-site-dr
 assert.ok(fs.readFileSync("assets/site-navigation.css","utf8").includes(".cd-site-nav{display:none!important}"),"legacy horizontal navigation must not compete with the drawer");
 assert.ok(navRuntime.includes("if(first)first.focus()"),"opening the drawer must move keyboard focus into navigation");
 assert.ok(navRuntime.includes("if(returnFocus)toggle.focus()"),"Escape must return keyboard focus to the menu toggle");
+assert.ok(navRuntime.includes('toggle.setAttribute("aria-label","Open navigation menu")'),"closed menu must have an accurate accessible label");
+assert.ok(!navRuntime.includes("Tap anywhere on the green header"),"do not advertise a nonfunctional header-wide toggle");
 console.log("PASS: shared navigation accessibility, generated drawer wiring, desktop quick links, and responsive card layout contract.");
