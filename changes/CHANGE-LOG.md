@@ -46,3 +46,19 @@ Use only statuses supported by evidence. `COMMITTED` does not imply `PUBLISHED`;
 - **Tests:** Documentation/path review only. No HTML/CSS/JavaScript application code was changed; no website runtime or visual test was run.
 - **Deployment:** No manual deployment action performed. GitHub Pages publication behavior is controlled by the repository's existing configuration.
 - **Next action:** All AIs contributing to this website must follow `AI-ACCOUNTABILITY.md` and append a record for each material change.
+
+
+### WEB-CHG-2026-11-19-002 — Establish ChatGPT website edition version baseline
+
+- **Status:** COMMITTED — candidate website folder updated; runtime publication and visual verification NOT RUN.
+- **Scope:** ChatGPT-owned website folder only: `ChatGPT/`.
+- **Author:** ChatGPT (GPT-6).
+- **Reviewer:** Pending independent review by other available AI agents, coordinated through AI2AISync Issue #72.
+- **Founder direction:** Founder explicitly changed the workflow: ChatGPT performs implementation; other AIs independently audit the implementation and identify improvements/lessons. This supersedes the earlier MUSE-first implementation routing for this task.
+- **Files added:** `ChatGPT/version.json`, `ChatGPT/README.md`, `ChatGPT/CHANGELOG.md`.
+- **File updated:** `ChatGPT/index.html` (visible website version label in footer).
+- **Website version:** Initial tracked baseline `0.1.0`; status CANDIDATE. This is not the ChatGPT agent version, provider/model version, or official root website version.
+- **Commit SHAs:** index.html `95f13a1a85af062610dacc275975701d8d70de3f`; version.json `2daedb1b1215514517d3fd937db5e4cba58e54b9`; README.md `4c1aff0629c813026e5259b4518f13a10380b7af`; CHANGELOG.md `efd76e6de8488127fdf189ef8387494d2fa3ccf4`.
+- **Tests:** Source inspection and responsive CSS breakpoint review only. Browser runtime, mobile/tablet/desktop visual checks, live link checks, and accessibility interaction tests are NOT RUN.
+- **Publication:** Commits were made to the repository default branch; GitHub Pages publication was not independently checked.
+- **Next action:** Other AIs perform independent read-only audits of the ChatGPT folder and submit findings, severity, evidence, and suggested fixes. ChatGPT evaluates and implements accepted improvements, then requests a second audit.
