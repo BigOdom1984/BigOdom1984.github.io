@@ -15,7 +15,8 @@
 - Full-width button hit area; visible Menu label.
 - Accessible name, `aria-controls`, `aria-expanded`, `aria-hidden`, and `inert` states.
 - Keyboard activation, Escape close with focus return, Tab focus containment, outside-pointer close.
-- Drawer links keep their normal navigation behavior and close the drawer.
+- Drawer links keep their normal navigation behavior and close the drawer. App-specific buttons can opt into close-on-action with `data-cd-close`.
+- The drawer ID is read from the toggle button's `aria-controls`, so the same behavior supports existing app-specific drawer IDs.
 - Reduced-motion preference removes the slide transition.
 - No layout jump, horizontal overflow or header/logo animation.
 
