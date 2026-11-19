@@ -6,7 +6,7 @@
 ## Visual contract
 - Stationary CashDublo wordmark in a full-width green top bar.
 - Header height: 72px (approximately 12–20% above the previous 64px standard).
-- The entire green bar is the menu-toggle surface; the wordmark remains a normal home link.
+- The entire green bar, including the CashDublo wordmark, is the menu-toggle surface. Tapping/clicking the wordmark toggles the drawer instead of navigating away; Home remains available as a drawer destination.
 - Drawer overlays content instead of pushing the page. It aligns 8px above the header bottom, slides down, and keeps the header/logo stationary.
 - Menu items are at least 52px high; mobile items are at least 54px high.
 - Drawer content adapts to four columns on desktop, two on tablet, one on phone.
@@ -45,7 +45,7 @@ Each site provides its own brand home link and its own menu links, while reusing
 - Tablet: 768–1024px; two columns, readable tap targets.
 - Desktop: 1280px+; four columns, drawer max-height and internal scroll.
 - Keyboard: Tab, Shift+Tab, Enter/Space, Escape, focus return.
-- Pointer: full bar toggles, brand link navigates, outside click closes, drawer link navigates.
+- Pointer/touch: every point on the green bar toggles the drawer, including the CashDublo wordmark; outside click closes, drawer links navigate. Keyboard activation on the wordmark also toggles the drawer.
 - Reduced motion: no slide transition.
 - Preserve each app's fonts, colors outside the green header, existing routes, controls and content.
 
