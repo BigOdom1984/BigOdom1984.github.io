@@ -93,7 +93,7 @@ input,select,textarea,button{max-width:100%;font:inherit}
   object-fit:cover;
 }
 .cd-app-card>.cd-app-icon-frame{order:1;align-self:center}
-.cd-app-card>h2{
+.cd-app-card>h2,.cd-app-card>h3{
   order:2;
   align-self:stretch;
   grid-column:auto!important;
@@ -165,7 +165,7 @@ input,select,textarea,button{max-width:100%;font:inherit}
 }
 @media(max-width:550px){
   .cd-app-card{padding:18px!important}
-  .cd-app-card>h2{font-size:1.05rem!important}
+  .cd-app-card>h2,.cd-app-card>h3{font-size:1.05rem!important}
   .cd-app-card>.links{gap:8px!important}
 }
 @media(prefers-reduced-motion:reduce){
