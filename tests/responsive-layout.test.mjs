@@ -5,7 +5,7 @@ const css = readFileSync("assets/site-navigation.css", "utf8");
 assert.match(css, /overflow-x:clip/);
 assert.match(css, /width:100vw;max-width:100vw/);
 assert.match(css, /@media\(max-width:700px\)/);
-assert.match(css, /overscroll-behavior-inline/);
+assert.match(css, /overscroll-behavior-inline/);\nassert.match(css, /\.cd-app-rail\\{[\\s\\S]*?display:grid/);\nassert.match(css, /grid-template-columns:repeat\\(auto-fit,minmax\\(min\\(100%,260px\\),1fr\\)\\)/);\nassert.match(css, /\\.cd-card-category,\\.cd-card-platforms[\\s\\S]*?white-space:nowrap/);
 
 for (const page of ["index.html", "apps.html", "front-ends.html", "cashdublo-app-store.html"]) {
   const html = readFileSync(page, "utf8");
