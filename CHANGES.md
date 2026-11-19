@@ -81,3 +81,10 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 ## 2026-11-19 — CashDublo desktop navigation and catalog fit
 
 The shared header now keeps the CashDublo wordmark on the far left, presents Apps, Websites, Tools, Games, Courses, Code, Newsletter and About as one horizontal desktop row, and keeps Menu at the far right. Tablet and phone views retain the compact drawer. Catalog cards now use responsive wrapping grids instead of clipped horizontal rails; cards and app icons are slightly smaller, no-icon website cards use the full card width, and category/platform/status chips stay on one line. GitHub Actions navigation and responsive-layout checks passed, and the Cloudflare Pages preview build succeeded. Real desktop/tablet/phone visual QA and production deployment remain pending.
+
+
+## 2026-11-19 — ChatGPT / root website upgrade (candidate; not deployed)
+
+Consolidated the existing landing-page responsive polish, full-width birthday banner, full-screen newsletter welcome with explicit-X-only dismissal, and All Apps sort/platform controls onto the root-site upgrade branch. Preserved the shared CashDublo navigation runtime and removed the obsolete All Apps dropdown while retaining its direct link. Added root-site regression coverage for newsletter dismissal/autoplay fallback, catalogue controls, navigation targets, responsive viewport metadata, and shared navigation behavior. Static CI and preview checks are pending; real device visual QA and production deployment have not been performed.
+
+Branch: `chatgpt/root-site-upgrade-20261119`. No production deployment.
