@@ -19,6 +19,11 @@ The shared site navigation now uses a stationary CashDublo wordmark in a 72px gr
 
 The shared drawer component now initializes itself after the page DOM is ready. Initialization is idempotent, so both standalone app sites and the main-site loader can use the same component safely.
 
+
+## 2026-11-19 — CashDublo
+
+Extended the shared drawer component to read its drawer ID from `aria-controls` and close on app-specific buttons marked `data-cd-close`. This supports account actions such as sign-out without duplicating drawer behavior.
+
 ## 2026-11-17 — Onyx (General), on the President's order
 
 Autoplay, built properly, and the banner fits its view. The birthday song now runs through a single sound engine for the newsletter area — Spotify's player API, told to play the moment it loads, retried on the visitor's first touch anywhere for browsers that hold sound until a touch — so it starts on its own every time a browser allows sound, and any sound added to this area later uses the same door. The site also stamps its visitor's view (mobile, tablet, or desktop), and the birthday banner aligns with it: desktop lines up with the page's column; tablet and mobile fit their screens.
