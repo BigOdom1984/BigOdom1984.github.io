@@ -1,0 +1,65 @@
+/* CashDublo shared navigation and platform browsing */
+:root{--cd-ink:#172d2b;--cd-muted:#596d68;--cd-paper:#f5f0e6;--cd-white:#fffdf8;--cd-lime:#c9ed72;--cd-coral:#f0785e;--cd-line:#d8d4c9;--cd-deep:#193d39}
+.cd-platform-grid{display:flex!important;flex-direction:column;gap:16px!important}
+.cd-app-rail{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:4px 2px 14px;scrollbar-width:thin}
+.cd-app-rail>.card{flex:0 0 min(330px,84vw);scroll-snap-align:start;min-width:0}
+.cd-app-rail>.card:focus-within{outline:2px solid var(--cd-coral);outline-offset:2px}
+.cd-game-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.cd-game-meta span{display:inline-flex;align-items:center;border:1px solid var(--cd-line);border-radius:999px;padding:4px 9px;font-size:.75rem;font-weight:850;color:var(--cd-ink);background:#f4f0e5}
+@media(max-width:700px){.cd-app-rail>.card{flex-basis:min(290px,82vw)}}
+@media(prefers-reduced-motion:reduce){}
+
+.cd-card-meta{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0 12px}
+.cd-card-category,.cd-card-platforms{display:inline-flex;align-items:center;border:1px solid var(--cd-line);border-radius:999px;padding:4px 8px;background:#f2efe4;color:#42544d;font-size:.69rem;font-weight:800;line-height:1.35}
+.cd-platform-grid{display:block!important}
+.cd-app-rail{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:4px 2px 14px;margin:0 0 18px;scrollbar-width:thin}
+.cd-app-rail>.card{flex:0 0 min(330px,84vw);scroll-snap-align:start;min-width:0}
+.cd-app-rail>.card .links{margin-top:auto}
+.cd-app-rail>.card img{max-width:76px}
+.cd-app-rail>.card:focus-within{outline:2px solid var(--cd-coral);outline-offset:2px}
+@media(max-width:700px){.cd-app-rail>.card{flex-basis:min(290px,82vw)}.cd-card-meta{align-items:flex-start}}
+
+/* Global footer links: keep privacy and contact details at the bottom of every page. */
+.cd-footer-legal{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin:16px auto 0;padding-top:12px;border-top:1px solid currentColor;max-width:1100px;font-size:.9rem}
+.cd-footer-legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+
+/* Device-wide layout guard — shared by every CashDublo web page. */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+body{width:100%;max-width:100%;min-width:320px;margin:0;overflow-x:clip}
+*,*::before,*::after{box-sizing:border-box}
+main{width:100%;max-width:100%;min-width:0}
+img,svg,video,canvas,iframe{max-width:100%}
+.wrap{width:100%;min-width:0;margin-inline:auto;padding-inline:clamp(16px,4vw,36px)}
+.grid,.cards,.founder,.row,.card{min-width:0}
+h1,h2,h3,p,a,button{overflow-wrap:anywhere}
+table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+pre{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}
+input,select,textarea,button{max-width:100%;font:inherit}
+.hero,.ticker,.featured,.belief,.footer,.bday,.full-bleed,.section-band{
+  width:100vw;max-width:100vw;
+  margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+}
+@media(max-width:700px){
+  .wrap{padding:48px 18px}
+  .hero{padding:clamp(42px,9vw,64px) 20px}
+  .cards,.grid{grid-template-columns:minmax(0,1fr)}
+  .card{min-width:0}
+  .cd-app-rail>.card{flex-basis:min(290px,82vw)}
+}
+@media(min-width:701px) and (max-width:1024px){
+  .wrap{padding-inline:clamp(20px,3vw,32px)}
+}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+
+/* Explicit red build-state overlay: visual badge only; never edits the source app icon. */
+.cd-app-icon-frame{position:relative;display:inline-flex;align-self:flex-start;max-width:100%;overflow:visible}
+.cd-app-icon-frame>img{display:block;max-width:100%;height:auto}
+.cd-app-icon-frame[data-build-status="red"]::after{content:"UNDER CONSTRUCTION";position:absolute;left:-5%;right:-5%;bottom:8%;z-index:2;padding:5px 3px;background:#f2c94c;color:#172d2b;border:1px solid #172d2b;border-radius:4px;text-align:center;font-size:clamp(7px,1.1vw,10px);line-height:1.15;font-weight:950;letter-spacing:.035em;white-space:normal;box-shadow:0 1px 4px #0005;pointer-events:none}
+.cd-app-icon-frame[data-build-status="green"]::after,.cd-app-icon-frame[data-build-status="yellow"]::after{content:none}
+
