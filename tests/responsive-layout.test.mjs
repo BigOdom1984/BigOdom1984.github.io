@@ -12,6 +12,7 @@ assert.match(css, /prefers-reduced-motion:reduce/);
 assert.match(css, /max-height:min\(72vh,680px\)/);
 
 const navJs = readFileSync("assets/cashdublo-nav.js", "utf8");
+assert.match(navJs, /brand\.addEventListener\("click",e=>\{e\.preventDefault\(\);toggle\.click\(\);\}\)/, "CashDublo wordmark must toggle the menu instead of navigating away");
 for (const token of ['Escape', 'pointerdown', 'focusables', 'e.key==="Tab"', 'e.shiftKey', 'first.focus({preventScroll:true})', 'last.focus()', 'toggle.focus()', 'aria-hidden', 'inert']) {
   assert.ok(navJs.includes(token), "navigation interaction contract missing: " + token);
 }
