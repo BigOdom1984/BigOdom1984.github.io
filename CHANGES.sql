@@ -62,3 +62,6 @@ INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', '
 INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Made the reusable navigation component self-initialize after DOM readiness, while keeping initialization idempotent for the main-site loader.', 'assets/cashdublo-nav.js');
 
 INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Made the shared navigation drawer reusable with any id named by aria-controls and allowed app-specific buttons to close the drawer via data-cd-close.', 'assets/cashdublo-nav.js; NAVIGATION-STANDARD.md');
+
+INSERT INTO changes (date, who, what, docs) VALUES
+('2026-11-19', 'ChatGPT / AI-02', 'Standardized the All Apps card hierarchy across the catalogue and reused platform-page cards: icon, one-line name, abbreviated one-line version/status, category only in the middle, description, compact Google/Apple store links on one line, and the existing verified platform line at the bottom. The shared enhancement script no longer inserts a duplicate Platforms metadata pill. Existing app descriptions, version/status values, store URLs, and platform records were preserved.', 'assets/site-enhancements.css; assets/site-enhancements.js; apps.html; android.html; iphone.html; mac.html; windows.html; linux.html');
