@@ -69,4 +69,11 @@ Recommended correction: Build an app-by-app data inventory and reconcile the pub
 
 ## Change control
 
-No website source files were modified in this audit pass. This is an evidence log only. The official root website and other AI-owned site folders remain untouched.
+## Navigation repair applied
+
+After identifying the source-level regression, the candidate-only correction was committed:
+- ChatGPT/index.html and ChatGPT/apps.html now mark their existing headers with data-cd-header so the shared initializer does not delete them.
+- ChatGPT/rss-receiver.html now has matching candidate navigation.
+- The official root website, shared navigation assets, and other AI-owned site folders were not modified.
+- Candidate version advanced to 0.1.5 and its changelog/README were synchronized.
+- Runtime behavior is still NOT VERIFIED because browser access remains unavailable. The source correction is not a substitute for visual QA.
