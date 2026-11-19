@@ -49,11 +49,18 @@
    }
    wire(inner,".cd-drawer-inner > a, .cd-drawer-inner > .cd-drawer-group");
    inner.querySelectorAll(".cd-drawer-links").forEach(list=>wire(list,".cd-drawer-links > a"));
-   const primaryNav=document.querySelector("[data-cd-primary-nav]");if(primaryNav)wire(primaryNav,":scope > a");
+   const primaryNav=document.querySelector("[data-cd-primary-nav]");if(primaryNav)wire(primaryNav,".cd-primary-nav > a");
    let activeMenuItem=null,activeMenuPointer=null;
    inner.addEventListener("pointerdown",e=>{
     if(!arranging||!e.target.closest(".cd-drag-handle"))return;
     const item=e.target.closest("a,.cd-drawer-group");if(!item||!inner.contains(item))return;
+    e.preventDefault();activeMenuItem=item;activeMenuPointer=e.pointerId;item.classList.add("cd-dragging");
+    try{e.target.setPointerCapture(e.pointerId);}catch(_){}
+   },{passive:false});
+   const primaryForPointer=document.querySelector("[data-cd-primary-nav]");
+   primaryForPointer?.addEventListener("pointerdown",e=>{
+    if(!arranging||!e.target.closest(".cd-drag-handle"))return;
+    const item=e.target.closest("a");if(!item||item.parentElement!==primaryForPointer)return;
     e.preventDefault();activeMenuItem=item;activeMenuPointer=e.pointerId;item.classList.add("cd-dragging");
     try{e.target.setPointerCapture(e.pointerId);}catch(_){}
    },{passive:false});
