@@ -27,22 +27,16 @@ function ensureFooterLinks(){
  if(!group.querySelector('a[href^="mailto:"]')&&!footer.querySelector('a[href^="mailto:"]')){const contact=document.createElement('a');contact.href='mailto:CashDublo@gmail.com';contact.textContent='Contact Us';group.append(contact);}
 }
 
-function installDrawer(){
- const header=document.querySelector('[data-cd-header]'),toggle=header?.querySelector('[data-cd-toggle]'),drawer=document.getElementById('cd-site-drawer');
- if(!header||!toggle||!drawer)return;
- let closeTimer=0;
- const focusables=()=>[...drawer.querySelectorAll('a[href],summary,button:not(:disabled),[tabindex]:not([tabindex="-1"])')].filter(x=>!x.hasAttribute('disabled'));
- function open(){clearTimeout(closeTimer);drawer.hidden=false;drawer.inert=false;drawer.setAttribute('aria-hidden','false');toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-label','Close navigation menu');requestAnimationFrame(()=>drawer.dataset.open='true');}
- function close(returnFocus=false){drawer.dataset.open='false';drawer.setAttribute('aria-hidden','true');drawer.inert=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation. Tap anywhere on the green header to open or close the menu.');clearTimeout(closeTimer);closeTimer=setTimeout(()=>{drawer.hidden=true;if(returnFocus)toggle.focus();},220);}
- toggle.addEventListener('click',()=>toggle.getAttribute('aria-expanded')==='true'?close():open());
- drawer.addEventListener('click',e=>{if(e.target.closest('a[href]'))close(false);});
- document.addEventListener('pointerdown',e=>{if(toggle.getAttribute('aria-expanded')==='true'&&!header.contains(e.target)&&!drawer.contains(e.target))close(false);});
- document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){e.preventDefault();close(true);return;}
-  if(e.key==='Tab'&&toggle.getAttribute('aria-expanded')==='true'){const items=focusables();if(!items.length)return;const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
- });
+function loadSharedDrawer(){
+ const css="/assets/cashdublo-nav.css",script="/assets/cashdublo-nav.js";
+ if(!document.querySelector('link[data-cd-nav-css]')){const link=document.createElement("link");link.rel="stylesheet";link.href=css;link.dataset.cdNavCss="1";document.head.appendChild(link);}
+ if(window.CashDubloNav){window.CashDubloNav.init();return;}
+ const existing=document.querySelector('script[data-cd-nav-js]');
+ if(existing){existing.addEventListener("load",()=>window.CashDubloNav?.init(),{once:true});return;}
+ const s=document.createElement("script");s.src=script;s.dataset.cdNavJs="1";s.onload=()=>window.CashDubloNav?.init();document.head.appendChild(s);
 }
-function install(){const old=document.querySelector('body>header');if(old)old.outerHTML=nav;else document.body.insertAdjacentHTML('afterbegin',nav);installDrawer();document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
+
+function install(){const old=document.querySelector('body>header');if(old)old.outerHTML=nav;else document.body.insertAdjacentHTML('afterbegin',nav);loadSharedDrawer();document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{install();});else{install();}
 })();
 
