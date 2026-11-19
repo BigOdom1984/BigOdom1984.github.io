@@ -34,7 +34,7 @@ assert.ok(apps.includes('id="catalog-status"') && apps.includes('aria-live="poli
 for (const value of ["created-asc", "created-desc", "name-asc", "name-desc", "ANDROID", "IOS", "MAC", "WIN", "LIN", "WEB"]) {
   assert.ok(apps.includes('value="' + value + '"'), "missing catalogue option " + value);
 }
-const inlineScripts = [...apps.matchAll(/<script>([\\s\\S]*?)<\\/script>/g)];
+const inlineScripts = [...apps.matchAll(/<script>([\s\S]*?)<\/script>/g)];
 assert.ok(inlineScripts.length > 0, "inline catalogue controller missing");
 for (const match of inlineScripts) new vm.Script(match[1]);
 
