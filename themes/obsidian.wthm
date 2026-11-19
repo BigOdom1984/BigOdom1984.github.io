@@ -1,0 +1,44 @@
+{
+ "format": "cashdublo-theme",
+ "name": "Obsidian Gold",
+ "key": "obsidian",
+ "version": "1.0.0",
+ "by": "CashDublo",
+ "dark": true,
+ "roles": {
+  "BG": "#070708",
+  "CARD": "#121214",
+  "CARD2": "#1a1a1e",
+  "CARD2_ALT": "#232329",
+  "GOLD": "#d9a441",
+  "GOLD_DIM": "#8a7326",
+  "TEXT": "#f2f2f2",
+  "MUTED": "#9a9aa2",
+  "ACCENT": "#d9a441",
+  "ACCENT_FG": "#0a0a0a",
+  "ACCENT_ACTIVE": "#e8c84a",
+  "BTN": "#232329",
+  "BTN_ACTIVE": "#2e2e36",
+  "BTN_DIS_BG": "#17171b",
+  "DIS_FG": "#6a6a72",
+  "DIS_FG2": "#3f3f46",
+  "GRIP": "#2c2c33",
+  "ZEBRA_A": "#0d0d10",
+  "ZEBRA_B": "#1c1c21",
+  "MM_ALT": "#202027",
+  "LOG_FG": "#3ddc68"
+ },
+ "kind": "web",
+ "web": {
+  "cssVariables": {
+   "--ink": "#f2f2f2",
+   "--muted": "#9a9aa2",
+   "--paper": "#070708",
+   "--white": "#121214",
+   "--lime": "#d9a441",
+   "--coral": "#e8c84a",
+   "--line": "#232329",
+   "--deep": "#1a1a1e"
+  }
+ }
+}

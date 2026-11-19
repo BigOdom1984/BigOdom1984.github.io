@@ -1,0 +1,32 @@
+{
+ "format": "cashdublo-theme",
+ "name": "King",
+ "key": "king",
+ "version": "1.0.0",
+ "by": "CashDublo",
+ "dark": true,
+ "roles": {
+  "BG": "#040505",
+  "CARD": "#0a0b0a",
+  "CARD2": "#10100f",
+  "CARD2_ALT": "#161513",
+  "GOLD": "#7c5d34",
+  "GOLD_DIM": "#523e24",
+  "TEXT": "#cec9c3",
+  "MUTED": "#797773",
+  "ACCENT": "#7c5d34",
+  "ACCENT_FG": "#0a0a0a",
+  "ACCENT_ACTIVE": "#997340",
+  "BTN": "#10100f",
+  "BTN_ACTIVE": "#161513",
+  "BTN_DIS_BG": "#070808",
+  "DIS_FG": "#504f4d",
+  "DIS_FG2": "#31302f",
+  "GRIP": "#161513",
+  "ZEBRA_A": "#090b0b",
+  "ZEBRA_B": "#070808",
+  "MM_ALT": "#24201d",
+  "LOG_FG": "#3ddc68"
+ },
+ "kind": "app"
+}

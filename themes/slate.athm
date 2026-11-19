@@ -1,0 +1,32 @@
+{
+ "format": "cashdublo-theme",
+ "name": "Midnight Slate",
+ "key": "slate",
+ "version": "1.0.0",
+ "by": "CashDublo",
+ "dark": true,
+ "roles": {
+  "BG": "#0a1120",
+  "CARD": "#121c30",
+  "CARD2": "#182642",
+  "CARD2_ALT": "#1f3050",
+  "GOLD": "#e8c268",
+  "GOLD_DIM": "#8a7326",
+  "TEXT": "#eef3fb",
+  "MUTED": "#8fa3c4",
+  "ACCENT": "#3b82f6",
+  "ACCENT_FG": "#ffffff",
+  "ACCENT_ACTIVE": "#5ea0f8",
+  "BTN": "#1d2c4a",
+  "BTN_ACTIVE": "#27395e",
+  "BTN_DIS_BG": "#141f38",
+  "DIS_FG": "#5f7194",
+  "DIS_FG2": "#3c4c6e",
+  "GRIP": "#27395e",
+  "ZEBRA_A": "#0d1730",
+  "ZEBRA_B": "#1a2a47",
+  "MM_ALT": "#1c2c4b",
+  "LOG_FG": "#3ddc68"
+ },
+ "kind": "app"
+}

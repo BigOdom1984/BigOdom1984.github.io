@@ -1,0 +1,32 @@
+{
+ "format": "cashdublo-theme",
+ "name": "Queen",
+ "key": "queen",
+ "version": "1.0.0",
+ "by": "CashDublo",
+ "dark": false,
+ "roles": {
+  "BG": "#e1cc00",
+  "CARD": "#ffed73",
+  "CARD2": "#bdac00",
+  "CARD2_ALT": "#92867c",
+  "GOLD": "#76660d",
+  "GOLD_DIM": "#b8a456",
+  "TEXT": "#141416",
+  "MUTED": "#4a4436",
+  "ACCENT": "#76660d",
+  "ACCENT_FG": "#ffffff",
+  "ACCENT_ACTIVE": "#514609",
+  "BTN": "#bdac00",
+  "BTN_ACTIVE": "#92867c",
+  "BTN_DIS_BG": "#f0dc39",
+  "DIS_FG": "#776d26",
+  "DIS_FG2": "#9d8f18",
+  "GRIP": "#a69407",
+  "ZEBRA_A": "#ffed73",
+  "ZEBRA_B": "#cfbc00",
+  "MM_ALT": "#c8b500",
+  "LOG_FG": "#147a3c"
+ },
+ "kind": "app"
+}

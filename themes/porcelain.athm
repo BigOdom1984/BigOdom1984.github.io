@@ -1,0 +1,32 @@
+{
+ "format": "cashdublo-theme",
+ "name": "Porcelain",
+ "key": "porcelain",
+ "version": "1.0.0",
+ "by": "CashDublo",
+ "dark": false,
+ "roles": {
+  "BG": "#f2f2f4",
+  "CARD": "#ffffff",
+  "CARD2": "#ececf0",
+  "CARD2_ALT": "#e0e0e6",
+  "GOLD": "#a07d1f",
+  "GOLD_DIM": "#c9b37e",
+  "TEXT": "#141416",
+  "MUTED": "#6d6d74",
+  "ACCENT": "#141416",
+  "ACCENT_FG": "#ffffff",
+  "ACCENT_ACTIVE": "#333338",
+  "BTN": "#ececf0",
+  "BTN_ACTIVE": "#dedee4",
+  "BTN_DIS_BG": "#f0f0f2",
+  "DIS_FG": "#a8a8ae",
+  "DIS_FG2": "#c6c6cc",
+  "GRIP": "#cfcfd6",
+  "ZEBRA_A": "#ffffff",
+  "ZEBRA_B": "#eff0f3",
+  "MM_ALT": "#eeeef2",
+  "LOG_FG": "#147a3c"
+ },
+ "kind": "app"
+}

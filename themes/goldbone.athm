@@ -1,0 +1,32 @@
+{
+ "format": "cashdublo-theme",
+ "name": "Goldbone",
+ "key": "goldbone",
+ "version": "1.0.0",
+ "by": "CashDublo",
+ "dark": true,
+ "roles": {
+  "BG": "#050505",
+  "CARD": "#0d0d0f",
+  "CARD2": "#141416",
+  "CARD2_ALT": "#1c1c1f",
+  "GOLD": "#c9a227",
+  "GOLD_DIM": "#8c7051",
+  "TEXT": "#e9e5d9",
+  "MUTED": "#98958a",
+  "ACCENT": "#c9a227",
+  "ACCENT_FG": "#0a0a0a",
+  "ACCENT_ACTIVE": "#e8cd6b",
+  "BTN": "#19191d",
+  "BTN_ACTIVE": "#232329",
+  "BTN_DIS_BG": "#101012",
+  "DIS_FG": "#66635a",
+  "DIS_FG2": "#3f3d36",
+  "GRIP": "#2b2b30",
+  "ZEBRA_A": "#0a0a0b",
+  "ZEBRA_B": "#121214",
+  "MM_ALT": "#141a20",
+  "LOG_FG": "#3ddc68"
+ },
+ "kind": "app"
+}

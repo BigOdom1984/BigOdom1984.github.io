@@ -1,0 +1,46 @@
+{
+ "themes": [
+  {
+   "key": "porcelain",
+   "name": "Porcelain",
+   "dark": false,
+   "app": "porcelain.athm",
+   "web": "porcelain.wthm"
+  },
+  {
+   "key": "obsidian",
+   "name": "Obsidian Gold",
+   "dark": true,
+   "app": "obsidian.athm",
+   "web": "obsidian.wthm"
+  },
+  {
+   "key": "slate",
+   "name": "Midnight Slate",
+   "dark": true,
+   "app": "slate.athm",
+   "web": "slate.wthm"
+  },
+  {
+   "key": "goldbone",
+   "name": "Goldbone",
+   "dark": true,
+   "app": "goldbone.athm",
+   "web": "goldbone.wthm"
+  },
+  {
+   "key": "king",
+   "name": "King",
+   "dark": true,
+   "app": "king.athm",
+   "web": "king.wthm"
+  },
+  {
+   "key": "queen",
+   "name": "Queen",
+   "dark": false,
+   "app": "queen.athm",
+   "web": "queen.wthm"
+  }
+ ]
+}
