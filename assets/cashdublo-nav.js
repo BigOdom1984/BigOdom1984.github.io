@@ -27,7 +27,7 @@
    picker.setAttribute("role","dialog");picker.setAttribute("aria-modal","true");picker.setAttribute("aria-label","Customize quick navigation");
    picker.innerHTML='<div class="cd-quick-picker-head"><strong>Customize quick links</strong><button type="button" data-cd-picker-close aria-label="Close">×</button></div><p>Choose a destination for this slot, or remove it. Changes are temporary until you decide to make them permanent.</p><div class="cd-quick-picker-list" data-cd-picker-list></div>';
    document.body.append(picker);
-   let targetSlot=null,pressTimer=0,pressPointer=null,quickDrag=null;
+   let targetSlot=null,pressTimer=0,pressPointer=null,quickDrag=null,quickStart=null;
    const pickerList=picker.querySelector("[data-cd-picker-list]");
    function menuChoices(){
     const found=new Map();
@@ -61,10 +61,26 @@
    quickNav.querySelectorAll("a").forEach(a=>{a.dataset.cdLabel=a.textContent.trim();a.dataset.cdHref=a.getAttribute("href");a.setAttribute("aria-label",a.textContent.trim()+" — long press to customize");});
    quickNav.addEventListener("pointerdown",e=>{
     const slot=e.target.closest("a");if(!slot)return;
-    pressPointer=e.pointerId;clearTimeout(pressTimer);
-    pressTimer=setTimeout(()=>{if(pressPointer===e.pointerId){e.preventDefault();openPicker(slot);}},480);
+    pressPointer=e.pointerId;quickStart={slot,x:e.clientX,y:e.clientY,moved:false};clearTimeout(pressTimer);
+    pressTimer=setTimeout(()=>{if(pressPointer===e.pointerId&&quickStart&&!quickStart.moved){openPicker(slot);}},480);
    });
-   ["pointerup","pointercancel","pointerleave"].forEach(type=>quickNav.addEventListener(type,()=>{clearTimeout(pressTimer);pressPointer=null;}));
+   quickNav.addEventListener("pointermove",e=>{
+    if(pressPointer!==e.pointerId||!quickStart)return;
+    if(!quickStart.moved&&Math.hypot(e.clientX-quickStart.x,e.clientY-quickStart.y)>9){
+     clearTimeout(pressTimer);quickStart.moved=true;quickDrag=quickStart.slot;quickDrag.classList.add("cd-quick-dragging");
+     try{quickNav.setPointerCapture(e.pointerId);}catch(_){}
+    }
+    if(quickDrag){
+     const target=document.elementFromPoint(e.clientX,e.clientY)?.closest(".cd-quick-nav a");
+     if(target&&target!==quickDrag){const r=target.getBoundingClientRect();quickNav.insertBefore(quickDrag,e.clientX>r.left+r.width/2?target.nextSibling:target);}
+    }
+   });
+   function finishQuickPointer(e){
+    if(pressPointer!==e.pointerId)return;clearTimeout(pressTimer);
+    if(quickDrag)quickDrag.classList.remove("cd-quick-dragging");
+    quickDrag=null;quickStart=null;pressPointer=null;
+   }
+   ["pointerup","pointercancel","pointerleave"].forEach(type=>quickNav.addEventListener(type,finishQuickPointer));
    quickNav.addEventListener("click",e=>{
     const slot=e.target.closest("a");if(!slot)return;
     if(slot.classList.contains("cd-quick-empty")){e.preventDefault();openPicker(slot);}
