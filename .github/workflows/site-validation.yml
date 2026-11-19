@@ -22,3 +22,4 @@ jobs:
           node --check assets/cashdublo-nav.js
           node tests/navigation-contract.test.cjs
           node tests/responsive-layout.test.mjs
+          node tests/catalog-layout-contract.test.cjs
