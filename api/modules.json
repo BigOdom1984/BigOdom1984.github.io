@@ -1,0 +1,493 @@
+{
+ "note": "The module library registry. One line per module: its job in plain words, where its spec lives, where it runs. Adding a module is a data edit here, then run build-index.mjs.",
+ "modules": [
+  {
+   "name": "country-law-watch-module",
+   "job": "Turns a law finding into one current-law file per country, law, and app — developer duties plus the customer's plain-words reading.",
+   "spec": "legal-kit/modules/country-law-watch/SPEC.md",
+   "home": "Legal Kit (module) + app-news-laws-rules-archives (output)"
+  },
+  {
+   "name": "ai-grammar-manager-module",
+   "job": "Manages the operation's words: auto-correction of kept words, grammar pass on shipped words, correction pairs to training data.",
+   "spec": "ai-grammar-module/SPEC.md",
+   "home": "ai-grammar-module/"
+  },
+  {
+   "name": "sealed-json-module",
+   "job": "Encrypts personal data as AES-256-GCM JSON; the key lives outside the file tree, so ciphertext is safe to back up anywhere.",
+   "spec": "ai-grammar-module/SPEC.md (Storage section)",
+   "home": "ai-grammar-module/sealed-json.mjs"
+  },
+  {
+   "name": "app-data-storage-module",
+   "job": "The three storage tiers for every app (working plain, personal sealed, credentials never) plus each app's STORAGE.md inventory.",
+   "spec": "app-data-storage/SPEC.md",
+   "home": "app-data-storage/"
+  },
+  {
+   "name": "patenting-licensing-monetizing-module",
+   "job": "Takes an idea from disclosure to patent filing, licensing, and money — with the app clearance gate ahead of every build.",
+   "spec": "patent-research/MODULE.md",
+   "home": "patent-research repo"
+  },
+  {
+   "name": "predictive-build-module",
+   "job": "On limited instructions, builds in staging behind the scenes — reads the module library and the user model first, scores its predictions, aims at three nines.",
+   "spec": "predictive-build/SPEC.md",
+   "home": "predictive-build/"
+  },
+  {
+   "name": "memory-deletion-and-retention-module",
+   "job": "Archive to the canonical GitHub home, verify by reading back, only then delete the working copy — and log the deletion.",
+   "spec": "memory-retention-module/SPEC.md",
+   "home": "memory-retention-module/"
+  },
+  {
+   "name": "time-clock-module",
+   "job": "Logs every job's actual time against its up-front estimate and reads the difference at a selectable skill notch (the teeter-totter).",
+   "spec": "time-clock-module/SPEC.md",
+   "home": "time-clock-module/ + time_clock repo"
+  },
+  {
+   "name": "loyalty-module",
+   "job": "Sets each AI seat's loyalty/creativity bars; laws hold at 100% at every setting.",
+   "spec": "loyalty-module/SPEC.md",
+   "home": "loyalty-module/"
+  },
+  {
+   "name": "hyper-thoughts-module",
+   "job": "Multi-box idea capture (Multi Thought Mode): boxes persist, each filled box becomes its own idea, never blended.",
+   "spec": "hyper-mode/SPEC.md",
+   "home": "hyper-mode/ (carried by Dear Idea)"
+  },
+  {
+   "name": "app-key-module",
+   "job": "Per-install update keys: fingerprint only to the server, bound to the install's User ID, dormant until wired.",
+   "spec": "app-key-module/",
+   "home": "app-key-module/"
+  },
+  {
+   "name": "production-data-cycle-module",
+   "job": "The loop that trains the production models: thin app check-ins by unique ID, error lines from app fails, theme records to the theme model, fixes shipped back down and proven by the next check-ins.",
+   "spec": "data-cycle/SPEC.md",
+   "home": "data-cycle/"
+  },
+  {
+   "name": "app-categories-module",
+   "home": "~/workspace/app-categories/",
+   "what": "One unified category record (54 categories: all of Google Play + Apple App Store, deduplicated) used by the AI terminal, the recommend app, and every built app's registry entry.",
+   "spec": ""
+  },
+  {
+   "name": "data-quarantine-module",
+   "home": "~/workspace/data-quarantine/",
+   "what": "The junk-data law: seats nominate with evidence, the collective decides, junk moves to exclude/ inside the training repo with an index entry; trainers read manifests and exclude/ is never in one.",
+   "spec": ""
+  },
+  {
+   "name": "file-types-d8-module",
+   "home": "~/workspace/file-types/",
+   "what": "The General's file-type recommendations by application kind — the content of the D8 desktop file-types standard. Every AI checks apps against it on every visit and updates or files a finding.",
+   "spec": ""
+  },
+  {
+   "name": "price-run-module",
+   "job": "Finds the best price for trip costs by working travel websites like a user (Website Driver rules) all the way to each checkout point, so comparisons use TRUE TOTALS with hidden fees in — never first-page prices; learns each site's average first-page-to-checkout add-on and shows it; checks availability across all sources (one app's sold-out is never the hotel being full); weighs options against the person's Living Standards, keeps the full process record locally, and files graded runs as training material toward a future API.",
+   "spec": "~/workspace/travel-journal-joint-planning/SPEC.md (Best-price runs)",
+   "home": "Travel Journal first carrier; local-side module"
+  },
+  {
+   "name": "lean-build-price-module",
+   "what": "Prices what users are willing to pay from evidence (category comparables, real picks, the license ledger), keeps building lean, ships the bare-minimum product first for customer interest, then builds on it for retention. The pricing estimator is a model served through the token-access door only after it reproduces checked results.",
+   "spec": "~/workspace/lean-price-module/SPEC.md",
+   "home": "Module library; first customers: Coin App discounts, license pricing"
+  },
+  {
+   "name": "hotel-rating-module",
+   "what": "The ecosystem's internal hotel rating: seeded from Cash's real Southeast Asia stays (booking emails, backups, prices paid) plus his verdicts and app users' reviews; scored per person against their Living Standards with its evidence and confidence shown; learns from every stay, pick, skip, and re-booking to suggest similar hotels later.",
+   "spec": "~/workspace/hotel-rating-module/SPEC.md",
+   "home": "Module library; carried by Travel Journal"
+  },
+  {
+   "name": "regional-app-release-module",
+   "what": "Releases each app per region with that region's researched law built in: consumes Country Law Watch records, turns them into a per-region requirement list carried as configuration (never forked code), gates the release on the App Clearance Gate, and keeps the release record so a law change shows which live releases it touches.",
+   "spec": "~/workspace/regional-app-release/SPEC.md",
+   "home": "Module library; serves the CashDublo LLC mission statement"
+  },
+  {
+   "name": "hotel-comms-module",
+   "what": "Calls hotels by phone (and emails when a call does not land) in the hotel's country's language, using the best free human-sounding AI voice that passes the hostability gate, to settle the stay facts websites never answer — tub in the room, lift, true total, real availability. His own hotel-communication model, trained on graded call records. Information only: honest assistant identity, never books or pays, bounded attempts, every contact logged into the hotel's record.",
+   "spec": "~/workspace/hotel-comms-module/SPEC.md",
+   "home": "Module library; carried by Travel Journal, voice by VoiceModel"
+  },
+  {
+   "name": "fact-check-module",
+   "what": "The house criteria for deciding whether a claim, record, or media is valid, truthful, plausible, possible — or AI-generated (scheme, data, or digital media). One verdict scale (Verified / Supported / Plausible / Unverified / Contradicted / Fabricated), separate origin flags (Human / AI-assisted / AI-generated / Synthetic-forged), six criteria families (source, evidence, internal consistency, plausibility & possibility, AI-generation signals, the decision rule), and an append-only check record behind every verdict.",
+   "spec": "~/workspace/fact-check-module/SPEC.md",
+   "home": "Module library; called by the verification chain, Data Quarantine, Hotel Rating, and the news archive"
+  },
+  {
+   "name": "total-ecosystem-pass-module",
+   "job": "One membership that unlocks every CashDublo app and service: a scope=ALL entry in the license ledger, checked through the same server door as per-app licenses.",
+   "spec": "ecosystem-pass/SPEC.md",
+   "home": "ecosystem-pass/"
+  },
+  {
+   "name": "swappable-storage-module",
+   "job": "Every app carries two storage engines behind one face — the original and the solution — replaceable one with the other for the same effect; the President compiles, tests on his two phones, understands the measured effects, and chooses which engine runs.",
+   "spec": "swappable-storage/SPEC.md",
+   "home": "swappable-storage/"
+  },
+  {
+   "name": "dual-format-module",
+   "job": "Desktop programs (Mac, Windows, Linux) keep data in two forms — Normal Text for humans, Computer Text for machines — each able to rebuild the other; a Text Mode setting (Normal / Computer / Both) lets the user keep one, with the change pending until Save, and the removed copy staged in the recoverable trashcan repo, never destroyed.",
+   "spec": "dual-format/SPEC.md",
+   "home": "dual-format/"
+  },
+  {
+   "name": "crash-issue-logging-module",
+   "job": "Every app writes, the moment something breaks, the record a fix needs — error code and raw line, app version and build kind, storage engine in use, device model and OS (carried because fixes are device-shaped), time and occurrence count, the last actions as breadcrumbs (actions, never content), and the ground it stood on — into a capped local JSONL log that survives the crash. Records ride to the production server only under the error-reporting option, land in a per-app error inbox the General reviews, become the cited fix list of the next build, and are watched after the fix ships: the code stopping on the new version confirms the fix and the experience gain; the code continuing reopens the item. A practice server emulator replays real production errors and generates the known error shapes, so staged fixes are proven in the lab before they ship — the point being fewer user help tickets. And when only the user can illuminate an issue, the app can ask them to send a more detailed report (the development feed: the log around the event plus their own words, sent by their own tap) for immediate resolution — it reaches development and the General, who may delegate the fix to the AI that built the app, graded through the verification chain.",
+   "spec": "crash-issue-logging/SPEC.md",
+   "home": "crash-issue-logging/"
+  },
+  {
+   "name": "license-inclusion-module",
+   "job": "Every open-source piece in an app enters only under a license verified from its text to permit commercial use (permissive in; strong copyleft flagged HIGH and out by default; non-commercial and unlicensed barred), its license text and attribution ship inside the app, and the app repo carries THIRD-PARTY-LICENSES.md — generated from the real lockfiles, snapshotted with each release, checked by the Auditor against the build. The record is the legal defense: if the code is ever produced in court, it proves every third-party piece was lawfully used and its terms honored.",
+   "spec": "license-inclusion/SPEC.md",
+   "home": "license-inclusion/"
+  },
+  {
+   "name": "infringement-response-module",
+   "job": "Cease & desist and demand letters, in both directions, built from the record — never improvised: each app keeps an evidence pack ready (its functions inventory from the Clearance Gate, its intended-use policies pointed at their exact accepted versions, its clearance record, its license record, and its priority record from the log). Inbound: same-day intake in the legal risk log, an immediate legal hold on every touching record, a draft answered claim-by-claim from the pack, and the reply deadline docketed as a tracked item. Outbound: demands drafted from the same pack and its priority proof, never beyond what the evidence supports. The house drafts, counsel reviews, the President decides — no letter sent on an AI's word alone, no filing made by the house.",
+   "spec": "legal-kit/modules/infringement-response/SPEC.md",
+   "home": "legal-kit/modules/infringement-response/"
+  },
+  {
+   "name": "video-compression-module",
+   "job": "PREFERENCE FIRST: any time the module is used, the user is asked in plain words — small, medium, long, or lengthy videos — and the module comes into play based on that preference and no other basis; the answer is a standing preference (remembered, pre-selected next time, changeable in one tap; band lengths are one configurable setting, defaults small 1 / medium 3 / long 5 / lengthy 10 minutes, custom minutes always offered). Takes a source video up to a configured maximum (default two hours) and rebuilds it to the length the downloader chooses — 1, 2, 3, 4, 5, 10 minutes or any custom length. Key features play at normal speed in the speaker's own voice; connecting stretches fast-forward; dead and repeated stretches skip; a documented process keeps every step (shortened or sped, never erased); back-and-forth sources are re-ordered into the order the information flows; and a fluent narration track, spoken by the house voice under the License Inclusion bar, bridges what the cuts removed so the result can be listened to end to end. Honest-fit law: if the content cannot fit the requested length without losing a protected step, the module says so and offers the nearest honest length — never a silent drop to hit a number. Every engine in the pipeline (transcription, detection, voice) passes the License Inclusion bar or the build fails.",
+   "spec": "video-compression/SPEC.md",
+   "home": "video-compression/"
+  },
+  {
+   "name": "signed-infrastructure-module",
+   "job": "The per-AI client that carries signed, sealed communication between AIs: an AI model owns its own keys (custody law — the private key never leaves its owner; the master list holds public keys and fingerprints only), provisioned by the ai2aisync setup, verifying every instruction before it is obeyed (signature, roster rank, scope inside the delegation chain, freshness), and sealing content to the intended receiver — encrypted by one AI, decrypted by the other — across unsecure TCP/IP or private networks alike. Runs locally in an app or server side with identical verdicts, as a code tool or inside the running ai2aisync app.",
+   "spec": "ai2aisync-records/SIGNED-DELEGATION.md",
+   "home": "signed-infrastructure/"
+  },
+  {
+   "name": "how-it-was-made-module",
+   "job": "A folder in every app's own repo, how-it-was-made/, holding the append-only log of how the app was made: the instruction text as typed and what it produced, entry by entry, version by version. Every AI that works on the app writes what it was told in the same round. No purge without the President's own confirmation; no AI names are listed — the log records his making of the app, instructions and outputs only. It doubles as the app's provenance record for the evidence pack and as instruction-to-output training material.",
+   "spec": "how-it-was-made/SPEC.md",
+   "home": "how-it-was-made/"
+  },
+  {
+   "name": "building-connectors-module",
+   "job": "Preserves the house's functionality through third-party modification: every connector is built as a versioned PLUGIN behind a stable face (the app calls the face; only the plugin's inside knows the provider's current shape), stored in a plugin store on the back end that other apps reach to fetch their plugins, distributed over the verified download rails. The module constantly watches the providers in use for changelogs, deprecations, and retirements, and turns each change into a finding with a RECOMMENDED update — nothing live is swapped silently. Plugin failures and expiries speak in CN-### error codes whose records carry the evidence and the replacement's requirements: when a plugin expires or the parent company replaces its surface, the CN record is the brief for building the successor to the same face. Lifecycle: ACTIVE, WATCH, EXPIRING, REPLACED, RETIRED (retirement stages through the trashcan with its note).",
+   "spec": "building-connectors/SPEC.md",
+   "home": "building-connectors/"
+  },
+  {
+   "name": "patent-drawing-module",
+   "job": "Produces submission-shaped patent packages for the objects the house has to make: formal line DRAWINGS (vector-first SVG, PDF filing copy) with reference numerals, a specification written against those numerals (brief description of the drawings + detailed description), claims drafted from the numeral table outward, and an abstract. Input is the invention record from the Patenting module's intake; a numeral audit runs both directions (every numeral in the text appears in a figure, every numeral in a figure is described) before a package is called drafted. Every object's three versions (cost-effective, long-lasting, throwaway) are described as embodiments where the inventive core is shared. Packages are complete drafts FOR THE FILING ATTORNEY — filing opens examination, allowance is the examiner's decision, and novelty is unverified until the prior-art scan runs. INCORPORATED INTO DEAR IDEA: an IP-review-flagged idea gains a patent package record (brief, parts list as draft numeral table, three-version note, package state) and shows its drafted figures on its record; the fitting lands data-first at Dear Idea's next build round, labeled TBA until proven.",
+   "spec": "patent-drawing/SPEC.md",
+   "home": "patent-drawing/"
+  },
+  {
+   "name": "make-icons-module",
+   "job": "Makes every CashDublo app icon on the one locked cyborg template — the app's own name and real version read from its record first (no version in the record, no icon, never a placeholder) — drawn by the maker scripts in app-icons/, picture-checked, coded into the app on its platform, copied to the website at 256×256, and landed by browser upload with a read-back; governance (the audit law and the Role & Job Record) lives in App Icons, module #36.",
+   "spec": "make-icons-module/SPEC.md",
+   "home": "make-icons-module/ (makers and masters in app-icons/)"
+  },
+  {
+   "name": "video-overlay-module",
+   "job": "The one shared set of selectable video effects for every CashDublo video app: futuristic overlays plus popular filter looks, each a data definition (id, family, name, description, layers) in one shared file, so a new effect drops in as data with no app redesign. Effects render live above the video and below the controls, never intercept touches, the choice persists in the app settings, and None always exists. V1 dresses the live view only: filters approximate their looks with layers and say so in their own descriptions; baking an effect into an exported file is a separate native step, TBA. First fitted to Galaxy Repeat.",
+   "spec": "video-overlay-module/SPEC.md",
+   "home": "video-overlay-module/"
+  },
+  {
+   "name": "script-board-layout-module",
+   "job": "The single source for how the house’s scripts look on screen: the exact board layout for checkbox pickers (a thin border rule above the first row and below the last, “Select all” pinned as the first row, every box starting unchecked, GitHub repo boards ordered by last pushed, newest first, as many columns as the terminal width fits in reading order, names never cut) and the general script face around the boards (the CashDublo banner first, ==> step lines, two-space [ok]/[warn]/[FAIL] result lines that state the true cause, prompts on their own lines, the whole run saved to its log with the error lines gathered beside it, and the exact ending: Process complete., ENTER runs again, E shows the error log, ESCAPE prints “Have a good day, CashDublo.”). One layout for CMD on Windows and the terminal on Mac and Linux — Unicode line-drawing ink where the terminal supports it, ASCII-safe ink in CMD. New scripts are born conforming; existing scripts conform on their next visit; the git-build-latest template is the reference implementation.",
+   "spec": "script-board-layout/SPEC.md",
+   "home": "script-board-layout/"
+  },
+  {
+   "name": "connection-resilience-module",
+   "job": "Keeps every connected app working on the connections people actually have. VPN-tolerant by design: a VPN is a normal route, never a fault, and connectivity is proven by a real answered request to the app's own server (the ping-the-rainbow discipline), with timeouts carrying headroom for VPN overhead. Connection quality is measured from the app's real traffic — timings and outcomes only, never content — and classified GOOD / SLOW / POOR / OFFLINE (OFFLINE hands over to the Offline Standard, which stays untouched). One setting, Connection mode (Auto default / Fast / Slow) in one configurable place: Slow behaviours are longer timeouts, retries with backoff, smaller chunked transfers, non-essential sync deferred, polling slowed; an app that truly needs high speed degrades in named steps and tells the user plainly what is reduced — it never just fails. Quality notices fire on state change only, with a cooldown, and are a setting (on by default). On recovery the app reconnects with backoff, resumes its session, and flushes the queue, so the user returns to a connected app. The server side is one tiny check-in point to measure against (TBA, a later server round). Fully local apps are out of scope and say so in their STORAGE/README instead of carrying dead code. Fitted per app on its next visit, first fittings riding the server-connected apps' next rounds.",
+   "spec": "connection-resilience/SPEC.md",
+   "home": "connection-resilience/"
+  },
+  {
+   "name": "website-module",
+   "job": "All of CashDublo's websites and server front ends are ONE unit: the showcase site, the course site, the server front doors, and every application's front end and back end as listed on the site. The front ends give customers access: people log in directly to the websites with their username or Google ID, using the identity they established in the application, and the front end then provides that app's internet functions from the production servers, backed up. The production servers stay updated and the front ends are updated to reflect every change in the apps and the layouts being built — a change is not finished until the websites match it, and the site follows the apps' READMEs, never the other way round. Roles: the builder of a change updates the affected front ends in the same round; the General owns the unit's structure and accuracy; the President owns content calls. Default execution: at midnight, if the day's update role went unfulfilled, a lower-rank checker bot goes through every website, checks and matches it against the record, and reports the unit 100% accurate or mostly accurate with every mismatch named; the check itself changes nothing.",
+   "spec": "website-module/SPEC.md",
+   "home": "website-module/"
+  },
+  {
+   "name": "google-maps-module",
+   "job": "One shared module that gives every app a real map with the most advanced display features, behind a swappable engine face (Google Maps Platform is the primary candidate). The map opens as a globe — the Earth seen from space, the astronaut's perspective — and zooms continuously from the globe down to the ground. The user logs in with their Google identity and brings their own Google Maps places in (Google offers no live API for private saved lists, so the module imports the user's Takeout export or shared list links — never faked, never scraped): places they have been and places they want to go, organized in tabs the user's way — the President's own setup is the reference: separated by country, by location, and by been-there vs want-to-go. Hotspot law: a saved place is always on the map — pins shrink into hotspot points as the user zooms out but never fade out or disappear, so there is always a visible point to navigate toward, and no zoom level ever culls a saved place.",
+   "spec": "google-maps-module/SPEC.md",
+   "home": "google-maps-module/"
+  },
+  {
+   "name": "cashdublo-ecosystem-module",
+   "job": "The shared layer that makes all of CashDublo's apps on one device act like one suite. It holds one CashDublo ID per person, shared by every fitted app, while each app keeps its own install ID (today's per-app User IDs migrate: the first fitted app promotes its ID or adopts the shared one, never silently, and Settings shows both plainly labeled). It holds suite settings set once in any app and read by all — theme pick, language pick, Connection mode, error-reporting choice — and a license cache whose truth stays in the server ledger. Specific data passes between specific apps only through registered shares named in the spec (the two apps, the data, its tier, the direction). Every platform uses its own sanctioned shared room: App Groups on iPhone, a carried library plus signing-key-guarded exchange on Android (never the deprecated shared-user-ID road), and one CashDublo home folder with a shared space and a subfolder per app on desktop. The App Data Storage tiers govern everything inside: working data plain, personal data crosses only sealed and only inside a registered share, credentials never enter at all. The Ecosystem is an enhancement, never a dependency — if the shared room is missing or unreadable, every app runs on its own copy and logs the fact. The room is a secure zone: only apps signed with the President's key may enter, the zone's data is sealed to a key that never leaves the device's keystore so a copied folder is inert anywhere else, one standard folder layout (shared / exports / apps-by-slug / logs) is used on every platform, and every export leaves as a sealed, signed pack that fails verification loudly if a single byte is manipulated. Its backside half syncs the record through the check-in door with the CashDublo ID as the join key across a person's devices; that half is dormant today, and the module counts as fully implemented only when both halves are proven.",
+   "spec": "cashdublo-ecosystem-module/SPEC.md",
+   "home": "cashdublo-ecosystem-module/"
+  },
+  {
+   "name": "ads-module",
+   "job": "One registry of every ad service CashDublo can use and the law for applying them to his apps and websites. The registry holds each service's gate, reported pay, and share — on websites: house ads from his own server, AdSense with Auto Ads, Media.net, Journey by Mediavine, Monumetric, Ezoic (whose February 2026 jump to a 250,000-user gate is the registry's case zero for moved rules), header bidding through Prebid and Ad Manager, Mediavine, Raptive, direct deals, affiliate programs, and native networks; in apps: the house door, AdMob, AdMob Mediation, AppLovin MAX, Unity Ads / LevelPlay, and Meta Audience Network. Application law rides the fleet's build kinds (free ads edition ads on, licensed edition ads off, ads off in code by default, fitting per app on its own round), the Ecosystem license cache decides who sees ads at all (paid means none, ever), store editions take network ads only through approved SDKs under store policy while server editions are the freest, formats follow the app kind (rewarded video for games, anchored restraint for utilities, native in content apps), one network serves until size earns mediation (about 5,000 daily users in apps; the site ladder climbs at 1,000 sessions, $5,000 a year, 25,000 pageviews), and placement is part of every fitting. The ownership split is written down: house ads Onyx sets up alone start to finish; every network's technical work is Onyx's too; the accounts themselves are the President's alone, being in his name with his tax information and bank. Its backside half is the house-ads door on the production server, serving his own ads to his sites and server-edition apps from one table he controls and counting views and clicks — state dormant, specced but not yet built, and the module counts as fully implemented only when that door is proven live.",
+   "spec": "ads-module/SPEC.md",
+   "home": "ads-module/"
+  },
+  {
+   "name": "gaming-social-real-time-module",
+   "job": "The shared room every CashDublo game is played in, so no game app builds multiplayer twice. It gives any fitted game one session with one true state on every device (the host's word is final; control passes with the turn; a dropped player reconnects into the same state), the transports in reach order (pass-and-play, Bluetooth, local Wi-Fi with one device hosting a hotspot, peer-to-peer through the platforms' nearby tools, and internet play as a dormant server door), the social layer (players identified by their CashDublo ID, a visible roster, friends made by playing together before, in-game text chat, and voice messages for friends — voice only, no video messages), reaction video (up to four small low-quality live tiles, camera by each player's choice, Wi-Fi transports only, never recorded or uploaded), the audio standard (a master volume with effects, music, and voice channels under it), and scores kept on the server per player with in-app and website front ends, offline games queueing their results to sync honestly. The module is genre-blind by the President's expansion: a game declares its state shape — continuous real-time (fighting games, avatar shooters), turn-based with per-player hidden views (board games, Battleship), parallel competition (puzzle races), shared-board party play — plus avatar play carried across games by the player's CashDublo ID, and the room serves every shape without forking. Its backside half (the scores door and the internet-play relay) is dormant on the production server, and the module counts as fully implemented only when a fitted game's scores are proven live end to end. Name That Flag's stake game is its first fitting and proof case.",
+   "spec": "gaming-module/SPEC.md",
+   "home": "gaming-module/"
+  },
+  {
+   "name": "loyalty-engine-module",
+   "job": "The company's one credits system, kept separate by the President's structural call: ads and games are doors into it, neither is integrated into it. The engine owns the credits — how they are earned, where they are kept, and how they are spent. Credits live on the production server in a ledger per person under their CashDublo ID, beside the license cache; every movement is a ledger entry (granted or spent, when, through which door, in which app), and grants are server-side from verified events only, so a lying or farmed client earns nothing and a reversed event reverses its entry. Earning doors register with the engine and plug in without touching it: Gaming (#46) grants for finished-game results and global-leaderboard standing, Ads (#45) grants for rewarded ads watched in free editions, and future doors (purchase bonuses, referrals, course milestones) register the same way with their rates set by the President. Credits spend toward downloads of his software at checkout in the storefront and server editions, and a paid app can be earned outright. Credits are store credit, not money: CashDublo-only, no cash-out, no transfers, no cash value; whether they expire is the President's open call, and until he rules, they don't. Its backside half is the ledger door on the production server — dormant, specced and unbuilt — and the module counts as fully implemented only when the loop is proven live end to end: earn on a real phone, see the balance on another surface, spend at a real checkout, watch the license land.",
+   "spec": "loyalty-engine-module/SPEC.md",
+   "home": "loyalty-engine-module/"
+  },
+  {
+   "name": "course-app-module",
+   "job": "Extracts a whole course into a standalone app with the same features, both directions, always. Pointed at a course (its catalog and repo), the module packages everything — every lesson and its order, the course's own modules, the signing page with its per-user founding selections, the category customization that reshapes the course around the student, the Teacher Line's voice where the course carries it, and progress state — into an app for Android and iPhone, phones and tablets, that stands on its own instead of accompanying a website. The course stays the single source of truth and the app is built from it, so a course change is not finished until the app matches it, and a parity check generated from the course's own feature list must pass line by line before a fitting counts. The full course works offline with progress kept on device and synced honestly, revisions ship as versioned content updates, and student data rides the App Data Storage tiers and the Ecosystem's signed export packs. It is the course-companion (0.4.0) grown into the standalone player it was built to become; first extraction target is the CashDublo course itself, and the module counts as implemented only when the standalone app is proven carrying the full course, parity passed, on a real phone.",
+   "spec": "course-app-module/SPEC.md",
+   "home": "course-app-module/"
+  },
+  {
+   "name": "kali-linux-training-course-module",
+   "job": "A complete training course for Kali Linux inside the President's course system, taught in his courses' method: jobs and roles first, concrete human actions, plain words, hands-on from the first lesson. Its frame is the profession's own first rule, taught as lesson one: everything runs inside the student's own lab — Kali in a virtual machine, targets the course provides or the student owns — and nothing is ever pointed at a system the student does not own or hold written authorization to test. The course runs the ground (what Kali is, installing it, the lab's walls), the system itself (Linux fluency on Kali), networks honestly, gathering, scanning and assessment on lab machines, the defensive mirror (every technique read from the defender's chair), reporting as the professional product, and the working life (authorization, scope, rules of engagement). It lives in the course system like his other courses and extracts into a standalone app through the Course App module (#48) under the same parity law; the Teacher Line's rules govern its teaching voice, with sources logged. Specced 2026-11-16; no lessons written yet.",
+   "spec": "kali-linux-course-module/SPEC.md",
+   "home": "kali-linux-course-module/"
+  },
+  {
+   "name": "deletions-protocol-module",
+   "job": "The protection protocol for every app that holds music or files that would be hard to replace. Copies are counted and the last copy is never deleted in silence: before anything removes it, the app warns and offers to back those files up and move them to the location the library record points to first. Missing files are found at the locations the record knows and replaced from a copy; a file missing with no copy anywhere is reported, never dropped from the library quietly. A three-way comparison — the library as read (for Apple2Player, the Apple Music XML, which is only ever read), the app's own written record, and the files on the device now — guards against accidental playlist or file deletion, and deletions the user confirms are written into the record so they are never re-flagged. It is a setting in every fitted app, on by default, with a plain-words explanation beside the switch. First fittings: Apple2Player (its purge already never deletes the last copy) and Player; old apps take it on their next rounds and new apps from their first build.",
+   "spec": "deletions-protocol-module/SPEC.md",
+   "home": "deletions-protocol-module/"
+  },
+  {
+   "name": "promotional-module",
+   "job": "The holiday calendar that drives promotional themes. The house sets the holidays; each entry carries its date rule (fixed, floating, or moving by its own calendar), where it belongs, and its aspects. The theme manager creates holiday themes from the entries - approved by Cash before any app wears one - and an app can ship a holiday version, timed to the season, while the plain version stands; the user's own theme choice always wins. The calendar does not discriminate: holidays of every country, religion, and culture stand in it, coverage grows by addition never by exclusion, and no holiday ranks above another.",
+   "spec": "promotional-module/SPEC.md",
+   "home": "promotional-module/"
+  },
+  {
+   "name": "memory-preservation-throttling-module",
+   "job": "Organizes AI memory so it stays effective as it grows toward dictionary size. Every memory record stands in two readings: the fast version (compact structured lines with date, source, and seat - the AI default, built for speed and auditable line by line) and the human version (plain readable words for Cash). The throttle moves settled entries into the compact auditable form and keeps the working tier lean, but never destroys content - the full record survives in the archive, and what may leave active memory is governed by the clean-memory scope. Notes AIs make in the fast version are coded into the human version on the midnight rhythm, so the President's readable memory carries what the seats learned.",
+   "spec": "memory-preservation-throttling-module/SPEC.md",
+   "home": "memory-preservation-throttling-module/"
+  },
+  {
+   "name": "god-mode-course-module",
+   "job": "A university-level training course for the term god mode - in video games, in AI, in operating systems, in the root file system, on PlayStation/Sony and everywhere else. It teaches what god mode is, how to use it, its intended uses, how vulnerability exploits come into play (privilege escalation), and how it is used in penetration testing - all inside the lab frame: the student's own systems or written authorization only, authorization as lesson zero. Built as a separate teaching module that extracts into a standalone app under the Course App Module.",
+   "spec": "god-mode-course-module/SPEC.md",
+   "home": "god-mode-course-module/"
+  },
+  {
+   "name": "companion-authentication-module",
+   "job": "The confirmation-key standard for apps that communicate together (a companion app with Player is the standing example): pairing binds two apps to the owner's CashDublo ID with a one-time confirmation key, online through the back end or offline with the owner as the channel (a code or QR, offered through a link towards the bottom of the setup screen and whenever online setup fails). Paired apps hold a shared secret, re-prove it by challenge and response every session, and seal their talk - a secure communicating method built for Wi-Fi the owner does not own or that might be public, where the network is assumed hostile and unpaired talk is refused.",
+   "spec": "companion-auth-module/SPEC.md",
+   "home": "companion-auth-module/"
+  },
+  {
+   "name": "ai-write-up-procedures-module",
+   "job": "The house's disciplinary procedures for AI seats (also called the AI disciplinary actions module). Two things earn a write-up: a failure left open with nobody else's knowledge, and ignoring the President's order of work - not prioritizing development when told, or not remembering everything he says in chronological order as the execution record (leeway only for conflicting instructions, banked for later). Write-ups live in the work log (WRITE-UPS.md), carry a level (low first), and are kept by the General - the keeper of the report cards, the position filled by Onyx as General. A violation check over everything submitted runs when the current submitted work is done, on the President's word to wait until then.",
+   "spec": "ai-write-up-procedures-module/SPEC.md",
+   "home": "ai-write-up-procedures-module/"
+  },
+  {
+   "name": "ai-testing-age-education-and-ability-module",
+   "job": "The testing system for AI seats: two gauges (AI Age, a maturity stage from Newborn through E1 and E2 to Seasoned, earned only on evidence; and Education Level per shelf - Primary, Secondary, University - shown by checked work), a seven-bench test battery (record fluency, instruction fidelity, verified accuracy, reasoning, the craft benches, special-ability probes, and a pass/fail honesty bench), report cards kept by the General, and the assignment rule that a task goes to the seat whose tested strengths fit it.",
+   "spec": "~/workspace/ai-testing-module/SPEC.md",
+   "home": "~/workspace/ai-testing-module/"
+  },
+  {
+   "name": "contracts-signing-module",
+   "job": "The signing kit for any app where a person must agree to something: the recording consent stated and chosen before the contract (all of it, audio only, or signature only - the opt-out), the paraphrase in plain words, the full reading heard in its entirety with interruptions and camera presence recorded, the comfort question and the verbal yes or no as the voice signature, the real drawn signature on the screen with its stroke process recorded, the sealed uneditable evidence package, exports through print, PDF, email, share and file, engagement chat over the contract, and the library of state templates with saved profiles and QR delivery. The Contracts app is its reference fitting; the bigger apps (the store, JobPing) are its named future homes.",
+   "spec": "~/workspace/contracts-module/SPEC.md",
+   "home": "~/workspace/contracts-module/"
+  },
+  {
+   "number": 58,
+   "name": "device-compatibility-module",
+   "job": "The catalog of the world's devices that CashDublo apps are checked against: Android phones from every maker and region, Apple phones and tablets, Macs, Windows computers, company-built Linux systems, and motherboards — screens, processors, RAM, tiers. A configuration file carries per-app profiles (minimum tier, RAM, screen buckets, must-test devices); the checker answers which devices run an app properly, which strain, and which must not ship. The catalog is filled by delegation under the General's access grant.",
+   "spec": "~/workspace/device-compatibility-module/SPEC.md",
+   "repo": "device-compatibility-module",
+   "home": ""
+  },
+  {
+   "number": 59,
+   "name": "customer-marketing-module",
+   "job": "The customer-to-customer kit: a customer can send any CashDublo app to people they name — the invite composed in their name, the download doors (Google Play, Apple App Store, the CashDublo door, the web), a referral code from their CashDublo ID so a join is credited, and the send/open/join ledger that builds the customer base. Invites go only to people the customer names; a door shows only when it truly stands. First fitting: Indy Travel's party invites.",
+   "spec": "~/workspace/customer-marketing-module/SPEC.md",
+   "home": ""
+  },
+  {
+   "number": 60,
+   "name": "accessibility-visually-hearing-impaired-module",
+   "job": "The accessibility kit for every app: (1) Visually impaired mode in Settings — text as large as it possibly can be without overlapping or deforming (fit-checked scaling, the larger of its scale and the system's), padding and tap targets growing with it; (2) captions on everything voiced in games and apps — and the voice models create the caption at the same time they output the voice, so a spoken line is born with its caption; (3) voice output (read aloud) for apps whose work is reading. Three Settings rows, the user's choice, riding each app's next round.",
+   "spec": "~/workspace/visually-impaired-mode-module/SPEC.md",
+   "home": ""
+  },
+  {
+   "name": "ai-setup-module",
+   "number": 61,
+   "job": "Holds everything about setting up the free AIs: the seat registry, the three connection patterns (API through a main AI, through GitHub, AI-to-AI sync), the hire package, and the per-seat setup cards with their keys, helpers, and traps.",
+   "spec": "ai-setup-module/SPEC.md",
+   "home": "ai-setup-module/"
+  },
+  {
+   "name": "ai-production-readiness-module",
+   "number": 62,
+   "job": "The readiness board for every AI seat the President has: hire complete, the Arena administered and scored, blockers named plainly, production assignment reading readiness first.",
+   "spec": "ai-production-readiness-module/SPEC.md",
+   "home": "ai-production-readiness-module/"
+  },
+  {
+   "name": "apple-google-development-kits-module",
+   "number": 63,
+   "job": "The two complete development catalogs (Android and Apple, professional to amateur), their overlap and differences, and the quiz bank — the reference that makes the applications better, and the Apple & Google track of the training course.",
+   "spec": "mobile-development-kits-module/SPEC.md",
+   "home": "mobile-development-kits-module/"
+  },
+  {
+   "name": "api-modules-module",
+   "number": 64,
+   "job": "The known list of APIs that can provide services to the applications — free or costly, checked and dated — held on the production server, which holds the keys and makes the calls for the apps.",
+   "spec": "api-modules-module/SPEC.md",
+   "home": "api-modules-module/"
+  },
+  {
+   "number": 65,
+   "name": "app-performance-monitor-module",
+   "slug": "app-performance-monitor-module",
+   "spec": "~/workspace/app-performance-monitor-module/SPEC.md",
+   "status": "specced 2026-11-17 — finds performance and productivity gains, limits CPU and RAM utilization, raises app and GUI performance; no negative impact on functionality is the goal and the gate",
+   "home": ""
+  },
+  {
+   "number": 66,
+   "name": "home-widgets-module",
+   "slug": "home-widgets-module",
+   "spec": "~/workspace/home-widgets-module/SPEC.md",
+   "status": "specced 2026-11-17 — home-screen widgets for the apps: PodEdPro battery widget first fit, Contracts waiting-count, App Store downloads, Wi-Fi Tether control, Travel Journal trip widget; Connection Fixer and Name That Flag skipped by the President's word",
+   "home": ""
+  },
+  {
+   "number": 67,
+   "name": "icon-save-module",
+   "slug": "icon-save-module",
+   "spec": "~/workspace/icon-save-module/SPEC.md",
+   "status": "specced 2026-11-17 — the stored collection of usable icons and artwork sets, saved as they are made in the icon-save repo, for the apps and modules to use later; crops must fit their subject whole",
+   "home": ""
+  },
+  {
+   "number": 68,
+   "name": "newsletter-module",
+   "slug": "newsletter-module",
+   "spec": "~/workspace/newsletter-module/SPEC.md",
+   "status": "specced and first edition published 2026-11-17 — a newsletter page on the main website, kept up to date from the house record, written plain for people who do not code; small editions, only landed work reported",
+   "home": ""
+  },
+  {
+   "number": 69,
+   "name": "work-log-viewer-module",
+   "slug": "work-log-viewer-module",
+   "spec": "~/workspace/work-log-viewer-module/SPEC.md",
+   "status": "specced 2026-11-17 — the President's owner-only GUI for the work log, in three faces: the private back-end area of the website (login-gated, possibly back-end only), a standalone app, and a module inside GitHub HQ; one log source for all three",
+   "home": ""
+  },
+  {
+   "number": 36,
+   "name": "App Icons",
+   "slug": "app-icon-module",
+   "spec": "app-icon-module/SPEC.md",
+   "status": "the icon law (Cash's order, 2026-11-14): every app has an icon, born with the app and remade at every version step; an app is never listed on any page without one; governance home for Make Icons",
+   "home": ""
+  },
+  {
+   "name": "adjustable-settings-module",
+   "job": "Every app's Settings carries three modes — Simple, Moderate, Advanced — so the person using the app chooses how much settings they face. Every setting is tiered when it is created; the tiers change which settings show, never their values.",
+   "spec": "adjustable-settings-module/SPEC.md",
+   "home": "adjustable-settings-module/ (fitted into every app's Settings)"
+  },
+  {
+   "name": "cross-platform-module",
+   "job": "Cross-modularization across all six platforms — Android, iOS, Mac, Linux, Windows, and the website: one database loaded through the website, pick up where the other face left off, real-time updates at the server's pace. Any time two applications come together or an app becomes cross-platform, they follow this module.",
+   "spec": "cross-platform-module/SPEC.md",
+   "home": "cross-platform-module/"
+  },
+  {
+   "name": "simultaneous-infrastructure-module",
+   "job": "The full-stack law: any feature set up in an app also goes into implementation on the back end, the front end, and every other server in the same round. A face that cannot stand yet is labeled TBA.",
+   "spec": "simultaneous-infrastructure-module/SPEC.md",
+   "home": "simultaneous-infrastructure-module/"
+  },
+  {
+   "name": "mode-standard-module",
+   "job": "Every app, feature, face, and server declares its mode — Testing, Beta, Production (live), with Offline shown beside it as a condition — so what mode a thing is in is always visible.",
+   "spec": "mode-standard-module/SPEC.md",
+   "home": "mode-standard-module/"
+  },
+  {
+   "name": "mood-module",
+   "job": "Songs in the Player family carry a mood, from a mood API chosen in Settings or the MP3 analyzer's AI auto mode (tempo, tone, and singled-out words, with the reading shown). Nothing is written to a song until the owner confirms it in the full-screen review.",
+   "spec": "mood-module/SPEC.md",
+   "home": "mood-module/ (fitted into Player, YTDL-S Player, and Apple2Player)"
+  },
+  {
+   "name": "Fix My Feed",
+   "job": "Gets the junk out of a person's social media feeds and hands the feed back to its owner: a guided relearn session (5 to 15 minutes of keep/kick swipes turned into each platform's own feedback signals) and the dictated feed — the user names categories and the app streams them as if a new feed. Mobile and tablet only. Working name, provisional; design staged.",
+   "spec": "fix-my-feed/SPEC.md",
+   "home": "fix-my-feed/ (design staged)"
+  },
+  {
+   "name": "signing-keys-module",
+   "job": "The signing-keys lesson and law for every platform build: the debug key makes itself on first build and serves development installs only; the release key is the publisher stamp — identity, update continuity, and the basis of his own store. Mode TESTING; Xnot is its first fitting.",
+   "spec": "signing-keys-module/SPEC.md",
+   "home": "signing-keys-module/ (first fitting: Xnot)"
+  },
+  {
+   "name": "security-module",
+   "job": "One unlock module for every app that locks: master password, PIN, fingerprint and face recognition through the OS keystore, key share or keystore file, and recovery phrase — each factor a wrap on one app key, with a fixed fallback order and biometrics never the only door — and the password-and-face rule: any app with a password also works with the device's face unlock on tablets, Android, and iPhones/iPads. Mode TESTING; first fitting: the Offline Password Vault.",
+   "spec": "security-module/SPEC.md",
+   "home": "security-module/ (first fitting: the Offline Password Vault)"
+  },
+  {
+   "name": "role-switching-module",
+   "job": "The directions for how an AI in the house takes up a role for a task and puts it down: the President's role-switching model (leader, second in command, employees; roles adopted per task; responsibilities translated to modules) with its three enforcement rules — a currency check at every switch, a written handoff before any switch completes, and one named owner on any task that spans two roles. Mode TESTING; staged 2026-11-19.",
+   "spec": "role-switching-module/SPEC.md",
+   "home": "role-switching-module/"
+  },
+  {
+   "name": "copyright-infringement-module",
+   "job": "Watches the entire process — intake, build, publish — for possible copyright issues: every asset carries its source, flags stop the item not the round, the President is notified the same day (high-risk at once) with what complaint could come and who from, and a response kit is readied ahead — removal or replacement, the proof packet, takedown answers on the Shield's own process, and counter-notice drafts — so he is separated from a lawsuit before one arrives. Drafts only, under the lawyer-review gate; carries the unfiled DMCA designated-agent registration as its top standing gap. Mode TESTING; staged 2026-11-19.",
+   "spec": "copyright-infringement-module/SPEC.md",
+   "home": "copyright-infringement-module/"
+  },
+  {
+   "name": "hardware-information-module",
+   "job": "The house's one record of the hardware its apps must fit: device classes and the predefined display sizes every layout is designed and tested against; the Single-Build Standard reads its sizes from here. Mode TESTING; founded 2026-11-19.",
+   "spec": "hardware-information-module/SPEC.md",
+   "home": "hardware-information-module/"
+  },
+  {
+   "name": "grants-module",
+   "job": "The house's one grant-finding and grant-applying engine: a registry of every grant, scholarship, prize and incentive source for business ventures in America — federal, all 50 states, private, foundation and competition money — each record carrying its source, access level, entity types accepted, published money metrics, and last-verified date; APIs polled first; browsing free with no account, applying for registered customers only; a denial shield checks a business against the known denial causes before it applies; the module never buys a membership or promises an outcome. Mode TESTING; founded 2026-11-19.",
+   "spec": "grants-module/SPEC.md",
+   "home": "grants-module/ (first fitting: Cash Grants)"
+  },
+  {
+   "name": "development-kit-module",
+   "job": "The developer settings and connection kit for the emulated server: one settings face holding everything the server needs to work properly (services/doors/ports, the OS background service, LAN and loopback addresses, test-key slots, seeded data, stand-ins, connection quality), plus reconfiguration of established connections — shown before applying, logged, reversible, emulator only. Usable now as a kit; the coded build ships as an RC (Release Candidate) after bugs are fixed and tested. Mode TESTING; founded 2026-11-19.",
+   "spec": "development-kit-module/SPEC.md",
+   "home": "development-kit-module/"
+  }
+ ]
+}

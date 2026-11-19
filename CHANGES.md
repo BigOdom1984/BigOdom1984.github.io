@@ -119,3 +119,7 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 ## 2026-11-20 — Onyx / AI-01 — The finished-server copy
 
 **Added:** To PRODUCTION-SITE-PLAN.md, on the President's order — when the production server is finished, a copy of its website goes into a repository called **Current Production Server** (hyphen form on GitHub), the standing snapshot of the production site as it runs.
+
+## 2026-11-20 — Onyx / AI-01 — The module package published on the website
+
+**Added:** `api/modules.json` and `api/MODULE-DATA.md` — the 78-module API package, the same record the production server carries, published on the hub at the server's own paths as part of the finish-the-server round. One package, two doors: the website and the server now answer with the same module record.
