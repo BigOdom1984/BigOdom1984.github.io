@@ -42,7 +42,7 @@ The canonical source file lives in the private CashDublo server repository at `d
 
 Manifest and build-target configuration take priority over README claims. A repository's existence does not prove that an app builds or has been published. Planned targets remain planned. A companion website is not counted as a browser app unless the product itself runs in the browser. Separate product repositories are joined only when they are clearly implementations of the same product.
 
-The current 34-application inventory is a baseline. The protected analyzer can now scan up to 10 supplied BigOdom1984 repositories directly through the GitHub API when CROSS_PLATFORM_ANALYSIS_KEY and CROSS_PLATFORM_GITHUB_TOKEN are configured. It inspects each default-branch tree, README, package/app manifests, and platform-specific project paths, including separate repositories for one product. The scanner returns a proposal only; it never commits catalogue or navigation changes automatically.
+The current 34-application inventory is a baseline. The protected API analyzer can scan up to 10 supplied BigOdom1984 repositories directly through GitHub when `CROSS_PLATFORM_ANALYSIS_KEY` and `CROSS_PLATFORM_GITHUB_TOKEN` are configured. A manual **CashDublo cross-platform repository scan** GitHub Actions workflow audits all catalogue products, including split repositories, and uploads a review-only JSON report. It requires an Actions secret named `CROSS_PLATFORM_GITHUB_TOKEN`, with read-only access to the application repositories. Both scan paths return proposals only; they never commit catalogue or navigation changes automatically.
 
 ## Sign-in entry
 
