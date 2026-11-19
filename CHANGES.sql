@@ -62,3 +62,5 @@ INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', '
 INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Made the reusable navigation component self-initialize after DOM readiness, while keeping initialization idempotent for the main-site loader.', 'assets/cashdublo-nav.js');
 
 INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Made the shared navigation drawer reusable with any id named by aria-controls and allowed app-specific buttons to close the drawer via data-cd-close.', 'assets/cashdublo-nav.js; NAVIGATION-STANDARD.md');
+
+INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Refined the shared desktop header with a left-anchored wordmark, a single horizontal quick-link row and a right-aligned Menu control. Reworked app and front-end catalog rails into responsive wrapping grids; reduced icon/card footprint and kept category, platform and status chips on one line.', 'assets/cashdublo-nav.js; assets/cashdublo-nav.css; NAVIGATION-STANDARD.md; tests/navigation-contract.test.cjs; tests/responsive-layout.test.mjs');
