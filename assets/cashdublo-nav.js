@@ -50,7 +50,7 @@
     const options=panel.querySelector("[data-cd-quick-options]");
     function renderOptions(){
      options.replaceChildren();
-     const selected=new Set([...quickNav.querySelectorAll("a")].map(a=>a.dataset.cdGroup||a.dataset.cdHref).filter(Boolean));
+     const selected=new Set([...quickNav.querySelectorAll("a")].map(a=>a.dataset.cdGroup?"#"+a.dataset.cdGroup:a.dataset.cdHref).filter(Boolean));
      menuChoices().forEach(choice=>{
       const label=document.createElement("label");label.className="cd-quick-option";
       const input=document.createElement("input");input.type="checkbox";input.checked=selected.has(choice.href);
