@@ -36,7 +36,34 @@ function loadSharedDrawer(){
  const s=document.createElement("script");s.src=script;s.dataset.cdNavJs="1";s.onload=()=>window.CashDubloNav?.init();document.head.appendChild(s);
 }
 
-function install(){if(!document.querySelector('[data-cd-header]'))document.body.insertAdjacentHTML('afterbegin',nav);loadSharedDrawer();document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
+function ensurePrimaryNav(){
+ const header=document.querySelector('[data-cd-header]');
+ if(!header)return;
+ let primary=document.querySelector('[data-cd-primary-nav]');
+ if(!primary){
+  primary=document.createElement('nav');
+  primary.className='cd-primary-nav';
+  primary.dataset.cdPrimaryNav='1';
+  primary.setAttribute('aria-label','Primary navigation');
+  primary.innerHTML='<a href="/index.html#about">About</a><a href="/index.html#featured">Featured apps</a><a href="/apps.html">All apps</a><a href="/ChatGPT/rss-receiver.html">RSS Receiver</a><a href="/privacy.html">Privacy</a>';
+  header.insertAdjacentElement('afterend',primary);
+ }
+ let style=document.getElementById('cd-primary-nav-style');
+ if(!style){
+  style=document.createElement('style');style.id='cd-primary-nav-style';
+  style.textContent='.cd-primary-nav{position:sticky;top:64px;z-index:999;display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.5vw,30px);width:100%;padding:10px clamp(14px,4vw,40px);background:#f5f0e6;color:#172d2b;border-bottom:1px solid #d8d4c9;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;-webkit-overflow-scrolling:touch}.cd-primary-nav a{flex:0 0 auto;color:#172d2b;text-decoration:none;font-size:.92rem;font-weight:850;padding:5px 2px;border-bottom:3px solid transparent}.cd-primary-nav a:hover,.cd-primary-nav a:focus-visible{color:#a84e3d;border-bottom-color:#f0785e;outline-offset:3px}.cd-primary-nav a[aria-current=page]{color:#a84e3d;border-bottom-color:#f0785e}@media(max-width:600px){.cd-primary-nav{justify-content:flex-start;gap:20px;padding:9px 14px}.cd-primary-nav a{font-size:.88rem}}@media(prefers-reduced-motion:reduce){.cd-primary-nav{scroll-behavior:auto}}';
+  document.head.appendChild(style);
+ }
+ primary.style.top=(header.getBoundingClientRect().height||64)+'px';
+ const current=location.pathname.toLowerCase();
+ const hash=location.hash.toLowerCase();
+ primary.querySelectorAll('a').forEach(a=>{
+  const href=a.getAttribute('href');
+  const active=(href==='/index.html#about'&&hash==='#about')||(href==='/index.html#featured'&&hash==='#featured')||(href==='/apps.html'&&current.endsWith('/apps.html'))||(href==='/chatgpt/rss-receiver.html'&&current.endsWith('/chatgpt/rss-receiver.html'))||(href==='/privacy.html'&&current.endsWith('/privacy.html'));
+  if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+ });
+}
+function install(){if(!document.querySelector('[data-cd-header]'))document.body.insertAdjacentHTML('afterbegin',nav);ensurePrimaryNav();loadSharedDrawer();document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{install();});else{install();}
 })();
 
