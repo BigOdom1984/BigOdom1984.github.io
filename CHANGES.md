@@ -81,3 +81,8 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 ## 2026-11-19 — CashDublo desktop navigation and catalog fit
 
 The shared header now keeps the CashDublo wordmark on the far left, presents Apps, Websites, Tools, Games, Courses, Code, Newsletter and About as one horizontal desktop row, and keeps Menu at the far right. Tablet and phone views retain the compact drawer. Catalog cards now use responsive wrapping grids instead of clipped horizontal rails; cards and app icons are slightly smaller, no-icon website cards use the full card width, and category/platform/status chips stay on one line. GitHub Actions navigation and responsive-layout checks passed, and the Cloudflare Pages preview build succeeded. Real desktop/tablet/phone visual QA and production deployment remain pending.
+
+
+## 2026-11-19 — Founder order: shared catalogue layout and platform accuracy
+
+The root CashDublo site and AI comparison websites must present identical factual app information while retaining independent visual themes. Standard card order is app image, app name, then a single-line version/release label. Cards must fit and wrap instead of clipping; phone navigation uses two levels and must not expose a horizontal scrollbar at the top. Platform support must be confirmed from source/build evidence and separated from planned or unverified targets. The shared standard is WEBSITE-CATALOG-STANDARD.md and the shared presentation rules are assets/catalog-layout.css. The website-standard version is 0.1.1 BETA; individual app versions remain sourced from their own version register. Preview-only; no production server changes or deployment.

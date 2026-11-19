@@ -3,7 +3,7 @@
 .cd-site-header{position:sticky;top:0;z-index:1000;width:100%;padding:10px clamp(12px,3vw,42px);background:var(--cd-deep);color:#fffdf8;border-bottom:2px solid var(--cd-lime);display:flex;align-items:center;gap:clamp(12px,2vw,28px);min-height:64px;flex-wrap:nowrap}
 .cd-site-brand{flex:0 0 auto;color:#fffdf8!important;text-decoration:none!important;font-size:1.25rem;font-weight:950;letter-spacing:-.055em;white-space:nowrap}
 .cd-site-brand span{color:var(--cd-lime)}
-.cd-site-nav{display:flex;align-items:center;gap:4px;flex:1 1 auto;min-width:0;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;overflow-y:visible;scrollbar-width:thin;scrollbar-color:#78958a transparent;padding:4px 0}
+.cd-site-nav{display:flex;align-items:center;gap:4px;flex:1 1 auto;min-width:0;flex-wrap:wrap;white-space:nowrap;overflow-x:visible;overflow-y:visible;scrollbar-width:none;scrollbar-color:#78958a transparent;padding:4px 0}
 .cd-nav-item{position:relative;display:block;flex:0 0 auto}
 .cd-nav-trigger{display:inline-flex;align-items:center;min-height:40px;padding:8px 11px;border:1px solid transparent;border-radius:9px;background:transparent;color:#fffdf8!important;text-decoration:none!important;font:inherit;font-size:.9rem;font-weight:800;white-space:nowrap;cursor:pointer}
 .cd-nav-trigger:hover,.cd-nav-trigger:focus-visible,.cd-nav-item[aria-expanded=true]>.cd-nav-trigger{background:#28534d;border-color:#78958a;outline:none}
@@ -84,3 +84,8 @@ input,select,textarea,button{max-width:100%;font:inherit}
 .cd-app-icon-frame[data-build-status="red"]::after{content:"UNDER CONSTRUCTION";position:absolute;left:-5%;right:-5%;bottom:8%;z-index:2;padding:5px 3px;background:#f2c94c;color:#172d2b;border:1px solid #172d2b;border-radius:4px;text-align:center;font-size:clamp(7px,1.1vw,10px);line-height:1.15;font-weight:950;letter-spacing:.035em;white-space:normal;box-shadow:0 1px 4px #0005;pointer-events:none}
 .cd-app-icon-frame[data-build-status="green"]::after,.cd-app-icon-frame[data-build-status="yellow"]::after{content:none}
 
+
+/* Two-level phone menu and no horizontal header scrollbar. */
+.cd-site-nav,.cd-site-nav *{scrollbar-width:none}
+.cd-site-nav::-webkit-scrollbar,.cd-site-nav *::-webkit-scrollbar{display:none;width:0;height:0}
+@media(max-width:700px){.cd-site-nav{overflow:visible;flex-wrap:wrap}.cd-nav-menu{max-width:calc(100vw - 16px);overflow:auto}}

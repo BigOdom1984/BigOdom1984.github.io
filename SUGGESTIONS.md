@@ -38,3 +38,14 @@ CashDublo@gmail.com · BigOdom1984 on GitHub · @cashdublo on Instagram.
 - **Guardrails:** Mark each item as development/planned unless a first build and live URL are verified. Do not invent features, versions, platform support, pricing, security claims, or availability. Do not expose repository URLs, source code, internal implementation details, or private repo names. Do not add download/purchase actions until verified destinations and approvals exist.
 - **Evidence:** website-module README v1.1.0; repository README records for the six web products; 2026-11-19 source audit of front-ends.html and assets/site-navigation.js.
 - **Next step:** MUSE review, then Founder decision. No website code change is authorized by this suggestion alone.
+
+
+## SUG-2026-11-19-002 — Uniform catalogue facts and responsive presentation
+
+- **Author:** Founder request, recorded by ChatGPT / AI-02.
+- **Status:** APPROVED BY FOUNDER / IN PROGRESS (preview branch).
+- **What:** Standardize app cards to image → app name → one-line version/release label; correct platform and front-end/back-end facts across the root site and AI comparison websites; use two-level phone navigation and remove the top horizontal scrollbar.
+- **Why:** The comparison sites need identical product information so the Founder can compare visual treatments without comparing conflicting facts. Current platform labels include planned iOS targets presented as supported.
+- **Where:** Root catalogue pages, shared navigation/catalogue CSS, and the AI website folders.
+- **Guardrails:** Preserve each AI's visual identity. Do not overwrite app-specific versions with the website-standard version 0.1.1 BETA. Confirm platform support from source/build evidence; label planned and unverified targets honestly. No emulator-specific website or catalogue is required. No production deployment from this change.
+- **Implementation:** Preview branch chatgpt/catalog-platform-layout-20261119; see WEBSITE-CATALOG-STANDARD.md.

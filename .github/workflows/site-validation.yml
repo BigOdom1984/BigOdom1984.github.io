@@ -2,9 +2,9 @@ name: CashDublo website validation
 
 on:
   push:
-    branches: [main]
+    branches: [main, chatgpt/desktop-catalog-responsive-20261119]
   pull_request:
-    branches: [main]
+    branches: [main, chatgpt/desktop-catalog-responsive-20261119]
 
 permissions:
   contents: read
@@ -22,3 +22,4 @@ jobs:
           node --check assets/cashdublo-nav.js
           node tests/navigation-contract.test.cjs
           node tests/responsive-layout.test.mjs
+          node tests/catalog-layout-contract.test.cjs
