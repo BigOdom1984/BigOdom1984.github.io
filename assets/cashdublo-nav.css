@@ -102,3 +102,5 @@
 .cd-quick-choice:active,.cd-quick-remove:active{background:#e1eadc}
 .cd-quick-remove{grid-column:1/-1;color:#a13f32;border-color:#e4b7ae}
 @media(min-width:701px){.cd-quick-picker{left:50%;right:auto;bottom:auto;top:50%;width:min(560px,calc(100vw - 32px));max-height:70vh;transform:translate(-50%,-50%);border-radius:18px}.cd-quick-picker-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.cd-quick-nav a.cd-quick-dragging{opacity:.55;transform:scale(.94);outline:2px dashed #a84e3d;outline-offset:1px;z-index:2}
