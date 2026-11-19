@@ -87,3 +87,10 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 
 ## 2026-11-17 — Onyx (General), on the President's order
 - The animated founder GIF comes off the home page for now; the GO orb stands in the portrait spot again (the GIF file stays in the repo). The site code audit's fixes land in the same round: app icons lazy-load with set dimensions, the shared scripts moved into one cached site.js, and the privacy page's style blocks are merged. The audit (Gemini read, the General examined) found privacy CLEAN — no trackers, no third-party calls.
+
+
+## 2026-11-20 — Onyx / AI-01 — Contact email replaced site-wide; website icon added
+
+**Before:** The site's contact email read CashDublo@gmail.com, and the website had no icon of its own in the browser address bar.
+
+**After:** On the President's order, every CashDublo@gmail.com on the site is now cash.dublo@gmail.com — the root pages, the app pages, the front-end pages, and the AI version folders. The website icon (the gold CashDublo mark) now stands at the root as favicon.ico, favicon-32.png, and apple-touch-icon.png, with a copy in every AI folder, and every page head carries the icon links so it loads in the address bar. SQL record was written first in CHANGES.sql, as required.

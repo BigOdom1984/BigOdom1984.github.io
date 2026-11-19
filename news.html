@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The CashDublo Newsletter — What's Going On, in Plain Words</title>
 <meta name="description" content="Short, plain-words news from CashDublo: new apps, new features, and what's being built — for everybody, not just coders.">
@@ -160,7 +163,7 @@ form.addEventListener("submit", function(ev){
   var email=(document.getElementById("cd-list-email").value||"").trim();
   if(!email){ return; }
   var body=encodeURIComponent("Please add me to the CashDublo list.\n\nMy email: "+email);
-  window.location.href="mailto:CashDublo@gmail.com?subject="+encodeURIComponent("Join the CashDublo list")+"&body="+body;
+  window.location.href="mailto:cash.dublo@gmail.com?subject="+encodeURIComponent("Join the CashDublo list")+"&body="+body;
   document.getElementById("cd-list-note").hidden=false;
 });
 })();
