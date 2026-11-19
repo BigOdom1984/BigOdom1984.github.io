@@ -23,13 +23,13 @@ function ensureFooterLinks(){
  if(!footer){footer=document.createElement('footer');footer.className='cd-site-footer';document.body.append(footer);}
  let group=footer.querySelector('.cd-footer-legal');
  if(!group){group=document.createElement('div');group.className='cd-footer-legal';footer.append(group);}
- if(!group.querySelector('a[href="/privacy.html"]')){const privacy=document.createElement('a');privacy.href='/privacy.html';privacy.textContent='Privacy Policy';group.append(privacy);}
- let contact=group.querySelector('a[href^="mailto:"]')||footer.querySelector('a[href^="mailto:"]');
- if(!contact){contact=document.createElement('a');contact.href='mailto:CashDublo@gmail.com';contact.textContent='Contact Us';}
- group.append(contact);
- let about=group.querySelector('a[href="/index.html#about"]')||footer.querySelector('a[href="/index.html#about"]');
- if(!about){about=document.createElement('a');about.href='/index.html#about';about.textContent='About';}
- group.append(about);
+ const privacy=group.querySelector('a[href="/privacy.html"]')||footer.querySelector('a[href="/privacy.html"]')||document.createElement('a');
+ privacy.href='/privacy.html';privacy.textContent='Privacy Policy';
+ const contact=group.querySelector('a[href^="mailto:"]')||footer.querySelector('a[href^="mailto:"]')||document.createElement('a');
+ if(!contact.getAttribute('href'))contact.href='mailto:CashDublo@gmail.com';contact.textContent='Contact Us';
+ const about=group.querySelector('a[href="/index.html#about"]')||footer.querySelector('a[href="/index.html#about"]')||document.createElement('a');
+ about.href='/index.html#about';about.textContent='About';
+ group.replaceChildren(privacy,document.createTextNode(' — '),contact,document.createTextNode(' — '),about);
 }
 
 function loadSharedDrawer(){
