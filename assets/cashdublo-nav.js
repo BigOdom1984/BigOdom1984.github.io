@@ -18,6 +18,68 @@
    links.forEach(([label,href])=>{const a=document.createElement("a");a.textContent=label;a.href=href;quick.append(a);});
    header.insertAdjacentElement("afterend",quick);
   }
+  // Long-press quick links to swap destinations from the complete site menu.
+  const quickNav=document.querySelector("[data-cd-quick-nav]");
+  if(quickNav&&!quickNav.dataset.cdEditable){
+   quickNav.dataset.cdEditable="1";
+   const picker=document.createElement("section");
+   picker.className="cd-quick-picker";picker.hidden=true;
+   picker.setAttribute("role","dialog");picker.setAttribute("aria-modal","true");picker.setAttribute("aria-label","Customize quick navigation");
+   picker.innerHTML='<div class="cd-quick-picker-head"><strong>Customize quick links</strong><button type="button" data-cd-picker-close aria-label="Close">×</button></div><p>Choose a destination for this slot, or remove it. Changes are temporary until you decide to make them permanent.</p><div class="cd-quick-picker-list" data-cd-picker-list></div>';
+   document.body.append(picker);
+   let targetSlot=null,pressTimer=0,pressPointer=null,quickDrag=null;
+   const pickerList=picker.querySelector("[data-cd-picker-list]");
+   function menuChoices(){
+    const found=new Map();
+    drawer.querySelectorAll('a[href]').forEach(a=>{
+     const href=a.getAttribute("href");
+     if(!href||href==="./rss.html"||href==="rss.html"||a.hasAttribute("data-cd-open"))return;
+     const label=(a.textContent||"").replace(/⠿/g,"").trim();
+     if(label&&!found.has(href))found.set(href,{label,href});
+    });
+    return [...found.values()];
+   }
+   function openPicker(slot){
+    targetSlot=slot;pickerList.replaceChildren();
+    const choices=menuChoices();
+    choices.forEach(choice=>{
+     const b=document.createElement("button");b.type="button";b.className="cd-quick-choice";b.textContent=choice.label;
+     b.addEventListener("click",()=>{setSlot(slot,choice.label,choice.href);closePicker();});
+     pickerList.append(b);
+    });
+    const remove=document.createElement("button");remove.type="button";remove.className="cd-quick-remove";remove.textContent="Remove this shortcut";
+    remove.addEventListener("click",()=>{setSlot(slot,"＋ Add",null);closePicker();});
+    pickerList.append(remove);
+    picker.hidden=false;document.body.classList.add("cd-picker-open");
+   }
+   function closePicker(){picker.hidden=true;document.body.classList.remove("cd-picker-open");targetSlot=null;}
+   function setSlot(slot,label,href){
+    slot.textContent=label;slot.dataset.cdLabel=label;
+    if(href){slot.href=href;slot.dataset.cdHref=href;slot.classList.remove("cd-quick-empty");slot.setAttribute("aria-label",label+" — long press to customize");}
+    else{slot.removeAttribute("href");delete slot.dataset.cdHref;slot.classList.add("cd-quick-empty");slot.setAttribute("aria-label","Empty shortcut — tap to add a destination");}
+   }
+   quickNav.querySelectorAll("a").forEach(a=>{a.dataset.cdLabel=a.textContent.trim();a.dataset.cdHref=a.getAttribute("href");a.setAttribute("aria-label",a.textContent.trim()+" — long press to customize");});
+   quickNav.addEventListener("pointerdown",e=>{
+    const slot=e.target.closest("a");if(!slot)return;
+    pressPointer=e.pointerId;clearTimeout(pressTimer);
+    pressTimer=setTimeout(()=>{if(pressPointer===e.pointerId){e.preventDefault();openPicker(slot);}},480);
+   });
+   ["pointerup","pointercancel","pointerleave"].forEach(type=>quickNav.addEventListener(type,()=>{clearTimeout(pressTimer);pressPointer=null;}));
+   quickNav.addEventListener("click",e=>{
+    const slot=e.target.closest("a");if(!slot)return;
+    if(slot.classList.contains("cd-quick-empty")){e.preventDefault();openPicker(slot);}
+    else if(picker.hidden===false)e.preventDefault();
+   });
+   quickNav.addEventListener("contextmenu",e=>{const slot=e.target.closest("a");if(slot){e.preventDefault();openPicker(slot);}});
+   picker.querySelector("[data-cd-picker-close]").addEventListener("click",closePicker);
+   picker.addEventListener("click",e=>{if(e.target===picker)closePicker();});
+   document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!picker.hidden)closePicker();});
+   // Reorder shortcuts by dragging, including touch screens.
+   quickNav.addEventListener("dragstart",e=>{const slot=e.target.closest("a");if(!slot||slot.classList.contains("cd-quick-empty")){e.preventDefault();return;}quickDrag=slot;e.dataTransfer.effectAllowed="move";});
+   quickNav.addEventListener("dragover",e=>{if(!quickDrag)return;const slot=e.target.closest("a");if(!slot||slot===quickDrag)return;e.preventDefault();const r=slot.getBoundingClientRect();quickNav.insertBefore(quickDrag,e.clientX>r.left+r.width/2?slot.nextSibling:slot);});
+   quickNav.addEventListener("dragend",()=>{quickDrag=null;});
+   quickNav.querySelectorAll("a").forEach(a=>a.draggable=true);
+  }
   // RSS is available as a page if needed, but is intentionally omitted from the main menu.
   drawer.querySelectorAll('a[href="./rss.html"],a[href="rss.html"]').forEach(a=>a.remove());
   // Keep the main menu's key destinations in a predictable order.
