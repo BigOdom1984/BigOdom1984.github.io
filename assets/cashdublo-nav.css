@@ -70,3 +70,18 @@
 /* Drag handles for the compact primary navigation row. */
 .cd-primary-nav.cd-arranging .cd-drag-handle{display:inline-flex!important;align-items:center;justify-content:center;color:#a84e3d;cursor:grab;touch-action:none}
 .cd-primary-nav.cd-arranging a{position:relative;padding-left:26px}
+
+
+/* Compact five-link navigation strip below the shortened brand bar. */
+:root{--cd-header-height:56px}
+.cd-site-header{height:56px!important;min-height:56px!important}
+.cd-quick-nav{position:sticky;top:0;z-index:998;box-sizing:border-box;width:100%;min-height:40px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;gap:2px;padding:3px clamp(6px,2vw,18px);background:#f5f0e6;border-bottom:1px solid #d8d4c9}
+.cd-quick-nav a{min-width:0;display:flex;justify-content:center;align-items:center;min-height:32px;padding:4px 2px;color:#172d2b;text-decoration:none;text-align:center;font-size:clamp(.68rem,.9vw,.82rem);font-weight:850;line-height:1.1;white-space:nowrap;border-radius:6px}
+.cd-quick-nav a:hover,.cd-quick-nav a:focus-visible{background:#e7e1d5;color:#a84e3d;outline:2px solid #a84e3d;outline-offset:-1px}
+@media(max-width:700px){
+ .cd-site-header{height:54px!important;min-height:54px!important;padding:0 8px!important}
+ .cd-site-brand{font-size:1.08rem!important}
+ .cd-header-hit span{min-height:38px!important;padding:5px 9px!important;font-size:.78rem}
+ .cd-quick-nav{min-height:38px;padding:2px 5px;gap:0}
+ .cd-quick-nav a{min-height:31px;font-size:clamp(.62rem,2.7vw,.74rem);letter-spacing:-.025em;padding:3px 1px}
+}
