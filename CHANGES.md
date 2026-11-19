@@ -76,3 +76,12 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 
 ## 2026-11-17 — Onyx (General), on the President's order
 - The animated founder GIF comes off the home page for now; the GO orb stands in the portrait spot again (the GIF file stays in the repo). The site code audit's fixes land in the same round: app icons lazy-load with set dimensions, the shared scripts moved into one cached site.js, and the privacy page's style blocks are merged. The audit (Gemini read, the General examined) found privacy CLEAN — no trackers, no third-party calls.
+
+
+## 2026-11-19 — ChatGPT / AI-02 — Website fleet catch-up
+
+Added eight app overview pages and entries to the main app catalogue: Darkweb Surfer, Cash Grants, Military AI, Onyx, AI Lawyer, Train AI Models App, Xnot, and Visually Impaired AI. Descriptions and status labels were taken from each app's README and available SPEC; details not stated by those sources are marked TBA. Platform listings were added only where the specifications name the platform: Darkweb Surfer, Onyx and Visually Impaired AI on Android/iOS, and Xnot on Mac.
+
+Seven existing icon-save masters were added to the website's public `img/` collection. The seven source app repositories that already have `assets/icon.png` were checked; each icon blob matches its icon-save master. Visually Impaired AI has neither an icon-save master nor `assets/icon.png`, so its page uses a labeled placeholder and the icon remains an audit follow-up. Xnot's page uses the new repository address requested by the rename notice, but GitHub still resolves it to the old canonical name; no write was made to that repository.
+
+The SQL entry was recorded first in `CHANGES.sql`; this human-readable entry follows it. The changes are staged on the website fleet branch for review, not merged or deployed. The audit report records each source, status, platform decision and remaining limitation. SQL record commit: `03c7dd0d8eb7a0136aa8c1273901aeea288b23b7`.
