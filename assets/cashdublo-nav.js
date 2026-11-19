@@ -172,7 +172,7 @@
     if(!host)return;
     let controls=host.querySelector(":scope > .cd-order-controls");
     if(!controls){controls=document.createElement("span");controls.className="cd-order-controls";
-     [["up","↑","Move up"],["down","↓","Move down"]].forEach(([dir,glyph,label])=>{
+     [["up","⌃","Move up"],["down","⌄","Move down"]].forEach(([dir,glyph,label])=>{
       const b=document.createElement("button");b.type="button";b.className="cd-order-arrow";b.dataset.direction=dir;b.textContent=glyph;b.setAttribute("aria-label",label);
       b.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();moveByArrow(item,dir);});
       controls.append(b);
@@ -246,7 +246,7 @@
    function cardHandle(card){
     let controls=card.querySelector(":scope > .cd-card-order-controls");
     if(!controls){controls=document.createElement("div");controls.className="cd-card-order-controls";
-     [["up","↑","Move card up"],["down","↓","Move card down"]].forEach(([dir,glyph,label])=>{
+     [["up","⌃","Move card up"],["down","⌄","Move card down"]].forEach(([dir,glyph,label])=>{
       const b=document.createElement("button");b.type="button";b.className="cd-order-arrow";b.dataset.direction=dir;b.textContent=glyph;b.setAttribute("aria-label",label);
       b.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();moveByArrow(card,dir);});
       controls.append(b);
