@@ -46,7 +46,7 @@ function ensurePrimaryNav(){
   primary.className='cd-primary-nav';
   primary.dataset.cdPrimaryNav='1';
   primary.setAttribute('aria-label','Primary navigation');
-  primary.innerHTML='<a href="/index.html#featured">Featured apps</a><a href="/apps.html">All apps</a><a href="/ChatGPT/rss-receiver.html">RSS Receiver</a><a href="/privacy.html">Privacy</a><a href="/index.html#about">About</a>';
+  primary.innerHTML='<a href="/apps.html">All apps</a><a href="/index.html#featured">Featured apps</a><a href="/rss.html">RSS Feeds</a><a href="/cashdublo-app-store.html">App Store</a><a href="/index.html#about">About</a>';
   header.insertAdjacentElement('afterend',primary);
  }
  let style=document.getElementById('cd-primary-nav-style');
