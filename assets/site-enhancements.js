@@ -5,7 +5,8 @@ const categories={'fe-showcase':'Web / App catalogue','fe-online-course':'Educat
 };
 const tokenByPath={'/android.html':'ANDROID','/iphone.html':'IOS','/mac.html':'MAC','/windows.html':'WIN','/linux.html':'LIN'};
 function decorateCard(card){
- const id=card.id.startsWith('app-')?card.id.slice(4):card.id;
+ const rawId=card.id||card.querySelector('.icon-link')?.getAttribute('href')?.match(/\\/apps\\/([^/.]+)\\.html/i)?.[1]||'';
+ const id=rawId.startsWith('app-')?rawId.slice(4):rawId;
  const plats=card.querySelector('.plats');
  const platformText=plats?(plats.textContent||''):[...card.querySelectorAll('p')].find(p=>/Front end:/i.test(p.textContent))?.textContent||'';
  const upper=platformText.toUpperCase();
@@ -30,13 +31,23 @@ function decorateCard(card){
  }
  const status=card.querySelector('.status');
  if(status){
-  status.textContent=(status.textContent||'').replace(/^Version:\s*/i,'v');
+  status.textContent=(status.textContent||'').replace(/^Version:\\s*/i,'v');
   status.setAttribute('aria-label',(status.textContent||'').trim());
+ }
+ let links=card.querySelector('.links');
+ if(!links){
+  const directLinks=[...card.querySelectorAll(':scope > a')].filter(a=>!a.classList.contains('icon-link')&&!a.classList.contains('status'));
+  if(directLinks.length){
+   links=document.createElement('div');
+   links.className='links';
+   directLinks[0].parentNode.insertBefore(links,directLinks[0]);
+   directLinks.forEach(a=>links.append(a));
+  }
  }
  card.querySelectorAll('.links a').forEach(link=>{
   const label=(link.textContent||'').trim();
-  if(/^Google Play search\s*↗?$/i.test(label))link.textContent='Google ↗';
-  else if(/^Apple search\s*↗?$/i.test(label))link.textContent='Apple ↗';
+  if(/^Google Play search\\s*↗?$/i.test(label))link.textContent='Google ↗';
+  else if(/^Apple search\\s*↗?$/i.test(label))link.textContent='Apple ↗';
  });
 }
 function buildRails(grid,cards){grid.replaceChildren();for(let i=0;i<cards.length;i+=6){const rail=document.createElement('div');rail.className='cd-app-rail';cards.slice(i,i+6).forEach(card=>rail.append(card));grid.append(rail);}if(!cards.length){const p=document.createElement('p');p.className='note';p.textContent='No applications are currently tagged for this platform. Platform support is listed only when confirmed in the catalogue.';grid.append(p);}}
@@ -52,7 +63,7 @@ function ensureFooterLinks(){
  if(!group.querySelector('a[href^="mailto:"]')&&!footer.querySelector('a[href^="mailto:"]')){const contact=document.createElement('a');contact.href='mailto:CashDublo@gmail.com';contact.textContent='Contact Us';group.append(contact);}
 }
 
-function install(){document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
+function install(){document.querySelectorAll('article.card').forEach(card=>{if(card.id||(card.querySelector('.icon-link')&&card.querySelector('.plats')))decorateCard(card);});loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{install();});else{install();}
 })();
 ;
