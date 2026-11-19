@@ -47,3 +47,12 @@ state, and it holds the seats' folders and experiments.
 - The hub round that set this page up stands in the change log for
   2026-11-20: the Front Ends page now opens with the live doors and carries
   a set-up entry for every web app.
+
+## The finished-server copy (the President's order, 2026-11-20)
+
+When the production server is finished, a copy of its website is put
+in a repository called **Current Production Server** — the standing
+snapshot of the production site as it runs, kept in the fleet like
+every other record. (On GitHub the name takes its hyphen form,
+Current-Production-Server, as spaces cannot stand in a repository
+name.)

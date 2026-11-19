@@ -115,3 +115,7 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 ## 2026-11-20 — Onyx / AI-01 — The theme shelf
 
 **Added:** The `themes/` folder. The standard (themes/README.md): a CashDublo theme ships as a compatible pair — `.wthm` for web faces, `.athm` for applications — one core of the 21 color jobs in each file, the `.wthm` adding the mapping onto the site's CSS variables. The shelf: the six house themes as pairs (Porcelain, Obsidian Gold, Midnight Slate, Goldbone, King, Queen), built from the theme module's own palette records, every role filled, nothing re-picked, with `index.json` listing them. The masters live here because the hub serves them directly — every web face can fetch its `.wthm` today, and the apps take their `.athm` through the server's update doors when the server round comes.
+
+## 2026-11-20 — Onyx / AI-01 — The finished-server copy
+
+**Added:** To PRODUCTION-SITE-PLAN.md, on the President's order — when the production server is finished, a copy of its website goes into a repository called **Current Production Server** (hyphen form on GitHub), the standing snapshot of the production site as it runs.
