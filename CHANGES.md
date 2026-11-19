@@ -94,3 +94,12 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 **Before:** The site's contact email read CashDublo@gmail.com, and the website had no icon of its own in the browser address bar.
 
 **After:** On the President's order, every CashDublo@gmail.com on the site is now cash.dublo@gmail.com — the root pages, the app pages, the front-end pages, and the AI version folders. The website icon (the gold CashDublo mark) now stands at the root as favicon.ico, favicon-32.png, and apple-touch-icon.png, with a copy in every AI folder, and every page head carries the icon links so it loads in the address bar. SQL record was written first in CHANGES.sql, as required.
+
+
+## 2026-11-20 — ChatGPT / AI-02 — Full green header opens the menu
+
+**Before:** The transparent menu button covered the green header, but the CashDublo wordmark sat above it as a home link. Tapping the brand therefore navigated away instead of opening the menu.
+
+**After:** The CashDublo wordmark now toggles the same shared drawer. The full green header—including the wordmark and blank green space—opens or closes the menu on touch and mouse. The wordmark remains stationary; Home is still available inside the drawer. The shared interaction remains keyboard-operable and keeps its existing Escape, focus-return, outside-pointer-close, and reduced-motion behavior. Added a regression assertion for brand activation. SQL record was written first in CHANGES.sql, as required.
+
+**Verification limit:** Source-level regression assertion added; real phone/tablet/desktop touch and keyboard interaction still requires browser/device QA. No production deployment was made.
