@@ -138,3 +138,32 @@
 @media(max-width:700px){.cd-order-arrow{width:38px;height:38px}.cd-card-order-controls{top:6px;right:6px}}
 
 .cd-card-arranging>.cd-card-order-controls{display:inline-flex!important}
+
+
+/* Customizable top bar: match the site's deep-green header/footer, with no preset tabs. */
+.cd-quick-nav{
+ display:flex!important;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px;
+ min-height:38px;padding:4px clamp(8px,2vw,18px);
+ background:var(--cd-deep)!important;border-bottom:1px solid var(--cd-lime)!important;
+}
+.cd-quick-nav a{
+ flex:0 1 auto;min-width:0;min-height:30px;padding:5px 12px;
+ color:#fffdf8!important;background:transparent;border-radius:999px;
+ font-size:.78rem;white-space:nowrap;
+}
+.cd-quick-nav a:hover,.cd-quick-nav a:focus-visible{background:#35645c!important;color:#fffdf8!important}
+.cd-quick-manage{
+ order:99;display:inline-flex;align-items:center;justify-content:center;
+ margin:0;padding:6px 14px;min-height:30px;
+ border:1px solid #9fc4ae;border-radius:999px;
+ background:transparent;color:#fffdf8;font-size:.78rem;font-weight:850;cursor:pointer;
+}
+.cd-quick-manage:hover,.cd-quick-manage:focus-visible,.cd-quick-manage[aria-expanded="true"]{
+ background:#35645c;border-color:var(--cd-lime);color:#fffdf8;outline-offset:2px;
+}
+.cd-quick-manage-panel{margin:0 auto 10px}
+@media(max-width:700px){
+ .cd-quick-nav{min-height:38px;padding:4px 8px;gap:5px}
+ .cd-quick-nav a{min-height:30px;padding:5px 9px;font-size:.74rem}
+ .cd-quick-manage{margin:0;min-height:30px;padding:5px 11px;font-size:.74rem}
+}
