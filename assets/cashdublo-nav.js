@@ -22,7 +22,10 @@
     arranging=value;arrange.setAttribute("aria-pressed",String(value));
     arrange.textContent=value?"✓ Done arranging":"⚙ Settings · Arrange menu";
     inner.classList.toggle("cd-arranging",value);
-    inner.querySelectorAll(".cd-drawer-inner > a,.cd-drawer-inner > .cd-drawer-group,.cd-drawer-links > a").forEach(item=>{
+    const primary=document.querySelector("[data-cd-primary-nav]");
+    primary?.classList.toggle("cd-arranging",value);
+    const menuItems=[...inner.querySelectorAll(".cd-drawer-inner > a,.cd-drawer-inner > .cd-drawer-group,.cd-drawer-links > a"),...(primary?[...primary.querySelectorAll(":scope > a")]:[])];
+    menuItems.forEach(item=>{
      let handle=item.querySelector(":scope > .cd-drag-handle,summary > .cd-drag-handle");
      if(!handle){handle=document.createElement("span");handle.className="cd-drag-handle";handle.textContent="⠿";handle.setAttribute("aria-hidden","true");if(item.matches("a"))item.prepend(handle);else item.querySelector(":scope > summary")?.append(handle);}
      handle.hidden=!value;handle.draggable=value;
@@ -46,6 +49,23 @@
    }
    wire(inner,".cd-drawer-inner > a, .cd-drawer-inner > .cd-drawer-group");
    inner.querySelectorAll(".cd-drawer-links").forEach(list=>wire(list,".cd-drawer-links > a"));
+   const primaryNav=document.querySelector("[data-cd-primary-nav]");if(primaryNav)wire(primaryNav,":scope > a");
+   let activeMenuItem=null,activeMenuPointer=null;
+   inner.addEventListener("pointerdown",e=>{
+    if(!arranging||!e.target.closest(".cd-drag-handle"))return;
+    const item=e.target.closest("a,.cd-drawer-group");if(!item||!inner.contains(item))return;
+    e.preventDefault();activeMenuItem=item;activeMenuPointer=e.pointerId;item.classList.add("cd-dragging");
+    try{e.target.setPointerCapture(e.pointerId);}catch(_){}
+   },{passive:false});
+   document.addEventListener("pointermove",e=>{
+    if(!activeMenuItem||e.pointerId!==activeMenuPointer)return;
+    const target=document.elementFromPoint(e.clientX,e.clientY)?.closest("a,.cd-drawer-group");
+    if(!target||target===activeMenuItem||target.parentElement!==activeMenuItem.parentElement)return;
+    const rect=target.getBoundingClientRect();const after=e.clientY-rect.top>rect.height/2;
+    target.parentElement.insertBefore(activeMenuItem,after?target.nextSibling:target);
+   });
+   function finishMenuDrag(e){if(!activeMenuItem||e.pointerId!==activeMenuPointer)return;activeMenuItem.classList.remove("cd-dragging");activeMenuItem=null;activeMenuPointer=null;}
+   document.addEventListener("pointerup",finishMenuDrag);document.addEventListener("pointercancel",finishMenuDrag);
    inner.addEventListener("keydown",e=>{
     if(!arranging||!e.altKey||!["ArrowUp","ArrowDown"].includes(e.key))return;
     const handle=e.target.closest(".cd-drag-handle"),item=handle?.closest("a,.cd-drawer-group");
