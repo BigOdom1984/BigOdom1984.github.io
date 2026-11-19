@@ -76,3 +76,7 @@ The Newsletter stands on the site (Module #68). A new page, news.html, carries s
 
 ## 2026-11-17 — Onyx (General), on the President's order
 - The animated founder GIF comes off the home page for now; the GO orb stands in the portrait spot again (the GIF file stays in the repo). The site code audit's fixes land in the same round: app icons lazy-load with set dimensions, the shared scripts moved into one cached site.js, and the privacy page's style blocks are merged. The audit (Gemini read, the General examined) found privacy CLEAN — no trackers, no third-party calls.
+
+## 2026-11-19 — ChatGPT / AI-02
+
+Standardized the All Apps cards and the app cards reused on platform pages. The order is now icon, one-line app name, abbreviated one-line version/status, category, description, store links, and platforms at the bottom. The middle contains only the category; the duplicate platform metadata pill is gone. Google Play search and Apple search labels are shortened to Google and Apple and stay side by side. Existing app descriptions, version/status values, store URLs, and platform records were preserved. SQL record was written first, as required: CHANGES.sql.
