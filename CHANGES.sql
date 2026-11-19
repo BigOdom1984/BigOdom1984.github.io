@@ -60,3 +60,5 @@ INSERT INTO changes (date, who, what, docs) VALUES
 INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Updated the canonical site navigation to a stationary CashDublo wordmark in a 72px green header with full-bar menu hit area and accessible sliding drawer. Extracted reusable cashdublo-nav.js/css, with Escape/outside close, keyboard focus containment, reduced motion and responsive desktop/tablet/phone layouts.', 'assets/site-navigation.js; assets/site-navigation.css; assets/cashdublo-nav.js; assets/cashdublo-nav.css; NAVIGATION-STANDARD.md; tests/navigation-contract.test.cjs');
 
 INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Made the reusable navigation component self-initialize after DOM readiness, while keeping initialization idempotent for the main-site loader.', 'assets/cashdublo-nav.js');
+
+INSERT INTO changes (date, who, what, docs) VALUES ('2026-11-19', 'CashDublo', 'Made the shared navigation drawer reusable with any id named by aria-controls and allowed app-specific buttons to close the drawer via data-cd-close.', 'assets/cashdublo-nav.js; NAVIGATION-STANDARD.md');
