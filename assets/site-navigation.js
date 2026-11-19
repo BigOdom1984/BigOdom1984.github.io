@@ -29,14 +29,14 @@ function ensureFooterLinks(){
 
 function loadSharedDrawer(){
  const css="/assets/cashdublo-nav.css",script="/assets/cashdublo-nav.js";
- if(!document.querySelector('link[data-cd-nav-css]')){const link=document.createElement("link");link.rel="stylesheet";link.href=css;link.dataset.cdNavCss="1";document.head.appendChild(link);}
+ if(!document.querySelector('link[data-cd-nav-css],link[href="/assets/cashdublo-nav.css"]')){const link=document.createElement("link");link.rel="stylesheet";link.href=css;link.dataset.cdNavCss="1";document.head.appendChild(link);}
  if(window.CashDubloNav){window.CashDubloNav.init();return;}
- const existing=document.querySelector('script[data-cd-nav-js]');
+ const existing=document.querySelector('script[data-cd-nav-js],script[src="/assets/cashdublo-nav.js"]');
  if(existing){existing.addEventListener("load",()=>window.CashDubloNav?.init(),{once:true});return;}
  const s=document.createElement("script");s.src=script;s.dataset.cdNavJs="1";s.onload=()=>window.CashDubloNav?.init();document.head.appendChild(s);
 }
 
-function install(){const old=document.querySelector('body>header');if(old)old.outerHTML=nav;else document.body.insertAdjacentHTML('afterbegin',nav);loadSharedDrawer();document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
+function install(){if(!document.querySelector('[data-cd-header]'))document.body.insertAdjacentHTML('afterbegin',nav);loadSharedDrawer();document.querySelectorAll('article.card[id]').forEach(decorateCard);loadPlatformCatalog();addGameMetadata();ensureFooterLinks();if(path.endsWith('/front-ends.html')){const webGrid=document.querySelector('#web-frontends .grid');if(webGrid)buildRails(webGrid,[...webGrid.children].filter(x=>x.matches('.card')));}if(path.endsWith('/terminal.html')){const tools=[...document.querySelectorAll('.command-tool-card')];if(tools.length){const parent=tools[0].parentElement,rail=document.createElement('div');rail.className='cd-app-rail';tools.forEach(card=>rail.append(card));parent.insertBefore(rail,parent.firstChild);}}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{install();});else{install();}
 })();
 
