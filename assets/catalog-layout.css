@@ -1,0 +1,13 @@
+/* Shared catalogue presentation contract: preserve each site's visual theme, standardize information order. */
+:where(.cards,.grid,.apps-grid,.featured-apps,.app-grid,.catalog-grid){grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));min-width:0}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card){min-width:0;max-width:100%;display:flex!important;flex-direction:column!important;align-items:flex-start;overflow-wrap:anywhere}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card)>:where(.icon-link,.app-icon,.app-image,.image-link){order:0;display:block;align-self:flex-start;margin:0 0 8px;line-height:0}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card)>img,:where(.card,.app-card,.featured-app,.app-tile,.catalog-card)>a:has(>img){order:0}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card)>:where(h2,h3,.app-name,.title){order:1;width:100%;margin:6px 0 3px}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card)>:where(.version,.status,.app-version){order:2;display:inline-flex;align-items:center;align-self:flex-start;flex:0 0 auto;max-width:100%;margin:0 0 8px;white-space:nowrap!important;overflow-wrap:normal;word-break:normal;line-height:1.3}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card)>:where(p,.description,.summary){order:3;width:100%}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card)>:where(.links,.actions,.platforms,.plats,.metadata,details){order:4;max-width:100%}
+:where(.card,.app-card,.featured-app,.app-tile,.catalog-card) img{max-width:100%;height:auto;object-fit:cover}
+html,body{max-width:100%;overflow-x:clip}
+@media(max-width:700px){:where(.cards,.grid,.apps-grid,.featured-apps,.app-grid,.catalog-grid){grid-template-columns:minmax(0,1fr)}}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
