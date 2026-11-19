@@ -1,5 +1,14 @@
 # ChatGPT Website Edition Changelog
 
+## 0.1.4 — 2026-11-20
+
+- Rewrote app catalogue descriptions from the current project READMEs instead of using generic filler.
+- Added direct GitHub source links to every app card so visitors can inspect the project even when store publication is unverified.
+- Marked Cash Portfolio as BETA based on its README; kept other release states unclaimed where evidence was insufficient.
+- Updated homepage featured-app descriptions to match their project documentation.
+- **Verification:** Repository files and descriptions checked. Browser rendering, device-width visual QA and store listing checks remain NOT RUN.
+
+
 ## 0.1.3 — 2026-11-20
 
 - Styled the catalogue source-version note.
