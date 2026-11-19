@@ -27,3 +27,106 @@
 @media(max-width:1024px){.cd-drawer-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.cd-site-header{min-height:var(--cd-header-height);height:var(--cd-header-height);padding:0 12px;gap:8px}.cd-site-brand{font-size:1.08rem}.cd-site-tagline{display:none}.cd-header-hit{padding:0 10px}.cd-header-hit span{min-height:46px;padding:7px 12px}.cd-site-drawer{top:calc(var(--cd-header-height) - 8px);max-height:calc(100dvh - 64px)}.cd-drawer-inner{grid-template-columns:minmax(0,1fr);padding:14px 12px 20px;gap:8px}.cd-drawer-inner>a,.cd-drawer-group{min-height:54px}.cd-drawer-group summary{min-height:54px}}
 @media(prefers-reduced-motion:reduce){.cd-site-drawer{transition:none;transform:none}.cd-site-drawer[data-open=false]{opacity:0}.cd-site-drawer[data-open=true]{opacity:1}}
+
+
+/* Desktop: brand left, quick navigation in one row, full menu at the far right. */
+.cd-header-hit{
+  inset:0 0 0 auto;
+  left:auto;
+  width:auto;
+  min-width:92px;
+  z-index:3;
+}
+.cd-desktop-nav{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex:1 1 auto;
+  min-width:0;
+  align-items:center;
+  justify-content:flex-end;
+  gap:clamp(2px,.55vw,8px);
+  margin-left:auto;
+  margin-right:100px;
+  white-space:nowrap;
+}
+.cd-desktop-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:7px clamp(5px,.65vw,10px);
+  border:1px solid transparent;
+  border-radius:9px;
+  color:#fffdf8!important;
+  text-decoration:none!important;
+  font-size:clamp(.76rem,.88vw,.88rem);
+  font-weight:850;
+  white-space:nowrap;
+}
+.cd-desktop-nav a:hover,.cd-desktop-nav a:focus-visible{
+  background:#28534d;
+  border-color:#78958a;
+  outline:2px solid var(--cd-lime);
+  outline-offset:1px;
+}
+@media(max-width:900px){
+  .cd-desktop-nav{display:none}
+  .cd-header-hit{inset:0 0 0 auto;width:auto;min-width:92px}
+}
+
+/* Catalog cards now wrap as a responsive grid instead of being clipped rails. */
+.cd-app-rail{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+  align-items:stretch;
+  gap:16px;
+  overflow:visible;
+  overflow-x:visible;
+  overflow-y:visible;
+  overscroll-behavior:initial;
+  scroll-snap-type:none;
+  padding:4px 2px 14px;
+  margin:0 0 18px;
+}
+.cd-app-rail>.card{
+  width:100%;
+  min-width:0;
+  flex:initial;
+  scroll-snap-align:none;
+}
+.cd-app-rail>.card:not(:has(> .icon-link)){
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:8px;
+  padding:18px;
+}
+.cd-app-rail>.card:has(> .icon-link){
+  grid-template-columns:minmax(0,78px) minmax(0,1fr);
+  column-gap:12px;
+  row-gap:8px;
+  padding:18px;
+}
+.cd-app-rail>.card:has(> .icon-link) .icon-link img,
+.cd-app-rail>.card:has(> .icon-link) .app-icon-placeholder{
+  width:78px;
+  height:78px;
+}
+.cd-app-rail>.card>.status{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  max-width:100%;
+  white-space:nowrap;
+}
+.cd-app-rail>.card>.status .st{white-space:nowrap}
+.cd-card-meta{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.cd-card-category,.cd-card-platforms{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+@media(max-width:700px){
+  .cd-app-rail{grid-template-columns:minmax(0,1fr);gap:14px}
+  .cd-app-rail>.card:has(> .icon-link){grid-template-columns:minmax(0,78px) minmax(0,1fr);padding:16px}
+  .cd-app-rail>.card:not(:has(> .icon-link)){padding:16px}
+}
