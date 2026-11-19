@@ -84,3 +84,16 @@ input,select,textarea,button{max-width:100%;font:inherit}
 .cd-app-icon-frame[data-build-status="red"]::after{content:"UNDER CONSTRUCTION";position:absolute;left:-5%;right:-5%;bottom:8%;z-index:2;padding:5px 3px;background:#f2c94c;color:#172d2b;border:1px solid #172d2b;border-radius:4px;text-align:center;font-size:clamp(7px,1.1vw,10px);line-height:1.15;font-weight:950;letter-spacing:.035em;white-space:normal;box-shadow:0 1px 4px #0005;pointer-events:none}
 .cd-app-icon-frame[data-build-status="green"]::after,.cd-app-icon-frame[data-build-status="yellow"]::after{content:none}
 
+
+
+/* One navigation system: desktop quick links plus an accessible expandable drawer. */
+.cd-site-nav{display:none!important}
+.cd-header-hit{display:inline-flex;align-items:center;justify-content:flex-end;flex:0 0 auto}
+.cd-site-header:focus-within .cd-header-hit span{outline-offset:3px}
+.cd-site-drawer[aria-hidden="true"]{visibility:hidden}
+.cd-site-drawer[aria-hidden="false"]{visibility:visible}
+.cd-site-drawer:focus-within{outline:0}
+@media(max-width:700px){
+  .cd-header-hit{min-width:86px;padding-inline:8px}
+  .cd-header-hit span{font-size:.9rem}
+}

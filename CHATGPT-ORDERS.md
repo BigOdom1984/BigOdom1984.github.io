@@ -272,3 +272,12 @@ On **your own website version** (your seat's build), go further than placeholder
 ## Build acknowledgement — 2026-11-19
 
 Updating the existing shared CashDublo site-navigation component rather than introducing a second navigation system. Estimate: one build round for the stationary CashDublo wordmark, full green header hit surface, accessible sliding drawer, keyboard/outside/Escape behavior, reduced-motion handling, 72px header target, and desktop/tablet/phone layout checks. No production deployment.
+
+
+## Build receipt — desktop navigation and responsive catalog (2026-11-19)
+
+- **Built:** shared desktop quick links with CashDublo at far left and Menu at far right; responsive card grids that wrap complete cards to the next row; slightly reduced app-card/icon footprint; single-line category, platform and status labels; no-icon cards no longer reserve an empty icon column.
+- **Branch:** `chatgpt/desktop-catalog-responsive-20261119`
+- **Files:** `assets/cashdublo-nav.js`, `assets/cashdublo-nav.css`, `NAVIGATION-STANDARD.md`, `CHANGES.md`, `CHANGES.sql`, and responsive navigation tests.
+- **Boundary:** no production server, deployment, app backend or publisher service touched.
+- **Verification:** static checks are encoded in `tests/responsive-layout.test.mjs` and `tests/navigation-contract.test.cjs`; GitHub Actions navigation and responsive-layout validation passed; the Cloudflare Pages preview build passed. Real desktop/tablet/phone visual QA remains pending.
