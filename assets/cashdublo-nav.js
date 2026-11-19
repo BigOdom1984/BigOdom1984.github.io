@@ -3,19 +3,11 @@
  function init(root=document){
   const header=root.querySelector("[data-cd-header]"),toggle=header&&header.querySelector("[data-cd-toggle]"),drawerId=toggle?.getAttribute("aria-controls")||"cd-site-drawer",drawer=root.getElementById?root.getElementById(drawerId):document.getElementById(drawerId);
   if(!header||!toggle||!drawer||toggle.dataset.cdBound==="1")return;
-  // Compact five-destination site bar; the Menu control remains in the header.
+  // User-configurable top bar: no preset destination links are shown.
   if(!document.querySelector("[data-cd-quick-nav]")){
    const quick=document.createElement("nav");
    quick.className="cd-quick-nav";quick.dataset.cdQuickNav="1";
-   quick.setAttribute("aria-label","Quick navigation");
-   const links=[
-    ["Home","./index.html"],
-    ["All Apps","./apps.html"],
-    ["Featured","./index.html#featured"],
-    ["App Store","./cashdublo-app-store.html"],
-    ["Products","./products.html"]
-   ];
-   links.forEach(([label,href])=>{const a=document.createElement("a");a.textContent=label;a.href=href;quick.append(a);});
+   quick.setAttribute("aria-label","Customizable shortcuts");
    header.insertAdjacentElement("afterend",quick);
   }
   // Long-press quick links to swap destinations from the complete site menu.
@@ -53,8 +45,8 @@
     manage.textContent="＋ Customize shortcuts";
     manage.setAttribute("aria-expanded","false");
     const panel=document.createElement("div");panel.className="cd-quick-manage-panel";panel.hidden=true;
-    panel.innerHTML='<div class="cd-quick-manage-head"><strong>Quick bar shortcuts</strong><span>Choose which links appear above. The full menu stays unchanged.</span></div><div class="cd-quick-manage-options" data-cd-quick-options></div>';
-    quickNav.insertAdjacentElement("afterend",manage);manage.insertAdjacentElement("afterend",panel);
+    panel.innerHTML='<div class="cd-quick-manage-head"><strong>Customize the top bar</strong><span>Choose the menu headers you want here. The full menu stays available from the green header.</span></div><div class="cd-quick-manage-options" data-cd-quick-options></div>';
+    quickNav.append(manage);quickNav.insertAdjacentElement("afterend",panel);
     const options=panel.querySelector("[data-cd-quick-options]");
     function renderOptions(){
      options.replaceChildren();
@@ -64,13 +56,11 @@
       const input=document.createElement("input");input.type="checkbox";input.checked=selected.has(choice.href);
       input.addEventListener("change",()=>{
        if(input.checked){
-        const empty=quickNav.querySelector("a.cd-quick-empty");
-        if(empty)setSlot(empty,choice.label,choice.href,choice.groupId);
-        else if(quickNav.querySelectorAll("a").length<8){const slot=document.createElement("a");quickNav.append(slot);setSlot(slot,choice.label,choice.href,choice.groupId);slot.draggable=true;}
+        if(quickNav.querySelectorAll("a").length<8){const slot=document.createElement("a");quickNav.insertBefore(slot,manage);setSlot(slot,choice.label,choice.href,choice.groupId);slot.draggable=true;}
         else{input.checked=false;return;}
        }else{
         const slot=[...quickNav.querySelectorAll("a")].find(a=>(choice.groupId&&a.dataset.cdGroup===choice.groupId)||(!choice.groupId&&a.dataset.cdHref===choice.href));
-        if(slot)setSlot(slot,"＋ Add",null);
+        if(slot)slot.remove();
        }
        renderOptions();
       });
@@ -93,7 +83,7 @@
      pickerList.append(b);
     });
     const remove=document.createElement("button");remove.type="button";remove.className="cd-quick-remove";remove.textContent="Remove this shortcut";
-    remove.addEventListener("click",()=>{setSlot(slot,"＋ Add",null);closePicker();});
+    remove.addEventListener("click",()=>{slot.remove();closePicker();});
     pickerList.append(remove);
     picker.hidden=false;document.body.classList.add("cd-picker-open");
    }
