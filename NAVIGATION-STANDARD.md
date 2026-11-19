@@ -6,19 +6,19 @@
 ## Visual contract
 - Stationary CashDublo wordmark in a full-width green top bar.
 - Header height: 72px (approximately 12–20% above the previous 64px standard).
-- The entire green bar is the menu-toggle surface; the wordmark remains a normal home link.
+- The CashDublo wordmark stays at the far left. Desktop quick links sit in one horizontal row to its right; the Menu control stays at the far right. The wordmark and quick links remain normal links.
 - Drawer overlays content instead of pushing the page. It aligns 8px above the header bottom, slides down, and keeps the header/logo stationary.
 - Menu items are at least 52px high; mobile items are at least 54px high.
 - Drawer content adapts to four columns on desktop, two on tablet, one on phone.
 
 ## Interaction contract
-- Full-width button hit area; visible Menu label.
+- Visible Menu control at the far right; it opens the full drawer. Desktop quick links are independently clickable and never sit underneath the Menu hit target.
 - Accessible name, `aria-controls`, `aria-expanded`, `aria-hidden`, and `inert` states.
 - Keyboard activation, Escape close with focus return, Tab focus containment, outside-pointer close.
 - Drawer links keep their normal navigation behavior and close the drawer. App-specific buttons can opt into close-on-action with `data-cd-close`.
 - The drawer ID is read from the toggle button's `aria-controls`, so the same behavior supports existing app-specific drawer IDs.
 - Reduced-motion preference removes the slide transition.
-- No layout jump, horizontal overflow or header/logo animation.
+- Desktop: keep Apps, Websites, Tools, Games, Courses, Code, Newsletter and About in one horizontal row where space permits; hide that quick-link row at tablet/phone widths and retain the drawer.\n- Catalog cards use a responsive grid: reduce card/icon footprint slightly, fit as many complete cards as the available width allows, then wrap remaining cards onto the next row. No clipped partial card or horizontal card rail.\n- Category, platform and status chips remain single-line labels; chips may wrap as complete units when the card itself becomes narrow.\n- No layout jump, horizontal overflow or header/logo animation.
 
 ## Integration markup
 Each site provides its own brand home link and its own menu links, while reusing the same CSS/JS mechanics:
@@ -43,8 +43,8 @@ Each site provides its own brand home link and its own menu links, while reusing
 ## Verification checklist
 - Phone: 360–430px; drawer fits width, one column, no horizontal scroll.
 - Tablet: 768–1024px; two columns, readable tap targets.
-- Desktop: 1280px+; four columns, drawer max-height and internal scroll.
+- Desktop: 1280px+; wordmark left, quick links horizontal, Menu right; catalog cards form as many complete columns as fit, with leftovers below. Drawer retains four columns, max-height and internal scroll.
 - Keyboard: Tab, Shift+Tab, Enter/Space, Escape, focus return.
-- Pointer: full bar toggles, brand link navigates, outside click closes, drawer link navigates.
+- Pointer: Menu control toggles, brand and quick links navigate, outside click closes, drawer link navigates.
 - Reduced motion: no slide transition.
 - Preserve each app's fonts, colors outside the green header, existing routes, controls and content.
