@@ -138,14 +138,57 @@
   }
   // RSS is available as a page if needed, but is intentionally omitted from the main menu.
   drawer.querySelectorAll('a[href="./rss.html"],a[href="rss.html"]').forEach(a=>a.remove());
-  // Keep the main menu's key destinations in a predictable order.
+  // Enterprise navigation: Applications, Front Ends, and Back Ends.
   const menuInner=drawer.querySelector(".cd-drawer-inner");
-  if(menuInner){
+  if(menuInner&&!menuInner.dataset.cdEnterpriseNav){
+   const direct=[...menuInner.children];
    const home=menuInner.querySelector(':scope > a[href="./index.html"]');
-   const allApps=menuInner.querySelector(':scope > a[href="./apps.html"]');
+   const comments=menuInner.querySelector(':scope > a[data-cd-open]');
+   const memberships=menuInner.querySelector(':scope > a[href="./memberships.html"]');
+   const websiteDesign=menuInner.querySelector(':scope > a[href="./website-design.html"]');
+   const appStore=menuInner.querySelector(':scope > a[href="./cashdublo-app-store.html"]');
+   const products=menuInner.querySelector(':scope > a[href="./products.html"]');
+   const platforms=menuInner.querySelector(':scope > .cd-drawer-group > summary');
+   const platformGroup=platforms?.parentElement;
+   const courses=direct.find(x=>x.matches("details.cd-drawer-group")&&x.querySelector(":scope > summary")?.textContent.trim()==="Courses");
+   const code=menuInner.querySelector(':scope > a[href="./code.html"]');
+   const newsletter=menuInner.querySelector(':scope > a[href="./news.html"]');
+   const privacy=menuInner.querySelector(':scope > a[href="./privacy.html"]');
+   const about=menuInner.querySelector(':scope > a[href="./index.html#about"]');
    const featured=menuInner.querySelector(':scope > a[data-cd-featured-link]');
-   if(home)menuInner.prepend(home);
-   if(!featured){const a=document.createElement("a");a.href="./index.html#featured";a.textContent="Featured Apps";a.dataset.cdFeaturedLink="1";if(allApps)allApps.insertAdjacentElement("afterend",a);else if(home)home.insertAdjacentElement("afterend",a);}
+   const group=(label,links)=>{
+    const d=document.createElement("details");d.className="cd-drawer-group";
+    const summary=document.createElement("summary");summary.textContent=label;d.append(summary);
+    const list=document.createElement("div");list.className="cd-drawer-links";
+    links.forEach(([text,href])=>{const a=document.createElement("a");a.textContent=text;a.href=href;list.append(a);});
+    d.append(list);return d;
+   };
+   // Remove legacy labels that mixed products with their access interfaces.
+   direct.filter(x=>x.matches("a,details.cd-drawer-group")).forEach(x=>{
+    const label=x.matches("a")?x.textContent.trim():x.querySelector(":scope > summary")?.textContent.trim();
+    if(["All Apps","Front Ends","Web Apps","Web Front Ends","App Front Ends","Games"].includes(label))x.remove();
+   });
+   const applications=group("Applications",[
+    ["All Apps","./apps.html"],["Games","./games.html"],["Storyline Engine","./games.html#storyline-engine"],
+    ["Storyline Studio","./games.html#storyline-studios"],["Storyline Console / Player","./games.html#storyline-console"]
+   ]);
+   applications.dataset.cdCategory="applications";
+   const frontEnds=group("Front Ends",[
+    ["All Front Ends","./front-ends.html"],["Web Front Ends","./front-ends.html#web-frontends"],
+    ["Desktop Front Ends","./front-ends.html#desktop-frontends"],["Mobile Front Ends","./front-ends.html#mobile-frontends"]
+   ]);
+   frontEnds.dataset.cdCategory="front-ends";
+   const backEnds=group("Back Ends",[
+    ["Back-End Systems","./back-ends.html"],["CashDublo Server","./back-ends.html#cashdublo-server"],
+    ["APIs & Services","./back-ends.html#apis-services"],["Data & Storage","./back-ends.html#data-storage"],
+    ["Security & Identity","./back-ends.html#security-identity"],["Payments & Licensing","./back-ends.html#payments-licensing"],
+    ["AI & Automation","./back-ends.html#ai-automation"],["Deployment & Monitoring","./back-ends.html#deployment-monitoring"]
+   ]);
+   backEnds.dataset.cdCategory="back-ends";
+   const ordered=[home,comments,featured,applications,frontEnds,backEnds,memberships,websiteDesign,appStore,products,platformGroup,courses,code,newsletter,privacy,about].filter(Boolean);
+   ordered.forEach(el=>menuInner.append(el));
+   if(!featured){const a=document.createElement("a");a.href="./index.html#featured";a.textContent="Featured Apps";a.dataset.cdFeaturedLink="1";applications.insertAdjacentElement("beforebegin",a);}
+   menuInner.dataset.cdEnterpriseNav="1";
   }
   toggle.dataset.cdBound="1";
   let closeTimer=0;
