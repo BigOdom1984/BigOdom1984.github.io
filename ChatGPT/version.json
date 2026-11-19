@@ -1,15 +1,16 @@
 {
   "product": "CashDublo ChatGPT website edition",
-  "website_version": "0.1.0",
+  "website_version": "0.1.1",
   "version_scheme": "semver",
   "release_status": "CANDIDATE",
   "release_date": "2026-11-19",
-  "last_updated": "2026-11-19",
+  "last_updated": "2026-11-20",
   "owner": "ChatGPT",
   "version_scope": "This website folder only; separate from the AI agent release version and provider/model version.",
   "change_summary": [
     "Established the first explicit website-version baseline.",
-    "Added a visible website version and update date to the footer."
+    "Added a visible website version and update date to the footer.",
+    "Added source-based completion ratings to the ChatGPT app catalogue using the CashDublo 0.0.0–1.0.0 completion scale."
   ],
   "verification": {
     "source_review": "PASS",
