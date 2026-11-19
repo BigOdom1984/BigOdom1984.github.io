@@ -1,0 +1,23 @@
+{
+  "product": "CashDublo ChatGPT website edition",
+  "website_version": "0.1.0",
+  "version_scheme": "semver",
+  "release_status": "CANDIDATE",
+  "release_date": "2026-11-19",
+  "last_updated": "2026-11-19",
+  "owner": "ChatGPT",
+  "version_scope": "This website folder only; separate from the AI agent release version and provider/model version.",
+  "change_summary": [
+    "Established the first explicit website-version baseline.",
+    "Added a visible website version and update date to the footer."
+  ],
+  "verification": {
+    "source_review": "PASS",
+    "responsive_source_review": "PASS",
+    "browser_runtime": "NOT RUN",
+    "mobile_visual": "NOT RUN",
+    "tablet_visual": "NOT RUN",
+    "desktop_visual": "NOT RUN",
+    "live_link_check": "NOT RUN"
+  }
+}
