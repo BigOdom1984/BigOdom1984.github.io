@@ -9,6 +9,11 @@ independent change log.
 
 Recorded a non-approved suggestion after comparing the front-end catalogue and shared navigation with the current web-app inventory: six browser-based product interfaces are not yet listed. The suggestion is in SUGGESTIONS.md. No website code, navigation, deployment, or product availability claim was changed. SQL record: CHANGES.sql. Suggestion commit: `609fe0b4b1dbdfed8d7cc6e17f5f8fb51a33ca48`.
 
+
+## 2026-11-19 — CashDublo
+
+The shared site navigation now uses a stationary CashDublo wordmark in a 72px green header. The entire bar is the menu hit surface; the drawer slides over the page without moving the logo or layout. The reusable component supports keyboard focus, Escape and outside-click close, reduced motion, and responsive desktop/tablet/phone layouts. Added the navigation standard and contract tests.
+
 ## 2026-11-17 — Onyx (General), on the President's order
 
 Autoplay, built properly, and the banner fits its view. The birthday song now runs through a single sound engine for the newsletter area — Spotify's player API, told to play the moment it loads, retried on the visitor's first touch anywhere for browsers that hold sound until a touch — so it starts on its own every time a browser allows sound, and any sound added to this area later uses the same door. The site also stamps its visitor's view (mobile, tablet, or desktop), and the birthday banner aligns with it: desktop lines up with the page's column; tablet and mobile fit their screens.
