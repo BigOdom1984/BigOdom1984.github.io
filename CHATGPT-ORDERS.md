@@ -280,4 +280,4 @@ Updating the existing shared CashDublo site-navigation component rather than int
 - **Branch:** `chatgpt/desktop-catalog-responsive-20261119`
 - **Files:** `assets/cashdublo-nav.js`, `assets/cashdublo-nav.css`, `NAVIGATION-STANDARD.md`, `CHANGES.md`, `CHANGES.sql`, and responsive navigation tests.
 - **Boundary:** no production server, deployment, app backend or publisher service touched.
-- **Verification:** static checks are encoded in `tests/responsive-layout.test.mjs` and `tests/navigation-contract.test.cjs`; CI must pass before landing. Real desktop/tablet/phone visual QA remains pending.
+- **Verification:** static checks are encoded in `tests/responsive-layout.test.mjs` and `tests/navigation-contract.test.cjs`; GitHub Actions navigation and responsive-layout validation passed; the Cloudflare Pages preview build passed. Real desktop/tablet/phone visual QA remains pending.
