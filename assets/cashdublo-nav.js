@@ -135,7 +135,6 @@
    document.querySelector("[data-cd-primary-nav]")?.addEventListener("click",e=>{if(e.target.closest(".cd-drag-handle")){e.preventDefault();e.stopPropagation();}});
    arrange.addEventListener("click",()=>{
     const next=!arranging;setArrange(next);setCardsArrange(next);
-    if(next)close(false);
    });
    setArrange(false);setCardsArrange(false);
   }
