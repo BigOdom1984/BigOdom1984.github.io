@@ -51,3 +51,7 @@ This matrix records the platform targets shown on the All Apps cards and the evi
 - A separate marketing, status, showcase, or companion website is a **Web Front End**, not automatically another app platform (for example, Marvin's Website and Travel Journal Web).
 - Desktop payloads used by a mobile app may be listed as additional supported platform targets with a clear qualifier; they do not imply a separate desktop GUI.
 - A repository's existence, package configuration, or README target does not prove a successful build or store release. Verify build and release status separately.
+
+## API-backed module
+
+The canonical machine-readable inventory is served by the CashDublo server at `GET https://cashdublo.vercel.app/api/applications`. Its Cross-Platform Intelligence module classifies product category, job, repositories, OS targets, target certainty, and menu placement. Analysis proposals are protected and require human review before the catalogue or navigation changes. See [Cross-Platform Intelligence architecture](CROSS-PLATFORM-INTELLIGENCE.md).
