@@ -130,3 +130,6 @@
   .cd-app-rail>.card:has(> .icon-link){grid-template-columns:minmax(0,78px) minmax(0,1fr);padding:16px}
   .cd-app-rail>.card:not(:has(> .icon-link)){padding:16px}
 }
+
+@media(max-width:1024px){.cd-desktop-nav{display:none}}
+@media(min-width:1025px){.cd-site-tagline{display:none}}
