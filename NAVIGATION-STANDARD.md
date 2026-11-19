@@ -18,7 +18,10 @@
 - Drawer links keep their normal navigation behavior and close the drawer. App-specific buttons can opt into close-on-action with `data-cd-close`.
 - The drawer ID is read from the toggle button's `aria-controls`, so the same behavior supports existing app-specific drawer IDs.
 - Reduced-motion preference removes the slide transition.
-- Desktop: keep Apps, Websites, Tools, Games, Courses, Code, Newsletter and About in one horizontal row where space permits; hide that quick-link row at tablet/phone widths and retain the drawer.\n- Catalog cards use a responsive grid: reduce card/icon footprint slightly, fit as many complete cards as the available width allows, then wrap remaining cards onto the next row. No clipped partial card or horizontal card rail.\n- Category, platform and status chips remain single-line labels; chips may wrap as complete units when the card itself becomes narrow.\n- No layout jump, horizontal overflow or header/logo animation.
+- Desktop: keep Apps, Websites, Tools, Games, Courses, Code, Newsletter and About in one horizontal row where space permits; hide that quick-link row at tablet/phone widths and retain the drawer.
+- Catalog cards use a responsive grid: reduce card/icon footprint slightly, fit as many complete cards as the available width allows, then wrap remaining cards onto the next row. No clipped partial card or horizontal card rail.
+- Category, platform and status chips remain single-line labels; chips may wrap as complete units when the card itself becomes narrow.
+- No layout jump, horizontal overflow or header/logo animation.
 
 ## Integration markup
 Each site provides its own brand home link and its own menu links, while reusing the same CSS/JS mechanics:
