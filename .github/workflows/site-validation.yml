@@ -4,7 +4,7 @@ on:
   push:
     branches: [main, chatgpt/desktop-catalog-responsive-20261119]
   pull_request:
-    branches: [main]
+    branches: [main, chatgpt/desktop-catalog-responsive-20261119]
 
 permissions:
   contents: read
