@@ -3,6 +3,14 @@
  function init(root=document){
   const header=root.querySelector("[data-cd-header]"),toggle=header&&header.querySelector("[data-cd-toggle]"),drawerId=toggle?.getAttribute("aria-controls")||"cd-site-drawer",drawer=root.getElementById?root.getElementById(drawerId):document.getElementById(drawerId);
   if(!header||!toggle||!drawer||toggle.dataset.cdBound==="1")return;
+  // A consistent customer account entry sits at the far left of the site header.
+  if(!header.querySelector(".cd-login-link")){
+   const login=document.createElement("a");
+   login.className="cd-login-link";login.href="./login.html";login.textContent="Log in";
+   login.setAttribute("aria-label","Log in to your CashDublo account");
+   const brand=header.querySelector(".cd-site-brand");
+   if(brand)header.insertBefore(login,brand);else header.insertBefore(login,header.firstChild);
+  }
   // User-configurable top bar: no preset destination links are shown.
   if(!document.querySelector("[data-cd-quick-nav]")){
    const quick=document.createElement("nav");
