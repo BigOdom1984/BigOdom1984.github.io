@@ -136,3 +136,5 @@
 .cd-header-hit{inset:0!important;width:100%!important;height:100%!important;z-index:5!important}
 .cd-site-brand{pointer-events:none!important;z-index:4!important}
 @media(max-width:700px){.cd-order-arrow{width:38px;height:38px}.cd-card-order-controls{top:6px;right:6px}}
+
+.cd-card-arranging>.cd-card-order-controls{display:inline-flex!important}
