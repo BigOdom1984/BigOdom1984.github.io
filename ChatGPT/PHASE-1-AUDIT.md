@@ -77,3 +77,32 @@ After identifying the source-level regression, the candidate-only correction was
 - The official root website, shared navigation assets, and other AI-owned site folders were not modified.
 - Candidate version advanced to 0.1.5 and its changelog/README were synchronized.
 - Runtime behavior is still NOT VERIFIED because browser access remains unavailable. The source correction is not a substitute for visual QA.
+
+## Second source-audit pass — internal routes, assets, fragments and image accessibility
+
+Date: 2026-11-20
+
+### Results
+- The four candidate HTML pages were re-fetched: index.html, apps.html, privacy.html and rss-receiver.html.
+- All local page destinations found in the authored navigation/content resolve to candidate pages present in the repository: index.html, apps.html, rss-receiver.html and privacy.html.
+- The homepage fragment links #about and #featured resolve to IDs present in index.html. RSS preview fragment links #reader and #compatibility resolve to IDs present in rss-receiver.html.
+- Static source scan found no duplicate IDs in the four pages.
+- Static source scan found no img elements missing an alt attribute: homepage 5 images, catalogue 15 images.
+- Repository img directory contains 37 image files. Every one of the 15 distinct app icon filenames referenced by the catalogue was present in that directory; founder-rotate.gif was also present. The relative ../img paths normalize to the repository-level img directory, so they are structurally correct for the /ChatGPT/ folder.
+- Shared assets site-navigation.css and site-navigation.js are present in the root assets directory.
+
+### Limitations / remaining checks
+- These are repository-source/path-existence checks, not HTTP response checks from the deployed GitHub Pages host. Deployment routing, caching, MIME behavior and actual image rendering remain NOT TESTED.
+- External destinations, store listings, email link behavior and any links generated dynamically by JavaScript remain NOT TESTED.
+- Privacy page is a simple document with a footer return link; it does not currently provide the full candidate-page navigation. This is a navigation consistency improvement to consider, not a broken local destination.
+- The login shortcut remains a conditional risk to verify only if the shared account header script is active on this candidate route; do not treat a login destination as working without confirming the deployed page.
+- Accessibility checks are limited to static presence of alt attributes and duplicate-ID scans. Keyboard, screen-reader, contrast, heading hierarchy, focus order and touch target tests require runtime browser testing.
+
+### Status update
+- Internal page path existence: PASS (source repository)
+- In-page fragment targets: PASS (static source scan)
+- Image filename existence: PASS (repository tree comparison)
+- Static image alt attributes: PASS (presence only)
+- Deployed URL/asset responses: NOT TESTED
+- External links/store listing verification: NOT TESTED
+- Full accessibility/runtime QA: NOT TESTED
