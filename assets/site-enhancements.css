@@ -145,12 +145,13 @@ input,select,textarea,button{max-width:100%;font:inherit}
   display:flex;
   justify-content:center;
   align-items:center;
-  flex-wrap:nowrap!important;
+  flex-wrap:wrap!important;
   gap:8px 14px!important;
   width:100%;
   margin-top:auto!important;
   white-space:nowrap;
 }
+.cd-app-card.has-store-links>.links{flex-wrap:nowrap!important}
 .cd-app-card>.links a{
   white-space:nowrap;
   flex:0 0 auto;
