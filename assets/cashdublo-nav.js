@@ -30,14 +30,20 @@
    let targetSlot=null,pressTimer=0,pressPointer=null,quickDrag=null,quickStart=null;
    const pickerList=picker.querySelector("[data-cd-picker-list]");
    function menuChoices(){
-    const found=new Map();
-    drawer.querySelectorAll('a[href]').forEach(a=>{
-     const href=a.getAttribute("href");
-     if(!href||href==="./rss.html"||href==="rss.html"||a.hasAttribute("data-cd-open"))return;
-     const label=(a.textContent||"").replace(/⠿/g,"").trim();
-     if(label&&!found.has(href))found.set(href,{label,href});
+    const choices=[];
+    const cleanLabel=el=>{const copy=el.cloneNode(true);copy.querySelectorAll(".cd-order-controls").forEach(x=>x.remove());return copy.textContent.trim();};
+    [...drawer.querySelector(".cd-drawer-inner").children].forEach((item,index)=>{
+     if(item.matches("a[href]")){
+      const href=item.getAttribute("href");
+      if(!href||href==="./rss.html"||href==="rss.html"||item.hasAttribute("data-cd-open"))return;
+      const label=cleanLabel(item);if(label)choices.push({label,href});
+     }else if(item.matches("details.cd-drawer-group")){
+      const summary=item.querySelector(":scope > summary");if(!summary)return;
+      if(!item.id)item.id="cd-menu-group-"+index;
+      const label=cleanLabel(summary);if(label)choices.push({label,href:"#"+item.id,groupId:item.id});
+     }
     });
-    return [...found.values()];
+    return choices;
    }
    // Full-menu links stay untouched; quick-bar slots are independently configurable.
    function addQuickControls(){
@@ -52,18 +58,18 @@
     const options=panel.querySelector("[data-cd-quick-options]");
     function renderOptions(){
      options.replaceChildren();
-     const selected=new Set([...quickNav.querySelectorAll("a")].map(a=>a.dataset.cdHref).filter(Boolean));
+     const selected=new Set([...quickNav.querySelectorAll("a")].map(a=>a.dataset.cdGroup||a.dataset.cdHref).filter(Boolean));
      menuChoices().forEach(choice=>{
       const label=document.createElement("label");label.className="cd-quick-option";
       const input=document.createElement("input");input.type="checkbox";input.checked=selected.has(choice.href);
       input.addEventListener("change",()=>{
        if(input.checked){
         const empty=quickNav.querySelector("a.cd-quick-empty");
-        if(empty)setSlot(empty,choice.label,choice.href);
-        else if(quickNav.querySelectorAll("a").length<8){const slot=document.createElement("a");quickNav.append(slot);setSlot(slot,choice.label,choice.href);slot.draggable=true;}
+        if(empty)setSlot(empty,choice.label,choice.href,choice.groupId);
+        else if(quickNav.querySelectorAll("a").length<8){const slot=document.createElement("a");quickNav.append(slot);setSlot(slot,choice.label,choice.href,choice.groupId);slot.draggable=true;}
         else{input.checked=false;return;}
        }else{
-        const slot=[...quickNav.querySelectorAll("a")].find(a=>a.dataset.cdHref===choice.href);
+        const slot=[...quickNav.querySelectorAll("a")].find(a=>(choice.groupId&&a.dataset.cdGroup===choice.groupId)||(!choice.groupId&&a.dataset.cdHref===choice.href));
         if(slot)setSlot(slot,"＋ Add",null);
        }
        renderOptions();
@@ -83,7 +89,7 @@
     const choices=menuChoices();
     choices.forEach(choice=>{
      const b=document.createElement("button");b.type="button";b.className="cd-quick-choice";b.textContent=choice.label;
-     b.addEventListener("click",()=>{setSlot(slot,choice.label,choice.href);closePicker();});
+     b.addEventListener("click",()=>{setSlot(slot,choice.label,choice.href,choice.groupId);closePicker();});
      pickerList.append(b);
     });
     const remove=document.createElement("button");remove.type="button";remove.className="cd-quick-remove";remove.textContent="Remove this shortcut";
@@ -92,11 +98,16 @@
     picker.hidden=false;document.body.classList.add("cd-picker-open");
    }
    function closePicker(){picker.hidden=true;document.body.classList.remove("cd-picker-open");targetSlot=null;}
-   function setSlot(slot,label,href){
+   function setSlot(slot,label,href,groupId){
     slot.textContent=label;slot.dataset.cdLabel=label;
-    if(href){slot.href=href;slot.dataset.cdHref=href;slot.classList.remove("cd-quick-empty");slot.setAttribute("aria-label",label+" — long press to customize");}
-    else{slot.removeAttribute("href");delete slot.dataset.cdHref;slot.classList.add("cd-quick-empty");slot.setAttribute("aria-label","Empty shortcut — tap to add a destination");}
+    if(href){slot.href=href;slot.dataset.cdHref=href;if(groupId)slot.dataset.cdGroup=groupId;else delete slot.dataset.cdGroup;slot.classList.remove("cd-quick-empty");slot.setAttribute("aria-label",label+" — long press to customize");}
+    else{slot.removeAttribute("href");delete slot.dataset.cdHref;delete slot.dataset.cdGroup;slot.classList.add("cd-quick-empty");slot.setAttribute("aria-label","Empty shortcut — tap to add a destination");}
    }
+   quickNav.addEventListener("click",e=>{
+    const slot=e.target.closest("a[data-cd-group]");if(!slot)return;
+    e.preventDefault();const group=document.getElementById(slot.dataset.cdGroup);if(!group)return;
+    open();group.open=true;requestAnimationFrame(()=>{group.scrollIntoView({block:"nearest",behavior:"smooth"});group.querySelector(":scope > summary")?.focus({preventScroll:true});});
+   });
    quickNav.querySelectorAll("a").forEach(a=>{a.dataset.cdLabel=a.textContent.trim();a.dataset.cdHref=a.getAttribute("href");a.setAttribute("aria-label",a.textContent.trim()+" — long press to customize");});
    quickNav.addEventListener("pointerdown",e=>{
     const slot=e.target.closest("a");if(!slot)return;
