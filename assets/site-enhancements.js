@@ -44,6 +44,8 @@ function decorateCard(card){
    directLinks.forEach(a=>links.append(a));
   }
  }
+ const storeLinks=[...card.querySelectorAll('.links a')].some(link=>/^(Google|Apple) ↗$/.test((link.textContent||'').trim()));
+ if(storeLinks)card.classList.add('has-store-links');else card.classList.remove('has-store-links');
  card.querySelectorAll('.links a').forEach(link=>{
   const label=(link.textContent||'').trim();
   if(/^Google Play search\\s*↗?$/i.test(label))link.textContent='Google ↗';
