@@ -11,6 +11,12 @@
 - Menu items are at least 52px high; mobile items are at least 54px high.
 - Drawer content adapts to four columns on desktop, two on tablet, one on phone.
 
+## Account entry
+- A persistent **Log in** link appears at the far left of the top green header, before the CashDublo wordmark.
+- The link opens `/login.html`, the customer account sign-in page.
+- The account entry remains separate from the full-width menu hit area and does not toggle the navigation drawer.
+- Customer identity sign-in does not grant access to the private owner dashboard; apps continue to use their own API credentials.
+
 ## Interaction contract
 - Full-width button hit area; visible Menu label.
 - Accessible name, `aria-controls`, `aria-expanded`, `aria-hidden`, and `inert` states.
