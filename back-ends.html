@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Back Ends — CashDublo</title>
+<meta name="description" content="CashDublo back-end systems: servers, APIs, data, identity, payments, AI services, security, deployment and monitoring.">
+<link rel="stylesheet" href="/assets/cashdublo-nav.css">
+<script src="/assets/cashdublo-nav.js" defer></script>
+<style>
+:root{--ink:#172d2b;--muted:#596d68;--paper:#f5f0e6;--white:#fffdf8;--lime:#c9ed72;--line:#d8d4c9;--deep:#193d39}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+.hero{padding:64px 7vw;background:var(--deep);color:#fff}.hero small{color:var(--lime);font-weight:900;letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(2.8rem,7vw,5.5rem);line-height:.98;letter-spacing:-.07em;margin:14px 0}.hero p{max-width:760px;color:#d5e2d9}
+.wrap{max-width:1200px;margin:auto;padding:44px 24px}.intro{max-width:820px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:24px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px;min-width:0}.card h2{font-size:1.2rem;margin:0 0 8px}.card p{color:var(--muted);margin:0 0 10px}.status{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:4px 9px;font-size:.72rem;font-weight:850;margin-bottom:12px}.note{background:#e7e4d9;border-radius:14px;padding:18px;color:var(--muted);margin-top:24px}footer{text-align:center;padding:32px;background:var(--deep);color:#d5e2d9}
+</style>
+</head>
+<body>
+<header class="cd-site-header" data-cd-header>
+<button class="cd-header-hit" type="button" data-cd-toggle aria-controls="cd-site-drawer" aria-expanded="false" aria-label="Open navigation. Tap anywhere on the green header to open or close the menu."><span>Menu <b aria-hidden="true">☰</b></span></button>
+<a class="cd-site-brand" href="./index.html">CASH<span>DUBLO</span></a>
+</header>
+<nav id="cd-site-drawer" class="cd-site-drawer" aria-label="Site navigation" aria-hidden="true" hidden inert>
+<div class="cd-drawer-inner">
+<a href="./index.html">Home</a><a href="#comments" data-cd-open>Comments</a><a href="./apps.html">All Apps</a><a href="./memberships.html">Memberships</a><a href="./website-design.html">Website Design</a><a href="./cashdublo-app-store.html">App Store</a><a href="./products.html">Products</a>
+<details class="cd-drawer-group"><summary>Platforms</summary><div class="cd-drawer-links"><a href="./android.html">Android</a><a href="./iphone.html">iPhone / iOS</a><a href="./mac.html">Mac</a><a href="./windows.html">Windows</a><a href="./linux.html">Linux</a><a href="./terminal.html">Command Tools</a></div></details>
+<a href="./front-ends.html">Front Ends</a><a href="./front-ends.html#web-frontends">Web Apps</a>
+<details class="cd-drawer-group"><summary>Web Front Ends</summary><div class="cd-drawer-links"><a href="./front-ends/showcase.html">CashDublo Showcase</a><a href="./front-ends/online-course.html">CashDublo Online Course</a><a href="./front-ends/server.html">CashDublo Server</a><a href="./front-ends/travel-journal-web.html">Travel Journal Web</a><a href="./front-ends/marvin-web.html">Marvin's Website</a></div></details>
+<details class="cd-drawer-group"><summary>App Front Ends</summary><div class="cd-drawer-links"><a href="./front-ends.html#app-ai2aisync">AI2AISync</a><a href="./front-ends.html#app-travel-journal">Travel Journal</a></div></details>
+<details class="cd-drawer-group"><summary>Games</summary><div class="cd-drawer-links"><a href="./games.html">Games</a><a href="./games.html#storyline-engine">Storyline Engine</a><a href="./games.html#storyline-studios">Storyline Studio</a><a href="./games.html#storyline-console">Storyline Console</a><a href="./games.html#hacked">Storyline — HACKED</a><a href="./games.html#name-that-flag">Name That Flag</a></div></details>
+<details class="cd-drawer-group"><summary>Courses</summary><div class="cd-drawer-links"><a href="./course.html">The Course &amp; Games</a></div></details>
+<a href="./code.html">The Code / My Source Code</a><a href="./news.html">Newsletter</a><a href="./rss.html">RSS Feeds</a><a href="./privacy.html">Privacy</a><a href="./index.html#about">About</a>
+</div></nav>
+<section class="hero"><small>CashDublo Enterprise · Category 03</small><h1>Back Ends.</h1><p>The servers, services, and systems that make CashDublo applications and front ends work. This page is the inventory and architecture map—not a claim that every listed service is already deployed.</p></section>
+<main class="wrap">
+<p class="intro">Back ends provide shared capabilities to applications and interfaces. Some products run locally and need no server; others use a shared CashDublo service or a dedicated back end. Each service must be marked by its actual implementation and deployment evidence.</p>
+<div class="grid">
+<article class="card" id="cashdublo-server"><span class="status">Existing project · deployment status verify</span><h2>CashDublo Server</h2><p>Shared server project intended to provide common back-end capabilities to CashDublo applications. Confirm deployed endpoints, authentication, data ownership, and service health before describing any capability as live.</p><p><a href="./front-ends/server.html">Existing server project details</a></p></article>
+<article class="card" id="apis-services"><span class="status">Architecture component · inventory required</span><h2>APIs &amp; Application Services</h2><p>Interfaces that applications and front ends call to request data or perform server-side work. Document each API's owner, endpoint, authentication method, version, and health check.</p></article>
+<article class="card" id="data-storage"><span class="status">Architecture component · inventory required</span><h2>Databases, Files &amp; Storage</h2><p>Structured databases, object/file storage, backups, and retention systems. Record data location, encryption, backup frequency, recovery tests, and which application owns each dataset.</p></article>
+<article class="card" id="security-identity"><span class="status">Architecture component · inventory required</span><h2>Identity, Access &amp; Security</h2><p>Authentication, authorization, session management, secrets, encryption, audit trails, and access policies shared across products.</p></article>
+<article class="card" id="payments-licensing"><span class="status">Architecture component · inventory required</span><h2>Payments, Billing &amp; Licensing</h2><p>Checkout integrations, receipts, subscriptions, product entitlements, licence validation, renewals, cancellations, refunds, and payment-event records. Do not activate charges until tested end to end.</p></article>
+<article class="card" id="ai-automation"><span class="status">Architecture component · inventory required</span><h2>AI, Models &amp; Automation</h2><p>Model gateways, inference services, agent orchestration, task queues, AI2AISync services, and automated workflows. Track provider, cost, limits, data handling, and fallbacks.</p></article>
+<article class="card" id="deployment-monitoring"><span class="status">Architecture component · inventory required</span><h2>Deployment, Networking &amp; Monitoring</h2><p>Build and release pipelines, hosting, DNS, networking, logs, metrics, alerts, uptime checks, and disaster recovery.</p></article>
+</div>
+<div class="note"><strong>Inventory rule:</strong> “Architecture component” means the system belongs in the enterprise map. It does not mean it is built, connected, secure, or live. Promote a component to “implemented” or “production” only after repository, configuration, deployment, and health evidence are checked. Keep credentials and secrets out of this public page.</div>
+</main>
+<footer>CashDublo · <a href="./index.html">Home</a> · <a href="./apps.html">Applications</a> · <a href="./front-ends.html">Front Ends</a></footer>
+</body></html>
