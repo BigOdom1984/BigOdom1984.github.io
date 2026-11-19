@@ -25,6 +25,8 @@ assert.ok(newsletter.includes('ov.querySelector(".cdnews-x").addEventListener("c
 assert.ok(!newsletter.includes('ov.addEventListener("click"'), "outside click must not dismiss newsletter");
 assert.ok(!newsletter.includes('id=\\\"cdnews-close\\\"'), "secondary dismiss control must not return");
 assert.ok(newsletter.includes("cdAutoSound") && newsletter.includes('addEventListener("pointerdown",tryPlay'), "audio must retry after an allowed user gesture");
+assert.ok(newsletter.includes("focusable[0]") && newsletter.includes("last.focus()"), "newsletter dialog must trap keyboard focus");
+assert.ok(newsletter.includes("cdNewsStopSound") && newsletter.includes("ctrl.pause()"), "closing the newsletter must stop its audio player");
 assert.ok(home.includes("bday-strip") && news.includes("bday-strip"), "birthday banner must appear on home and newsletter pages");
 assert.ok(home.includes("flex-wrap:wrap") && news.includes("flex-wrap:wrap"), "birthday banner must wrap responsively");
 
