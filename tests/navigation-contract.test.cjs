@@ -9,6 +9,7 @@ for(const token of ["--cd-header-height:72px","position:fixed","max-height","@me
 for(const token of ["data-cd-header","data-cd-toggle",'aria-controls="cd-site-drawer"','id="cd-site-drawer"','aria-expanded="false"','<nav class="cd-site-drawer"','aria-label="Full site navigation"','aria-hidden="true" inert hidden',"drawerGroup('Platforms'","drawerGroup('Front Ends'"])assert.ok(siteNav.includes(token),"missing generated navigation contract: "+token);
 assert.ok(fs.readFileSync("assets/site-navigation.css","utf8").includes(".cd-site-nav{display:none!important}"),"legacy horizontal navigation must not compete with the drawer");
 assert.ok(navRuntime.includes("if(first)first.focus()"),"opening the drawer must move keyboard focus into navigation");
+assert.ok(navRuntime.includes("x.getClientRects().length>0"),"collapsed menu links must not enter the keyboard focus trap");
 assert.ok(navRuntime.includes("if(returnFocus)toggle.focus()"),"Escape must return keyboard focus to the menu toggle");
 assert.ok(navRuntime.includes('toggle.setAttribute("aria-label","Open navigation menu")'),"closed menu must have an accurate accessible label");
 assert.ok(!navRuntime.includes("Tap anywhere on the green header"),"do not advertise a nonfunctional header-wide toggle");
