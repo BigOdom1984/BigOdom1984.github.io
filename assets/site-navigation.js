@@ -24,8 +24,12 @@ function ensureFooterLinks(){
  let group=footer.querySelector('.cd-footer-legal');
  if(!group){group=document.createElement('div');group.className='cd-footer-legal';footer.append(group);}
  if(!group.querySelector('a[href="/privacy.html"]')){const privacy=document.createElement('a');privacy.href='/privacy.html';privacy.textContent='Privacy Policy';group.append(privacy);}
- if(!group.querySelector('a[href^="mailto:"]')&&!footer.querySelector('a[href^="mailto:"]')){const contact=document.createElement('a');contact.href='mailto:CashDublo@gmail.com';contact.textContent='Contact Us';group.append(contact);}
- if(!group.querySelector('a[href="/index.html#about"]')){const about=document.createElement('a');about.href='/index.html#about';about.textContent='About';group.append(about);}
+ let contact=group.querySelector('a[href^="mailto:"]')||footer.querySelector('a[href^="mailto:"]');
+ if(!contact){contact=document.createElement('a');contact.href='mailto:CashDublo@gmail.com';contact.textContent='Contact Us';}
+ group.append(contact);
+ let about=group.querySelector('a[href="/index.html#about"]')||footer.querySelector('a[href="/index.html#about"]');
+ if(!about){about=document.createElement('a');about.href='/index.html#about';about.textContent='About';}
+ group.append(about);
 }
 
 function loadSharedDrawer(){
@@ -56,7 +60,12 @@ function ensurePrimaryNav(){
   style.textContent='.cd-primary-nav{position:sticky;top:64px;z-index:999;display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.5vw,30px);width:100%;padding:10px clamp(14px,4vw,40px);background:#f5f0e6;color:#172d2b;border-bottom:1px solid #d8d4c9;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;-webkit-overflow-scrolling:touch}.cd-primary-nav a{flex:0 0 auto;color:#172d2b;text-decoration:none;font-size:.92rem;font-weight:850;padding:5px 2px;border-bottom:3px solid transparent}.cd-primary-nav a:hover,.cd-primary-nav a:focus-visible{color:#a84e3d;border-bottom-color:#f0785e;outline-offset:3px}.cd-primary-nav a[aria-current=page]{color:#a84e3d;border-bottom-color:#f0785e}@media(max-width:600px){.cd-primary-nav{justify-content:flex-start;gap:20px;padding:9px 14px}.cd-primary-nav a{font-size:.88rem}}@media(prefers-reduced-motion:reduce){.cd-primary-nav{scroll-behavior:auto}}';
   document.head.appendChild(style);
  }
- primary.style.top=(header.getBoundingClientRect().height||64)+'px';
+ let spacer=document.querySelector('[data-cd-primary-nav-spacer]');
+ if(!spacer){spacer=document.createElement('div');spacer.dataset.cdPrimaryNavSpacer='1';spacer.setAttribute('aria-hidden','true');primary.insertAdjacentElement('beforebegin',spacer);}
+ const syncPrimaryNav=()=>{primary.style.top=(header.getBoundingClientRect().height||64)+'px';spacer.style.height=primary.offsetHeight+'px';};
+ primary.style.position='fixed';primary.style.left='0';primary.style.right='0';primary.style.width='100%';
+ syncPrimaryNav();
+ if(!primary.dataset.cdResizeBound){window.addEventListener('resize',syncPrimaryNav,{passive:true});primary.dataset.cdResizeBound='1';}
  const current=location.pathname.toLowerCase();
  const hash=location.hash.toLowerCase();
  primary.querySelectorAll('a').forEach(a=>{
