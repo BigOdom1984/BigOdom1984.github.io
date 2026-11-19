@@ -5,7 +5,7 @@ const standard=fs.readFileSync("WEBSITE-CATALOG-STANDARD.md","utf8");
 for(const token of [".icon-link","order:0","order:1","order:2","white-space:nowrap","repeat(auto-fit,minmax(min(100%,250px),1fr))","overflow-x:clip"])assert.ok(css.includes(token),"missing catalogue layout contract: "+token);
 assert.ok(standard.includes("0.1.1 BETA"));
 assert.ok(standard.includes("planned platforms"));
-assert.ok(standard.includes("independent visual themes"));
+assert.ok(standard.includes("Visual design may differ by AI"));
 for(const path of ["index.html","apps.html","front-ends.html","ChatGPT/index.html","ChatGPT/apps.html","Claude/index.html","Cohere/index.html","Copilot/index.html","Gemini/index.html","Groq/index.html","Jina/index.html","Mistral/index.html","Muse/index.html","Muse/apps.html","NVIDIA/index.html","Onyx/index.html","OpenAI/index.html","OpenRouter/index.html","SambaNova/index.html","Workers-AI/index.html","muse/index.html"]){
  const html=fs.readFileSync(path,"utf8");
  assert.ok(html.includes("catalog-layout.css"),path+" must load shared catalogue layout");
