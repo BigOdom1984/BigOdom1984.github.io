@@ -7,6 +7,7 @@ const home = read("index.html");
 const news = read("news.html");
 const apps = read("apps.html");
 const site = read("site.js");
+const newsletter = site.slice(site.indexOf("/*CDNEWS*/"));
 const nav = read("assets/site-navigation.js");
 const navRuntime = read("assets/cashdublo-nav.js");
 const navCss = read("assets/cashdublo-nav.css");
@@ -18,12 +19,12 @@ for (const [path, html] of [["index.html", home], ["news.html", news], ["apps.ht
 }
 
 // Newsletter: full-screen, explicit-X-only dismissal, with honest autoplay fallback.
-assert.ok(site.includes("height:100dvh"), "newsletter overlay must fill dynamic viewport height");
-assert.ok(site.includes('aria-label=\\"Close\\"'), "newsletter must expose a labelled close control");
-assert.ok(site.includes('ov.querySelector(".cdnews-x").addEventListener("click", close)'), "newsletter close control must work");
-assert.ok(!site.includes('ov.addEventListener("click"'), "outside click must not dismiss newsletter");
-assert.ok(!site.includes('id=\\\"cdnews-close\\\"'), "secondary dismiss control must not return");
-assert.ok(site.includes("cdAutoSound") && site.includes('addEventListener("pointerdown",tryPlay'), "audio must retry after an allowed user gesture");
+assert.ok(newsletter.includes("height:100dvh"), "newsletter overlay must fill dynamic viewport height");
+assert.ok(newsletter.includes('aria-label=\\"Close\\"'), "newsletter must expose a labelled close control");
+assert.ok(newsletter.includes('ov.querySelector(".cdnews-x").addEventListener("click", close)'), "newsletter close control must work");
+assert.ok(!newsletter.includes('ov.addEventListener("click"'), "outside click must not dismiss newsletter");
+assert.ok(!newsletter.includes('id=\\\"cdnews-close\\\"'), "secondary dismiss control must not return");
+assert.ok(newsletter.includes("cdAutoSound") && newsletter.includes('addEventListener("pointerdown",tryPlay'), "audio must retry after an allowed user gesture");
 assert.ok(home.includes("bday-strip") && news.includes("bday-strip"), "birthday banner must appear on home and newsletter pages");
 assert.ok(home.includes("flex-wrap:wrap") && news.includes("flex-wrap:wrap"), "birthday banner must wrap responsively");
 
