@@ -46,3 +46,14 @@
  .cd-primary-nav{justify-content:flex-start;gap:22px;min-height:48px;padding:7px 14px}
  .cd-primary-nav a{font-size:.87rem;padding:6px 1px}
 }
+
+/* Optional in-menu arrangement mode; ordering is session-only until manually coded as defaults. */
+.cd-drawer-tools{grid-column:1/-1;display:flex;justify-content:flex-end;position:sticky;top:0;z-index:2;padding:0 0 4px;background:var(--cd-deep)}
+.cd-arrange-toggle{min-height:40px;padding:8px 14px;border:1px solid var(--cd-lime);border-radius:999px;background:#28534d;color:#fffdf8;font:inherit;font-size:.86rem;font-weight:850;cursor:pointer}
+.cd-arrange-toggle:hover,.cd-arrange-toggle:focus-visible{background:#35645c;outline:2px solid var(--cd-lime);outline-offset:2px}
+.cd-drag-handle{display:none;flex:0 0 auto;margin-right:9px;color:var(--cd-lime);font-size:1.25rem;font-weight:950;line-height:1;cursor:grab;user-select:none;-webkit-user-select:none}
+.cd-arranging .cd-drag-handle{display:inline-flex!important;align-items:center;justify-content:center}
+.cd-arranging>.cd-drawer-group>summary{display:flex;align-items:center}
+.cd-arranging>.cd-drawer-group>summary .cd-drag-handle{margin-left:auto;margin-right:0}
+.cd-arranging .cd-dragging{opacity:.45;outline:2px dashed var(--cd-lime);outline-offset:2px}
+@media(max-width:700px){.cd-drawer-tools{justify-content:stretch}.cd-arrange-toggle{width:100%;min-height:46px}}
