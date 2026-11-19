@@ -1,5 +1,13 @@
 # ChatGPT Website Edition Changelog
 
+## 0.1.1 — 2026-11-20
+
+- Replaced placeholder app-catalogue `0.0.0` labels with provisional, evidence-based build-completion ratings.
+- Added a clear explanation that catalogue ratings are completion assessments, not app-store release versions.
+- Ratings follow the CashDublo 0.0.0–1.0.0 completion scale; no app is marked stable without completed testing and release evidence.
+- **Verification:** Repository source/README review only. Runtime builds and visual checks were not run.
+
+
 Changes are listed newest first. This log applies only to the ChatGPT website folder.
 
 ## 0.1.0 — 2026-11-19
