@@ -66,3 +66,7 @@
 .cd-card-drag-handle:focus-visible{outline:3px solid var(--cd-coral);outline-offset:2px}
 .cd-card-dragging{opacity:.62;outline:3px dashed var(--cd-coral)!important;z-index:20}
 .cd-arranging .cd-drag-handle{touch-action:none}
+
+/* Drag handles for the compact primary navigation row. */
+.cd-primary-nav.cd-arranging .cd-drag-handle{display:inline-flex!important;align-items:center;justify-content:center;color:#a84e3d;cursor:grab;touch-action:none}
+.cd-primary-nav.cd-arranging a{position:relative;padding-left:26px}
