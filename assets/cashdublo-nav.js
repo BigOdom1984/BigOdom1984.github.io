@@ -9,6 +9,8 @@
   function open(){clearTimeout(closeTimer);drawer.hidden=false;drawer.inert=false;drawer.setAttribute("aria-hidden","false");toggle.setAttribute("aria-expanded","true");toggle.setAttribute("aria-label","Close navigation menu");requestAnimationFrame(()=>{drawer.dataset.open="true";const first=focusables()[0];if(first)first.focus({preventScroll:true});});}
   function close(returnFocus=false){drawer.dataset.open="false";drawer.setAttribute("aria-hidden","true");drawer.inert=true;toggle.setAttribute("aria-expanded","false");toggle.setAttribute("aria-label","Open navigation. Tap anywhere on the green header to open or close the menu.");clearTimeout(closeTimer);if(returnFocus)toggle.focus();const delay=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?0:220;closeTimer=setTimeout(()=>{drawer.hidden=true;},delay);}
   toggle.addEventListener("click",()=>toggle.getAttribute("aria-expanded")==="true"?close():open());
+  const brand=header.querySelector(".cd-site-brand");
+  if(brand)brand.addEventListener("click",e=>{e.preventDefault();toggle.click();});
   drawer.addEventListener("click",e=>{if(e.target.closest('a[href],[data-cd-close]'))close(false);});
   document.addEventListener("pointerdown",e=>{if(toggle.getAttribute("aria-expanded")==="true"&&!header.contains(e.target)&&!drawer.contains(e.target))close(false);});
   document.addEventListener("keydown",e=>{
