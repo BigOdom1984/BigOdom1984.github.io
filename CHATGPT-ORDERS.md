@@ -259,3 +259,7 @@ Placeholders carry the grammar pass before the President sees them, like all web
 ## Item 11 — staging on your own website version (the President, 2026-11-17)
 
 On **your own website version** (your seat's build), go further than placeholders: **start staging** the real sections for the things now in construction — the Websites and Dedicated Hosting service pages, the customer-app story, the tiers, and the demo — so that when the President promotes your version, the live site inherits working sections, not sketches. Staging follows the same laws: the luxury standard (newest JavaScript, one-on-one polish), the grammar pass, and honest labels for anything not yet live.
+
+## Build acknowledgement — 2026-11-19
+
+Updating the existing shared CashDublo site-navigation component rather than introducing a second navigation system. Estimate: one build round for the stationary CashDublo wordmark, full green header hit surface, accessible sliding drawer, keyboard/outside/Escape behavior, reduced-motion handling, 72px header target, and desktop/tablet/phone layout checks. No production deployment.
