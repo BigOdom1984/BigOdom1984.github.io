@@ -1,5 +1,13 @@
 # ChatGPT Website Edition Changelog
 
+## 0.1.2 — 2026-11-20
+
+- Synchronized the 15 app catalogue version labels against the current app repositories' `package.json` files.
+- Marked Apple2Player `UNVERIFIED` because its Mac repository did not expose a version file at the checked path; no version was guessed.
+- Kept the website edition version (0.1.2) separate from individual app versions.
+- **Verification:** GitHub source files reviewed. Browser runtime, live links, and visual checks were not run.
+
+
 ## 0.1.1 — 2026-11-20
 
 - Replaced placeholder app-catalogue `0.0.0` labels with provisional, evidence-based build-completion ratings.
