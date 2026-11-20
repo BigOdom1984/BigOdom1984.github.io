@@ -90,6 +90,9 @@ main,.wrap{min-width:0;max-width:100%;overflow-x:clip}
 @media(max-width:320px){.grid{grid-template-columns:minmax(0,1fr)}}
 
 .card-pricing{grid-column:1 / -1;margin:6px 0 2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#f4f1e8}.card-pricing>strong{display:block;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}.card-pricing>div{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.9rem}.card-pricing small{display:block;margin-top:5px;color:var(--muted);font-size:.72rem}.card-pricing small a{font-weight:800;color:#bd5946}
+
+/* Keep the catalogue headline on one line when the viewport has enough width. */
+@media (min-width:640px), (orientation:landscape) and (min-width:560px){.hero h1{font-size:clamp(2rem,6vw,5rem);white-space:nowrap}.hero h1 br{display:none}}
 </style><link rel="stylesheet" href="/assets/cashdublo-nav.css">  <script src="/assets/cashdublo-nav.js" defer></script>
 </head><body><header class="cd-site-header" data-cd-header>
   <button class="cd-header-hit" type="button" data-cd-toggle aria-controls="cd-site-drawer" aria-expanded="false" aria-label="Open navigation. Tap anywhere on the green header to open or close the menu.">
