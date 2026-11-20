@@ -1,0 +1,1 @@
+Appended app-card repair block to assets/cashdublo-nav.css. Fixes mid-word title breaks and squeezed version badges on Front Ends and platform pages, and hides the duplicate pricing box. Original saved in backup/.
