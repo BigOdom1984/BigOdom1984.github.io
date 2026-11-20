@@ -1,6 +1,6 @@
 {
   "product": "CashDublo ChatGPT website edition",
-  "website_version": "0.1.5",
+  "website_version": "0.2.0",
   "version_scheme": "semver",
   "release_status": "CANDIDATE",
   "release_date": "2026-11-20",
@@ -8,7 +8,8 @@
   "owner": "ChatGPT",
   "version_scope": "This website folder only; separate from the AI agent release version and provider/model version.",
   "change_summary": [
-    "Preserved the candidate site’s own navigation by preventing shared-header replacement and adding consistent navigation to the RSS preview.",
+    "Rebuilt the homepage in the production webserver's layout (black-and-gold card stack) on the President's order: the webserver, the front ends, the back ends, and the online app store, each piece labelled with its true state.",
+    "Preserved the candidate site\u2019s own navigation by preventing shared-header replacement and adding consistent navigation to the RSS preview.",
     "Replaced vague app-card copy with repository-backed descriptions, added direct source-repository links, and marked Cash Portfolio as BETA based on its README.",
     "Fixed catalogue note styling, clarified unverified app release/store links, and restored the existing founder artwork on the homepage.",
     "Synchronized app catalogue version labels with verified package.json versions from each app repository.",

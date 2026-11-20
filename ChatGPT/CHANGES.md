@@ -11,3 +11,15 @@
 **Verification:** Source-level checks confirm all three links and the matching responsive navigation rules. A real browser/device visual check remains pending.
 
 The SQL record was written first in `CHANGES.sql`.
+
+## 2026-11-20 — Onyx / AI-01, on the President's order — Homepage rebuilt in the webserver's layout
+
+**Request:** Make ChatGPT/index.html wear the layout from the webserver — the production server's page layout — covering the front ends, the back ends, and the online app store being built.
+
+**Change:** Rebuilt the homepage in the webserver's black-and-gold card stack: the CashDublo logo header, gold section titles, and full-width cards. Sections: The webserver (CashDublo Server), Front ends (the main website, the showcase, the web apps), Back ends (the production server, the offline server), The online app store (the shelf, the store back end, the store app), and How it fits together. Every piece is labelled with its true state — live, built, or still being built. The folder's own pages (apps.html, rss-receiver.html, privacy.html) stay linked in the page nav. Website edition version 0.2.0.
+
+**Scope:** `ChatGPT/index.html`, `ChatGPT/version.json`, and this edition's change records. No root website files are changed.
+
+**Verification:** The pushed files were read back from the repository after landing. A real browser visual check remains pending.
+
+The SQL record was written first in `CHANGES.sql`.
